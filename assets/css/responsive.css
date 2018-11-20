@@ -31,6 +31,12 @@ RESPONSIVE STYLING
       width: 300px;
     }
   }
+  @media (max-width: 1024px){
+    .container-fluid {
+        padding-right: 2rem;
+        padding-left: 2rem;
+      }
+  }
   
   @media (max-width: 430px) {
     .app-intro {
@@ -86,6 +92,54 @@ RESPONSIVE STYLING
         margin: 0;
         margin-left: auto;
       }
+      .js__navbar__toggler {
+        display: block;
+        color: #ffff;
+      }
+      .navbar__collapse {
+        height: 100%;
+        width: 250px;
+        display: inherit;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #573a87;
+        overflow-x: hidden;
+        transition: display 0.5s;
+        padding-top: 15px;
+      }
+      .navbar__collapse .navbar__nav {
+        display: block;
+        list-style: none;
+        flex-direction: column;
+        padding: 0;
+      }
+      .navbar__collapse a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 18px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+      }
+      .navbar__collapse a:hover {
+        color: #f1f1f1;
+      }
+      
+      .navbar__collapse .navbar__nav {
+        display: flex;
+      justify-content: center;
+      align-content: center;
+      align-items: center;
+      }
+      .navbar__nav>li {
+        font-family: BryantBoldAlt;
+        padding: 35px 20px;
+        width: 100%;
+        text-align: center;
+      }
+      
    
 }
 @media(max-width: 768px) {
@@ -129,10 +183,8 @@ RESPONSIVE STYLING
       padding-top: 15px;
     }
     .navbar__collapse .navbar__nav {
-      display: flex;
-      list-style: none;
-      flex-direction: column;
-      padding: 0;
+        padding-right: 2rem;
+        padding-left: 2rem;
     }
     .navbar__nav>li {
       font-family: BryantBoldAlt;
@@ -151,22 +203,28 @@ RESPONSIVE STYLING
     .navbar__collapse a:hover {
       color: #f1f1f1;
     }
-    .navbar__collapse .closebtn {
-      position: absolute;
-      top: 0;
-      right: 25px;
-      font-size: 36px;
-      margin-left: 50px;
-      display: block;
-    }
-}
-
-/* signup media queries */
-@media(max-width: 425px){
-    .CreateAccount__form {
+    
+    .redflagdetails {
+        width: 100%;
+      }
+      .CreateAccount__form {
         padding: 0;
       }
       .CreateAccount__form>form .input--group>input {
         border-right: none;
       }
+      .CreateAccount__form>form .input--group>input {
+        border-right: none;
+      }
+      .input--group {
+        height: auto;
+        background: transparent;
+        flex-direction: column;
+      }
+      input.form--control {
+        background-color: #ffff;
+        margin-bottom: 10px;
+      }
 }
+
+

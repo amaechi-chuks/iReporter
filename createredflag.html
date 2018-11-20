@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/responsive.css" />
     <link rel="icon" href="img/favicon.ico">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
-    crossorigin="anonymous">
+        crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Raleway|Satisfy" rel="stylesheet">
     <title>Create Red-flag</title>
 
@@ -17,24 +17,20 @@
 
 <body>
     <div class="wrapper dashboard--bg--grey--first">
-        <header class="dashboard__header bg--color--white">
+        <main class="dashboard__header bg--color--white">
             <div class="header__nav">
                 <nav class="navbar  container-fluid" role="navigation">
                     <!-- Brand and toggle get grouped for better mobile display -->
+                    <header>
                     <div class="navbar__header dashboard__navbar__header">
-                        <span class="js__navbar__toggler DashboardColor--primary" style="font-size:30px;cursor:pointer">&#9776;
-                        </span>
-                        <a href="/" class="navbar__brand">
-                            <div class="dashboard--logo--wrapper bg--color--primary">
-                                <a href="index.html" class="header-brand"><span>i</span>Reporter</a>
-                                </span>
-                            </div>
-                        </a>
+                     <a href="index.html" class="header-brand"><span>i</span>Reporter</a>
+                            </span>
                     </div>
+                
 
                     <!-- Collect the nav links for toggling -->
                     <div class="collapse navbar__collapse dashboard__collapse">
-                        <a href="javascript:void(0)" class="closebtn js__navbar__toggler">&times;</a>
+                        <div class="container-fluid">
                         <ul class="nav navbar__right navbar__nav">
                             <li>
                                 <a href="#">
@@ -50,6 +46,8 @@
                             </li>
                         </ul>
                     </div>
+                    </div>
+                </header>
                 </nav>
                 <div class="dashboard__header__bottom bg--color--primary">
                     <div class="container-fluid">
@@ -76,7 +74,7 @@
                     </div>
                 </div>
             </div>
-        </header>
+        </main>
         <div class="container-fluid">
             <div class="dashboard__content">
                 <div class="redflagdetails light--shadow">
@@ -93,8 +91,8 @@
                                 <!-- group inputs -->
                                 <!-- capture names -->
                                 <div class="input--group dashboard--input">
-                                        <input type="file" id="files" />
-                                        <output id="list"></output>
+                                    <input type="file" id="files" />
+                                    <output id="list"></output>
                                     <input type="text" class="form-control form--control" placeholder="To(Where you are going)">
                                 </div>
 
@@ -120,10 +118,10 @@
     </div>
     <script src="assets/js/main.js"></script>
     <script>
-            window.onload = () => {
-              app.loadSideBar();
-            }
-          </script>
+        window.onload = () => {
+            app.loadSideBar();
+        }
+    </script>
 </body>
 
 </html>
