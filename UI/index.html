@@ -53,15 +53,15 @@
                     <form action="#" method="POST" role="form">
                         <!-- group inputs -->
                         <div class="input--group">
-                            <input type="text" class="form-control form--control" placeholder="Your name">
-                            <input type="text" class="form-control form--control" placeholder="Email address">
-                            <input type="text" class="form-control form--control" placeholder="phone">
+                            <input type="text" class="form-control form--control" placeholder="Your name" required>
+                            <input type="text" class="form-control form--control" placeholder="Email address" required>
+                            <input type="text" class="form-control form--control" placeholder="phone" required>
                         </div>
 
                         <!-- textarea -->
                         <div class="text__area p--0">
-                            <textarea name="" id="input${1/(\w+)/\u\1/g}" class="form-control" rows="3" required="required"
-                                placeholder="Your message"></textarea>
+                            <textarea name="" id="input${1/(\w+)/\u\1/g}" class="form-control" rows="3" placeholder="Your message"
+                                required></textarea>
                         </div>
 
                         <!-- submit button -->
