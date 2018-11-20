@@ -306,6 +306,12 @@ footer h5 {
   .margin--top--10 {
     margin-top: 10px;
   }
+  .CreateAccount.padding--bottom--210 {
+    padding-bottom: 209px;
+  }
+  .margin--below {
+      padding-top: 100px;
+  }
   .text--primary {
     color: #6b459e;
   }
