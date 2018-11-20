@@ -230,6 +230,7 @@ header .header-brand span{
   .bg--color--grey {
     background-color: green;
     color: #ffffff;
+    cursor: pointer;
   }
   
   .bg--color--white {
@@ -244,7 +245,7 @@ header .header-brand span{
     margin-left: auto;
   }
   .gradient {
-    background-image: linear-gradient(to bottom, #401779 0%, #357dc5 100%);
+    background-image: linear-gradient(to bottom, #065aad  0%, #357dc5 100%);
     background-repeat: repeat;
   }
   .text--color--white > span {
@@ -290,7 +291,27 @@ footer h5 {
     text-align: center;
     margin-bottom: 6px;
   }
-  
+  .CreateAccount__form {
+    padding: 0 188px;
+  }
+  .CreateAccount {
+    padding: 50px 0;
+  }
+  .CreateAccount__form>form .input--group {
+    margin-bottom: 20px;
+  }
+  .CreateAccountFooter {
+    padding: 25.5px 0;
+  }
+  .margin--top--10 {
+    margin-top: 10px;
+  }
+  .text--primary {
+    color: #6b459e;
+  }
+  .CreateAccountFooter {
+    padding: 25.5px 0;
+  }
   /* Linkss */
   
   a,
