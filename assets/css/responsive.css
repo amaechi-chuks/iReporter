@@ -98,9 +98,9 @@ RESPONSIVE STYLING
       margin: 1.6rem 0 2.4rem 0;
     }
     
-  }
+}
   
-  @media(max-width: 425px) {
+ @media(max-width: 425px) {
     
     .navbar__header {
       width: 100%;
@@ -153,4 +153,14 @@ RESPONSIVE STYLING
       margin-left: 50px;
       display: block;
     }
+}
+
+/* signup media queries */
+@media(max-width: 425px){
+    .CreateAccount__form {
+        padding: 0;
+      }
+      .CreateAccount__form>form .input--group>input {
+        border-right: none;
+      }
 }
