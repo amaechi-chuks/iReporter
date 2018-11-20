@@ -79,7 +79,13 @@ RESPONSIVE STYLING
       margin-bottom: 10px;
     }
     
-    
+    .dashboard__navbar__header a {
+        width: 50%;
+      }
+      .dashboard__navbar__header a div {
+        margin: 0;
+        margin-left: auto;
+      }
    
 }
 @media(max-width: 768px) {
