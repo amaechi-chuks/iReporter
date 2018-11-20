@@ -19,7 +19,7 @@ const loadIntroTexts = () => {
     appIntro.innerHTML = introArr[index++ % introArr.length];
     setInterval(() => {
       appIntro.innerHTML = introArr[index++ % introArr.length];
-    }, 8000);
+    }, 3000);
   });
 }
 window.onload = loadIntroTexts();
