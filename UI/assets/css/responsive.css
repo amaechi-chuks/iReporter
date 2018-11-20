@@ -59,11 +59,33 @@ RESPONSIVE STYLING
     }
   }
 
-  @media only screen and (min-width:1000px){
+  @media(max-width: 768px) {
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
     
-    
-    
-    .vl { /*vertical line*/
-        display: block;
+    .contact {
+      height: auto;
+    }
+    .contact__form {
+      padding: 0;
     }
 }
+
+@media(max-width: 425px) {
+    .input--group {
+        height: auto;
+        background: transparent;
+        flex-direction: column;
+      }
+    input.form--control {
+      background-color: #ffff;
+      margin-bottom: 10px;
+    }
+    
+    
+   
+}
+ 

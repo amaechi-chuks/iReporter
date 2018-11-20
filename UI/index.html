@@ -15,29 +15,69 @@
 
 <body>
     <header>
-        <a href="index.html" class="header-brand"><span>i</span>Reporter</a>
+        <a href="index.html" class="header-brand"><span>i</span>Reporter</a> <span>
+        <ul class="main-list">
+            <li class="list-items">How it works</li>
+            <li class="list-items">About</li>
+            <li class="list-items">Contact us</li>
+            <li class="list-items">Login</li>
+            <li class="list-items">REGISTER</li>
+        </ul>
+    </span>
     </header>
 
     <main>
         <section class="body-section">
-            <div class="container">
+            <div class="container-section">
                 <div class="welcome-area">
                     <div class="content">
-                        <h1><strong>WELCOME TO STORE MANAGER</strong></h1>
+                        <h1><strong>WELCOME TO iReporter</strong></h1>
                         <div class="login-area">
                             <div class="app-intro">
 
                             </div>
                             <div class="login-div">
-                                <form action="add-to-cart.html">
+                                <form class="login-intro">
                                     <a href="#">LOGIN</a> <span><a href="#">REGISTER</a></span>
-                                   
+
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </section>
+        <section class="contact gradient">
+            <div class="container">
+                <div class="contact__headline text--color--white">Want to say hello?</div>
+                <div class="contact__title text--color--white">Contact Us</div>
+                <div class="contact__form">
+                    <form action="#" method="POST" role="form">
+                        <!-- group inputs -->
+                        <div class="input--group">
+                            <input type="text" class="form-control form--control" placeholder="Your name">
+                            <input type="text" class="form-control form--control" placeholder="Email address">
+                            <input type="text" class="form-control form--control" placeholder="phone">
+                        </div>
+
+                        <!-- textarea -->
+                        <div class="text__area p--0">
+                            <textarea name="" id="input${1/(\w+)/\u\1/g}" class="form-control" rows="3" required="required"
+                                placeholder="Your message"></textarea>
+                        </div>
+
+                        <!-- submit button -->
+                        <div class="contact__submit">
+                            <button type="submit" class="btn btn--block bg--color--grey text--color--white">
+                                <span>Send</span>
+                            </button>
+
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        
         </section>
     </main>
     <script src="assets/js/main.js"></script>
