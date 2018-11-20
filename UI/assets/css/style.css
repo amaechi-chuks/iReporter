@@ -452,7 +452,52 @@ footer h5 {
     -o-border-radius: 100%;
     border-radius: 100%;
   }
-
+  .dashboard__header__bottom ul li,
+.dashboard__header a,
+.dashboard__collapse ul li {
+  margin: 0;
+}
+.dashboard__header__bottom ul {
+    padding: 0;
+  }
+  
+  .dashboard__header__bottom ul li:first-child {
+    padding: 20px 20px 20px 0;
+  }
+  
+  .dashboard__header__bottom ul li {
+    padding: 20px 20px;
+  }
+  
+  .dashboard__header__bottom ul li a {
+    color: #fff;
+  }
+  .dashboard__content {
+    padding: 30px 0;
+  }
+  .redflagdetails {
+    width: 512px;
+    padding: 40px;
+    margin-top: 30px;
+    background-color: #ffffff;
+    border-radius: 10px;
+  }
+  .light--shadow {
+    -webkit-box-shadow: 0 1px 15px 1px rgba(113, 106, 202, 0.08);
+    -moz-box-shadow: 0 1px 15px 1px rgba(113, 106, 202, 0.08);
+    box-shadow: 0 1px 15px 1px rgba(113, 106, 202, 0.08);
+  }
+  .createflag__header {
+    width: 100%;
+  }
+  
+  .createflagInfo__header__img img {
+    height: 80px;
+    border-radius: 50%;
+  }
+  .font--regular {
+    font-family: BryantRegular;
+  }
   /* Linkss */
   
   a,
