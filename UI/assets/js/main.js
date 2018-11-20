@@ -1,7 +1,10 @@
 const introductions = [
-    "iReporter will help you pass your information across the appropriate authorities and the general public",
+    "iReporter is your voice",
+     "It will help you pass your message",
+     "across the appropriate authorities and the general public",
     "It guarantees a good and a safer way to report an issue",
-    "This is a web application that helps you report any issue"
+    "This is a web application that helps you report any issue",
+    "Give a trial by clicking on the button"
 ];
 
 const loadIntroTexts = () => {
@@ -20,3 +23,4 @@ const loadIntroTexts = () => {
   });
 }
 window.onload = loadIntroTexts();
+

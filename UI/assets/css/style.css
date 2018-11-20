@@ -10,11 +10,11 @@ stylesheet for the application
     outline: none;
   }
   
-  body {
+  body, html {
     /* font-size: 62.5%; */
     overflow-x: hidden;
     font-family: Raleway;
-    width: 100vw
+    width: 100%
   }
 
   /* header */
@@ -37,29 +37,10 @@ header .header-brand{
     display: block;
     text-align: center;
     padding: 10px 0; 
+    
 }
 header .header-brand span{
     color: #d32f2f;
-}
-header .main-list{
-    color:#1c7f7f;
-    font-size: 100%;
-    font-weight:100px;
-    font-family: Satisfy;
-    display: block;
-    text-align: right;
-    width: 50%;
-    padding-top: 30px; 
-    padding-left: 20px;
-}
-.main-list .list-items {
-    list-style: none;
-    display: inline-block;
-    border: 3px  #357dc5  solid;
-    background:  #357dc5;
-    color: #f2f2f2;
-    border-radius: 7px;
-    
 }
 /** Header styling ends here **/
 
@@ -108,7 +89,7 @@ header .main-list{
     text-align: center;
     flex: 1;
     color: black;
-    width: 600px;
+    width: 300px;
   }
   
   .login-div {
@@ -116,12 +97,16 @@ header .main-list{
   
   }
   .login-intro {
-      padding: 10px;
+      padding-right: 1px;
       display: block;
   }
   .login-intro  a {
       padding: 10px;
+      color: black;
+      font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      font-weight: bold;
   }
+  
   
   form {
     border: black 1px solid;
@@ -137,15 +122,12 @@ header .main-list{
 /* contact styling */
 .contact {
     padding: 60px 0 0 0;
-    
+   
     /* height: 82rem; */
   }
-  .gradient {
-    background-image: linear-gradient(to bottom, #401779 0%, #357dc5 100%);
-    background-repeat: repeat;
-  }
   
-  .contact__form {
+  .contact__form,
+  .CreateAccount__form {
     padding: 0 188px;
   }
   
@@ -165,7 +147,8 @@ header .main-list{
     padding: 16px 0 50px 0;
   }
   
-  .contact__form>form {
+  .contact__form>form,
+  .CreateAccount__form>form {
     width: 70%;
   }
   
@@ -231,8 +214,7 @@ header .main-list{
     color: #828282;
   }
   .text--color--white {
-    color: #ffffff transparent;
-
+    color: #ffffff;
   }
   .btn {
     padding: 10px 16px !important;
@@ -245,6 +227,15 @@ header .main-list{
     display: block;
     width: 100%;
   }
+  .bg--color--grey {
+    background-color: green;
+    color: #ffffff;
+  }
+  
+  .bg--color--white {
+    background-color: #ffffff;
+  }
+  
   .container {
     width: 100%;
     padding-right: 15px;
@@ -252,8 +243,27 @@ header .main-list{
     margin-right: auto;
     margin-left: auto;
   }
+  .gradient {
+    background-image: linear-gradient(to bottom, #401779 0%, #357dc5 100%);
+    background-repeat: repeat;
+  }
+  .text--color--white > span {
+    font-size: 20px
+  }
 
-  
+  /** footer **/
+
+footer h5 {
+  margin-top: 15px;
+  font-size: 20px
+}
+.text--center {
+    text-align: center;
+  }
+  .text--color--white {
+    color: black;
+    
+  }
   /* Linkss */
   
   a,
