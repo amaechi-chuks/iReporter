@@ -264,6 +264,33 @@ footer h5 {
     color: black;
     
   }
+  /**
+  **********************
+  Signup styles
+  **********************
+  **/
+  .CreateAccount.padding--bottom--210 {
+    padding-bottom: 209px;
+  }
+  .CreateAccount__title {
+    font-family: BryantBoldAlt;
+    font-style: regular;
+    font-size: 32px;
+    line-height: 38px;
+  }
+  .CreateAccount {
+    padding: 100px 0;
+    background-color: rgba(235, 216, 235, 0.3);
+  }
+  .CreateAccount__headline {
+    font-family: BryantBoldAlt;
+    font-size: 18px;
+    line-height: 25px;
+    color: #9b9b9b;
+    text-align: center;
+    margin-bottom: 6px;
+  }
+  
   /* Linkss */
   
   a,
