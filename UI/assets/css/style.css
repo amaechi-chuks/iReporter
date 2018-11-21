@@ -314,12 +314,23 @@ footer h5 {
   .margin--top--10 {
     margin-top: 10px;
   }
+  .RideForm {
+    display: flex;
+  }
+  .bigger-button {
+    width: 70px;
+    cursor: pointer;
+  }
   .margin--top--10--10 {
     margin-top: 15px;
   }
   .form-size {
       height: 80%;
 
+  }
+  .None {
+    color: blueviolet;
+    font-size: 15px
   }
   .CreateAccount.padding--bottom--210 {
     padding-bottom: 209px;
@@ -664,10 +675,6 @@ style redflag-records
   .CreateRedFlag {
     margin: 0;
     text-align: center;
-  }
-  
-  .dashboard__content {
-    padding: 30px 0;
   }
   
   .card__user {
