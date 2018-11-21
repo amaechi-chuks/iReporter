@@ -502,6 +502,64 @@ footer h5 {
     background-color: #ffffff;
     border-radius: 10px;
   }
+  .RedflagInfo__header {
+    width: 100%;
+  }
+.RideOffers {
+  padding: 20px 0;
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+
+.RideHistory__content {
+  background-color: #ffffff;
+  padding: 30px 20px;
+}
+
+.RideHistory {
+  width: 70%;
+}
+  
+  .RedflagInfo__header__img img {
+    height: 80px;
+    border-radius: 50%;
+  }
+  .RedflagInfo {
+    display: flex;
+  }
+.RideHistory__title {
+  padding: 0 30px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #f5f7fa;
+  background-color: #ffffff;
+}
+.RideHistory__content .row {
+    background-color: #ebedf2;
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 10px;
+  }
+.rider__img img {
+    height: 40px;
+    border-radius: 50%;
+  }
+.RideOffers {
+  padding: 20px 0;
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+
+.RideOffers__content,
+.RideHistory__content {
+  background-color: #ffffff;
+  padding: 30px 20px;
+}
+
+.RideOffers {
+  width: 30%;
+  margin-right: 20px;
+}
   .map-header > h5 {
 float: right;
 color: #1c7f7f;
@@ -538,6 +596,16 @@ font-family: satisfy;
  textarea > .textarea-form {
       width: 100%;
       padding: 20px;
+  }
+  .RideOffers__item {
+    display: flex;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #f5f7fa;
+    padding-bottom: 10px;
+  }
+  
+  .RideOffers__item:last-child {
+    border-bottom: none;
   }
   .topnav {
     overflow: hidden;
