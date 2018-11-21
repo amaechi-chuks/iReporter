@@ -585,7 +585,30 @@ style redflag-records
     border: 2px solid #6b459e;
     border-radius: 50%;
   }
-
+  .card__user__widget {
+    margin: 0;
+    text-align: center;
+  }
+  .divider--half {
+    width: 50%;
+  }
+  
+  .divider--three {
+    width: calc(100% / 3);
+  }
+  .vertical--center {
+    display: inherit;
+    align-items: center;
+  }
+  .DashboardColor--text--grey {
+    color: #575962;
+  }
+  .DashboardColor--bg--primary {
+    background-color: #656cc5;
+    color: #ffffff;
+    
+  }
+  
 
  
   /* Linkss */
