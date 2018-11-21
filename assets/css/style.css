@@ -266,6 +266,9 @@ footer h5 {
 .text--center {
     text-align: center;
   }
+  .text--center--left {
+    text-align: center;
+  }
   .text--color--white {
     color: black;
     
@@ -310,6 +313,13 @@ footer h5 {
   }
   .margin--top--10 {
     margin-top: 10px;
+  }
+  .margin--top--10--10 {
+    margin-top: 15px;
+  }
+  .form-size {
+      height: 80%;
+      
   }
   .CreateAccount.padding--bottom--210 {
     padding-bottom: 209px;

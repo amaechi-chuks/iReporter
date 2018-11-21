@@ -88,14 +88,16 @@
                                 <h5 class="text--color--grey font--regular">What do you want to report?</h5>
                             </div>
                         </div>
-                        <div class="RideInfo__content text--center margin--top--10">
-                            <form action="summary.html" role="form">
+                        <div class="RideInfo__content text--center--left margin--top--10--10">
+                            <form class="form--size" action="summary.html" role="form">
                                 <!-- capture file upload -->
                                 <div class="input--group dashboard--input">
+
                                     <input type="file" id="files" alt="upload an image" />
                                     <output id="list"></output>
 
                                 </div>
+                                
                                 <!-- capture textarea -->
                                 <div class="input--group dashboard--input">
                                     <textarea name="" id="input${1/(\w+)/\u\1/g}" class="form-control textarea-form"
