@@ -502,6 +502,76 @@ footer h5 {
     background-color: #ffffff;
     border-radius: 10px;
   }
+  .RedflagInfo__header {
+    width: 100%;
+  }
+.RideOffers {
+  padding: 20px 0;
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+
+.RideHistory__content {
+  background-color: #ffffff;
+  padding: 30px 20px;
+}
+
+.RideHistory {
+  width: 70%;
+}
+.rejected {
+    color: red;
+    font-size: 15px
+}
+  
+  .RedflagInfo__header__img img {
+    height: 80px;
+    border-radius: 50%;
+  }
+  .RedflagInfo {
+    display: flex;
+  }
+   .Res {
+      color: green;
+      font-size: 13px;
+  }
+  .draft {
+      color: yellow;
+      font-size: 13px;
+  }
+.RideHistory__title {
+  padding: 0 30px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #f5f7fa;
+  background-color: #ffffff;
+}
+.RideHistory__content .row {
+    background-color: #ebedf2;
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 10px;
+  }
+.rider__img img {
+    height: 40px;
+    border-radius: 50%;
+  }
+.RideOffers {
+  padding: 20px 0;
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+
+.RideOffers__content,
+.RideHistory__content {
+  background-color: #ffffff;
+  padding: 30px 20px;
+}
+
+.RideOffers {
+  width: 30%;
+  margin-right: 20px;
+}
   .map-header > h5 {
 float: right;
 color: #1c7f7f;
@@ -515,6 +585,18 @@ font-family: satisfy;
   .createflag__header {
     width: 100%;
   }
+  .btn--round {
+    border-radius: 50px;
+  }
+  
+  .row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+  }
   
   .createflagInfo__header__img img {
     height: 80px;
@@ -526,6 +608,16 @@ font-family: satisfy;
  textarea > .textarea-form {
       width: 100%;
       padding: 20px;
+  }
+  .RideOffers__item {
+    display: flex;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #f5f7fa;
+    padding-bottom: 10px;
+  }
+  
+  .RideOffers__item:last-child {
+    border-bottom: none;
   }
   .topnav {
     overflow: hidden;
@@ -551,7 +643,68 @@ font-family: satisfy;
 .topnav .icon {
     display: none;
 }
-
+/**
+*******************
+style redflag-records
+*******************
+**/
+.metric {
+    display: flex;
+    height: 192px;
+    align-items: center;
+    align-content: center;
+    background-color: #fff;
+    margin-bottom: 30px;
+  }
+  
+  .metric,
+  .metric>.row>.divider--half {
+    padding: 0 15px;
+  }
+  .CreateRedFlag {
+    margin: 0;
+    text-align: center;
+  }
+  
+  .dashboard__content {
+    padding: 30px 0;
+  }
+  
+  .card__user {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .card__user__pics {
+    height: 84px;
+    width: 84px;
+    border: 2px solid #6b459e;
+    border-radius: 50%;
+  }
+  .card__user__widget {
+    margin: 0;
+    text-align: center;
+  }
+  .divider--half {
+    width: 50%;
+  }
+  
+  .divider--three {
+    width: calc(100% / 3);
+  }
+  .vertical--center {
+    display: inherit;
+    align-items: center;
+  }
+  .DashboardColor--text--grey {
+    color: #575962;
+  }
+  .DashboardColor--bg--primary {
+    background-color: #656cc5;
+    color: #ffffff;
+    
+  }
+  
 
  
   /* Linkss */
