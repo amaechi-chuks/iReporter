@@ -88,7 +88,6 @@ RESPONSIVE STYLING
         width: 100%;
         margin-bottom: 20px;
       }
-    
     .dashboard__navbar__header a {
         width: 50%;
       }
@@ -124,6 +123,9 @@ RESPONSIVE STYLING
           position: inline-block;
           color: #1c7f7f;
           font-family: satisfy;
+            }
+            .RideForm {
+              position: inline-block;
             }
       .navbar__collapse {
         height: 100%;
