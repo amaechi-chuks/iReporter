@@ -84,6 +84,10 @@ RESPONSIVE STYLING
       background-color: #ffff;
       margin-bottom: 10px;
     }
+    .RideHistory {
+        width: 100%;
+        margin-bottom: 20px;
+      }
     
     .dashboard__navbar__header a {
         width: 50%;
@@ -143,6 +147,13 @@ RESPONSIVE STYLING
         padding: 35px 20px;
         width: 100%;
         text-align: center;
+      }
+      .RedflagInfo {
+        display: block;
+      }
+      .RideOffers {
+        width: 100%;
+        margin-bottom: 20px;
       }
       .navbar__collapse a {
         padding: 8px 8px 8px 32px;
