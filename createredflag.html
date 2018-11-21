@@ -7,10 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/responsive.css" />
-    <link rel="icon" href="img/favicon.ico">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
         crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Raleway|Satisfy" rel="stylesheet">
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
     <title>Create Red-flag</title>
 
 </head>
@@ -22,32 +22,31 @@
                 <nav class="navbar  container-fluid" role="navigation">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <header>
-                    <div class="navbar__header dashboard__navbar__header">
-                     <a href="index.html" class="header-brand"><span>i</span>Reporter</a>
+                        <div class="navbar__header dashboard__navbar__header">
+                            <a href="index.html" class="header-brand"><span>i</span>Reporter</a>
                             </span>
-                    </div>
-                
+                        </div>
 
-                    <!-- Collect the nav links for toggling -->
-                    <div class="collapse navbar__collapse dashboard__collapse">
-                        <div class="container-fluid">
-                        <ul class="nav navbar__right navbar__nav">
-                            <li>
-                                <a href="#">
-                                    <span class="text--color--grey">Hello,</span>
-                                    <span class="text--primary">Joe</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="notification">
-                                    <span class="notify notify--dot--small"></span>
-                                    <i class="fas fa-bell text--primary"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    </div>
-                </header>
+                        <!-- Collect the nav links for toggling -->
+                        <div class="collapse navbar__collapse dashboard__collapse">
+                            <div class="container-fluid">
+                                <ul class="nav navbar__right navbar__nav">
+                                    <li>
+                                        <a href="#">
+                                            <span class="text--color--grey">Hello,</span>
+                                            <span class="text--primary">Chuks</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="notification">
+                                            <span class="notify notify--dot--small"></span>
+                                            <i class="fas fa-bell text--primary"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </header>
                 </nav>
                 <div class="dashboard__header__bottom bg--color--primary">
                     <div class="container-fluid">
@@ -60,16 +59,19 @@
                             </li>
                             <li>
                                 <a href="rideoffers.html" class="notification">
-                                    Ride Offers
+                                    Red-flag
                                     <hr class="active--indicator">
                                 </a>
                             </li>
                             <li>
+
                                 <a href="riderequest.html">
-                                    Ride Requests
+                                    intervention
                                     <hr class="active--indicator">
                                 </a>
                             </li>
+
+
                         </ul>
                     </div>
                 </div>
@@ -82,24 +84,22 @@
                         <div class="createflag__header">
                             <div class="createflagInfo__header__img text--center">
                                 <img src="assets/img/IMG_1499.JPG" alt="offerer profile">
-                                <h3 class="text--primary"> Add Offer</h3>
-                                <h5 class="text--color--grey font--regular">Where are you heading to?</h5>
+                                <h3 class="text--primary"> Add Red-flag</h3>
+                                <h5 class="text--color--grey font--regular">What do you want to report?</h5>
                             </div>
                         </div>
                         <div class="RideInfo__content text--center margin--top--10">
                             <form action="summary.html" role="form">
-                                <!-- group inputs -->
-                                <!-- capture names -->
+                                <!-- capture file upload -->
                                 <div class="input--group dashboard--input">
-                                    <input type="file" id="files" />
+                                    <input type="file" id="files" alt="upload an image" />
                                     <output id="list"></output>
-                                    <input type="text" class="form-control form--control" placeholder="To(Where you are going)">
-                                </div>
 
-                                <!-- capture email and phone number -->
+                                </div>
+                                <!-- capture textarea -->
                                 <div class="input--group dashboard--input">
-                                    <input type="text" class="form-control form--control" placeholder="Note">
-                                    <input type="text" class="form-control form--control" placeholder="Phone number">
+                                    <textarea name="" id="input${1/(\w+)/\u\1/g}" class="form-control textarea-form"
+                                        rows="3" placeholder="Your message" required></textarea>
                                 </div>
 
                                 <!-- submit button -->
@@ -112,16 +112,18 @@
                             </form>
                         </div>
                     </div>
+                    <div class="topnav" id="myTopnav">
+                        <div class="map-header">
+                            <h3>Google Map</h5>
+                        </div>
+                    </div>
+                    <div id="map">
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <script src="assets/js/main.js"></script>
-    <script>
-        window.onload = () => {
-            app.loadSideBar();
-        }
-    </script>
+    <script src="./assets/js/main.js"></script>
 </body>
 
 </html>
