@@ -509,7 +509,7 @@ footer h5 {
     grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
     grid-auto-flow: dense;
     grid-template-rows: 300px 300px;
-    grid-gap: 10px;
+    grid-gap: 30px;
     background-color: #ffffff;
     border-radius: 10px;
   }
@@ -584,7 +584,6 @@ footer h5 {
   margin-right: 20px;
 }
   .map-header > h5 {
-float: right;
 color: #1c7f7f;
 font-family: satisfy;
   }
