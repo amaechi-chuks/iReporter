@@ -120,10 +120,16 @@ RESPONSIVE STYLING
         color: #ffff;
       }
       .map-header > h5 {
-          position: inline-block;
+          position: relative;
+          padding-top: 10px;
           color: #1c7f7f;
           font-family: satisfy;
             }
+            .map-header > h3 {
+              position: relative;
+              color: #1c7f7f;
+              font-family: satisfy;
+                }
             .RideForm {
               position: inline-block;
             }
