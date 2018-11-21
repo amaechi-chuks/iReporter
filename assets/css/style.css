@@ -519,6 +519,10 @@ footer h5 {
 .RideHistory {
   width: 70%;
 }
+.rejected {
+    color: red;
+    font-size: 15px
+}
   
   .RedflagInfo__header__img img {
     height: 80px;
