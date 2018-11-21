@@ -569,6 +569,10 @@ style redflag-records
   .metric>.row>.divider--half {
     padding: 0 15px;
   }
+  .CreateRedFlag {
+    margin: 0;
+    text-align: center;
+  }
   
   .dashboard__content {
     padding: 30px 0;
