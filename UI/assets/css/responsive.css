@@ -37,10 +37,39 @@ RESPONSIVE STYLING
         padding-left: 2rem;
       }
   }
+  @media (max-width: 359px){
+    .photo-2 {
+      width: 50%;
+      height: 10%;
+      /* position: relative; */
+      padding-top: 70px
+    }
+  }
+  @media (max-width: 360px){
+    .createflagInfo__header__img {
+      width: 100%;
+    }
+    .createflag__header {
+      width: 100%;
+    }
+  }
   
   @media (max-width: 430px) {
     .app-intro {
       width: 250px;
+    }
+    #files {
+      width: 100%;
+    }
+    .createflagInfo__header__img {
+      width: 100%;
+    }
+    .createflag__header {
+      width: 100%;
+    }
+    .map-header > h3 {
+      width: 50%;
+      display: none;
     }
   }
   
@@ -51,17 +80,56 @@ RESPONSIVE STYLING
       margin-bottom: 15px;
       width: auto;
     }
+    .createflagInfo__header__img {
+      width: 100%;
+    }
   }
   
   @media (max-width: 350px) {
     .app-intro {
       height: 70px;
     }
+    .redflagdetails__header {
+      width: 100%;
+    }
+    #files {
+      width: 100%;
+    }
+    .createflagInfo__header__img {
+      width: 100%;
+    }
+    .map-header > h3 {
+      width: 50%
+    }
+    .photo-2 {
+      width: 100%;
+      height: 50%;
+      position: relative;
+      padding-top: 50px
+    }
   }
   
   @media (max-width: 250px) {
     .app-intro {
       height: 90px;
+    }
+    .redflagdetails__header {
+      width: 100%;
+    }
+    #files {
+      width: 100%;
+    }
+    .createflagInfo__header__img {
+      width: 100%;
+    }
+    .map-header > h3 {
+      width: 50%
+    }
+    .photo-2 {
+      width: 100%;
+      height: 50%;
+      position: relative;
+      padding-top: 50px
     }
   }
 
@@ -72,6 +140,26 @@ RESPONSIVE STYLING
     .contact__form {
       padding: 0;
     }
+}
+@media (max-width: 420px){
+  .redflagdetails__header {
+    width: 100%;
+  }
+  #files {
+    width: 100%;
+  }
+  .createflagInfo__header__img {
+    width: 100%;
+  }
+  .map-header > h3 {
+    width: 50%
+  }
+  .photo-2 {
+    width: 100%;
+    height: 50%;
+    position: relative;
+    padding-top: 50px
+  }
 }
 
 @media(max-width: 425px) {
@@ -84,6 +172,7 @@ RESPONSIVE STYLING
       background-color: #ffff;
       margin-bottom: 10px;
     }
+    
     .RideHistory {
         width: 100%;
         margin-bottom: 20px;
@@ -95,22 +184,25 @@ RESPONSIVE STYLING
         margin: 0;
         margin-left: auto;
       }
+      .createflagInfo__header__img {
+        width: 100%;
+      }
       .js__navbar__toggler {
         display: block;
         color: #ffff;
       }
       .navbar__collapse {
-        height: 100%;
-        width: 250px;
-        display: inherit;
-        position: fixed;
+        /* height: 50%;
+        width: 50%; */
+        display: inline;
+        position: initial;
         z-index: 1;
-        top: 0;
-        left: 0;
-        background-color: #573a87;
+        left: 0; 
+        
         overflow-x: hidden;
         transition: display 0.5s;
         padding-top: 15px;
+        padding-right: 200px;
       }
       .navbar__header {
         width: 100%;
@@ -118,6 +210,12 @@ RESPONSIVE STYLING
       .js__navbar__toggler {
         display: block;
         color: #ffff;
+      }
+      .photo-2 {
+        width: 100%;
+        height: 50%;
+        position: relative;
+        padding-top: 50px
       }
       .map-header > h5 {
           position: relative;
@@ -133,19 +231,16 @@ RESPONSIVE STYLING
             .RideForm {
               position: inline-block;
             }
-      .navbar__collapse {
-        height: 100%;
-        width: 250px;
-        display: none;
-        position: fixed;
-        z-index: 1;
-        top: 0;
-        left: 0;
-        background-color: #573a87;
-        overflow-x: hidden;
-        transition: display 0.5s;
-        padding-top: 15px;
-      }
+            .redflagdetails__header {
+              width: 100%;
+            }
+            #files {
+              width: 100%;
+            }
+            .createflagInfo__header__img {
+              width: 100%;
+            }
+      
       .navbar__collapse .navbar__nav {
           padding-right: 2rem;
           padding-left: 2rem;
@@ -202,17 +297,7 @@ RESPONSIVE STYLING
         flex-direction: column;
         padding: 0;
       }
-      .navbar__collapse a {
-        padding: 8px 8px 8px 32px;
-        text-decoration: none;
-        font-size: 18px;
-        color: #818181;
-        display: block;
-        transition: 0.3s;
-      }
-      .navbar__collapse a:hover {
-        color: #f1f1f1;
-      }
+      
       
       .navbar__collapse .navbar__nav {
         display: flex;
@@ -235,8 +320,34 @@ RESPONSIVE STYLING
         width: 100%;
         margin-bottom: 30px;
       }
+      .map-header > h3 {
+        width: 50%
+      }
       
    
+}
+@media (max-width: 498px) {
+  .redflagdetails__header {
+    width: 100%;
+  }
+  #files {
+    width: 100%;
+  }
+  .createflagInfo__header__img {
+    width: 100%;
+  }
+  .photo {
+    width: 100%;
+  }
+  .photo-2 {
+    width: 100%;
+    height: 50%;
+    position: relative;
+    padding-top: 50px
+  }
+  .map-header > h3 {
+    width: 50%
+  }
 }
 @media(max-width: 768px) {
    
@@ -253,6 +364,7 @@ RESPONSIVE STYLING
       line-height: 3.1rem;
       margin: 1.6rem 0 2.4rem 0;
     }
+
     
 }
 @media screen and (max-width: 600px) {

@@ -127,9 +127,8 @@ header .header-brand span{
 /* contact styling */
 .contact {
     padding: 60px 0 0 0;
-   
-    /* height: 82rem; */
   }
+  
   
   .contact__form,
   .CreateAccount__form {
@@ -311,6 +310,7 @@ footer h5 {
   .CreateAccountFooter {
     padding: 25.5px 0;
   }
+  
   .margin--top--10 {
     margin-top: 10px;
   }
@@ -341,18 +341,15 @@ footer h5 {
   .text--primary {
     color: #6b459e;
   }
-  .CreateAccountFooter {
-    padding: 25.5px 0;
-  }
+  
   /**
   ********************
   create red-flag style
   ********************
   **/
   .logo--wrapper {
-    height: 100px;
-    width: 100px;
-    background-color: #394493;
+    height: 10px;
+    width: 10px;
     display: flex;
     border: none;
     align-items: center;
@@ -450,33 +447,6 @@ footer h5 {
 }
 .text--primary {
     color: #0c6892;
-  }
-  .notification {
-    position: relative;
-  }
-  
-  .notify {
-    background-color: #f4516c;
-    color: #fff;
-    left: 50%;
-    margin-left: -2px;
-    position: absolute;
-    z-index: 2;
-    top: -30%;
-  }
-  
-  .notify--dot--small {
-    padding: 0;
-    line-height: 4px;
-    min-height: 4px;
-    min-width: 4px;
-    height: 4px;
-    width: 4px;
-    -webkit-border-radius: 100%;
-    -moz-border-radius: 100%;
-    -ms-border-radius: 100%;
-    -o-border-radius: 100%;
-    border-radius: 100%;
   }
   .dashboard__header__bottom ul li,
 .dashboard__header a,

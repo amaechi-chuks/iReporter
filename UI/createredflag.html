@@ -26,7 +26,6 @@
                             <a href="index.html" class="header-brand"><span>i</span>Reporter</a>
                             </span>
                         </div>
-
                         <!-- Collect the nav links for toggling -->
                         <div class="collapse navbar__collapse dashboard__collapse">
                             <div class="container-fluid">
@@ -35,12 +34,6 @@
                                         <a href="#">
                                             <span class="text--color--grey">Hello,</span>
                                             <span class="text--primary">Chuks</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="notification">
-                                            <span class="notify notify--dot--small"></span>
-                                            <i class="fas fa-bell text--primary"></i>
                                         </a>
                                     </li>
                                 </ul>
@@ -52,26 +45,23 @@
                     <div class="container-fluid">
                         <ul class="nav navbar__right navbar__nav">
                             <li>
-                                <a href="summary.html" class="">
-                                    Summary
-                                    <hr class="active--indicator">
-                                </a>
-                            </li>
-                            <li>
                                 <a href="redflagrecords.html" class="notification">
                                     Red-flag
                                     <hr class="active--indicator">
                                 </a>
                             </li>
                             <li>
-
                                 <a href="interventionrecords.html">
                                     Intervention
                                     <hr class="active--indicator">
                                 </a>
                             </li>
-
-
+                            <li style="float: right">
+                                <a href="index.html">
+                                    Sign out
+                                    <hr class="active--indicator">
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -89,27 +79,22 @@
                             </div>
                         </div>
                         <div class="RideInfo__content text--center--left margin--top--10--10">
-                            <form class="form--size" action="summary.html" role="form">
+                            <form class="form--size" action="individualredflag.html" role="form">
                                 <!-- capture file upload -->
                                 <div class="input--group dashboard--input">
-
                                     <input type="file" id="files" alt="upload an image" />
                                     <output id="list"></output>
-
                                 </div>
-                                
                                 <!-- capture textarea -->
                                 <div class="input--group dashboard--input">
                                     <textarea name="" id="input${1/(\w+)/\u\1/g}" class="form-control textarea-form"
                                         rows="3" placeholder="Your message" required></textarea>
                                 </div>
-
                                 <!-- submit button -->
                                 <div class="contact__submit margin--top--10">
                                     <button type="submit" class="btn btn--block bg--color--grey text--color--white light--shadow">
                                         <span>Create Red-flag</span>
                                     </button>
-
                                 </div>
                             </form>
                         </div>
@@ -121,10 +106,10 @@
                         </div>
                     </div>
                     <div class="input--group dashboard--input">
-                            <p class="text--primary">Want to create an Intervention?
-                                <a href="createintervention.html" class="text--color--grey">Intervention</a>
-                            </p>
-                        </div>
+                        <p class="text--primary">Want to create an Intervention?
+                            <a href="createintervention.html" class="text--color--grey">Intervention</a>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
