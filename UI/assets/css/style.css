@@ -22,6 +22,10 @@ body, html {
 
 /* header */
 
+.main-container {
+  position: relative;
+  height: 50%;
+}
 header {
   background-color: #fff;
   width: 110%;
@@ -135,6 +139,7 @@ form {
 .contact {
   padding: 60px 0 0 0;
 }
+
 
 .contact__form, .CreateAccount__form {
   padding: 0 188px;
@@ -288,8 +293,10 @@ footer h5 {
   **/
 
 .CreateAccount.padding--bottom--210 {
-  padding-bottom: 209px;
+  width: 100%;
+  height: 85%;
 }
+
 
 .CreateAccount__title {
   font-family: Raleway-BoldItalic, sans-serif;
@@ -316,6 +323,7 @@ footer h5 {
   padding: 0 188px;
 }
 
+
 .CreateAccount {
   padding: 50px 0;
 }
@@ -324,10 +332,18 @@ footer h5 {
   margin-bottom: 20px;
 }
 
-.CreateAccountFooter {
-  padding: 25.5px 0;
+ .CreateAccountFooter {
+  padding: 5px 0;
+} 
+.CreateAccountFooter-me {
+  padding: 3.9px 0;
 }
-
+.CreateAccountFooter-me-me {
+  padding: 10px 0px;
+} 
+.CreateAccountFooter-tag {
+  padding: 64.5px 0px;
+} 
 .margin--top--10 {
   margin-top: 10px;
 }
@@ -354,12 +370,10 @@ footer h5 {
   font-size: 15px
 }
 
-.CreateAccount.padding--bottom--210 {
-  padding-bottom: 209px;
-}
+
 
 .margin--below {
-  padding-top: 100px;
+  padding-top: 0px;
 }
 
 .text--primary {
@@ -757,7 +771,6 @@ style redflag-records
   background-color: #656cc5;
   color: #ffffff;
 }
-
 /* Linkss */
 
 a, a:hover, a:focus, a:active {
