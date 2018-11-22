@@ -698,6 +698,9 @@ style redflag-records
   .divider--three {
     width: calc(100% / 3);
   }
+  .divider--three--four {
+    width: calc(80% / 6);
+  }
   .vertical--center {
     display: inherit;
     align-items: center;
