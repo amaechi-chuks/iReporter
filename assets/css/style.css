@@ -681,6 +681,7 @@ textarea>.textarea-form {
   display: none;
 }
 
+
 /**
 *******************
 style redflag-records
@@ -690,6 +691,15 @@ style redflag-records
 .metric {
   display: flex;
   height: 192px;
+  align-items: center;
+  align-content: center;
+  background-color: #fff;
+  margin-bottom: 30px;
+  padding: 50px;
+}
+.metric--1 {
+  display: flex;
+  height: 100px;
   align-items: center;
   align-content: center;
   background-color: #fff;
