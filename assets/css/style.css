@@ -102,6 +102,9 @@ h1 {
 .login-div {
   flex: 1;
 }
+.map-out {
+  padding-top:80px
+}
 
 .login-intro {
   padding-right: 1px;
@@ -789,6 +792,24 @@ style redflag-records
 #files{
   display: inline
 }
+/* landing-page-button */
+
+  
+/* visited link */
+.login--Button:visited {
+  color: green;
+}
+
+/* mouse over link */
+.login--Button:hover {
+  color: hotpink;
+}
+
+/* selected link */
+.login--Button:active {
+  color: blue;
+}
+
 
 /* Linkss */
 
