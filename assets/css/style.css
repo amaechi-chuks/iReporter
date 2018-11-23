@@ -102,7 +102,7 @@ h1 {
 .login-div {
   flex: 1;
 }
-.map-out {
+.topnav > #map-out {
   padding-top:80px
 }
 
