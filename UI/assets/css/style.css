@@ -771,8 +771,12 @@ style redflag-records
   background-color: #656cc5;
   color: #ffffff;
 }
+.color--neater{
+  color: #656cc5;
+}
 /* Linkss */
 
 a, a:hover, a:focus, a:active {
   text-decoration: none;
 }
+

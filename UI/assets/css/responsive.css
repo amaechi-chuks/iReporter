@@ -319,7 +319,7 @@ RESPONSIVE STYLING
     width: 100%;
     text-align: center;
   }
-  .RedflagInfo {
+  .RedflagInfo, .color--neater {
     display: block;
   }
   .RideOffers {
