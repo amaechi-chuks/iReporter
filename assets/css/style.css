@@ -119,6 +119,13 @@ form {
   border: black 1px solid;
   border-radius: 10px;
   padding: 10px;
+ 
+}
+form--size {
+  border: black 1px solid;
+  border-radius: 10px;
+  padding: 10px;
+  width: 100%
 }
 
 .body-section {
@@ -358,7 +365,7 @@ footer h5 {
 }
 
 .margin--top--10--10 {
-  margin-top: 15px;
+  margin-top: 1px;
 }
 
 .form-size {
@@ -619,6 +626,10 @@ nav .navbar__nav>li>a {
   font-family: satisfy;
 }
 
+.map-header1>img {
+  padding-top: 25px; 
+}
+
 .light--shadow {
   -webkit-box-shadow: 0 1px 15px 1px rgba(113, 106, 202, 0.08);
   -moz-box-shadow: 0 1px 15px 1px rgba(113, 106, 202, 0.08);
@@ -654,6 +665,7 @@ nav .navbar__nav>li>a {
 textarea>.textarea-form {
   width: 100%;
   padding: 20px;
+  color: red
 }
 
 .RideOffers__item {
@@ -683,7 +695,7 @@ textarea>.textarea-form {
 
 .topnav div {
   float: left;
-  display: block;
+  display: relative;
   color: #1c7f7f;
   text-align: center;
   padding: 14px 16px;
@@ -693,7 +705,7 @@ textarea>.textarea-form {
 
 .topnav .icon {
   display: none;
-}
+} 
 
 
 /**
@@ -774,9 +786,16 @@ style redflag-records
 .color--neater{
   color: #656cc5;
 }
+#files{
+  display: inline
+}
+
 /* Linkss */
+
 
 a, a:hover, a:focus, a:active {
   text-decoration: none;
 }
+
+
 
