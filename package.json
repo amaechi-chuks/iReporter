@@ -1,0 +1,60 @@
+{
+  "name": "ireporter",
+  "version": "1.0.0",
+  "description": "iReporter is an application that enables any/every citizen to bring any form of corruption to the notice of appropriate authorities and the general public.",
+  "main": "app.js",
+  "scripts": {
+    "start": "babel-node app.js",
+    "start:dev": "nodemon --watch server --exec babel-node -- app.js",
+    "test": "nyc --reporter=lcov --reporter=text mocha --timeout 5000 --exit --compilers js:babel-core/register server/specs/*test.js || true",
+    "build": "babel server -d server/dist --copy-files --ignore server/dist",
+    "postinstall": "npm run build",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "coveralls": "nyc --reporter=lcov --reporter=text-lcov npm test",
+    "showcoverage": "start coverage/lcov-report/index.html",
+    "lint": "eslint --fix server/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amaechi-chuks/iReporter.git"
+  },
+  "keywords": [
+    "express",
+    "nodejs",
+    "javascript",
+    "es6",
+    "babel"
+  ],
+  "author": "Amaechi-Chuks<amaechichuks2000@yahoo.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/amaechi-chuks/iReporter/issues"
+  },
+  "homepage": "https://github.com/amaechi-chuks/iReporter#readme",
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "eslint": "^5.9.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "nodemon": "^1.18.6"
+  },
+  "dependencies": {
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "body-parser": "^1.18.3",
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.0",
+    "coveralls": "^3.0.2",
+    "express": "^4.16.4",
+    "mocha": "^5.2.0",
+    "mocha-lcov-reporter": "^1.3.0",
+    "morgan": "^1.9.1",
+    "nyc": "^13.1.0"
+  }
+}

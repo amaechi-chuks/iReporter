@@ -1,0 +1,17 @@
+# Dependency directories
+/node_modules/
+
+# dotenv environment variables file
+.env
+
+# Coverage directory
+coverage
+
+# nyc test coverage
+.nyc_output
+
+# Compiled binary addons (https://nodejs.org/api/addons.html)
+server/dist/
+
+.vscode
+
