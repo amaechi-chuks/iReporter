@@ -97,6 +97,6 @@ const incident = [
     },
 ]
 
-const Db = { userDb, incident };
+const db = { userDb, incident };
 
-module.exports = Db;
+module.exports = db;
