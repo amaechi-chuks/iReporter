@@ -32,13 +32,8 @@
   },
   "homepage": "https://github.com/amaechi-chuks/iReporter#readme",
   "devDependencies": {
-    "babel": "^6.23.0",
     "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-stage-2": "^6.24.1",
-    "babel-register": "^6.26.0",
     "eslint": "^5.9.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-airbnb-base": "^13.1.0",
