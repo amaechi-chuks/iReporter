@@ -1,20 +1,23 @@
 import express from 'express';
-import  controllers from '../controllers';
+import controllers from '../controllers';
 
 const { IncidentController } = controllers;
 
-// const { createIncident } = IncidentController;
 
 const router = express.Router();
 
 //route to create a red-flag record
 router.route('/red-flags')
-.post((req, res) => IncidentController.createIncident(req, res, 'Red Flag'));
+    .post(IncidentController.createIncident);
 
 //route to get all red-flag record
-
 router.route('/red-flags')
-.get((req, res) => IncidentController.getAllIncident(req, res, 'Red Flag'));
+      .get(IncidentController.getAllIncident);
+
+
+//Get red-flag by id
+router.route('/red-flag/:id')
+    .get(IncidentController.getSingleRedFlag);
 
 
 export default router;
