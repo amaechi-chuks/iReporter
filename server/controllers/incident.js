@@ -15,33 +15,22 @@ class IncidentController {
        * @memberof IncidentController
        */
 
-    static createIncident(req, res, incidentType) {
-        if (db.incident.length !== 0) {
+    static createIncident(req, res) {
+        if (parseInt(req.body.createdBy) > 0) {
             const {
-                createBy, location, status, imageUrl, videoUrl, comment
+                createBy, location, type, status, imageUrl, videoUrl, comment
             } = req.body;
             const id = db.incident[db.incident.length - 1].id + 1;
             const createdOn = new Date();
-            const type = incidentType;
             const newIncident = {
-
-                id,
-                createdOn,
-                createBy,
-                type,
-                location,
-                status,
-                imageUrl,
-                videoUrl,
-                comment,
-
+                id, createdOn, createBy, type, location, status, imageUrl, videoUrl, comment
             };
 
             db.incident.push(newIncident);
             res.status(201);
             res.json({
                 success: true,
-                message: 'Created red-flag record',
+                message: `Created ${newIncident.type} record`,
                 data: newIncident
             });
         }
@@ -49,54 +38,80 @@ class IncidentController {
             res.status(400);
             res.json({
                 success: false,
-                message: 'You are not authorized to create Incident',
+                message: `You are not authorized to create Incident`,
             });
         }
     }
+    // createIncident ends
 
 
     /**
-     * Get all red-flag records
+     * Get all Incident
      * @static
      * @param {object} req - The request object
      * @param {object} res - The response object
      * @returns {object} JSON object representing success message
      * @memberof IncidentController
      */
+
     static getAllIncident(req, res) {
         if (db.incident.length !== 0) {
             if (!req.query.sort) {
                 res.status(200);
                 res.json({
                     success: true,
-                    message: 'Successfully Retrieved incident record',
-                    data: db.incident,
+                    message: `Successfully Retrieved all Incidents`,
+                    data: db.incident
                 });
             }
-        } else {
-            res.status(404);
-            res.json({
-                success: false,
-                message: 'No incident found',
-            });
+            else {
+                res.status(404);
+                res.json({
+                    success: false,
+                    message: `No incident found`,
+                });
+            }
         }
     }
+    // getAllIncident ends
+
 
     /**
-   * Get one red-flag by its ID
-   * @static
-   * @param {object} req - The request object
-   * @param {object} res - The response object
-   * @returns {object} {object} JSON object representing success message
-   * @memberof IncidentController
-   */
-  static getOneIncident(req, res) {
-    const { foundProduct } = req.body;
-    return res.status(200).json({
-      foundProduct,
-      message: 'Product successfully found'
-    });
-  }
+       * API method to GET a single incident
+       * @param {obj} req
+       * @param {obj} res
+       * @returns {obj} success message
+       * @returns {object} {object} JSON object representing success message
+       * @memberof IncidentController
+       */
+    static getSingleRedFlag(req, res) {
+        const index = parseInt(req.params.id, 10);
+        const findRedFlag = db.incident.find(redflag => redflag.id === index);
+        if (findRedFlag.type == 'red-flag') {
+            return res.status(200).json({
+                success: true,
+                message: `Successfully retrieved ${findRedFlag.type}`,
+                data: db.incident[index - 1]
+            });
+        }
+        else if (findRedFlag.type == 'intervention') {
+            return res.status(200).json({
+                success: true,
+                message: `Successfully Retrieved ${findRedFlag.type}`,
+                data: db.incident[index - 1]
+            });
+        }
+        return res.status(400).json({
+            success: false,
+            message: 'Request does not exist'
+        });
+    }
+    // getSingleRedFlag ends
+
+
+
+
+
 
 }
 

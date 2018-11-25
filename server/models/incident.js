@@ -53,48 +53,70 @@ const incident = [
         id: 1,
         createdOn: new Date(),
         createdBy: 1, // represents the user who created this record   
-        type: 'red-flag',       // [red-flag, intervention] 
+        type: 'intervention',       // [red-flag, intervention] 
         location: '6H 3E',   // Lat Long coordinates   ​ 
-        status: 'resolved',     // [draft, under investigation, resolved, rejected] 
+        status: '',     // [draft, under investigation, resolved, rejected] 
+        imageurl: 'https://www.example.com',
+       videoUrl: 'https://www.videos.com',
+        comment: 'fun' //comments
+    },
+    {
+        id: 2,
+        createdOn: new Date(),
+        createdBy: 1, // represents the user who created this record   
+        type: 'intervention',       // [red-flag, intervention] 
+        location: '6H 3E',   // Lat Long coordinates   ​ 
+        status: '',     // [draft, under investigation, resolved, rejected] 
+        imageurl: 'https://www.example.com',
+       videoUrl: 'https://www.videos.com',
+        comment: 'fun' //comments
+    },
+    {
+        id: 3,
+        createdOn: new Date(),
+        createdBy: 1, // represents the user who created this record   
+        type: 'intervention',       // [red-flag, intervention] 
+        location: '6H 3E',   // Lat Long coordinates   ​ 
+        status: '',     // [draft, under investigation, resolved, rejected] 
         imageurl: 'https://www.example.com',
        videoUrl: 'https://www.videos.com',
         comment: 'fun' //comments
     },
 
     {
-        id: 2,
-        createdOn: new Date(),
-        createdBy: 2, // represents the user who created this record   
-        type: 'red-flag',       // [red-flag, intervention] 
-        location: '6H 3E',   // Lat Long coordinates   ​ 
-        status: 'resolved',     // [draft, under investigation, resolved, rejected] 
-        imageurl: 'https://www.example.com',
-        videoUrl: 'https://www.videos.com',
-        comment: 'fun' //comments
-    },
-    {
-        id: 3,
+        id: 4,
         createdOn: new Date(),
         createdBy: 3, // represents the user who created this record   
         type: 'red-flag',       // [red-flag, intervention] 
         location: '6H 3E',   // Lat Long coordinates   ​ 
-        status: 'resolved',     // [draft, under investigation, resolved, rejected] 
+        status: '',     // [draft, under investigation, resolved, rejected] 
         imageurl: 'https://www.example.com',
         videoUrl: 'https://www.videos.com',
         comment: 'fun' //comments
     },
 
     {
-        id: 4,
+        id: 5,
         createdOn: new Date(),
         createdBy: 4, // represents the user who created this record   
         type: 'red-flag',       // [red-flag, intervention] 
         location: '6H 3E',   // Lat Long coordinates   ​ 
-        status: 'resolved',     // [draft, under investigation, resolved, rejected] 
+        status: '',     // [draft, under investigation, resolved, rejected] 
         imageurl: 'https://www.example.com',
         videoUrl: 'https://www.videos.com',
         comment: 'fun' //comments
     },
+    {
+        id: 6,
+        createdOn: new Date(),
+        createdBy: 2, // represents the user who created this record   
+        type: 'red-flag',       // [red-flag, intervention] 
+        location: '6H 3E',   // Lat Long coordinates   ​ 
+        status: '',     // [draft, under investigation, resolved, rejected] 
+        imageurl: 'https://www.example.com',
+        videoUrl: 'https://www.videos.com',
+        comment: 'fun' //comments
+    }
 ]
 
 const db = { userDb, incident };
