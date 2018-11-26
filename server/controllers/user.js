@@ -27,7 +27,7 @@ class UserController {
         db.userDb.push(newUser);
         res.status(201);
         res.json({
-            success: true,
+            status: 201,
             message: `Signup Was Successful`,
             data: newUser
         });
@@ -35,5 +35,31 @@ class UserController {
 
 
 
+    /**
+           * Login a user to the application
+           * @static
+           * @param {object} req - The request object
+           * @param {object} res - The response object
+           * @return {object} JSON object representing success message
+           * @memberof UserController
+           */
+    static login(req, res) {
+        const { email, password } = req.body;
+        let found = db.userDb.find((check) => check.email === email && check.password === password);
+        if (found) {
+            res.status(200);
+            res.json({
+                status: 200,
+                message: `Signin Successful`,
+                data: found
+            });
+        }
+        else {
+            res.status(400).send({
+                status: 400,
+                message: `Please check your email and password`
+            });
+        }
+    }
 }
 module.exports = UserController;

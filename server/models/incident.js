@@ -8,7 +8,7 @@ const userDb = [
         password: 'secret',
         phoneNumber: '07068566559',
         username: 'amaechichuks',
-        registered: new Date(),
+        registered: new Date().toDateString(),
         isAdmin: true
     },
 
@@ -21,7 +21,7 @@ const userDb = [
         password: 'level',
         phoneNumber: '07068756998',
         username: 'successfavo',
-        registered: new Date(),
+        registered: new Date().toDateString(),
         isAdmin: false
     },
 
@@ -34,7 +34,7 @@ const userDb = [
         password: 'soap',
         phoneNumber: '08055867368',
         username: 'kingsleyibeh',
-        registered: new Date(),
+        registered: new Date().toDateString(),
         isAdmin: false
     },
 
@@ -47,7 +47,7 @@ const userDb = [
         password: 'hello',
         phoneNumber: '0806458678',
         username: 'frankbeh',
-        registered: new Date(),
+        registered: new Date().toDateString(),
         isAdmin: false
     }
 ];
@@ -55,7 +55,7 @@ const userDb = [
 const incident = [
     {
         id: 1,
-        createdOn: new Date(),
+        createdOn: new Date().toDateString(),
         createdBy: 1, // represents the user who created this record   
         type: 'intervention',       // [red-flag, intervention] 
         location: '6H 3E',   // Lat Long coordinates   ​ 
@@ -66,7 +66,7 @@ const incident = [
     },
     {
         id: 2,
-        createdOn: new Date(),
+        createdOn: new Date().toDateString(),
         createdBy: 1, // represents the user who created this record   
         type: 'intervention',       // [red-flag, intervention] 
         location: '6H 3E',   // Lat Long coordinates   ​ 
@@ -77,7 +77,7 @@ const incident = [
     },
     {
         id: 3,
-        createdOn: new Date(),
+        createdOn: new Date().toDateString(),
         createdBy: 1, // represents the user who created this record   
         type: 'intervention',       // [red-flag, intervention] 
         location: '6H 3E',   // Lat Long coordinates   ​ 
@@ -89,7 +89,7 @@ const incident = [
 
     {
         id: 4,
-        createdOn: new Date(),
+        createdOn: new Date().toDateString(),
         createdBy: 3, // represents the user who created this record   
         type: 'red-flag',       // [red-flag, intervention] 
         location: '6H 3E',   // Lat Long coordinates   ​ 
@@ -101,7 +101,7 @@ const incident = [
 
     {
         id: 5,
-        createdOn: new Date(),
+        createdOn: new Date().toDateString(),
         createdBy: 4, // represents the user who created this record   
         type: 'red-flag',       // [red-flag, intervention] 
         location: '6H 3E',   // Lat Long coordinates   ​ 
@@ -112,7 +112,7 @@ const incident = [
     },
     {
         id: 6,
-        createdOn: new Date(),
+        createdOn: new Date().toDateString(),
         createdBy: 2, // represents the user who created this record   
         type: 'red-flag',       // [red-flag, intervention] 
         location: '6H 3E',   // Lat Long coordinates   ​ 
