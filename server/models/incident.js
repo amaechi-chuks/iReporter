@@ -5,6 +5,7 @@ const userDb = [
         lastname: 'amaechi',
         othernames: 'umunnakwe',
         email: 'amaechichuks2000@yahoo.com',
+        password: 'secret',
         phoneNumber: '07068566559',
         username: 'amaechichuks',
         registered: new Date(),
@@ -17,6 +18,7 @@ const userDb = [
         lastname: 'chi',
         othernames: 'success',
         email: 'favo@yahoo.com',
+        password: 'level',
         phoneNumber: '07068756998',
         username: 'successfavo',
         registered: new Date(),
@@ -29,6 +31,7 @@ const userDb = [
         lastname: 'Ibeh',
         othernames: 'chinedu',
         email: 'kingsley234@yahoo.com',
+        password: 'soap',
         phoneNumber: '08055867368',
         username: 'kingsleyibeh',
         registered: new Date(),
@@ -41,6 +44,7 @@ const userDb = [
         lastname: 'wisdom',
         othernames: 'uchendu',
         email: 'frank@yahoo.com',
+        password: 'hello',
         phoneNumber: '0806458678',
         username: 'frankbeh',
         registered: new Date(),
@@ -57,7 +61,7 @@ const incident = [
         location: '6H 3E',   // Lat Long coordinates   ​ 
         status: '',     // [draft, under investigation, resolved, rejected] 
         imageurl: 'https://www.example.com',
-       videoUrl: 'https://www.videos.com',
+        videoUrl: 'https://www.videos.com',
         comment: 'fun' //comments
     },
     {
@@ -68,7 +72,7 @@ const incident = [
         location: '6H 3E',   // Lat Long coordinates   ​ 
         status: '',     // [draft, under investigation, resolved, rejected] 
         imageurl: 'https://www.example.com',
-       videoUrl: 'https://www.videos.com',
+        videoUrl: 'https://www.videos.com',
         comment: 'fun' //comments
     },
     {
@@ -79,7 +83,7 @@ const incident = [
         location: '6H 3E',   // Lat Long coordinates   ​ 
         status: '',     // [draft, under investigation, resolved, rejected] 
         imageurl: 'https://www.example.com',
-       videoUrl: 'https://www.videos.com',
+        videoUrl: 'https://www.videos.com',
         comment: 'fun' //comments
     },
 

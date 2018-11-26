@@ -6,11 +6,11 @@ const { IncidentController } = controllers;
 
 const router = express.Router();
 
-//route to create a red-flag record
+// create a red-flag record
 router.route('/red-flags')
     .post(IncidentController.createIncident);
 
-//route to get all red-flag record
+//Get all red-flag record
 router.route('/red-flags')
       .get(IncidentController.getAllIncident);
 
