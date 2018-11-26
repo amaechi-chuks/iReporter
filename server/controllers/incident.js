@@ -7,7 +7,7 @@ import db from "../models/incident";
 
 class IncidentController {
     /**
-       * Create new incident record
+       * API method to Post an Incident
        * @static
        * @param {object} req - The request object
        * @param {object} res - The response object
@@ -18,27 +18,27 @@ class IncidentController {
     static createIncident(req, res) {
         if (parseInt(req.body.createdBy) > 0) {
             const {
-                createBy, location, type, status, imageUrl, videoUrl, comment
+                createdBy, location, type, status, imageUrl, videoUrl, comment
             } = req.body;
             const id = db.incident[db.incident.length - 1].id + 1;
             const createdOn = new Date().toDateString();
             const newIncident = {
-                id, createdOn, createBy, type, location, status, imageUrl, videoUrl, comment
+                id, createdOn, createdBy, type, location, status, imageUrl, videoUrl, comment
             };
 
             db.incident.push(newIncident);
             res.status(201);
             res.json({
-                success: true,
+                status: 201,
                 message: `Created ${newIncident.type} record`,
                 data: newIncident
             });
         }
         else {
-            res.status(401);
+            res.status(400);
             res.json({
-                status: 401,
-                message: `You are not authorized to create Incident`,
+                status: 400,
+                message: `Bad Request`,
             });
         }
     }
@@ -46,7 +46,7 @@ class IncidentController {
 
 
     /**
-     * Get all Incident
+     * API Get method to get all Incident
      * @static
      * @param {object} req - The request object
      * @param {object} res - The response object
@@ -56,28 +56,36 @@ class IncidentController {
 
     static getAllIncident(req, res) {
         if (db.incident.length !== 0) {
-            if (!req.query.sort) {
-                res.status(200);
-                res.json({
-                    status: 200,
-                    message: `Successfully Retrieved all Incidents`,
-                    data: db.incident
-                });
-            }
-            else {
-                res.status(404);
-                res.json({
-                    status: 404,
-                    message: `No incident found`,
-                });
-            }
+            const type = req.url.split('/')[1];
+            const type2 = type.split('s')[0];
+            const data2 = db.incident.filter(incidentType => {
+                if (incidentType.type === type2) {
+                    return incidentType;
+                }
+            })
+
+            res.status(200);
+            res.json({
+                success: true,
+                message: `Successfully Retrieved all ${type2}`,
+                data: data2
+
+            });
         }
+        else {
+            res.status(401);
+            res.json({
+                status: 401,
+                message: `You are not authorized to create Incident`,
+            });
+        }
+
     }
     // getAllIncident ends
 
 
     /**
-       * API method to GET a single incident
+       * API GET method to get a single incident by Id
        * @param {obj} req
        * @param {obj} res
        * @returns {obj} success message
@@ -85,20 +93,21 @@ class IncidentController {
        * @memberof IncidentController
        */
     static getSingleRedFlag(req, res) {
+        const type = req.url.split('/')[1];
         const index = parseInt(req.params.id, 10);
         const findRedFlag = db.incident.find(redflag => redflag.id === index);
-        if (findRedFlag.type == 'red-flag') {
+        if (type == 'red-flag' && findRedFlag.type == 'red-flag') {
             return res.status(200).json({
                 status: 200,
                 message: `Successfully retrieved ${findRedFlag.type}`,
-                data: db.incident[index - 1]
+                data: db.incident[index]
             });
         }
-        else if (findRedFlag.type == 'intervention') {
+        else if (type == 'intervention' && findRedFlag.type == 'intervention') {
             return res.status(200).json({
                 status: 200,
                 message: `Successfully Retrieved ${findRedFlag.type}`,
-                data: db.incident[index - 1]
+                data: db.incident[index]
             });
         }
         return res.status(404).json({
@@ -109,9 +118,60 @@ class IncidentController {
     // getSingleRedFlag ends
 
 
+    /**
+          * API PUT method to update  a single incident by location
+          * @param {obj} req
+          * @param {obj} res
+          * @returns {obj} success message
+          * @returns {object} {object} JSON object representing success message
+          * @memberof IncidentController
+          */
+
+    static updateRedFlagByLocation(req, res) {
+        const type = req.url.split('/')[1];
+        const redFlagId = parseInt(req.params.id, 10);
+        const oldRedFlagId = db.incident.find((allBiz) => allBiz.id === redFlagId);
+        if (oldRedFlagId.type == 'red-flag' && type == 'red-flag') {     // Check if the RedFlag location exist, then update.
+            oldRedFlagId.location = req.body.location;
+            db.incident[redFlagId - 1] = oldRedFlagId;
+            res.status(200);
+            res.json({
+                status: 200,
+                message: `Successfully update redFlag location`,
+                data: oldRedFlagId
+            })
+
+        }
+        else if (oldRedFlagId.type == 'intervention' && type == 'intervention') {     // Check if the intervention location exist, then update.
+            oldRedFlagId.location = req.body.location;
+            db.incident[redFlagId - 1] = oldRedFlagId;
+            res.status(200);
+            res.json({
+                status: 200,
+                message: `Successfully update intervention location`,
+                data: oldRedFlagId
+            })
+        }
+        else {
+            res.status(404);
+            res.json({
+                status: 404,
+                message: `Not Found`,
+            })
+        }
+
+    }
 
 
-
+    /**
+          * API PUT method to update a single incident by comment
+          * @param {obj} req
+          * @param {obj} res
+          * @returns {obj} success message
+          * @returns {object} {object} JSON object representing success message
+          * @memberof IncidentController
+          */
+    
 
 }
 

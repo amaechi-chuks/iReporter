@@ -56,7 +56,7 @@ const incident = [
     {
         id: 1,
         createdOn: new Date().toDateString(),
-        createdBy: 1, // represents the user who created this record   
+        createdBy: 1, // represents the user who created this record  
         type: 'intervention',       // [red-flag, intervention] 
         location: '6H 3E',   // Lat Long coordinates   ​ 
         status: '',     // [draft, under investigation, resolved, rejected] 
@@ -67,7 +67,7 @@ const incident = [
     {
         id: 2,
         createdOn: new Date().toDateString(),
-        createdBy: 1, // represents the user who created this record   
+        createdBy: 1, // represents the user who created this record  
         type: 'intervention',       // [red-flag, intervention] 
         location: '6H 3E',   // Lat Long coordinates   ​ 
         status: '',     // [draft, under investigation, resolved, rejected] 
@@ -78,7 +78,7 @@ const incident = [
     {
         id: 3,
         createdOn: new Date().toDateString(),
-        createdBy: 1, // represents the user who created this record   
+        createdBy: 1, // represents the user who created this record 
         type: 'intervention',       // [red-flag, intervention] 
         location: '6H 3E',   // Lat Long coordinates   ​ 
         status: '',     // [draft, under investigation, resolved, rejected] 
@@ -90,7 +90,7 @@ const incident = [
     {
         id: 4,
         createdOn: new Date().toDateString(),
-        createdBy: 3, // represents the user who created this record   
+        createdBy: 3, // represents the user who created this record  
         type: 'red-flag',       // [red-flag, intervention] 
         location: '6H 3E',   // Lat Long coordinates   ​ 
         status: '',     // [draft, under investigation, resolved, rejected] 
@@ -102,7 +102,7 @@ const incident = [
     {
         id: 5,
         createdOn: new Date().toDateString(),
-        createdBy: 4, // represents the user who created this record   
+        createdBy: 4, // represents the user who created this record  
         type: 'red-flag',       // [red-flag, intervention] 
         location: '6H 3E',   // Lat Long coordinates   ​ 
         status: '',     // [draft, under investigation, resolved, rejected] 
@@ -113,7 +113,7 @@ const incident = [
     {
         id: 6,
         createdOn: new Date().toDateString(),
-        createdBy: 2, // represents the user who created this record   
+        createdBy: 2, // represents the user who created this record  
         type: 'red-flag',       // [red-flag, intervention] 
         location: '6H 3E',   // Lat Long coordinates   ​ 
         status: '',     // [draft, under investigation, resolved, rejected] 
@@ -123,6 +123,10 @@ const incident = [
     }
 ]
 
-const db = { userDb, incident };
+const RedFlag = [];
+
+const Intervention = [];
+
+const db = { userDb, incident, RedFlag, Intervention };
 
 module.exports = db;
