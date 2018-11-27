@@ -51,7 +51,7 @@ router.route('/intervention/:id/comment')
 router.route('/red-flag/:id/delete')
 .delete(IncidentController.deleteRedFlagById);
 
-
+//Delete intervention by Id
 router.route('/intervention/:id/delete')
 .delete(IncidentController.deleteRedFlagById);
 
