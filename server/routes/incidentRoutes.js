@@ -46,4 +46,11 @@ router.route('/red-flag/:id/comment')
 //Update intervention comment
 router.route('/intervention/:id/comment')
     .put(IncidentController.updateRedFlagByComment);
-export default router;
+
+    //Delete red-flag by Id
+router.route('/red-flag/:id/delete')
+.delete(IncidentController.deleteRedFlagById);
+
+// router.route('/intervention/:id/delete')
+// .delete(IncidentController.deleteRedFlagById);
+// export default router;
