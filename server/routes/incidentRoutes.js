@@ -43,7 +43,7 @@ router.route('/intervention/:id/location')
 router.route('/red-flag/:id/comment')
     .put(IncidentController.updateRedFlagByComment);
 
-// //Update intervention comment
-// router.route('/intervention/:id/comment')
-//     .put(IncidentController.updateRedFlagByComment);
+//Update intervention comment
+router.route('/intervention/:id/comment')
+    .put(IncidentController.updateRedFlagByComment);
 export default router;
