@@ -59,7 +59,7 @@ const incident = [
         createdBy: 1, // represents the user who created this record  
         type: 'intervention',       // [red-flag, intervention] 
         location: '6H 3E',   // Lat Long coordinates   ​ 
-        status: '',     // [draft, under investigation, resolved, rejected] 
+        status: 'solved',     // [draft, under investigation, resolved, rejected] 
         imageurl: 'https://www.image.com',
         videoUrl: 'https://www.video.com',
         comment: 'Less create awareness for child abuse' //comments
@@ -70,7 +70,7 @@ const incident = [
         createdBy: 1, // represents the user who created this record  
         type: 'intervention',       // [red-flag, intervention] 
         location: '6H 3E',   // Lat Long coordinates   ​ 
-        status: '',     // [draft, under investigation, resolved, rejected] 
+        status: 'draft',     // [draft, under investigation, resolved, rejected] 
         imageurl: 'https://www.image.com',
         videoUrl: 'https://www.video.com',
         comment: 'Nigerian Government is less concern in Education' //comments
@@ -81,7 +81,7 @@ const incident = [
         createdBy: 1, // represents the user who created this record 
         type: 'intervention',       // [red-flag, intervention] 
         location: '6H 3E',   // Lat Long coordinates   ​ 
-        status: '',     // [draft, under investigation, resolved, rejected] 
+        status: 'draft',     // [draft, under investigation, resolved, rejected] 
         imageurl: 'https://www.image.com',
         videoUrl: 'https://www.video.com',
         comment: 'NLC should look into industrial rules and regulation' //comments
@@ -92,7 +92,7 @@ const incident = [
         createdBy: 4, // represents the user who created this record 
         type: 'intervention',       // [red-flag, intervention] 
         location: '6H 3E',   // Lat Long coordinates   ​ 
-        status: '',     // [draft, under investigation, resolved, rejected] 
+        status: 'rejected',     // [draft, under investigation, resolved, rejected] 
         imageurl: 'https://www.image.com',
         videoUrl: 'https://www.video.com',
         comment: 'Thanks to Lagos state ministering of environment for clearing the drainage' //comments
@@ -104,7 +104,7 @@ const incident = [
         createdBy: 1, // represents the user who created this record  
         type: 'red-flag',       // [red-flag, intervention] 
         location: '6H 3E',   // Lat Long coordinates   ​ 
-        status: '',     // [draft, under investigation, resolved, rejected] 
+        status: 'draft',     // [draft, under investigation, resolved, rejected] 
         imageurl: 'https://www.image.com',
         videoUrl: 'https://www.video.com',
         comment: 'Our government should wale up from their sleep' //comments
@@ -116,7 +116,7 @@ const incident = [
         createdBy: 2, // represents the user who created this record  
         type: 'red-flag',       // [red-flag, intervention] 
         location: '6H 3E',   // Lat Long coordinates   ​ 
-        status: '',     // [draft, under investigation, resolved, rejected] 
+        status: 'draft',     // [draft, under investigation, resolved, rejected] 
         imageurl: 'https://www.image.com',
         videoUrl: 'https://www.video.com',
         comment: 'APC fighting PDP' //comments
@@ -127,7 +127,7 @@ const incident = [
         createdBy: 3, // represents the user who created this record  
         type: 'red-flag',       // [red-flag, intervention] 
         location: '6H 3E',   // Lat Long coordinates   ​ 
-        status: '',     // [draft, under investigation, resolved, rejected] 
+        status: 'draft',     // [draft, under investigation, resolved, rejected] 
         imageurl: 'https://www.image.com',
         videoUrl: 'https://www.video.com',
         comment: 'Human right must be respected' //comments
@@ -138,7 +138,7 @@ const incident = [
         createdBy: 4, // represents the user who created this record  
         type: 'red-flag',       // [red-flag, intervention] 
         location: '6H 3E',   // Lat Long coordinates   ​ 
-        status: '',     // [draft, under investigation, resolved, rejected] 
+        status: 'draft',     // [draft, under investigation, resolved, rejected] 
         imageurl: 'https://www.image.com',
         videoUrl: 'https://www.video.com',
         comment: 'Thanks to NGO for taking care of the less privilege' //comments

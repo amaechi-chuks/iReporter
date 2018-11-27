@@ -131,7 +131,7 @@ class IncidentController {
         const type = req.url.split('/')[1];
         const redFlagId = parseInt(req.params.id, 10);
         const oldRedFlagId = db.incident.find((allBiz) => allBiz.id === redFlagId);
-        if (oldRedFlagId.type == 'red-flag' && type == 'red-flag') {     // Check if the RedFlag location exist, then update.
+        if (oldRedFlagId.type == 'red-flag' && type == 'red-flag' && oldRedFlagId.status == 'draft') {     // Check if the RedFlag location exist, then update.
             oldRedFlagId.location = req.body.location;
             db.incident[redFlagId - 1] = oldRedFlagId;
             res.status(200);
@@ -142,7 +142,7 @@ class IncidentController {
             })
 
         }
-        else if (oldRedFlagId.type == 'intervention' && type == 'intervention') {     // Check if the intervention location exist, then update.
+        else if (oldRedFlagId.type == 'intervention' && type == 'intervention' && oldRedFlagId.status == 'draft') {     // Check if the intervention location exist, then update.
             oldRedFlagId.location = req.body.location;
             db.incident[redFlagId - 1] = oldRedFlagId;
             res.status(200);
@@ -153,10 +153,10 @@ class IncidentController {
             })
         }
         else {
-            res.status(404);
+            res.status(401);
             res.json({
-                status: 404,
-                message: `Not Found`,
+                status: 401,
+                message: `You are not authorized to edit this page`,
             })
         }
 
@@ -176,7 +176,7 @@ class IncidentController {
         const type = req.url.split('/')[1];
         const redFlagId = parseInt(req.params.id, 10);
         const oldRedFlagId = db.incident.find((allBiz) => allBiz.id === redFlagId);
-        if (oldRedFlagId.type == 'red-flag' && type == 'red-flag') {     // Check if the Red-flag cooment exist, then update.
+        if (oldRedFlagId.type == 'red-flag' && type == 'red-flag' && oldRedFlagId.status == 'draft') {     // Check if the Red-flag cooment exist, then update.
             oldRedFlagId.comment = req.body.comment;
             db.incident[redFlagId - 1] = oldRedFlagId;
             res.status(200);
@@ -186,7 +186,7 @@ class IncidentController {
                 data: oldRedFlagId
             })
         }
-        else if (oldRedFlagId.type == 'intervention' && type == 'intervention') {     // Check if the intervention commit exist, then update.
+        else if (oldRedFlagId.type == 'intervention' && type == 'intervention' && oldRedFlagId.status == 'draft') {     // Check if the intervention commit exist, then update.
             oldRedFlagId.comment = req.body.comment;
             db.incident[redFlagId - 1] = oldRedFlagId;
             res.status(200);
@@ -197,10 +197,10 @@ class IncidentController {
             })
         }
         else {
-            res.status(404);
+            res.status(401);
             res.json({
-                status: 404,
-                message: `Not Found`,
+                status: 401,
+                message: `You are not authorized to edit this page`,
 
             })
         }
@@ -219,14 +219,16 @@ class IncidentController {
         const type = req.url.split('/')[1];
         const findNow = parseInt(req.params.id, 10)
         const match = db.incident.find((check) => check.id === findNow);
-        if (match.type == 'red-flag' && type == 'red-flag') {
-            const newMatch = match - findNow;
-            db.incident.push(newMatch);
+        console.log(match)
+        if (match) {
+            const newMatch = db.incident.filter(newIncident => newIncident.id !== findNow);
+            db.incident = newMatch;
+            // db.incident.push(newMatch);
             res.status(200),
                 res.json({
                     status: 200,
                     message: `Deleted successfully!`,
-                    data: match
+                    
                 })
         }
         else if (match.type == 'intervention' && type == 'intervention') {
@@ -234,7 +236,7 @@ class IncidentController {
                 res.json({
                     status: 200,
                     message: `Deleted successfully!`,
-                    data: match
+                    
                 })
         }
         else {

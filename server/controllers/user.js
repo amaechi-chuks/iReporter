@@ -100,5 +100,21 @@ static adminGetAll(req, res) {
     });
 }
 
+/**
+           * Login Admin to the application
+           * @static
+           * @param {object} req - The request object
+           * @param {object} res - The response object
+           * @return {object} JSON object representing success message
+           * @memberof UserController
+    **/
+   static adminUpdateStatus(req, res) {
+    const id = parseInt(req.query.id, 10);
+    let foundUser = db.userDb.find(user => user.id == id);
+    if (foundUser && foundUser.isAdmin === true) {
+        
+    }
+   }
+
 }
 module.exports = UserController;
