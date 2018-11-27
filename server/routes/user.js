@@ -5,6 +5,7 @@ const { UserController } = controllers;
 
 const userRouter = express.Router();
 
+
 //SignUp Route
 userRouter.route('/auth/signup')
     .post(UserController.signUp);
@@ -16,5 +17,8 @@ userRouter.route('/auth/signin')
     //Admin Route
 userRouter.route('/auth/admin')
     .get(UserController.adminGetAll);
+
+    userRouter.route('/auth/admin/:id')
+    .put(UserController.adminUpdateStatus);
 
 module.exports = userRouter;

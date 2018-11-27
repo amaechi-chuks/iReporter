@@ -1,8 +1,9 @@
 import incidentRouter from './incidentRoutes';
-import user from './user'
+import user from './user';
+import defaultRoute from "./defaultRoute";
 
 const router = {
-    incidentRouter, user
+    incidentRouter, user, defaultRoute
     };
 
 export default router;
