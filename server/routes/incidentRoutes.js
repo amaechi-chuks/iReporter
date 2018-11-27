@@ -39,9 +39,9 @@ router.route('/red-flag/:id/location')
 router.route('/intervention/:id/location')
     .put(IncidentController.updateRedFlagByLocation);
 
-// //Update red-flag comment
-// router.route('/red-flag/:id/comment')
-//     .put(IncidentController.updateRedFlagByComment);
+//Update red-flag comment
+router.route('/red-flag/:id/comment')
+    .put(IncidentController.updateRedFlagByComment);
 
 // //Update intervention comment
 // router.route('/intervention/:id/comment')
