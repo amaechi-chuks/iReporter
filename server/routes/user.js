@@ -1,14 +1,20 @@
 import express from 'express';
-import controllers  from "../controllers";
+import controllers from "../controllers";
 
 const { UserController } = controllers;
 
 const userRouter = express.Router();
 
-userRouter.route('/signup')
+//SignUp Route
+userRouter.route('/auth/signup')
     .post(UserController.signUp);
 
-    userRouter.route('/signin')
+//Signin Route
+userRouter.route('/auth/signin')
     .post(UserController.login);
 
-    module.exports = userRouter;
+    //Admin Route
+userRouter.route('/auth/admin')
+    .get(UserController.adminGetAll);
+
+module.exports = userRouter;

@@ -42,7 +42,8 @@ class UserController {
            * @param {object} res - The response object
            * @return {object} JSON object representing success message
            * @memberof UserController
-           */
+    **/
+
     static login(req, res) {
         const { email, password } = req.body;
         let found = db.userDb.find((check) => check.email === email && check.password === password);
@@ -61,5 +62,43 @@ class UserController {
             });
         }
     }
+
+    /**
+           * Login Admin to the application
+           * @static
+           * @param {object} req - The request object
+           * @param {object} res - The response object
+           * @return {object} JSON object representing success message
+           * @memberof UserController
+    **/
+    
+
+static adminGetAll(req, res) {
+    const id = parseInt(req.query.id, 10);
+    let foundUser = db.userDb.find(user => user.id == id);
+    if (foundUser && foundUser.isAdmin === true) {
+        foundUser = db.incident;
+          return  res.status(200),
+            res.json({
+            status: 200,
+            message: 'All Inccident successfully retrived',
+            data: foundUser
+            })
+    
+    }
+    if (foundUser && foundUser.role !== true) {
+        return res.status(401),
+         res.json({
+            status: 401,
+            message: 'You are not authorized to visit this page'
+        });
+    }
+    res.status(400),
+    res.json({
+        status: 400,
+        message: 'Invalid credentials'
+    });
+}
+
 }
 module.exports = UserController;
