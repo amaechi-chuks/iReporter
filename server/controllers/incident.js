@@ -100,14 +100,14 @@ class IncidentController {
             return res.status(200).json({
                 status: 200,
                 message: `Successfully retrieved ${findRedFlag.type}`,
-                data: db.incident[index]
+                data: db.incident[index - 1]
             });
         }
         else if (type == 'intervention' && findRedFlag.type == 'intervention') {
             return res.status(200).json({
                 status: 200,
                 message: `Successfully Retrieved ${findRedFlag.type}`,
-                data: db.incident[index]
+                data: db.incident[index - 1]
             });
         }
         return res.status(404).json({
@@ -206,7 +206,46 @@ class IncidentController {
         }
     }
 
+    /**
+          * API DELETE method to delete red-flag by Id
+          * @param {obj} req
+          * @param {obj} res
+          * @returns {obj} success message
+          * @returns {object} {object} JSON object representing success message
+          * @memberof IncidentController
+          */
 
+    static deleteRedFlagById(req, res, next) {
+        const type = req.url.split('/')[1];
+        const findNow = parseInt(req.params.id, 10)
+        const match = db.incident.find((check) => check.id === findNow);
+        if (match.type == 'red-flag' && type == 'red-flag') {
+            const newMatch = match - findNow;
+            db.incident.push(newMatch);
+            res.status(200),
+                res.json({
+                    status: 200,
+                    message: `Deleted successfully!`,
+                    data: match
+                })
+        }
+        else if (match.type == 'intervention' && type == 'intervention') {
+            res.status(200),
+                res.json({
+                    status: 200,
+                    message: `Deleted successfully!`,
+                    data: match
+                })
+        }
+        else {
+            res.status(404);
+            res.json({
+                status: 404,
+                message: `Not Found`
+            })
+        }
+        next();
+    }
 }
 
 module.exports = IncidentController;
