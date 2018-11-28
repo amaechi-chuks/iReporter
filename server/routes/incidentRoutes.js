@@ -1,58 +1,65 @@
 import express from 'express';
 import controllers from '../controllers';
+import middlewares from '../middlewares';
+
 
 const { IncidentController } = controllers;
+const { createIncident, getAllIncident, getSingleRedFlag, updateRedFlagByLocation, updateRedFlagByComment, deleteRedFlagById } = IncidentController;
 
+const { IncidentValidator, VerifyRole } = middlewares
+const { getOneIncident, incidentInputChecker } = IncidentValidator;
 
-const router = express.Router();
+const {isAdminLogin} = VerifyRole
+
+const route = express.Router();
 
 // create a red-flag record
-router.route('/red-flags')
-    .post(IncidentController.createIncident);
+route.route('/red-flags')
+    .post(createIncident, incidentInputChecker);
 
 //create a intervention record
-router.route('/intervention')
-    .post(IncidentController.createIncident);
+route.route('/intervention')
+    .post(createIncident);
 
 //Get all red-flag record
-router.route('/red-flags')
-    .get(IncidentController.getAllIncident);
+route.route('/red-flags')
+    .get(getAllIncident, isAdminLogin);
 
 //Get all red-flag record
-router.route('/intervention')
-    .get(IncidentController.getAllIncident);
+route.route('/intervention')
+    .get(getAllIncident, isAdminLogin);
 
 
 //Get red-flag by id
-router.route('/red-flag/:id')
-    .get(IncidentController.getSingleRedFlag);
+route.route('/red-flag/:id')
+    .get(getSingleRedFlag, getOneIncident);
 
 //Get intervention by id
-router.route('/intervention/:id')
-    .get(IncidentController.getSingleRedFlag);
+route.route('/intervention/:id')
+    .get(getSingleRedFlag, getOneIncident);
 
 //Update redFlag by location   
-router.route('/red-flag/:id/location')
-    .put(IncidentController.updateRedFlagByLocation);
+route.route('/red-flag/:id/location')
+    .put(updateRedFlagByLocation, incidentInputChecker, isAdminLogin, getOneIncident);
 
 //Update intervention by location 
-router.route('/intervention/:id/location')
-    .put(IncidentController.updateRedFlagByLocation);
+route.route('/intervention/:id/location')
+    .put(updateRedFlagByLocation, incidentInputChecker, isAdminLogin, getOneIncident);
 
 //Update red-flag comment
-router.route('/red-flag/:id/comment')
-    .put(IncidentController.updateRedFlagByComment);
+route.route('/red-flag/:id/comment')
+    .put(updateRedFlagByComment, incidentInputChecker, isAdminLogin, getOneIncident);
 
 //Update intervention comment
-router.route('/intervention/:id/comment')
-    .put(IncidentController.updateRedFlagByComment);
+route.route('/intervention/:id/comment')
+    .put(updateRedFlagByComment, incidentInputChecker, isAdminLogin, getOneIncident);
 
     //Delete red-flag by Id
-router.route('/red-flag/:id/delete')
-.delete(IncidentController.deleteRedFlagById);
+route.route('/red-flag/:id/delete')
+.delete(deleteRedFlagById);
 
 //Delete intervention by Id
-router.route('/intervention/:id/delete')
-.delete(IncidentController.deleteRedFlagById);
+route.route('/intervention/:id/delete')
+.delete(deleteRedFlagById);
 
-export default router;
+export default route;
