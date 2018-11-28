@@ -16,12 +16,12 @@ class UserController {
        */
     static signUp(req, res) {
         const id = db.userDb[db.userDb.length - 1].id + 1;
-        const registered = new Date();
+        const registeredAlt = new Date();
         const {
-            firstname, lastname, othernames, email, phoneNumber, username, role
+            firstName, lastName, otherNames, password, confirmPassword, email, phoneNumber, username, role
         } = req.body;
         const newUser = {
-            id, firstname, lastname, othernames, email, phoneNumber, username, registered,
+            id, firstName, lastName, otherNames, email, password, confirmPassword, phoneNumber, username, registeredAlt,
             role
         }
         db.userDb.push(newUser);
@@ -109,8 +109,6 @@ class UserController {
                * @memberof UserController
     **/
     static adminUpdateStatus(req, res) {
-
-
         const id = parseInt(req.params.id, 10);
         const { createdOn, createdBy, type, location, status, imageUrl, videoUrl, comment } = req.body;
         const edit = {
