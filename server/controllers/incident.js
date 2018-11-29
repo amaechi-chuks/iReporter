@@ -18,11 +18,11 @@ export default class IncidentController {
     static createIncident(req, res) {
         if (parseInt(req.body.createdBy) > 0) {
             const {
-                createdBy, location, type, status, imageUrl, videoUrl, comment
+                 location, type, status, imageUrl, videoUrl, comment
             } = req.body;
             const id = db.incident[db.incident.length - 1].id + 1;
-            const createdOn = new Date().toDateString();
-            console.log(typeof createdOn);
+            const createdOn = new Date().toString();
+            const createdBy = parseInt(req.body.createdBy, 10);
             const newIncident = {
                 id, createdOn, createdBy, type, location, status, imageUrl, videoUrl, comment
             };
@@ -40,9 +40,9 @@ export default class IncidentController {
             res.json({
                 status: 400,
                 message: `Bad Request`,
+                sampleData: '{createdOn:Date, createdBy:integer, type:string, location:string,status:string, imageUrl:string, videoUrl:string, comment:string}'
             });
         }
-        var me = 'him';
     }
     // createIncident ends
 
@@ -226,29 +226,30 @@ export default class IncidentController {
             const newMatch = db.incident.filter(newIncident => newIncident.id !== findNow);
             db.incident = newMatch;
             // db.incident.push(newMatch);
-           return res.status(200),
+            return res.status(200),
                 res.json({
                     status: 200,
                     message: `Deleted successfully!`,
-                    
+
                 })
         }
         else if (match.type == 'intervention' && type == 'intervention') {
-           return res.status(200),
+            return res.status(200),
                 res.json({
                     status: 200,
                     message: `Deleted successfully!`,
-                    
+
                 })
         }
         else {
-         return   res.status(404);
-            res.json({
-                status: 404,
-                message: `Not Found`
-            })
+            return res.status(404),
+                res.json({
+                    status: 404,
+                    message: `Not Found`
+                }),
+                next();
         }
-        next();
+
     }
 }
 

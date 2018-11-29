@@ -1,6 +1,7 @@
 export const validIncident = [
     {
-        createdOn: '23-45-89',
+        id: 1,
+        createdOn: '2018-11-23',
         createdBy: 1, // represents the user who created this record  
         type: 'red-flag',       // [red-flag, intervention] 
         location: '6H 3E',   // Lat Long coordinates   ​ 
@@ -10,8 +11,9 @@ export const validIncident = [
         comment: 'Human right must be respected' //comments
     },
     {
-        createdOn: new Date().toDateString(),
-        createdBy: 2, // represents the user who created this record  
+        id: 1,
+        createdOn: '2018-11-23',
+        createdBy: 1, // represents the user who created this record  
         type: 'red-flag',       // [red-flag, intervention] 
         location: '6H 3E',   // Lat Long coordinates   ​ 
         status: 'draft',     // [draft, under investigation, resolved, rejected] 
@@ -20,17 +22,19 @@ export const validIncident = [
         comment: 'Thanks to NGO for taking care of the less privilege' //comments
     },
     {
-        createdOn: new Date().toDateString(),
+        id: 3,
+        createdOn: '2018-11-23',
         createdBy: 3, // represents the user who created this record  
         type: 'intervention',       // [red-flag, intervention] 
         location: '6H 3E',   // Lat Long coordinates   ​ 
         status: 'draft',     // [draft, under investigation, resolved, rejected] 
         imageurl: 'https://www.image.com',
         videoUrl: 'https://www.video.com',
-        comment: 'Less create awareness for child abuse' //comments
+        comment: 'Let us create awareness for child abuse' //comments
     },
     {
-        createdOn: new Date().toDateString(),
+        id: 4,
+        createdOn: '2018-11-23',
         createdBy: 4, // represents the user who created this record  
         type: 'intervention',       // [red-flag, intervention] 
         location: '6H 3E',   // Lat Long coordinates   ​ 
@@ -126,7 +130,7 @@ export const inValidIncidentDate = [
         imageurl: 'https://www.image.com',
         videoUrl: 'https://www.video.com',
         comment: 'Human right must be respected' //comments
-    },
+    }
 ];
 
 export const inValidUserId = [
@@ -137,7 +141,7 @@ export const inValidUserId = [
    *Undefined userId
    */
     {
-        createdOn: new Date().toDateString(),
+        createdOn: '2018-11-23',
         type: 'red-flag',       // [red-flag, intervention] 
         location: '6H 3E',   // Lat Long coordinates   ​ 
         status: 'draft',     // [draft, under investigation, resolved, rejected] 
@@ -153,7 +157,7 @@ export const inValidUserId = [
    *Empty userId
    */
     {
-        createdOn: new Date().toDateString(),
+        createdOn: '2018-11-23',
         createdBy: '', // represents the user who created this record  
         type: 'red-flag',       // [red-flag, intervention] 
         location: '6H 3E',   // Lat Long coordinates   ​ 
@@ -170,7 +174,7 @@ export const inValidUserId = [
   *UserId NAN
   */
     {
-        createdOn: new Date().toDateString(),
+        createdOn: '2018-11-23',
         createdBy: '3r', // represents the user who created this record  
         type: 'red-flag',       // [red-flag, intervention] 
         location: '6H 3E',   // Lat Long coordinates   ​ 
@@ -185,16 +189,16 @@ export const inValidUserId = [
   * ***************
   *UserId NAN
   */
- {
-    createdOn: new Date().toDateString(),
-    createdBy: 675, // represents the user who created this record  
-    type: 'red-flag',       // [red-flag, intervention] 
-    location: '6H 3E',   // Lat Long coordinates   ​ 
-    status: 'draft',     // [draft, under investigation, resolved, rejected] 
-    imageurl: 'https://www.image.com',
-    videoUrl: 'https://www.video.com',
-    comment: 'Human right must be respected' //comments 
-}
+    {
+        createdOn: '2018-11-23',
+        createdBy: 675, // represents the user who created this record  
+        type: 'red-flag',       // [red-flag, intervention] 
+        location: '6H 3E',   // Lat Long coordinates   ​ 
+        status: 'draft',     // [draft, under investigation, resolved, rejected] 
+        imageurl: 'https://www.image.com',
+        videoUrl: 'https://www.video.com',
+        comment: 'Human right must be respected' //comments 
+    }
 ];
 
 /**
@@ -205,7 +209,7 @@ export const inValidUserId = [
 */
 export const invalidType = [
     {
-        createdOn: new Date().toDateString(),
+        createdOn: '2018-11-23',
         createdBy: 1, // represents the user who created this record  
         location: '6H 3E',   // Lat Long coordinates   ​ 
         status: 'draft',     // [draft, under investigation, resolved, rejected] 
@@ -221,7 +225,7 @@ export const invalidType = [
 *Type is not a string
 */
     {
-        createdOn: new Date().toDateString(),
+        createdOn: '2018-11-23',
         createdBy: 1, // represents the user who created this record  
         type: ['red-flaggin'],       // [red-flag, intervention] 
         location: '6H 3E',   // Lat Long coordinates   ​ 
@@ -239,7 +243,7 @@ export const invalidType = [
 *Empty type
 */
     {
-        createdOn: new Date().toDateString(),
+        createdOn: '2018-11-23',
         createdBy: 1, // represents the user who created this record  
         type: '',       // [red-flag, intervention] 
         location: '6H 3E',   // Lat Long coordinates   ​ 
@@ -257,7 +261,7 @@ export const invalidType = [
 */
 
     {
-        createdOn: new Date().toDateString(),
+        createdOn: '2018-11-23',
         createdBy: 1, // represents the user who created this record  
         type: 'red-345-flag',       // [red-flag, intervention] 
         location: '6H 3E',   // Lat Long coordinates   ​ 
@@ -275,7 +279,7 @@ export const invalidType = [
  *Invalid Type length
  */
     {
-        createdOn: new Date().toDateString(),
+        createdOn: '2018-11-23',
         createdBy: 1, // represents the user who created this record  
         type: 're',       // [red-flag, intervention] 
         location: '6H 3E',   // Lat Long coordinates   ​ 
@@ -286,103 +290,103 @@ export const invalidType = [
     }
 ];
 export const inValidLocation = [
-/**
+    /**
+        * ***************
+        * At index [0]
+        * ***************
+        *Undefined Location
+        */
+    {
+        createdOn: '2018-11-23',
+        createdBy: 1, // represents the user who created this record  
+        type: 're',       // [red-flag, intervention]   ​ 
+        status: 'draft',     // [draft, under investigation, resolved, rejected] 
+        imageurl: 'https://www.image.com',
+        videoUrl: 'https://www.video.com',
+        comment: 'Human right must be respected' //comments  
+    },
+
+    /**
+     * ***************
+     * At index [1]
+     * ***************
+     *Location not a string
+     */
+    {
+        createdOn: '2018-11-23',
+        createdBy: 1, // represents the user who created this record  
+        type: 'red-flag',       // [red-flag, intervention] 
+        location: 45,   // Lat Long coordinates   ​ 
+        status: 'draft',     // [draft, under investigation, resolved, rejected] 
+        imageurl: 'https://www.image.com',
+        videoUrl: 'https://www.video.com',
+        comment: 'Human right must be respected' //comments  
+    },
+
+
+    /**
     * ***************
-    * At index [0]
+    * At index [2]
     * ***************
-    *Undefined Location
+    *Empty Location
     */
-   {
-    createdOn: new Date().toDateString(),
-    createdBy: 1, // represents the user who created this record  
-    type: 're',       // [red-flag, intervention]   ​ 
-    status: 'draft',     // [draft, under investigation, resolved, rejected] 
-    imageurl: 'https://www.image.com',
-    videoUrl: 'https://www.video.com',
-    comment: 'Human right must be respected' //comments  
-},
+    {
+        createdOn: '2018-11-23',
+        createdBy: 1, // represents the user who created this record  
+        type: 'red-flag',       // [red-flag, intervention] 
+        location: '',   // Lat Long coordinates   ​ 
+        status: 'draft',     // [draft, under investigation, resolved, rejected] 
+        imageurl: 'https://www.image.com',
+        videoUrl: 'https://www.video.com',
+        comment: 'Human right must be respected' //comments  
+    },
 
-/**
- * ***************
- * At index [1]
- * ***************
- *Location not a string
- */
-{
-    createdOn: new Date().toDateString(),
-    createdBy: 1, // represents the user who created this record  
-    type: 'red-flag',       // [red-flag, intervention] 
-    location: 45,   // Lat Long coordinates   ​ 
-    status: 'draft',     // [draft, under investigation, resolved, rejected] 
-    imageurl: 'https://www.image.com',
-    videoUrl: 'https://www.video.com',
-    comment: 'Human right must be respected' //comments  
-},
+    /**
+    * ***************
+    * At index [3]
+    * ***************
+    *Invalid Location Input
+    */
+    {
+        createdOn: '2018-11-23',
+        createdBy: 1, // represents the user who created this record  
+        type: 'red-flag',       // [red-flag, intervention] 
+        location: '4hi 98H',   // Lat Long coordinates   ​ 
+        status: 'draft',     // [draft, under investigation, resolved, rejected] 
+        imageurl: 'https://www.image.com',
+        videoUrl: 'https://www.video.com',
+        comment: 'Human right must be respected' //comments  
+    },
 
-
-/**
-* ***************
-* At index [2]
-* ***************
-*Empty Location
-*/
-{
-    createdOn: new Date().toDateString(),
-    createdBy: 1, // represents the user who created this record  
-    type: 'red-flag',       // [red-flag, intervention] 
-    location: '',   // Lat Long coordinates   ​ 
-    status: 'draft',     // [draft, under investigation, resolved, rejected] 
-    imageurl: 'https://www.image.com',
-    videoUrl: 'https://www.video.com',
-    comment: 'Human right must be respected' //comments  
-},
-
-/**
-* ***************
-* At index [3]
-* ***************
-*Invalid Location Input
-*/
-{
-    createdOn: new Date().toDateString(),
-    createdBy: 1, // represents the user who created this record  
-    type: 'red-flag',       // [red-flag, intervention] 
-    location: '4hi 98H',   // Lat Long coordinates   ​ 
-    status: 'draft',     // [draft, under investigation, resolved, rejected] 
-    imageurl: 'https://www.image.com',
-    videoUrl: 'https://www.video.com',
-    comment: 'Human right must be respected' //comments  
-},
-
-/**
-* ***************
-* At index [4]
-* ***************
-*Invalid Location Input Length
-*/
-{
-    createdOn: new Date().toDateString(),
-    createdBy: 1, // represents the user who created this record  
-    type: 'red-flag',       // [red-flag, intervention] 
-    location: '4h',   // Lat Long coordinates   ​ 
-    status: 'draft',     // [draft, under investigation, resolved, rejected] 
-    imageurl: 'https://www.image.com',
-    videoUrl: 'https://www.video.com',
-    comment: 'Human right must be respected' //comments  
-}
+    /**
+    * ***************
+    * At index [4]
+    * ***************
+    *Invalid Location Input Length
+    */
+    {
+        createdOn: '2018-11-23',
+        createdBy: 1, // represents the user who created this record  
+        type: 'red-flag',       // [red-flag, intervention] 
+        location: '4h',   // Lat Long coordinates   ​ 
+        status: 'draft',     // [draft, under investigation, resolved, rejected] 
+        imageurl: 'https://www.image.com',
+        videoUrl: 'https://www.video.com',
+        comment: 'Human right must be respected' //comments  
+    }
 ];
-    
 
- export const inValidStatus = [
-/**
-       * ***************
-       * At index [0]
-       * ***************
-       *Undefined status
-       */
-      {
+
+export const inValidStatus = [
+    /**
+           * ***************
+           * At index [0]
+           * ***************
+           *Undefined status
+           */
+    {
         id: 1,
-        createdOn: new Date().toDateString(),
+        createdOn: '2018-11-23',
         createdBy: 1, // represents the user who created this record  
         type: 'red-flag',       // [red-flag, intervention] 
         location: '6H 3E',   // Lat Long coordinates   ​ 
@@ -399,7 +403,7 @@ export const inValidLocation = [
        */
     {
         id: 1,
-        createdOn: new Date().toDateString(),
+        createdOn: '2018-11-23',
         createdBy: 1, // represents the user who created this record  
         type: 'red-flag',       // [red-flag, intervention] 
         location: '6H 3E',   // Lat Long coordinates   ​ 
@@ -418,7 +422,7 @@ export const inValidLocation = [
        *Invalid status input
        */
         id: 1,
-        createdOn: new Date().toDateString(),
+        createdOn: '2018-11-23',
         createdBy: 1, // represents the user who created this record  
         type: 'red-flag',       // [red-flag, intervention] 
         location: '6H 3E',   // Lat Long coordinates   ​ 
@@ -436,7 +440,7 @@ export const inValidLocation = [
        *Invalid status input length
        */
         id: 1,
-        createdOn: new Date().toDateString(),
+        createdOn: '2018-11-23',
         createdBy: 1, // represents the user who created this record  
         type: 'red-flag',       // [red-flag, intervention] 
         location: '6H 3E',   // Lat Long coordinates   ​ 
@@ -448,16 +452,16 @@ export const inValidLocation = [
 ];
 
 export const inValidImageUrl = [
-    
+
     {
-         /**
-       * ***************
-       * At index [0]
-       * ***************
-       *Undefined ImageUrl
-       */
+        /**
+      * ***************
+      * At index [0]
+      * ***************
+      *Undefined ImageUrl
+      */
         id: 1,
-        createdOn: new Date().toDateString(),
+        createdOn: '2018-11-23',
         createdBy: 1, // represents the user who created this record  
         type: 'red-flag',       // [red-flag, intervention] 
         location: '6H 3E',   // Lat Long coordinates   ​ 
@@ -465,59 +469,59 @@ export const inValidImageUrl = [
         videoUrl: 'https://www.video.com',
         comment: 'Human right must be respected' //comments
     },
-        /**
-      * ***************
-      * At index [1]
-      * ***************
-      *Empty imageUrl
-      */
-     { 
-       id: 1,
-       createdOn: new Date().toDateString(),
-       createdBy: 1, // represents the user who created this record  
-       type: 'red-flag',       // [red-flag, intervention] 
-       location: '6H 3E',   // Lat Long coordinates   ​ 
-       status: 'draft',     // [draft, under investigation, resolved, rejected] 
-       imageurl: '',
-       videoUrl: 'https://www.video.com',
-       comment: 'Human right must be respected' //comments
-   },
+    /**
+  * ***************
+  * At index [1]
+  * ***************
+  *Empty imageUrl
+  */
+    {
+        id: 1,
+        createdOn: '2018-11-23',
+        createdBy: 1, // represents the user who created this record  
+        type: 'red-flag',       // [red-flag, intervention] 
+        location: '6H 3E',   // Lat Long coordinates   ​ 
+        status: 'draft',     // [draft, under investigation, resolved, rejected] 
+        imageurl: '',
+        videoUrl: 'https://www.video.com',
+        comment: 'Human right must be respected' //comments
+    },
 
-     /**
-      * ***************
-      * At index [2]
-      * ***************
-      *Invalid Image Input
-      */
-   { 
-    id: 1,
-    createdOn: new Date().toDateString(),
-    createdBy: 1, // represents the user who created this record  
-    type: 'red-flag',       // [red-flag, intervention] 
-    location: '6H 3E',   // Lat Long coordinates   ​ 
-    status: 'draft',     // [draft, under investigation, resolved, rejected] 
-    imageurl: ['34trrf'],
-    videoUrl: 'https://www.video.com',
-    comment: 'Human right must be respected' //comments
-},
+    /**
+     * ***************
+     * At index [2]
+     * ***************
+     *Invalid Image Input
+     */
+    {
+        id: 1,
+        createdOn: '2018-11-23',
+        createdBy: 1, // represents the user who created this record  
+        type: 'red-flag',       // [red-flag, intervention] 
+        location: '6H 3E',   // Lat Long coordinates   ​ 
+        status: 'draft',     // [draft, under investigation, resolved, rejected] 
+        imageurl: ['34trrf'],
+        videoUrl: 'https://www.video.com',
+        comment: 'Human right must be respected' //comments
+    },
 
-  /**
-      * ***************
-      * At index [3]
-      * ***************
-      *Invalid Image input length
-      */
-{
-    id: 1,
-    createdOn: new Date().toDateString(),
-    createdBy: 1, // represents the user who created this record  
-    type: 'red-flag',       // [red-flag, intervention] 
-    location: '6H 3E',   // Lat Long coordinates   ​ 
-    status: 'draft',     // [draft, under investigation, resolved, rejected] 
-    imageurl: "go",
-    videoUrl: 'https://www.video.com',
-    comment: 'Human right must be respected' //comments
-}
+    /**
+        * ***************
+        * At index [3]
+        * ***************
+        *Invalid Image input length
+        */
+    {
+        id: 1,
+        createdOn: '2018-11-23',
+        createdBy: 1, // represents the user who created this record  
+        type: 'red-flag',       // [red-flag, intervention] 
+        location: '6H 3E',   // Lat Long coordinates   ​ 
+        status: 'draft',     // [draft, under investigation, resolved, rejected] 
+        imageurl: "go",
+        videoUrl: 'https://www.video.com',
+        comment: 'Human right must be respected' //comments
+    }
 ];
 
 export const inValidVideoUrl = [
@@ -528,32 +532,32 @@ export const inValidVideoUrl = [
       * ***************
       *Undefined VideoUrl
       */
-       id: 1,
-       createdOn: new Date().toDateString(),
-       createdBy: 1, // represents the user who created this record  
-       type: 'red-flag',       // [red-flag, intervention] 
-       location: '6H 3E',   // Lat Long coordinates   ​ 
-       status: 'draft',     // [draft, under investigation, resolved, rejected] 
-       imageurl: 'https://www.image.com',
-       comment: 'Human right must be respected' //comments
-   },
-       /**
-     * ***************
-     * At index [1]
-     * ***************
-     *Empty videoUrl
-     */
-    { 
-      id: 1,
-      createdOn: new Date().toDateString(),
-      createdBy: 1, // represents the user who created this record  
-      type: 'red-flag',       // [red-flag, intervention] 
-      location: '6H 3E',   // Lat Long coordinates   ​ 
-      status: 'draft',     // [draft, under investigation, resolved, rejected] 
-      imageurl: 'https://www.image.com',
-      videoUrl: '',
-      comment: 'Human right must be respected' //comments
-  },
+        id: 1,
+        createdOn: '2018-11-23',
+        createdBy: 1, // represents the user who created this record  
+        type: 'red-flag',       // [red-flag, intervention] 
+        location: '6H 3E',   // Lat Long coordinates   ​ 
+        status: 'draft',     // [draft, under investigation, resolved, rejected] 
+        imageurl: 'https://www.image.com',
+        comment: 'Human right must be respected' //comments
+    },
+    /**
+  * ***************
+  * At index [1]
+  * ***************
+  *Empty videoUrl
+  */
+    {
+        id: 1,
+        createdOn: '2018-11-23',
+        createdBy: 1, // represents the user who created this record  
+        type: 'red-flag',       // [red-flag, intervention] 
+        location: '6H 3E',   // Lat Long coordinates   ​ 
+        status: 'draft',     // [draft, under investigation, resolved, rejected] 
+        imageurl: 'https://www.image.com',
+        videoUrl: '',
+        comment: 'Human right must be respected' //comments
+    },
 
     /**
      * ***************
@@ -561,35 +565,35 @@ export const inValidVideoUrl = [
      * ***************
      *Invalid video Input
      */
-  { 
-   id: 1,
-   createdOn: new Date().toDateString(),
-   createdBy: 1, // represents the user who created this record  
-   type: 'red-flag',       // [red-flag, intervention] 
-   location: '6H 3E',   // Lat Long coordinates   ​ 
-   status: 'draft',     // [draft, under investigation, resolved, rejected] 
-   imageurl: 'https://www.image.com',
-   videoUrl: ['wrong.nt34'],
-   comment: 'Human right must be respected' //comments
-},
+    {
+        id: 1,
+        createdOn: '2018-11-23',
+        createdBy: 1, // represents the user who created this record  
+        type: 'red-flag',       // [red-flag, intervention] 
+        location: '6H 3E',   // Lat Long coordinates   ​ 
+        status: 'draft',     // [draft, under investigation, resolved, rejected] 
+        imageurl: 'https://www.image.com',
+        videoUrl: ['wrong.nt34'],
+        comment: 'Human right must be respected' //comments
+    },
 
- /**
-     * ***************
-     * At index [3]
-     * ***************
-     *Invalid videeo input length
-     */
-{
-   id: 1,
-   createdOn: new Date().toDateString(),
-   createdBy: 1, // represents the user who created this record  
-   type: 'red-flag',       // [red-flag, intervention] 
-   location: '6H 3E',   // Lat Long coordinates   ​ 
-   status: 'draft',     // [draft, under investigation, resolved, rejected] 
-   imageurl: 'https://www.image.com',
-   videoUrl: 'g0',
-   comment: 'Human right must be respected' //comments
-}
+    /**
+        * ***************
+        * At index [3]
+        * ***************
+        *Invalid videeo input length
+        */
+    {
+        id: 1,
+        createdOn: '2018-11-23',
+        createdBy: 1, // represents the user who created this record  
+        type: 'red-flag',       // [red-flag, intervention] 
+        location: '6H 3E',   // Lat Long coordinates   ​ 
+        status: 'draft',     // [draft, under investigation, resolved, rejected] 
+        imageurl: 'https://www.image.com',
+        videoUrl: 'g0',
+        comment: 'Human right must be respected' //comments
+    }
 ];
 
 export const inValidComment = [
@@ -600,33 +604,33 @@ export const inValidComment = [
       * ***************
       *Undefined comment
       */
-       id: 1,
-       createdOn: new Date().toDateString(),
-       createdBy: 1, // represents the user who created this record  
-       type: 'red-flag',       // [red-flag, intervention] 
-       location: '6H 3E',   // Lat Long coordinates   ​ 
-       status: 'draft',     // [draft, under investigation, resolved, rejected] 
-       imageurl: 'https://www.image.com',
-       videoUrl: 'https://www.video.com',
-     
-   },
-       /**
-     * ***************
-     * At index [1]
-     * ***************
-     *Empty comment
-     */
-    { 
-      id: 1,
-      createdOn: new Date().toDateString(),
-      createdBy: 1, // represents the user who created this record  
-      type: 'red-flag',       // [red-flag, intervention] 
-      location: '6H 3E',   // Lat Long coordinates   ​ 
-      status: 'draft',     // [draft, under investigation, resolved, rejected] 
-      imageurl: 'https://www.image.com',
-      videoUrl: 'https://www.video.com',
-      comment: '' //comments
-  },
+        id: 1,
+        createdOn: '2018-11-23',
+        createdBy: 1, // represents the user who created this record  
+        type: 'red-flag',       // [red-flag, intervention] 
+        location: '6H 3E',   // Lat Long coordinates   ​ 
+        status: 'draft',     // [draft, under investigation, resolved, rejected] 
+        imageurl: 'https://www.image.com',
+        videoUrl: 'https://www.video.com',
+
+    },
+    /**
+  * ***************
+  * At index [1]
+  * ***************
+  *Empty comment
+  */
+    {
+        id: 1,
+        createdOn: '2018-11-23',
+        createdBy: 1, // represents the user who created this record  
+        type: 'red-flag',       // [red-flag, intervention] 
+        location: '6H 3E',   // Lat Long coordinates   ​ 
+        status: 'draft',     // [draft, under investigation, resolved, rejected] 
+        imageurl: 'https://www.image.com',
+        videoUrl: 'https://www.video.com',
+        comment: '' //comments
+    },
 
     /**
      * ***************
@@ -634,37 +638,37 @@ export const inValidComment = [
      * ***************
      *Invalid comment Input
      */
-  { 
-   id: 1,
-   createdOn: new Date().toDateString(),
-   createdBy: 1, // represents the user who created this record  
-   type: 'red-flag',       // [red-flag, intervention] 
-   location: '6H 3E',   // Lat Long coordinates   ​ 
-   status: 'draft',     // [draft, under investigation, resolved, rejected] 
-   imageurl: 'https://www.image.com',
-   videoUrl: 'https://www.video.com',
-   comment: ['333!+'] //comments
-},
+    {
+        id: 1,
+        createdOn: '2018-11-23',
+        createdBy: 1, // represents the user who created this record  
+        type: 'red-flag',       // [red-flag, intervention] 
+        location: '6H 3E',   // Lat Long coordinates   ​ 
+        status: 'draft',     // [draft, under investigation, resolved, rejected] 
+        imageurl: 'https://www.image.com',
+        videoUrl: 'https://www.video.com',
+        comment: ['333!+'] //comments
+    },
 
- /**
-     * ***************
-     * At index [3]
-     * ***************
-     *Invalid comment input length
-     */
-{
-   id: 1,
-   createdOn: new Date().toDateString(),
-   createdBy: 1, // represents the user who created this record  
-   type: 'red-flag',       // [red-flag, intervention] 
-   location: '6H 3E',   // Lat Long coordinates   ​ 
-   status: 'draft',     // [draft, under investigation, resolved, rejected] 
-   imageurl: 'https://www.image.com',
-   videoUrl: 'https://www.video.com',
-   comment: 'H' //comments
-}
+    /**
+        * ***************
+        * At index [3]
+        * ***************
+        *Invalid comment input length
+        */
+    {
+        id: 1,
+        createdOn: '2018-11-23',
+        createdBy: 1, // represents the user who created this record  
+        type: 'red-flag',       // [red-flag, intervention] 
+        location: '6H 3E',   // Lat Long coordinates   ​ 
+        status: 'draft',     // [draft, under investigation, resolved, rejected] 
+        imageurl: 'https://www.image.com',
+        videoUrl: 'https://www.video.com',
+        comment: 'H' //comments
+    }
 ];
-    
+
 
 
 

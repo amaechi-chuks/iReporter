@@ -16,19 +16,22 @@ export default class UserController {
        */
     static signUp(req, res) {
         const registeredAlt = new Date();
+        const role = false;
+        const id = db.userDb[db.userDb.length - 1].id + 1;
         const {
-            firstName, lastName, otherNames, password, confirmPassword, email, phoneNumber, username, role
+            firstName, lastName, otherNames, password, confirmPassword, email, phoneNumber, username
         } = req.body;
         const newUser = {
-             firstName, lastName, otherNames, email, password, confirmPassword, phoneNumber, username, registeredAlt,
-            role
+            id,
+            firstName, lastName, otherNames, email, password, confirmPassword, phoneNumber, username, registeredAlt, role
         }
         db.userDb.push(newUser);
+        console.log(newUser);
         res.status(201);
         res.json({
             status: 201,
             message: `Signup Was Successful`,
-            data: `${newUser.username} Welcome to iReporter`
+            data: newUser
         });
     }
 

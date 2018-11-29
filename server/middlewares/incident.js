@@ -53,19 +53,21 @@ export default class IncidentValidator {
         if (createdOn === undefined) {
             return res.status(400).json({
                 status: 400,
-                message: 'Incident date cannot be undefined'
+                message: 'createdOn cannot be undefined'
             });
         }
-        // if (typeof createdOn !== 'string') {
-        //     return res.status(400).json({
-        //         status: 400,
-        //         message: 'Incident date should be a string'
-        //     });
-        // }
+        const createdOnVerifier = /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/;
+
+        if (!createdOnVerifier.test(createdOn)) {
+            return res.status(400).json({
+                status: 400,
+                message: 'createdOn format should be yyyy-mm-dd'
+            });
+        }
         if (createdOn === '') {
             return res.status(400).json({
                 status: 400,
-                message: 'Incident should have a date'
+                message: 'createdOn should have a date'
             });
         }
 
@@ -73,25 +75,38 @@ export default class IncidentValidator {
         if (createdBy === undefined) {
             return res.status(400).json({
                 status: 400,
-                message: 'Incident date cannot be undefined'
+                message: 'createdBy cannot  be undefined'
             });
         }
         if (typeof createdBy !== 'string') {
             return res.status(400).json({
                 status: 400,
-                message: 'UserId should be a number'
+                message: 'createdBy should be a number'
+            });
+        }
+        const createdByVerifier = /[0-9]/;
+        if (! createdByVerifier.test(createdBy)) {
+            return res.status(400).json({
+                status: 400,
+                message: 'createdby cannot be a string'
+            });
+        }
+        if ( createdBy.length < 0 || createdBy.length > 2) {
+            return res.status(400).json({
+                status: 400,
+                message: 'createdBy number ranges from 1 to 90'
             });
         }
         if (createdBy === '') {
             return res.status(400).json({
                 status: 400,
-                message: 'Incident should have a date'
+                message: 'createdBy cannot be empty'
             });
         }
         const foundIncidentCreateBy = db.incident.find(incident => incident.createdBy === createdBy);
         if (foundIncidentCreateBy) {
             return res.status(409).json({
-                status: 400,
+                status: 409,
                 message: 'Incident already exists, consider updating it instead'
             });
         }
@@ -115,8 +130,9 @@ export default class IncidentValidator {
                 message: 'Incident should have a type'
             });
         }
-        type = type.toLocaleLowerCase().trim();
-        if (type != 'red-flag') {
+         
+       
+        if (type !== 'red-flag') {
             return res.status(400).json({
                 status: 400,
                 message: 'incident should have a type either red-flag or intervention'
@@ -194,6 +210,12 @@ export default class IncidentValidator {
                 message: 'Image URL cannot be empty'
             });
         }
+        if (imageUrl.length < 5 || imageUrl.length > 40) {
+            return res.status(400).json({
+                status: 400,
+                message: 'Image URL length should from 5 to 40 characters'
+            });
+        }
 
         //videoUrl
         if (videoUrl === undefined) {
@@ -202,10 +224,16 @@ export default class IncidentValidator {
                 message: 'Video URL cannot be undefined'
             });
         }
-        if (typeof videoUrl !== 'string') {
+        if (typeof(videoUrl) !== 'string') {
             return res.status(400).json({
                 status: 400,
                 message: 'Video URL should be a string'
+            });
+        }
+        if (videoUrl.length < 5 || videoUrl.length > 40) {
+            return res.status(400).json({
+                status: 400,
+                message: 'Video URL length should from 5 to 40 characters'
             });
         }
         if (videoUrl === '') {

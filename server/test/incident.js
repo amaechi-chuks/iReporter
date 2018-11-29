@@ -13,12 +13,13 @@ should();
 chai.use(chaiHttp);
 
 const url = '/api/v1/red-flags';
+const url1 = '/api/v1/red-flag';
 const inValidParams = 'abc';
-const inValidURL = `/api/v1/red-flags/${inValidParams}`;
+const inValidURL = `/api/v1/red-flag/${inValidParams}`;
 const notFoundRedFlagId = 14;
-const notFound = `/api/v1/red-flags/${notFoundRedFlagId}`;
+const notFound = `/api/v1/red-flag/${notFoundRedFlagId}`;
 const foundParams = 1;
-const foundURL = `/api/v1/red-flags/${foundParams}`;
+const foundURL = `/api/v1/red-flag/${foundParams}`;
 
 
 describe('Test for (METHOD)/ incident route', () => {
@@ -542,6 +543,7 @@ describe('Test for (METHOD)/ incident route', () => {
                     done();
                 });
         });
+       
         /**
       * **********************************
       * Test for comment ---- ends here!
@@ -553,19 +555,98 @@ describe('Test for (METHOD)/ incident route', () => {
         * Test Create incident --- begins here
         * **********************************
         */
-        // it('Should return 201 status code successful creation of incident', (done) => {
-        //     const newLength = db.incident.length + 1;
+
+
+        it('Should return 404 status code if incident already exists', (done) => {
+            chai.request(app)
+                .post(url1)
+                .send(validIncident[1])
+                .end((err, res) => {
+                    res.should.have.status(404);
+                    res.body.should.be.a('object');
+                    expect(404);
+                    res.body.message.should.be.a('string');
+
+                    done();
+                });
+        });
+        // it('Should return 409 status code if product name already exists', (done) => {
         //     chai.request(app)
-        //         .post(url)
-        //         .send(validIncident[0])
-        //         .end((err, res) => {
-        //             res.should.have.status(201);
-        //             // res.body.should.be.a('object');
-        //             // expect(res.body).to.have.property('newIncident');
-        //             // res.body.message.should.be.a('string');
-        //             // expect(db.incident).to.have.length(newLength);
-        //             done();
-        //         });
-        // });
+        //       .post(url1)
+        //       .send(validIncident[1])
+        //       .end((err, res) => {
+        //         res.should.have.status(409);
+        //         res.body.should.be.a('object');
+        //         // expect(res.body.status).to.equal('Fail');
+        //         res.body.message.should.be.a('string');
+        //         done();
+        //       });
+        //   });
+
+
     });
-})
+    describe('Tests for getOne/getAll incident API', () => {
+        it('Should return 400 status code if incidentId is invalid', (done) => {
+            chai.request(app)
+                .get(inValidURL)
+                .end((err, res) => {
+                    res.should.have.status(400);
+                    res.body.should.be.a('object');
+                    expect(res.body.status).to.equal(400);
+                    res.body.message.should.be.a('string');
+                    done();
+                });
+        });
+        it('Should return 404 status code if incidentID is valid but not found', (done) => {
+            chai.request(app)
+              .get(notFound)
+              .end((err, res) => {
+                res.should.have.status(404);
+                res.body.should.be.a('object');
+                expect(res.body.status).to.equal(404);
+                res.body.message.should.be.a('string');
+                done();
+              });
+          });
+          it('Should return 200 status code if incident is found', (done) => {
+            const incidentLength = db.incident.length;
+            chai.request(app)
+              .get(foundURL)
+              .end((err, res) => {
+                res.should.have.status(200);
+                res.body.should.be.a('object');
+                res.body.message.should.be.a('string');
+                expect(db.incident).to.have.length(incidentLength);
+                done();
+              });
+          });
+          it('Should return 200 status code and get all incident in db', (done) => {
+            const sameLength = db.incident.length;
+            chai.request(app)
+              .get(url)
+              .end((err, res) => {
+                res.should.have.status(200);
+                res.body.should.be.a('object');
+                res.body.message.should.be.a('string');
+                expect(db.incident).to.have.length(sameLength);
+                done();
+              });
+          });
+
+    });
+    // describe('Tests for PutURL API', () => {
+    //     it('Should return 200 status and successfully update existing incident', (done) => {
+    //       const sameLength = db.incident.length;
+    //       chai.request(app)
+    //         .put(foundURL)
+    //         .send(validIncident[0])
+    //         .end((err, res) => {
+    //           res.should.have.status(200);
+    //           res.body.should.be.a('object');
+    //           res.body.message.should.be.a('string');
+    //           expect(db.incident).to.have.length(sameLength);
+    //           done();
+    //         });
+    //     });
+    //   });
+});

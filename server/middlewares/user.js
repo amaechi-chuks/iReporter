@@ -13,7 +13,7 @@ class UserValidator {
       */
     static signUpValidator(req, res, next) {
         //destructure user object property
-        let { firstName, lastName, otherNames, email, password, confirmPassword, phoneNumber, username, registeredAlt } = req.body;
+        let { firstName, lastName, otherNames, email, password, confirmPassword, phoneNumber, username } = req.body;
 
         // firstName validation
         if (firstName === undefined) {
@@ -90,12 +90,12 @@ class UserValidator {
             });
         }
 
-        if (typeof email !== 'string') {
-            return res.status(400).json({
-                status: 400,
-                message: 'Email should be a string'
-            });
-        }
+        // if (typeof email !== 'string') {
+        //     return res.status(400).json({
+        //         status: 400,
+        //         message: 'Email should be a string'
+        //     });
+        // }
 
         email = email.toLowerCase().trim();
         if (email === '') {
@@ -105,17 +105,17 @@ class UserValidator {
             });
         }
         /* eslint-disable no-useless-escape */
-        const emailVerifier = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/;
+        const emailVerifier = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
         if (!emailVerifier.test(email)) {
             return res.status(400).json({
                 status: 400,
-                message: 'Email format is invalid'
+                message: 'You have entered an invalid email address!'
             });
         }
-        if (email.length < 10 || email.length > 30) {
+        if (email.length < 15 || email.length > 40) {
             return res.status(400).json({
                 status: 400,
-                message: 'Email should be 10 to 50 characters long'
+                message: 'Email should be 15 to 50 alphanumeric characters long'
             });
         }
         const foundEmail = db.userDb.find(user => user.email === email);
@@ -140,7 +140,7 @@ class UserValidator {
         if (!checkPassword.test(password)) {
             return res.status(400).json({
                 status: 400,
-                message: `Invalid password`
+                message: `Password not too strong`
             })
         }
 
@@ -168,8 +168,7 @@ class UserValidator {
             });
         }
 
-            const comfirmPasswordChecker = checkPassword;
-        if (!comfirmPasswordChecker) {
+        if (confirmPassword !== password) {
             return res.status(400).json({
                 status: 400,
                 message: `Password do not match`
@@ -228,10 +227,10 @@ class UserValidator {
                 message: 'Invalid PhoneNumber'
             })
         }
-        if(phoneNumberVerifier.length < 7 || phoneNumberVerifier.length > 12) {
+        if (phoneNumberVerifier.length < 7 || phoneNumberVerifier.length > 12) {
             res.status(400).json({
-                status:400,
-                message: 'Incorrect digit length' 
+                status: 400,
+                message: 'phoneNumber length too short '
             })
         }
         //phoneValidtion ends
@@ -240,46 +239,22 @@ class UserValidator {
         if (username === undefined) {
             return res.status(400).json({
                 status: 400,
-                message: 'username  cannot be undefined'
+                message: 'username cannot be undefined'
             });
         }
 
         if (username === "") {
             return res.status(400).json({
                 status: 400,
-                message: 'username  cannot be empty'
+                message: 'username cannot be empty'
             });
         }
         if (typeof username !== "string") {
             return res.status(400).json({
                 status: 400,
-                message: 'username  must be a character',
+                message: 'username must be a character',
             });
         }
-        //username validation ends
-
-        //registeredAlt Validation
-        if (registeredAlt === undefined) {
-            return res.status(400).json({
-                status: 400,
-                message: 'registereAlt cannot be undefined'
-            });
-        }
-
-        if (registeredAlt === "") {
-            return res.status(400).json({
-                status: 400,
-                message: 'registeredAlt cannot be empty'
-            });
-        }
-
-        if (typeof registeredAlt !== 'string') {
-            return res.status(400).json({
-                status: 400,
-                message: 'registeredAlt should be a string'
-            });
-        }
-        //registeredAlt ends 
 
         req.body.firstName = firstName;
         req.body.lastName = lastName;
@@ -289,7 +264,6 @@ class UserValidator {
         req.body.confirmPassword = confirmPassword;
         req.body.phoneNumber = phoneNumber;
         req.body.username = username;
-        req.body.registeredAlt = registeredAlt;
 
         return next();
     }
