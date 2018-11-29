@@ -1,8 +1,10 @@
-import route from './incidentRoutes';
+import router from './incidentRoutes';
 import userRouter from './user';
 import defaultRouter from "./defaultRoute";
 
-export default {
-    route, userRouter, defaultRouter
+const routes = {
+    router, userRouter, defaultRouter
     };
+
+export default routes;
 

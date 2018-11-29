@@ -4,7 +4,7 @@ import db from '../models/incident';
  * Class representing User Authorization
   @class VerifyRole
 **/
-class VerifyRole {
+export default class VerifyRole {
     /**
      * isAdmin - Checks if user is an admin
      * @static
@@ -57,5 +57,3 @@ class VerifyRole {
         });
     }
 }
-
-export default VerifyRole;

@@ -1,7 +1,7 @@
 import UserValidator from './user';
 import VerifyRole from './auth';
-import IncidentValidator from './incident'
-
-export default {
-UserValidator, VerifyRole, IncidentValidator
-}
+import IncidentValidator from './incident';
+const middlewares = {
+    UserValidator, VerifyRole, IncidentValidator
+    }
+export default middlewares;

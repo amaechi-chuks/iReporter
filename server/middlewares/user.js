@@ -13,35 +13,7 @@ class UserValidator {
       */
     static signUpValidator(req, res, next) {
         //destructure user object property
-        let { userId, firstName, lastName, otherNames, email, password, confirmPassword, phoneNumber, username, registeredAlt } = req.body;
-
-        // UserId validations
-        if (userId === undefined) {
-            return res.status(400).json({
-                status: 400,
-                message: 'userId cannot be undefined'
-            });
-        }
-
-        if (UserId === '') {
-            return res.status(400).json({
-                status: 400,
-                message: 'UserId cannot be empty'
-            });
-        }
-
-        let value;
-        if (typeof UserId === 'string') {
-            value = Number(UserId);
-            if (Number.isNaN(value)) {
-                return res.status(400).json({
-                    status: 400,
-                    message: 'UserId should be a valid number'
-                });
-            }
-        }
-        //UserId validation ends
-
+        let { firstName, lastName, otherNames, email, password, confirmPassword, phoneNumber, username, registeredAlt } = req.body;
 
         // firstName validation
         if (firstName === undefined) {
@@ -57,7 +29,7 @@ class UserValidator {
                 message: 'firstName cannot be empty'
             });
         }
-        if (typeof firstName === "string") {
+        if (typeof firstName !== 'string') {
             return res.status(400).json({
                 status: 400,
                 message: 'firstName must be a character',
@@ -79,7 +51,7 @@ class UserValidator {
                 message: 'lastName cannot be empty'
             });
         }
-        if (typeof lastName === "string") {
+        if (typeof lastName !== 'string') {
             return res.status(400).json({
                 status: 400,
                 message: 'lastName must be a character',
@@ -102,7 +74,7 @@ class UserValidator {
             });
         }
 
-        if (typeof otherNames === "string") {
+        if (typeof otherNames !== 'string') {
             return res.status(400).json({
                 status: 400,
                 message: 'otherNames must be a character',
@@ -163,8 +135,9 @@ class UserValidator {
             });
         }
 
-        const passwordVerifier = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,10}$/;
-        if (!passwordVerifier.test(password)) {
+        const passwordVerifier = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+        const checkPassword = passwordVerifier;
+        if (!checkPassword.test(password)) {
             return res.status(400).json({
                 status: 400,
                 message: `Invalid password`
@@ -195,11 +168,11 @@ class UserValidator {
             });
         }
 
-        const confirmPasswordVerifier = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,10}$/;
-        if (!confirmPasswordVerifier.test(confirmPassword)) {
+            const comfirmPasswordChecker = checkPassword;
+        if (!comfirmPasswordChecker) {
             return res.status(400).json({
                 status: 400,
-                message: `Invalid password`
+                message: `Password do not match`
             })
         }
 
@@ -277,7 +250,7 @@ class UserValidator {
                 message: 'username  cannot be empty'
             });
         }
-        if (typeof username === "string") {
+        if (typeof username !== "string") {
             return res.status(400).json({
                 status: 400,
                 message: 'username  must be a character',
@@ -308,7 +281,6 @@ class UserValidator {
         }
         //registeredAlt ends 
 
-        req.body.UserId = value;
         req.body.firstName = firstName;
         req.body.lastName = lastName;
         req.body.otherNames = otherNames;
@@ -386,4 +358,4 @@ class UserValidator {
     }
 }
 
-module.exports = UserValidator;
+export default UserValidator;

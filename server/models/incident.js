@@ -57,50 +57,6 @@ const userDb = [
 ];
 
 const incident = [
-    {
-        id: 1,
-        createdOn: new Date().toDateString(),
-        createdBy: 1, // represents the user who created this record  
-        type: 'intervention',       // [red-flag, intervention] 
-        location: '6H 3E',   // Lat Long coordinates   ​ 
-        status: 'draft',     // [draft, under investigation, resolved, rejected] 
-        imageurl: 'https://www.image.com',
-        videoUrl: 'https://www.video.com',
-        comment: 'Less create awareness for child abuse' //comments
-    },
-    {
-        id: 2,
-        createdOn: new Date().toDateString(),
-        createdBy: 1, // represents the user who created this record  
-        type: 'intervention',       // [red-flag, intervention] 
-        location: '6H 3E',   // Lat Long coordinates   ​ 
-        status: 'draft',     // [draft, under investigation, resolved, rejected] 
-        imageurl: 'https://www.image.com',
-        videoUrl: 'https://www.video.com',
-        comment: 'Nigerian Government is less concern in Education' //comments
-    },
-    {
-        id: 3,
-        createdOn: new Date().toDateString(),
-        createdBy: 1, // represents the user who created this record 
-        type: 'intervention',       // [red-flag, intervention] 
-        location: '6H 3E',   // Lat Long coordinates   ​ 
-        status: 'draft',     // [draft, under investigation, resolved, rejected] 
-        imageurl: 'https://www.image.com',
-        videoUrl: 'https://www.video.com',
-        comment: 'NLC should look into industrial rules and regulation' //comments
-    },
-    {
-        id: 4,
-        createdOn: new Date().toDateString(),
-        createdBy: 4, // represents the user who created this record 
-        type: 'intervention',       // [red-flag, intervention] 
-        location: '6H 3E',   // Lat Long coordinates   ​ 
-        status: 'rejected',     // [draft, under investigation, resolved, rejected] 
-        imageurl: 'https://www.image.com',
-        videoUrl: 'https://www.video.com',
-        comment: 'Thanks to Lagos state ministering of environment for clearing the drainage' //comments
-    },
 
     {
         id: 1,
@@ -111,9 +67,8 @@ const incident = [
         status: 'draft',     // [draft, under investigation, resolved, rejected] 
         imageurl: 'https://www.image.com',
         videoUrl: 'https://www.video.com',
-        comment: 'Our government should wale up from their sleep' //comments
+        comment: 'Human right must be respected' //comments
     },
-
     {
         id: 2,
         createdOn: new Date().toDateString(),
@@ -123,30 +78,32 @@ const incident = [
         status: 'draft',     // [draft, under investigation, resolved, rejected] 
         imageurl: 'https://www.image.com',
         videoUrl: 'https://www.video.com',
-        comment: 'APC fighting PDP' //comments
+        comment: 'Thanks to NGO for taking care of the less privilege' //comments
     },
     {
         id: 3,
         createdOn: new Date().toDateString(),
         createdBy: 3, // represents the user who created this record  
-        type: 'red-flag',       // [red-flag, intervention] 
+        type: 'intervention',       // [red-flag, intervention] 
         location: '6H 3E',   // Lat Long coordinates   ​ 
         status: 'draft',     // [draft, under investigation, resolved, rejected] 
         imageurl: 'https://www.image.com',
         videoUrl: 'https://www.video.com',
-        comment: 'Human right must be respected' //comments
+        comment: 'Create awareness for child abuse' //comments
     },
     {
         id: 4,
         createdOn: new Date().toDateString(),
         createdBy: 4, // represents the user who created this record  
-        type: 'red-flag',       // [red-flag, intervention] 
+        type: 'intervention',       // [red-flag, intervention] 
         location: '6H 3E',   // Lat Long coordinates   ​ 
         status: 'draft',     // [draft, under investigation, resolved, rejected] 
         imageurl: 'https://www.image.com',
         videoUrl: 'https://www.video.com',
-        comment: 'Thanks to NGO for taking care of the less privilege' //comments
-    }
+        comment: 'Nigerian Government should wake up in Education sector' //comments
+    },
+    
+    
 ]
 
 
