@@ -99,20 +99,24 @@ h1 {
   width: 300px;
 }
 
-.login-div {
-  flex: 1;
-}
+
 .topnav > #map-out {
   padding-top:80px
 }
-
+/* .content > h1 {
+  padding-bottom: 10px;
+  
+} */
+.content > .login---button {
+  padding-top: 25px;
+}
 .login-intro {
-  padding-right: 1px;
-  display: block;
+  padding-top: 10px;
+  display: inline-block;
 }
 
 .login-intro a {
-  padding: 10px;
+  padding-top: 10px;
   color: black;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-weight: bold;
@@ -269,7 +273,7 @@ form--size {
 }
 
 .gradient {
-  background-image: linear-gradient(to bottom, #065aad 0%, #020c16 100%);
+  background-image: linear-gradient(to bottom, #065aad 0%, #2465a7 100%);
   background-repeat: repeat;
 }
 
@@ -375,7 +379,7 @@ footer h5 {
   height: 80%;
 }
 
-.None {
+.under{
   color: blueviolet;
   font-size: 15px
 }
@@ -586,6 +590,7 @@ nav .navbar__nav>li>a {
 .draft {
   color: yellow;
   font-size: 13px;
+  cursor: pointer;
 }
 
 .RideHistory__title {
@@ -766,11 +771,11 @@ style redflag-records
 }
 
 .divider--three {
-  width: calc(100% / 3);
+  width: calc(90% / 3);
 }
 
 .divider--three--four {
-  width: calc(80% / 6);
+  width: calc((80% / 5) - 0.9px);
 }
 
 .vertical--center {
@@ -802,7 +807,7 @@ style redflag-records
 
 /* mouse over link */
 .login--Button:hover {
-  color: hotpink;
+  color: olivedrab;
 }
 
 /* selected link */
@@ -812,8 +817,6 @@ style redflag-records
 
 
 /* Linkss */
-
-
 a, a:hover, a:focus, a:active {
   text-decoration: none;
 }
