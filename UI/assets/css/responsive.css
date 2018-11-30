@@ -22,8 +22,8 @@ RESPONSIVE STYLING
 /** Media queris for Application intro **/
 
 @media (max-width: 730px) {
-  .display--message {
-    width: 500px;
+  .content > .login---button {
+    padding-bottom: 13px;
   }
   .main-container {
     position: relative;
@@ -40,9 +40,14 @@ RESPONSIVE STYLING
   }
 }
 
+
 @media (max-width: 630px) {
-  .display--message {
-    width: 400px;
+  .metric {
+    display: block;
+    height: auto;
+    padding: 20px;
+    width: auto;
+    position: relative
   }
   .CreateAccount__form {
     padding: 0;
@@ -56,8 +61,12 @@ RESPONSIVE STYLING
 }
 
 @media (max-width: 530px) {
-  .display--message {
-    width: 300px;
+  .metric {
+    display: block;
+    height: auto;
+    padding: 20px;
+    width: auto;
+    position: relative
   }
   .main-container {
     position: relative;
@@ -78,6 +87,13 @@ RESPONSIVE STYLING
   .container-fluid {
     padding-right: 2rem;
     padding-left: 2rem;
+  }
+  .metric {
+    display: block;
+    height: auto;
+    padding: 20px;
+    width: auto;
+    position: relative
   }
 }
 
@@ -104,11 +120,25 @@ RESPONSIVE STYLING
     position: relative;
     height: 50%;
   }
+  .content > .login---button {
+    padding-bottom: 13px;
+  }
+  .metric {
+    display: block;
+    height: auto;
+    padding: 20px;
+    width: auto;
+    position: relative
+  }
 }
 
 @media (max-width: 430px) {
-  .display--message {
-    width: 250px;
+  .metric {
+    display: block;
+    height: auto;
+    padding: 20px;
+    width: auto;
+    position: relative
   }
   #files {
     width: 100%;
@@ -130,10 +160,12 @@ RESPONSIVE STYLING
 }
 
 @media (max-width: 500px) {
-  .display--message {
-    height: 50px;
-    margin-bottom: 15px;
+  .metric {
+    display: block;
+    height: auto;
+    padding: 20px;
     width: auto;
+    position: relative
   }
   .createflagInfo__header__img {
     width: 100%;
@@ -145,8 +177,12 @@ RESPONSIVE STYLING
 }
 
 @media (max-width: 350px) {
-  .display--message {
-    height: 70px;
+  .metric {
+    display: block;
+    height: auto;
+    padding: 20px;
+    width: auto;
+    position: relative
   }
   .redflagdetails__header {
     width: 100%;
@@ -169,8 +205,8 @@ RESPONSIVE STYLING
 }
 
 @media (max-width: 250px) {
-  .display--message {
-    height: 90px;
+  .content > .login---button {
+    padding-bottom: 13px;
   }
   .redflagdetails__header {
     width: 100%;
@@ -193,6 +229,13 @@ RESPONSIVE STYLING
   .main-container {
     position: relative;
     height: 50%;
+  }
+  .metric {
+    display: block;
+    height: auto;
+    padding: 20px;
+    width: auto;
+    position: relative
   }
 }
 
@@ -203,12 +246,20 @@ RESPONSIVE STYLING
   .contact__form {
     padding: 0;
   }
+  .metric {
+    display: block;
+    height: auto;
+    padding: 20px;
+    width: auto;
+    position: relative
+  }
 }
 
 @media (max-width: 420px) {
   .redflagdetails__header {
     width: 100%;
   }
+
   #files {
     width: 100%;
   }
@@ -228,9 +279,13 @@ RESPONSIVE STYLING
     position: relative;
     padding-top: 50px
   }
+  .content > .login---button {
+    padding-bottom: 13px;
+  }
 }
 
 @media(max-width: 425px) {
+ 
   .input--group {
     height: auto;
     background: transparent;
@@ -376,6 +431,8 @@ RESPONSIVE STYLING
     display: block;
     height: auto;
     padding: 20px;
+    width: auto;
+    position: relative
   }
   .divider--half {
     width: 100%;
@@ -389,6 +446,13 @@ RESPONSIVE STYLING
 @media (max-width: 498px) {
   .redflagdetails__header {
     width: 100%;
+  }
+  .metric {
+    display: block;
+    height: auto;
+    padding: 20px;
+    width: auto;
+    position: relative
   }
   #files {
     width: 100%;
@@ -442,6 +506,13 @@ RESPONSIVE STYLING
   .topnav a:not(:first-child) {
     display: none;
   }
+  .metric {
+    display: block;
+    height: auto;
+    padding: 20px;
+    width: auto;
+    position: relative
+  }
   .topnav a.icon {
     float: right;
     display: block;
@@ -460,6 +531,13 @@ RESPONSIVE STYLING
 @media screen and (max-width: 600px) {
   .topnav.responsive {
     position: relative;
+  }
+  .metric {
+    display: block;
+    height: auto;
+    padding: 20px;
+    width: auto;
+    position: relative
   }
   .topnav.responsive div.icon {
     position: absolute;
@@ -493,3 +571,15 @@ RESPONSIVE STYLING
   }
 }
 
+@media screen and (max-width: 325px) {
+  .content > .login---button {
+   width: 100%;
+  }
+  .metric {
+    display: block;
+    height: auto;
+    padding: 20px;
+    width: auto;
+    position: relative
+  }
+}
