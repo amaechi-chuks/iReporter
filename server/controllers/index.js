@@ -2,6 +2,7 @@ import IncidentController from './incident';
 import UserController from './user';
 
 
-export default  {
+const controllers =  {
     IncidentController, UserController
 };
+export default controllers

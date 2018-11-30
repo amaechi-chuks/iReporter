@@ -13,7 +13,7 @@ const userRouter = express.Router();
 
 //SignUp Route
 userRouter.route('/auth/signup')
-    .post(signUpValidator, signUp, isAdminLogin, );
+    .post(signUpValidator, signUp);
 
 //Signin Route
 userRouter.route('/auth/signin')
@@ -24,6 +24,6 @@ userRouter.route('/auth/admin')
     .get(adminGetAll);
 
 userRouter.route('/auth/admin/:id')
-    .put(adminUpdateStatus);
+    .put(isAdminLogin, adminUpdateStatus);
 
-module.exports = userRouter;
+export default userRouter;

@@ -1,18 +1,21 @@
-language: node_js
-node_js:
-  - "v8.9.4"
-
-  env:
+env:
     global:
     - CC_TEST_REPORTER_ID=7527a70a5c944dd4cadadfd09ab2f73b79dda792dae1dfc6d68f675b7cf0d60b
 
-    before_script:
+language: node_js
+node_js:
+  - 8.9.4
+dist: trusty
+addons:
+  chrome: stable
+before_script:
+  - yarn global add nyc  
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
 
 script:
-  - npm test
+  - npm run test
 
 after_script:
   - npm run coverage

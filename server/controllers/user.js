@@ -5,7 +5,7 @@ import db from "../models/incident";
  * Class representing UserController
  * @class UserController
 **/
-class UserController {
+export default class UserController {
     /**
        * Signup a user to the application
        * @static
@@ -15,16 +15,18 @@ class UserController {
        * @memberof UserController
        */
     static signUp(req, res) {
-        const id = db.userDb[db.userDb.length - 1].id + 1;
         const registeredAlt = new Date();
+        const role = false;
+        const id = db.userDb[db.userDb.length - 1].id + 1;
         const {
-            firstName, lastName, otherNames, password, confirmPassword, email, phoneNumber, username, role
+            firstName, lastName, otherNames, password, confirmPassword, email, phoneNumber, username
         } = req.body;
         const newUser = {
-            id, firstName, lastName, otherNames, email, password, confirmPassword, phoneNumber, username, registeredAlt,
-            role
+            id,
+            firstName, lastName, otherNames, email, password, confirmPassword, phoneNumber, username, registeredAlt, role
         }
         db.userDb.push(newUser);
+        console.log(newUser);
         res.status(201);
         res.json({
             status: 201,
@@ -52,7 +54,7 @@ class UserController {
             res.json({
                 status: 200,
                 message: `Signin Successful`,
-                data: found
+                data: `${found.username} Welcome Back!`
             });
         }
         else {
@@ -74,7 +76,7 @@ class UserController {
 
 
     static adminGetAll(req, res) {
-        const id = parseInt(req.query.id, 10);
+        const id = parseInt(req.body.id, 10);
         let foundUser = db.userDb.find(user => user.id == id);
         if (foundUser && foundUser.isAdmin === true) {
             foundUser = db.incident;
@@ -115,12 +117,12 @@ class UserController {
             id, createdOn, createdBy, type, location, status, imageUrl, videoUrl, comment
         };
         const findIncidentId = db.incident.find(incident => incident.id === id);
+
         if (findIncidentId) {
             db.incident[id - 1] = edit;
-            console.log(edit)
             return res.status(200).json({
-                success: true,
-                message: 'Incident status updated',
+                status: 200,
+                message: 'Incident status successfuly updated',
                 data: edit
             });
         }
@@ -132,4 +134,3 @@ class UserController {
     }
 
 }
-module.exports = UserController;
