@@ -104,7 +104,10 @@
 ![alt](./screenShoot/homePage.jpg)
 
 # UI Templates
+ ch-update-README-#162360893
+Preview UI templates :+1: [Github Pages](https://amaechi-chuks.github.io/iReporter/)
 preview UI tempplates: [Github Pages](https://amaechi-chuks.github.io/iReporter/)
+
 
 ## Required Features
 1. `User can create an account and log in`.
@@ -173,10 +176,16 @@ npm run test
 |/api/v1/auth/admin/admin_id |Admin Upadate a single red-flag/intervention status         |PUT
 |
 
+ ch-update-README-#162360893
+## License :boom:
+This projects is under the MIT LICENSE
+
+## Acknowledgments :pray:
 ## License
 This projects is under the MIT LICENSE
 
 ## Acknowledgments
+
 - [Egghead](https://egghead.io/)
 - [Andela](http://andela.com)
 - [Devdocs](https://devdocs.io/)
@@ -195,5 +204,6 @@ This projects is under the MIT LICENSE
 ### Live demo
 
 You can test the api endpoints
-
+ ch-update-README-#162360893
+:+1: [Here ](https://ireporter-software.herokuapp.com/
 - [Here ](https://ireporter-software.herokuapp.com/)
