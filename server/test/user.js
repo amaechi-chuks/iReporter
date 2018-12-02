@@ -26,7 +26,7 @@
 //                 res.should.have.status(200);
 //                 res.body.should.be.a('object');
 //                 res.body.message.should.be.a('string');
-//                 expect(db.userDb).to.have.length(newLength);
+//                 expect(db.userDb).to.deep.equal(newLength);
 //                 done();
 //               });
 //           });

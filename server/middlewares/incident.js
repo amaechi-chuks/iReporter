@@ -138,6 +138,12 @@ export default class IncidentValidator {
                 message: 'incident should have a type either red-flag or intervention'
             })
         }
+        // if (type !== 'intervention') {
+        //     return res.status(400).json({
+        //         status: 400,
+        //         message: 'incident should have a type either red-flag or intervention'
+        //     })
+        // }
         //location
         if (location === undefined) {
             return res.status(400).json({
@@ -282,7 +288,8 @@ export default class IncidentValidator {
         if (!locationVerify.test(location)) {
             return res.status(400).json({
                 status: 400,
-                message: 'Invalid Location Input'
+                message: 'Invalid Location Input',
+                sample: '6W 7N'
             });
         }
 

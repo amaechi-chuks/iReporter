@@ -19,7 +19,7 @@ router.route('/red-flags')
     .post(incidentInputChecker, updateByComment, updateByLocation, createIncident);
 
 //create a intervention record
-router.route('/intervention')
+router.route('/interventions')
     .post(incidentInputChecker, updateByComment, updateByLocation, createIncident);
 
 //Get all red-flag record
@@ -27,7 +27,7 @@ router.route('/red-flags')
     .get( getAllIncident);
 
 //Get all red-flag record
-router.route('/intervention')
+router.route('/interventions')
     .get(getAllIncident);
 
 

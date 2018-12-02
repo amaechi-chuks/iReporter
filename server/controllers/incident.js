@@ -98,14 +98,14 @@ export default class IncidentController {
         const type = req.url.split('/')[1];
         const index = parseInt(req.params.id, 10);
         const findRedFlag = db.incident.find(redflag => redflag.id === index);
-        if (type == 'red-flag' && findRedFlag.type == 'red-flag') {
+        if (type === 'red-flag' && findRedFlag.type === 'red-flag') {
             return res.status(200).json({
                 status: 200,
                 message: `Successfully retrieved ${findRedFlag.type}`,
                 data: db.incident[index - 1]
             });
         }
-        else if (type == 'intervention' && findRedFlag.type == 'intervention') {
+        else if (type === 'intervention' && findRedFlag.type === 'intervention') {
             return res.status(200).json({
                 status: 200,
                 message: `Successfully Retrieved ${findRedFlag.type}`,
@@ -132,8 +132,8 @@ export default class IncidentController {
     static updateRedFlagByLocation(req, res) {
         const type = req.url.split('/')[1];
         const redFlagId = parseInt(req.params.id, 10);
-        const oldRedFlagId = db.incident.find((allBiz) => allBiz.id === redFlagId);
-        if (oldRedFlagId.type == 'red-flag' && type == 'red-flag' && oldRedFlagId.status == 'draft') {     // Check if the RedFlag location exist, then update.
+        const oldRedFlagId = db.incident.find((allRedFlag) => allRedFlag.id === redFlagId);
+        if (oldRedFlagId.type === 'red-flag' && type === 'red-flag' && oldRedFlagId.status === 'draft') {     // Check if the RedFlag location exist, then update.
             oldRedFlagId.location = req.body.location;
             db.incident[redFlagId - 1] = oldRedFlagId;
             res.status(200);
@@ -144,7 +144,7 @@ export default class IncidentController {
             })
 
         }
-        else if (oldRedFlagId.type == 'intervention' && type == 'intervention' && oldRedFlagId.status == 'draft') {     // Check if the intervention location exist, then update.
+        else if (oldRedFlagId.type === 'intervention' && type === 'intervention' && oldRedFlagId.status === 'draft') {     // Check if the intervention location exist, then update.
             oldRedFlagId.location = req.body.location;
             db.incident[redFlagId - 1] = oldRedFlagId;
             res.status(200);
@@ -177,8 +177,8 @@ export default class IncidentController {
     static updateRedFlagByComment(req, res) {
         const type = req.url.split('/')[1];
         const redFlagId = parseInt(req.params.id, 10);
-        const oldRedFlagId = db.incident.find((allBiz) => allBiz.id === redFlagId);
-        if (oldRedFlagId.type == 'red-flag' && type == 'red-flag' && oldRedFlagId.status == 'draft') {     // Check if the Red-flag cooment exist, then update.
+        const oldRedFlagId = db.incident.find((allRedFlag) => allRedFlag.id === redFlagId);
+        if (oldRedFlagId.type === 'red-flag' && type === 'red-flag' && oldRedFlagId.status === 'draft') {     // Check if the Red-flag cooment exist, then update.
             oldRedFlagId.comment = req.body.comment;
             db.incident[redFlagId - 1] = oldRedFlagId;
             res.status(200);
@@ -188,7 +188,7 @@ export default class IncidentController {
                 data: oldRedFlagId
             })
         }
-        else if (oldRedFlagId.type == 'intervention' && type == 'intervention' && oldRedFlagId.status == 'draft') {     // Check if the intervention commit exist, then update.
+        else if (oldRedFlagId.type === 'intervention' && type === 'intervention' && oldRedFlagId.status === 'draft') {     // Check if the intervention commit exist, then update.
             oldRedFlagId.comment = req.body.comment;
             db.incident[redFlagId - 1] = oldRedFlagId;
             res.status(200);
@@ -220,12 +220,10 @@ export default class IncidentController {
     static deleteRedFlagById(req, res, next) {
         const type = req.url.split('/')[1];
         const findNow = parseInt(req.params.id, 10)
-        const match = db.incident.find((check) => check.id === findNow);
-        console.log(match)
-        if (match) {
-            const newMatch = db.incident.filter(newIncident => newIncident.id !== findNow);
-            db.incident = newMatch;
-            // db.incident.push(newMatch);
+        const deleteIncident = db.incident.find((check) => check.id === findNow);
+        if (deleteIncident) {
+            const newIncidentId = db.incident.filter(newIncident => newIncident.id !== findNow);
+            db.incident = newIncidentId;
             return res.status(200),
                 res.json({
                     status: 200,
@@ -233,7 +231,7 @@ export default class IncidentController {
 
                 })
         }
-        else if (match.type == 'intervention' && type == 'intervention') {
+        else if (deleteIncident.type === 'intervention' && type === 'intervention') {
             return res.status(200),
                 res.json({
                     status: 200,

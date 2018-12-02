@@ -570,19 +570,6 @@ describe('Test for (METHOD)/ incident route', () => {
                     done();
                 });
         });
-        // it('Should return 409 status code if product name already exists', (done) => {
-        //     chai.request(app)
-        //       .post(url1)
-        //       .send(validIncident[1])
-        //       .end((err, res) => {
-        //         res.should.have.status(409);
-        //         res.body.should.be.a('object');
-        //         // expect(res.body.status).to.equal('Fail');
-        //         res.body.message.should.be.a('string');
-        //         done();
-        //       });
-        //   });
-
 
     });
     describe('Tests for getOne/getAll incident API', () => {
@@ -634,19 +621,4 @@ describe('Test for (METHOD)/ incident route', () => {
           });
 
     });
-    // describe('Tests for PutURL API', () => {
-    //     it('Should return 200 status and successfully update existing incident', (done) => {
-    //       const sameLength = db.incident.length;
-    //       chai.request(app)
-    //         .put(foundURL)
-    //         .send(validIncident[0])
-    //         .end((err, res) => {
-    //           res.should.have.status(200);
-    //           res.body.should.be.a('object');
-    //           res.body.message.should.be.a('string');
-    //           expect(db.incident).to.have.length(sameLength);
-    //           done();
-    //         });
-    //     });
-    //   });
 });

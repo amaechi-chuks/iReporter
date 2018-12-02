@@ -90,13 +90,6 @@ class UserValidator {
             });
         }
 
-        // if (typeof email !== 'string') {
-        //     return res.status(400).json({
-        //         status: 400,
-        //         message: 'Email should be a string'
-        //     });
-        // }
-
         email = email.toLowerCase().trim();
         if (email === '') {
             return res.status(400).json({
@@ -253,6 +246,13 @@ class UserValidator {
             return res.status(400).json({
                 status: 400,
                 message: 'username must be a character',
+            });
+        }
+        const foundUserName = db.userDb.find(user => user.username === username);
+        if (foundUserName) {
+            return res.status(409).json({
+                status: 409,
+                message: 'UserName already exists!'
             });
         }
 

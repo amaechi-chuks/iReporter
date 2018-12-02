@@ -26,7 +26,6 @@ export default class UserController {
             firstName, lastName, otherNames, email, password, confirmPassword, phoneNumber, username, registeredAlt, role
         }
         db.userDb.push(newUser);
-        console.log(newUser);
         res.status(201);
         res.json({
             status: 201,
