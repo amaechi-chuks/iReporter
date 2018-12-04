@@ -12,7 +12,6 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway|Satisfy" rel="stylesheet">
     <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
     <title>Create Red-flag</title>
-
 </head>
 
 <body>
@@ -25,20 +24,7 @@
                         <div class="navbar__header dashboard__navbar__header">
                             <a href="index.html" class="header-brand"><span>i</span>Reporter</a>
                             </span>
-                        </div>
-                        <!-- Collect the nav links for toggling -->
-                        <div class="collapse navbar__collapse dashboard__collapse">
-                            <div class="container-fluid">
-                                <ul class="nav navbar__right navbar__nav">
-                                    <li>
-                                        <a href="#">
-                                            <span class="text--color--grey">Hello,</span>
-                                            <span class="text--primary">Chuks</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                        </div>  
                     </header>
                 </nav>
                 <div class="dashboard__header__bottom bg--color--primary">
@@ -47,19 +33,21 @@
                             <li>
                                 <a href="redflagrecords.html" class="notification">
                                     Red-flag
-                                    <hr class="active--indicator">
                                 </a>
                             </li>
                             <li>
                                 <a href="interventionrecords.html">
                                     Intervention
-                                    <hr class="active--indicator">
                                 </a>
                             </li>
                             <li>
                                 <a href="index.html">
                                     Sign out
-                                    <hr class="active--indicator">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                   <p class="text--hello">Hello, Chuks</p> 
                                 </a>
                             </li>
                         </ul>
@@ -77,7 +65,7 @@
                                 <h3 class="text--primary"> Add Red-flag</h3>
                                 <h5 class="text--color--grey font--regular">GET READY TO MAKE THE HEADLINES!</h5>
                                 <span class="input--group dashboard--input">
-                                    <a href="createintervention.html" class="text--primary">Click here to add
+                                    <a href="createintervention.html" class="text--primary intervention--padding">Click here to add
                                         Intervention</a>
                                 </span>
                             </div>
@@ -92,13 +80,13 @@
                                 </div>
                                 <!-- capture textarea -->
                                 <div class="input--group dashboard--input">
-                                    <textarea name="" id="input${1/(\w+)/\u\1/g}" class="form-control textarea-form"
+                                    <textarea name="" id="input${1/(\w+)/\u\1/g}" class="form-control1 textarea-form"
                                         rows="3" placeholder="Your message" required></textarea>
                                 </div>
                                 <!-- submit button -->
-                                <div class="contact__submit margin--top--10">
+                                <div class="contact__submit margin--top--10 dashboard--input">
                                     <a href="individualredflag.html">
-                                        <button type="submit" class="btn btn--block bg--color--grey text--color--white light--shadow">
+                                        <button type="submit" class="btn btn--block bg--color--grey text--color--white  create--padding light--shadow">
                                             <span>submit</span>
                                         </button>
                                     </a>

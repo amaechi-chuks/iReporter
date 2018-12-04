@@ -17,8 +17,11 @@ RESPONSIVE STYLING
     position: relative;
     height: 50%;
   }
+   .container-fluid > ul > li> a > p {
+    float: right;
+    padding-left: 50rem
+   }
 }
-
 /** Media queris for Application intro **/
 
 @media (max-width: 730px) {
@@ -38,6 +41,10 @@ RESPONSIVE STYLING
   .CreateAccount__form>form .input--group>input {
     border-right: none;
   }
+  .container-fluid > ul > li> a > p {
+    float: right;
+    padding-left: 10rem
+   }
 }
 
 
@@ -81,6 +88,11 @@ RESPONSIVE STYLING
   .CreateAccount__form>form .input--group>input {
     border-right: none;
   }
+  .container-fluid > ul > li> a > p {
+    float: right;
+    /* position: fixed; */
+    padding-left: 10rem
+   }
 }
 
 @media (max-width: 1024px) {
@@ -108,7 +120,22 @@ RESPONSIVE STYLING
     height: 50%;
   }
 }
-
+@media (max-width: 400px) {
+.redflagdetails__header1 {
+  color: rgba(64, 18, 117, 0.5);
+  border: 1px solid;
+  border-radius: 10px;
+  width: 80%;
+  height: 200%;
+}
+.redflagdetails__header2 {
+  color: rgba(64, 18, 117, 0.5);
+  border: 1px solid;
+  border-radius: 10px;
+  width: 100%;
+  height: 150%;
+}
+}
 @media (max-width: 360px) {
   .createflagInfo__header__img {
     width: 100%;
@@ -130,6 +157,12 @@ RESPONSIVE STYLING
     width: auto;
     position: relative
   }
+  .container-fluid > ul > li> a > p {
+    float: right;
+    /* position: fixed; */
+    padding-left: 1rem
+}
+
 }
 
 @media (max-width: 430px) {
@@ -157,6 +190,11 @@ RESPONSIVE STYLING
     position: relative;
     height: 50%;
   }
+  .container-fluid > ul > li> a > p {
+    float: right;
+    /* position: fixed; */
+    padding-left: 1rem
+}
 }
 
 @media (max-width: 500px) {
@@ -202,11 +240,30 @@ RESPONSIVE STYLING
     position: relative;
     padding-top: 50px
   }
+  .container-fluid > ul > li> a > p {
+    float: right;
+    /* position: fixed; */
+    padding-left: 1rem
+}
+textarea.form-control1 {
+  color: rgba(64, 18, 117, 0.5);
+  outline: none;
+  padding: 1px 0 14px 1px;
+  width: 80%;
+
+ 
+}
 }
 
 @media (max-width: 250px) {
   .content > .login---button {
     padding-bottom: 13px;
+  }
+  textarea.form-control1 {
+    color: rgba(64, 18, 117, 0.5);
+    outline: none;
+    padding: 1px 0 14px 1px;
+    width: 80%;
   }
   .redflagdetails__header {
     width: 100%;
@@ -529,29 +586,6 @@ RESPONSIVE STYLING
   .topnav a:not(:first-child) {
     display: none;
   }
-  .metric {
-    display: block;
-    height: auto;
-    padding: 20px;
-    width: auto;
-    position: relative
-  }
-  .topnav a.icon {
-    float: right;
-    display: block;
-  }
-  .CreateAccount__form {
-    padding: 0;
-  }
-  .CreateAccount__form>form .input--group>input {
-    border-right: none;
-  }
-  .CreateAccount__form>form .input--group>input {
-    border-right: none;
-  }
-}
-
-@media screen and (max-width: 600px) {
   .topnav.responsive {
     position: relative;
   }
@@ -592,8 +626,34 @@ RESPONSIVE STYLING
     display: block;
     text-align: left;
   }
+  .metric {
+    display: block;
+    height: auto;
+    padding: 20px;
+    width: auto;
+    position: relative
+  }
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+  .CreateAccount__form {
+    padding: 0;
+  }
+  .CreateAccount__form>form .input--group>input {
+    border-right: none;
+  }
+  .CreateAccount__form>form .input--group>input {
+    border-right: none;
+  }
+  .redflagdetails__header1 {
+    color: rgba(64, 18, 117, 0.5);
+    border: 1px solid;
+    border-radius: 10px;
+    width: 90%;
+    height: 135%;
+  }
 }
-
 @media screen and (max-width: 325px) {
   .content > .login---button {
    width: 100%;
@@ -610,5 +670,41 @@ RESPONSIVE STYLING
     width: 25%;
     border: 2px;
     border-radius: 8px;
+  }
+  .container-fluid > ul > li> a > p {
+    float: right;
+    /* position: fixed; */
+    padding-left: 0px;
+}
+textarea.form-control1 {
+  color: rgba(64, 18, 117, 0.5);
+  outline: none;
+  padding: 1px 0 14px 1px;
+  width: 80%;
+}
+}
+@media screen and (max-width: 320px) {
+  textarea.form-control1 {
+    color: rgba(64, 18, 117, 0.5);
+    outline: none;
+    padding: 0px 0 0px 1px;
+    width: 90%;
+    /* height: 100%; */
+    margin-bottom: 15px
+  }
+}
+@media screen and (max-width: 360px) {
+  textarea.form-control1 {
+    outline: none;
+    padding: 0px 0 0px 1px;
+    width: 90%;
+
+  }
+  .redflagdetails__header1 {
+    color: rgba(64, 18, 117, 0.5);
+    border: 1px solid;
+    border-radius: 10px;
+    width: 80%;
+    height: 150%;
   }
 }
