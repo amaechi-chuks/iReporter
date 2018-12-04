@@ -3,7 +3,7 @@ import express from 'express';
 const defaultRouter = express.Router();
 
 defaultRouter.get('/', (req, res) => res.status(200).json({
-    status: 200,
+  status: 200,
   message: 'Welcome to iReporter'
 }));
 
