@@ -45,7 +45,7 @@ export default class IncidentValidator {
     const {
       createdOn, createdBy, type, location, status, imageUrl, videoUrl
     } = req.body;
-
+    const verifyCreatedBy = parseInt(createdBy, 10);
     if (createdOn === undefined) {
       return res.status(400).json({
         status: 400,
@@ -73,12 +73,7 @@ export default class IncidentValidator {
         message: 'createdBy cannot  be undefined'
       });
     }
-    if (typeof createdBy !== 'string') {
-      return res.status(400).json({
-        status: 400,
-        message: 'createdBy should be a number'
-      });
-    }
+
     const createdByVerifier = /[0-9]/;
     if (!createdByVerifier.test(createdBy)) {
       return res.status(400).json({
@@ -86,10 +81,18 @@ export default class IncidentValidator {
         message: 'createdby cannot be a string'
       });
     }
-    if (createdBy.length < 0 || createdBy.length > 2) {
+
+    if (typeof verifyCreatedBy !== 'number') {
       return res.status(400).json({
         status: 400,
-        message: 'createdBy number ranges from 1 to 90'
+        message: 'createdBy should be a number'
+      });
+    }
+
+    if (createdBy.length < 1) {
+      return res.status(400).json({
+        status: 400,
+        message: 'createdBy number starts from 1 and above'
       });
     }
     if (createdBy === '') {
@@ -233,15 +236,6 @@ export default class IncidentValidator {
         message: 'Video url cannot be empty'
       });
     }
-
-    req.body.createdOn = createdOn;
-    req.body.createdBy = createdBy;
-    req.body.type = type;
-    req.body.location = location;
-    req.body.status = status;
-    req.body.imageUrl = imageUrl;
-    req.body.videoUrl = videoUrl;
-
     next();
   }
 

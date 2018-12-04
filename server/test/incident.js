@@ -37,7 +37,7 @@ describe('Test for (METHOD)/ incident route', () => {
           done();
         });
     });
-    it('Should return 400 status code for incident date not a string', (done) => {
+    it('Should return 400 status code for incident date not a number', (done) => {
       chai.request(app)
         .post(url)
         .send(inValidIncidentDate[1])

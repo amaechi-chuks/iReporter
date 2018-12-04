@@ -13,8 +13,7 @@ export default class IncidentController {
  * @param {object} res - The response object
  * @return {object} JSON representing success message
  * @memberof IncidentController
-*/
-
+ */
   static createIncident(req, res) {
     if (parseInt(req.body.createdBy, 10) > 0) {
       const {
@@ -44,28 +43,27 @@ export default class IncidentController {
   }
 
   /**
-  * API Get method to get all Incident
-  * @static
-  * @param {object} req - The request object
-  * @param {object} res - The response object
-  * @returns {object} JSON object representing success message
-  * @memberof IncidentController
-  */
-
+   * API Get method to get all Incident
+   * @static
+   * @param {object} req - The request object
+   * @param {object} res - The response object
+   * @returns {object} JSON object representing success message
+   * @memberof IncidentController
+   */
   static getAllIncident(req, res) {
     if (db.incident.length !== 0) {
-      const type = req.url.split('/')[1];
-      const type2 = type.split('s')[0];
-      const data = db.incident.filter((incidentType) => {
-        if (incidentType.type === 'red-flag' || type2 === 'red-flag') {
+      const checkIncidentType = req.url.split('/')[1];
+      const incident = checkIncidentType.split('s')[0];
+      const incidentToDispaly = db.incident.filter((incidentType) => {
+        if (incidentType.type === 'red-flag' || incident === 'red-flag') {
           return incidentType;
         }
       });
 
       return res.status(200).json({
         success: true,
-        message: `Successfully retrived all ${type2}`,
-        data
+        message: `Successfully retrived all ${incident}`,
+        incidentToDispaly
 
       });
     }
@@ -84,17 +82,17 @@ export default class IncidentController {
    * @memberof IncidentController
    */
   static getSingleRedFlag(req, res) {
-    const type = req.url.split('/')[1];
+    const checkIncidentType = req.url.split('/')[1];
     const index = parseInt(req.params.id, 10);
     const findRedFlag = db.incident.find(redflag => redflag.id === index);
-    if (type === 'red-flag' && findRedFlag.type === 'red-flag') {
+    if (checkIncidentType === 'red-flag' && findRedFlag.type === 'red-flag') {
       return res.status(200).json({
         status: 200,
         message: `Successfully retrieved ${findRedFlag.type}`,
         data: db.incident[index - 1]
       });
     }
-    if (type === 'intervention' && findRedFlag.type === 'intervention') {
+    if (checkIncidentType === 'intervention' && findRedFlag.type === 'intervention') {
       return res.status(200).json({
         status: 200,
         message: `Successfully Retrieved ${findRedFlag.type}`,
@@ -108,19 +106,18 @@ export default class IncidentController {
   }
 
   /**
-    * API PUT method to update  a single incident by location
-    * @param {object} req
-    * @param {object} res
-    * @returns {object} success message
-    * @returns {object} {object} JSON object representing success message
-    * @memberof IncidentController
+   * API PUT method to update  a single incident by location
+   * @param {object} req
+   * @param {object} res
+   * @returns {object} success message
+   * @returns {object} {object} JSON object representing success message
+   * @memberof IncidentController
    */
-
   static updateRedFlagByLocation(req, res) {
-    const type = req.url.split('/')[1];
+    const checkIncidentType = req.url.split('/')[1];
     const redFlagId = parseInt(req.params.id, 10);
     const oldRedFlagId = db.incident.find(allRedFlag => allRedFlag.id === redFlagId);
-    if (oldRedFlagId.type === 'red-flag' && type === 'red-flag' && oldRedFlagId.status === 'draft') { // Check if the RedFlag location exist, then update.
+    if (oldRedFlagId.type === 'red-flag' && checkIncidentType === 'red-flag' && oldRedFlagId.status === 'draft') { // Check if the RedFlag location exist, then update.
       oldRedFlagId.location = req.body.location;
       db.incident[redFlagId - 1] = oldRedFlagId;
       res.status(200);
@@ -129,7 +126,7 @@ export default class IncidentController {
         message: 'Successfully update redFlag location',
         data: oldRedFlagId
       });
-    } else if (oldRedFlagId.type === 'intervention' && type === 'intervention' && oldRedFlagId.status === 'draft') { // Check if the intervention location exist, then update.
+    } else if (oldRedFlagId.type === 'intervention' && checkIncidentType === 'intervention' && oldRedFlagId.status === 'draft') { // Check if the intervention location exist, then update.
       oldRedFlagId.location = req.body.location;
       db.incident[redFlagId - 1] = oldRedFlagId;
       res.status(200);
@@ -149,19 +146,19 @@ export default class IncidentController {
 
 
   /**
-    * API PUT method to update a single incident by comment
-    * @param {object} req
-    * @param {object} res
-    * @returns {object} success message
-    * @returns {object} {object} JSON object representing success message
-    * @memberof IncidentController
-    */
+   * API PUT method to update a single incident by comment
+   * @param {object} req
+   * @param {object} res
+   * @returns {object} success message
+   * @returns {object} {object} JSON object representing success message
+   * @memberof IncidentController
+   */
 
   static updateRedFlagByComment(req, res) {
-    const type = req.url.split('/')[1];
+    const checkIncidentType = req.url.split('/')[1];
     const redFlagId = parseInt(req.params.id, 10);
     const oldRedFlagId = db.incident.find(allRedFlag => allRedFlag.id === redFlagId);
-    if (oldRedFlagId.type === 'red-flag' && type === 'red-flag' && oldRedFlagId.status === 'draft') { // Check if the Red-flag cooment exist, then update.
+    if (oldRedFlagId.type === 'red-flag' && checkIncidentType === 'red-flag' && oldRedFlagId.status === 'draft') { // Check if the Red-flag cooment exist, then update.
       oldRedFlagId.comment = req.body.comment;
       db.incident[redFlagId - 1] = oldRedFlagId;
       res.status(200);
@@ -170,7 +167,7 @@ export default class IncidentController {
         message: 'Successfully update redFlag comment',
         data: oldRedFlagId
       });
-    } else if (oldRedFlagId.type === 'intervention' && type === 'intervention' && oldRedFlagId.status === 'draft') { // Check if the intervention commit exist, then update.
+    } else if (oldRedFlagId.type === 'intervention' && checkIncidentType === 'intervention' && oldRedFlagId.status === 'draft') { // Check if the intervention commit exist, then update.
       oldRedFlagId.comment = req.body.comment;
       db.incident[redFlagId - 1] = oldRedFlagId;
       res.status(200);
@@ -190,16 +187,16 @@ export default class IncidentController {
   }
 
   /**
-          * API DELETE method to delete red-flag by Id
-          * @param {obj} req
-          * @param {obj} res
-          * @returns {obj} success message
-          * @returns {object} {object} JSON object representing success message
-          * @memberof IncidentController
-          */
+   * API DELETE method to delete red-flag by Id
+   * @param {obj} req
+   * @param {obj} res
+   * @returns {obj} success message
+   * @returns {object} {object} JSON object representing success message
+   * @memberof IncidentController
+   */
 
   static deleteRedFlagById(req, res) {
-    const type = req.url.split('/')[1];
+    const checkIncidentType = req.url.split('/')[1];
     const findNow = parseInt(req.params.id, 10);
     const deleteIncident = db.incident.find(check => check.id === findNow);
     if (deleteIncident) {
@@ -211,7 +208,7 @@ export default class IncidentController {
 
       });
     }
-    if (deleteIncident.type === 'intervention' && type === 'intervention') {
+    if (deleteIncident.type === 'intervention' && checkIncidentType === 'intervention') {
       return res.status(200).json({
         status: 200,
         message: 'Deleted successfully!',

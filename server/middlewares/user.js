@@ -10,9 +10,8 @@ class UserValidator {
  * @param {object} res - The response object
  * @param {function} next - Calls the next function
  * @returns {object} JSON representing the failure message
-*/
+ */
   static signUpValidator(req, res, next) {
-    // destructure user object property
     const {
       firstName, lastName, otherNames, email, password, confirmPassword, phoneNumber, username
     } = req.body;
@@ -239,16 +238,6 @@ class UserValidator {
         message: 'UserName already exists!'
       });
     }
-
-    req.body.firstName = firstName;
-    req.body.lastName = lastName;
-    req.body.otherNames = otherNames;
-    req.body.email = email;
-    req.body.password = password;
-    req.body.confirmPassword = confirmPassword;
-    req.body.phoneNumber = phoneNumber;
-    req.body.username = username;
-
     return next();
   }
 
