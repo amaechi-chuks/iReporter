@@ -237,6 +237,12 @@ RESPONSIVE STYLING
     width: auto;
     position: relative
   }
+  .btn--block {
+    display: block;
+    width: 25%;
+    border: 2px;
+    border-radius: 8px;
+  }
 }
 
 @media(max-width: 768px) {
@@ -260,6 +266,12 @@ RESPONSIVE STYLING
     width: 100%;
   }
 
+  .btn--block {
+    display: block;
+    width: 25%;
+    border: 2px;
+    border-radius: 8px;
+  }
   #files {
     width: 100%;
   }
@@ -285,7 +297,12 @@ RESPONSIVE STYLING
 }
 
 @media(max-width: 425px) {
- 
+  .btn--block {
+    display: inline-block;
+    width: 25%;
+    border: 2px;
+    border-radius: 8px;
+  }
   .input--group {
     height: auto;
     background: transparent;
@@ -447,6 +464,12 @@ RESPONSIVE STYLING
   .redflagdetails__header {
     width: 100%;
   }
+  .btn--block {
+    display: block;
+    width: 25%;
+    border: 2px;
+    border-radius: 8px;
+  }
   .metric {
     display: block;
     height: auto;
@@ -581,5 +604,11 @@ RESPONSIVE STYLING
     padding: 20px;
     width: auto;
     position: relative
+  }
+  .btn--block {
+    display: block;
+    width: 25%;
+    border: 2px;
+    border-radius: 8px;
   }
 }

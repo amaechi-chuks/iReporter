@@ -45,14 +45,22 @@
                     <form action="#" method="POST" role="form">
                         <!-- group inputs -->
                         <div class="input--group">
-                            <input type="text" class="form-control form--control" placeholder="Name" required>
-                            <input type="text" class="form-control form--control" placeholder="Email " required>
-                            <input type="text" class="form-control form--control" placeholder="Phone" required>
+                            <label for="name">Name:
+                                <input type="name" class="form-control form--control" placeholder="Name" required></label>
+                            
+                            <label for="email">Email:
+                                    <input type="email" class="form-control form--control" placeholder="Email " required>
+                            </label>
+                           
+                            <label for="number">PhoneNumber
+                                    <input type="number" class="form-control form--control" placeholder="Phone" required>
+                            </label>
+                           
                         </div>
                         <!-- textarea -->
                         <div class="text__area p--0">
                             <textarea name="" id="input${1/(\w+)/\u\1/g}" class="form-control" rows="3" placeholder="Your message"
-                                required></textarea>
+                              type="text"  required></textarea>
                         </div>
                         <!-- submit button -->
                         <div class="contact__submit">
@@ -65,9 +73,9 @@
             </div>
         </section>
     </main>
-    <section class="contact CreateAccountFooter-me gradient">
+    <section class="contact1">
     <footer>
-        <h5 class="text--center text--color--white">&copy; Amaechi Chuks</h5>
+        <h5 class="text--center sticky--bottom text--color--white">&copy; Amaechi Chuks</h5>
     </footer>
     </section>
 </div>

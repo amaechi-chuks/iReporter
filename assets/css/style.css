@@ -123,7 +123,7 @@ h1 {
 }
 
 form {
-  border: black 1px solid;
+  border: rgb(78, 160, 187) 1px solid;
   border-radius: 10px;
   padding: 10px;
  
@@ -152,6 +152,9 @@ form--size {
 
 .contact {
   padding: 60px 0 0 0;
+}
+.contact1 {
+  padding: 20px 0 0 0;
 }
 
 
@@ -204,11 +207,14 @@ form--size {
   height: 142px;
   border: none;
 }
+label {
+  color: black
+}
 
 .form--control, textarea.form-control {
-  color: rgba(64, 18, 117, 0.5);
+  color:rgba(64, 18, 117, 0.5);
   outline: none;
-  padding: 14px 0 14px 38px;
+  padding: 0px 0 16px 0px;
   width: 100%;
 }
 
@@ -241,17 +247,20 @@ form--size {
   color: #ffffff;
 }
 
-.btn {
+/* .btn {
   padding: 10px 16px !important;
   -webkit-box-shadow: 0px 2px 35px 8px rgba(0, 0, 0, 0.25);
   -moz-box-shadow: 0px 2px 35px 8px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 2px 35px 8px rgba(0, 0, 0, 0.25);
   border: none;
-}
+} */
 
 .btn--block {
   display: block;
-  width: 100%;
+  width: 25%;
+  border: 2px;
+  height: 10%;
+  border-radius: 8px;
 }
 
 .bg--color--grey {
@@ -273,7 +282,7 @@ form--size {
 }
 
 .gradient {
-  background-image: linear-gradient(to bottom, #065aad 0%, #2465a7 100%);
+  background: rgb(154, 202, 218);
   background-repeat: repeat;
 }
 
@@ -283,9 +292,12 @@ form--size {
 
 /** footer **/
 
+
 footer h5 {
-  margin-top: 15px;
-  font-size: 20px
+  margin-top: 0px;
+  font-size: 20px;
+  position: relative;
+
 }
 
 .text--center {
