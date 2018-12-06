@@ -25,27 +25,62 @@ body, html {
 .main-container {
   position: relative;
   height: 50%;
+  width: 100%
 }
 
 header {
   background-color: #fff;
-  width: 110%;
+  /* width: 110%; */
   height: 60px;
   position: sticky;
   top: 0px;
   z-index: 1;
+  width: 100%;
 }
 
 header .header-brand {
   color: #1c7f7f;
   font-size: 170%;
   font-weight: 800;
+  width: 1%;
+  float: left;
   font-family: Satisfy;
   display: block;
   text-align: center;
   padding: 10px 0;
+  border-radius: 10px;
 }
 
+.topnav {
+  overflow: hidden;
+  background-color: white;
+  float: right;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+.topnav a {
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 5px 5px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+
+.contact--me {
+  margin: 0px 10px 0px 5px;
+  border-radius:10px;
+}
+header .topnav > a {
+  color: white;
+  padding: 8px;
+}
+
+.active {
+  background-color: #4CAF50;
+  color: white;
+}
 header .header-brand span {
   color: #d32f2f;
 }
@@ -75,6 +110,7 @@ header .header-brand span {
   text-align: center;
   padding-top: 50px;
   max-width: 960px;
+  width: 100%;
 }
 
 h1 {
@@ -90,13 +126,6 @@ h1 {
   max-width: 960px;
   margin: 50px auto;
   padding: 0 10px;
-}
-
-.app-intro {
-  text-align: center;
-  flex: 1;
-  color: black;
-  width: 300px;
 }
 
 .topnav>#map-out {
@@ -152,11 +181,17 @@ form--size {
 /* contact styling */
 
 .contact {
-  padding: 60px 0 0 0;
+  height: 80%;
+  width: 100%;
+  padding: 30rem 0 0 0;
+  background-image: url("../img/landing_page_image.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .contact1 {
-  padding: 20px 0 0 0;
+  padding: 29px 0 0 0;
+  background-color: lightblue
 }
 
 .contact__form, .CreateAccount__form {
@@ -180,6 +215,7 @@ form--size {
 
 .contact__form>form, .CreateAccount__form>form {
   width: 70%;
+  background-color: white;
 }
 
 .input--group {
@@ -188,17 +224,24 @@ form--size {
   border-radius: 3px;
   display: flex;
 }
+.input--group1 {
+  background-color: #ffffff;
+  border-radius: 3px;
+  display: inline;
 
-.form--control {
+}
+
+ .form--control {
   font-size: 14px;
   width: 50%;
   line-height: 16px;
   border-radius: 0%;
-  background: transparent;
+  /* background: transparent;
   z-index: 10;
   border: none;
-  border-right: 1px solid;
-}
+  border-right: 1px solid; */
+  margin: 5px;
+} 
 
 .text__area {
   margin: 16px 0 24px 0;
@@ -217,10 +260,10 @@ label {
   color: rgba(64, 18, 117, 0.5);
   outline: none;
   padding: 14px 0 14px 38px;
-  width: 100%;
+  width: 90%;
 }
 .create--padding {
-  margin-top:20px;
+  /* margin-top:1px; */
   width: 30%;
   position: relative;
 }
@@ -240,29 +283,23 @@ label {
   /* opacity: 1; */
   /* Firefox */
 }
-
 .form--control::placeholder, textarea:-ms-input-placeholder {
   /* Internet Explorer 10-11 */
   color: rgba(64, 18, 117, 0.5);
 }
-
 .form--control::placeholder, textarea::-ms-input-placeholder {
   /* Microsoft Edge */
   color: rgba(64, 18, 117, 0.5);
 }
-
 .p--0 {
   padding: 0;
 }
-
 .text--color--grey {
   color: #828282;
 }
-
-.text--color--white {
+.text--color--white > span {
   color: #ffffff;
 }
-
 .btn--block {
   display: block;
   width: 25%;
@@ -276,7 +313,6 @@ label {
   color: #ffffff;
   cursor: pointer;
 }
-
 .bg--color--white {
   background-color: #ffffff;
 }
@@ -355,7 +391,7 @@ footer h5 {
 }
 
 .CreateAccount {
-  padding: 50px 0;
+  padding-top: 90px
 }
 
 .register {
@@ -364,7 +400,7 @@ footer h5 {
 }
 
 .CreateAccount__form>form .input--group {
-  margin-bottom: 20px
+  margin-bottom: 27px
 }
 
 .CreateAccountFooter {
@@ -456,7 +492,7 @@ footer h5 {
  outline: none;
 }
 .intervention--padding {
-  padding: 5px;
+  padding-top: 15px;
 }
 
 .navbar__header {
@@ -563,7 +599,7 @@ h3 {
 }
 
 .dashboard__content {
-  padding: 30px 0;
+  padding: 20px 0;
 }
 
 .redflagdetails {
@@ -574,10 +610,23 @@ h3 {
   grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
   grid-auto-flow: dense;
   grid-template-rows: 300px 300px;
-  grid-gap: 30px;
+  grid-gap: 50px;
   background-color: #ffffff;
   border-radius: 10px;
 }
+.redflagdetails1 {
+  width: 100%;
+  padding: 40px;
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
+  grid-auto-flow: dense;
+  grid-template-rows: 300px 300px;
+  grid-gap: 70px;
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+
 
 .RedflagInfo__header {
   width: 100%;
@@ -664,7 +713,7 @@ h3 {
 }
 
 .map-header1>img {
-  padding-top: 25px;
+  padding-bottom: 30px;
 }
 
 .light--shadow {
@@ -696,8 +745,9 @@ h3 {
 }
 .createflagInfo__header__img img {
   height: 80px;
-  padding-top: 1px;
+  padding-top: 4px;
   border-radius: 50%;
+  margin-top: 4px;
 }
 
 .font--regular {
@@ -745,16 +795,6 @@ textarea>.textarea-form {
   font-size: 17px;
 }
 
-.topnav .icon {
-  display: none;
-}
-
-/**
-*******************
-style redflag-records
-*******************
-**/
-
 .metric {
   display: flex;
   height: 192px;
@@ -787,6 +827,15 @@ style redflag-records
   border: 1px solid;
   border-radius: 10px;
   width: 80%;
+  height: 110%
+}
+.redflagdetails__header22 {
+  color: rgba(64, 18, 117, 0.5);
+  border: 1px solid;
+  border-radius: 10px;
+  width: 80%;
+  height: 110%;
+  padding-top: 5px;
 }
 .redflagdetails__header1 {
   color: rgba(64, 18, 117, 0.5);
@@ -799,8 +848,9 @@ style redflag-records
   color: rgba(64, 18, 117, 0.5);
   border: 1px solid;
   border-radius: 10px;
-  width: 80%;
-  height: 130%;
+  width: 75%;
+  height: 116%;
+  padding-bottom: 15px;
 }
 
 
@@ -858,7 +908,9 @@ style redflag-records
 /* landing-page-button */
 
 /* visited link */
-
+.text--color--white--white a {
+  color: white
+}
 .login--Button:visited {
   color: green;
 }
