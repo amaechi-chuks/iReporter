@@ -6,13 +6,13 @@ import db from '../models/incident';
 * */
 export default class VerifyRole {
   /**
-     * isAdmin - Checks if user is an admin
-     * @static
-     * @param {object} req - Request object
-     * @param {object} res - Response Object
-     * @param {object} next - Calls the next function/route handler
-     * @returns {object} JSON representing the failure message
-     */
+   * isAdmin - Checks if user is an admin
+   * @static
+   * @param {object} req - Request object
+   * @param {object} res - Response Object
+   * @param {object} next - Calls the next function/route handler
+   * @returns {object} JSON representing the failure message
+   */
   static isAdminLogin(req, res, next) {
     const adminId = parseInt(req.params.id, 10);
     const foundAdmin = db.userDb.find(user => user.id === adminId);
@@ -21,12 +21,12 @@ export default class VerifyRole {
         return next();
       }
       return res.status(401).json({
-        status: 401,
+        success: false,
         message: 'You are not authorized to visit this page'
       });
     }
     return res.status(422).json({
-      status: 422,
+      success: false,
       message: 'Please login with the correct details'
     });
   }
@@ -52,7 +52,7 @@ export default class VerifyRole {
       });
     }
     return res.status(422).json({
-      status: 422,
+      success: false,
       message: 'Please login with the correct details'
     });
   }

@@ -29,14 +29,14 @@ export default class IncidentController {
       db.incident.push(newIncident);
       res.status(201);
       res.json({
-        status: 201,
+        success: true,
         message: `Created ${newIncident.type} record`,
         data: newIncident
       });
     } else {
       res.status(400);
       res.json({
-        status: 400,
+        success: false,
         message: 'Bad Request',
       });
     }
@@ -68,7 +68,7 @@ export default class IncidentController {
       });
     }
     res.status(401).json({
-      status: 401,
+      success: false,
       message: 'You are not authorized to create Incident',
     });
   }
@@ -87,20 +87,20 @@ export default class IncidentController {
     const findRedFlag = db.incident.find(redflag => redflag.id === index);
     if (checkIncidentType === 'red-flag' && findRedFlag.type === 'red-flag') {
       return res.status(200).json({
-        status: 200,
+        success: true,
         message: `Successfully retrieved ${findRedFlag.type}`,
         data: db.incident[index - 1]
       });
     }
     if (checkIncidentType === 'intervention' && findRedFlag.type === 'intervention') {
       return res.status(200).json({
-        status: 200,
+        success: true,
         message: `Successfully Retrieved ${findRedFlag.type}`,
         data: db.incident[index - 1]
       });
     }
     return res.status(404).json({
-      status: 404,
+      success: false,
       message: 'Request does not exist'
     });
   }
@@ -122,7 +122,7 @@ export default class IncidentController {
       db.incident[redFlagId - 1] = oldRedFlagId;
       res.status(200);
       res.json({
-        status: 200,
+        success: true,
         message: 'Successfully update redFlag location',
         data: oldRedFlagId
       });
@@ -131,14 +131,14 @@ export default class IncidentController {
       db.incident[redFlagId - 1] = oldRedFlagId;
       res.status(200);
       res.json({
-        status: 200,
+        success: true,
         message: 'Successfully update intervention location',
         data: oldRedFlagId
       });
     } else {
       res.status(401);
       res.json({
-        status: 401,
+        success: false,
         message: 'You are not authorized to edit this page',
       });
     }
@@ -163,7 +163,7 @@ export default class IncidentController {
       db.incident[redFlagId - 1] = oldRedFlagId;
       res.status(200);
       res.json({
-        status: 200,
+        success: true,
         message: 'Successfully update redFlag comment',
         data: oldRedFlagId
       });
@@ -172,14 +172,14 @@ export default class IncidentController {
       db.incident[redFlagId - 1] = oldRedFlagId;
       res.status(200);
       res.json({
-        status: 200,
+        success: true,
         message: 'Successfully update intervention comment',
         data: oldRedFlagId
       });
     } else {
       res.status(401);
       res.json({
-        status: 401,
+        success: false,
         message: 'You are not authorized to edit this page',
 
       });
@@ -203,21 +203,21 @@ export default class IncidentController {
       const newIncidentId = db.incident.filter(newIncident => newIncident.id !== findNow);
       db.incident = newIncidentId;
       return res.status(200).json({
-        status: 200,
+        success: true,
         message: 'Deleted successfully!',
 
       });
     }
     if (deleteIncident.type === 'intervention' && checkIncidentType === 'intervention') {
       return res.status(200).json({
-        status: 200,
+        success: true,
         message: 'Deleted successfully!',
 
       });
     }
 
     return res.status(404).json({
-      status: 404,
+      success: false,
       message: 'Not Found'
     });
   }

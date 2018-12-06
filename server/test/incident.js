@@ -25,87 +25,15 @@ const foundURL = `/api/v1/red-flag/${foundParams}`;
 
 describe('Test for (METHOD)/ incident route', () => {
   describe('Tests for createIncident API', () => {
-    it('Should return 400 status code for undefined incident date', (done) => {
-      chai.request(app)
-        .post(url)
-        .send(inValidIncidentDate[0])
-        .end((err, res) => {
-          res.should.have.status(400);
-          res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
-          res.body.message.should.be.a('string');
-          done();
-        });
-    });
-    it('Should return 400 status code for incident date not a number', (done) => {
-      chai.request(app)
-        .post(url)
-        .send(inValidIncidentDate[1])
-        .end((err, res) => {
-          res.should.have.status(400);
-          res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
-          res.body.message.should.be.a('string');
-          done();
-        });
-    });
-    it('Should return 400 status code for an empty incident date', (done) => {
-      chai.request(app)
-        .post(url)
-        .send(inValidIncidentDate[2])
-        .end((err, res) => {
-          res.should.have.status(400);
-          res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
-          res.body.message.should.be.a('string');
-          done();
-        });
-    });
-    it('Should return 400 status code for incident date length not valid', (done) => {
-      chai.request(app)
-        .post(url)
-        .send(inValidIncidentDate[3])
-        .end((err, res) => {
-          res.should.have.status(400);
-          res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
-          res.body.message.should.be.a('string');
-          done();
-        });
-    });
-    it('Should return 400 status code for incident date length not valid', (done) => {
-      chai.request(app)
-        .post(url)
-        .send(inValidIncidentDate[3])
-        .end((err, res) => {
-          res.should.have.status(400);
-          res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
-          res.body.message.should.be.a('string');
-          done();
-        });
-    });
-    it('Should return 400 status code for incident date invalid', (done) => {
-      chai.request(app)
-        .post(url)
-        .send(inValidIncidentDate[4])
-        .end((err, res) => {
-          res.should.have.status(400);
-          res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
-          res.body.message.should.be.a('string');
-          done();
-        });
-    });
-    it('Should return 400 status code for undefined userId', (done) => {
+    it('Should return 400 status code for undefined createdBy', (done) => {
       chai.request(app)
         .post(url)
         .send(inValidUserId[0])
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
-          res.body.message.should.be.a('string');
+          expect(res.body.success).to.equal(false);
+          res.body.message.should.eql('createdBy is required');
           done();
         });
     });
@@ -116,8 +44,8 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
-          res.body.message.should.be.a('string');
+          expect(res.body.success).to.equal(false);
+          res.body.message.should.eql('createdBy is required');
           done();
         });
     });
@@ -128,7 +56,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
@@ -140,7 +68,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
@@ -152,7 +80,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
@@ -164,7 +92,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
@@ -176,7 +104,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
@@ -188,7 +116,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
@@ -200,7 +128,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
@@ -212,7 +140,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
@@ -224,7 +152,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
@@ -236,7 +164,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
@@ -248,7 +176,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
@@ -260,7 +188,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
@@ -272,7 +200,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
@@ -284,7 +212,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
@@ -296,7 +224,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
@@ -308,7 +236,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
@@ -320,7 +248,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
@@ -332,7 +260,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
@@ -344,7 +272,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
@@ -356,7 +284,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
@@ -368,7 +296,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
@@ -380,7 +308,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
@@ -392,7 +320,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
@@ -404,7 +332,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
@@ -416,7 +344,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
@@ -428,7 +356,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
@@ -440,7 +368,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
@@ -452,21 +380,8 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
-          done();
-        });
-    });
-    it('Should return 404 status code if incident already exists', (done) => {
-      chai.request(app)
-        .post(url1)
-        .send(validIncident[1])
-        .end((err, res) => {
-          res.should.have.status(404);
-          res.body.should.be.a('object');
-          expect(404);
-          res.body.message.should.be.a('string');
-
           done();
         });
     });
@@ -478,7 +393,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
@@ -489,7 +404,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(404);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(404);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
