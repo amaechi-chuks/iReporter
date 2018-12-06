@@ -10,7 +10,7 @@ RESPONSIVE STYLING
   header .header-brand {
     font-size: 40px;
     position: absolute;
-    left: 10%;
+    left: 5%;
     top: 4.5%;
   }
   .main-container {
@@ -22,6 +22,8 @@ RESPONSIVE STYLING
     padding-left: 50rem
    }
 }
+
+
 /** Media queris for Application intro **/
 
 @media (max-width: 730px) {
@@ -140,6 +142,7 @@ RESPONSIVE STYLING
   .createflagInfo__header__img {
     width: 100%;
   }
+ 
   .createflag__header {
     width: 100%;
   }
@@ -304,7 +307,11 @@ textarea.form-control1 {
 
 @media(max-width: 768px) {
   .contact {
-    height: auto;
+    height: 10%;
+    width: 100%;
+    background-image: url("../img/landing_page_image.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
   }
   .contact__form {
     padding: 0;
@@ -583,9 +590,6 @@ textarea.form-control1 {
 }
 
 @media screen and (max-width: 600px) {
-  .topnav a:not(:first-child) {
-    display: none;
-  }
   .topnav.responsive {
     position: relative;
   }
@@ -600,9 +604,6 @@ textarea.form-control1 {
     position: absolute;
     right: 0;
     top: 0;
-  }
-  .topnav div:not(:first-child) {
-    display: none;
   }
   .topnav div.icon {
     float: right;
@@ -698,8 +699,24 @@ textarea.form-control1 {
     outline: none;
     padding: 0px 0 0px 1px;
     width: 90%;
-
   }
+  .redflagdetails__header {
+    width: 100%;
+    height: 110%;
+  }
+  .margin--top--101 {
+    padding-bottom: 5px;
+    height: 50px;
+  }
+  .create--padding {
+    width: 40%;
+    height: 60%;
+  position: relative;
+  }
+    header .topnav > a {
+       display: flex;
+       flex-direction: column;
+   }
   .redflagdetails__header1 {
     color: rgba(64, 18, 117, 0.5);
     border: 1px solid;

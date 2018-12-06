@@ -117,12 +117,7 @@ export default class IncidentValidator {
         message: 'Incident type cannot be undefined'
       });
     }
-    if (typeof type !== 'string') {
-      return res.status(400).json({
-        status: 400,
-        message: 'Incident type should be a string'
-      });
-    }
+
     if (type === '') {
       return res.status(400).json({
         status: 400,
@@ -131,19 +126,12 @@ export default class IncidentValidator {
     }
 
 
-    if (type !== 'red-flag') {
+    if (type !== 'red-flag' || type !== 'intervention') {
       return res.status(400).json({
         status: 400,
         message: 'incident should have a type either red-flag or intervention'
       });
     }
-    // if (type !== 'intervention') {
-    //     return res.status(400).json({
-    //         status: 400,
-    //         message: 'incident should have a type either red-flag or intervention'
-    //     })
-    // }
-    // location
     if (location === undefined) {
       return res.status(400).json({
         status: 400,
