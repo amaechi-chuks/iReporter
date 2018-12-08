@@ -1,6 +1,5 @@
 [![Build Status](https://travis-ci.com/amaechi-chuks/iReporter.svg?branch=develope)](https://travis-ci.com/amaechi-chuks/iReporter)
 [![Maintainability](https://api.codeclimate.com/v1/badges/d7fad423c89e659bd531/maintainability)](https://codeclimate.com/github/amaechi-chuks/iReporter/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/d7fad423c89e659bd531/test_coverage)](https://codeclimate.com/github/amaechi-chuks/iReporter/test_coverage)
 [![Coverage Status](https://coveralls.io/repos/github/amaechi-chuks/iReporter/badge.svg?branch=develope)](https://coveralls.io/github/amaechi-chuks/iReporter?branch=develope)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
@@ -14,77 +13,6 @@
  - [Acknowledgments](#acknowledgments)
  - [Contribution](#contribution)
  - [Live Demo](#live-demo)
-
- ## Folder Structure
-
-
-
-    ├── .nyc_output                   # Compiled files (alternatively `dist`)
-    ├── coverage                      # Compiled files (alternatively `dist`)     
-    ├── node_modules                  # Compiled files (alternatively `dist`)
-    ├── screenShoot
-           ├── homePage.jpg                    
-    ├── server                                # Source files (alternatively `lib` or `app`)
-           ├── controllers
-                   ├── incident.js
-                   ├── index.js
-                   ├── user.js
-           ├── middlewares
-                   ├── auth.js
-                   ├── incident.js
-                   ├── index.js
-                   ├── user.js
-
-           ├── models                         # MockData
-                 ├── incident.js
-           ├── routes                         
-                 ├── defaultRoute.js
-                 ├── incidentRoute.js
-                 ├── index.js
-                 ├── user.js
-           ├── test                            # Automated tests (alternatively `spec` or `tests`)
-                 ├── mockDb
-                        ├── incident.js
-                        ├── user.js
-                 ├── default.js
-                 ├── incident.js
-                 ├── user.js 
-    ├──UI                                       # UI template
-        ├── assets
-              ├── css
-                   ├── responsive.css
-                   ├── styles.css
-              ├── img
-                   ├── bad-road.jpeg
-                   ├── fallen-electricity-pole.jpeg
-                   ├── IMG_1499.JPG
-                   ├── nigeria-google-map.jpg
-              ├── js  
-                  ├── main.js  
-        ├── admin-dashboard.html
-        ├── createintervention.html
-        ├── createredflag.html
-        ├── index.html
-        ├── individualintervention.html
-        ├── individualredflag.html
-        ├── interventionhistory.html
-        ├── interventionrecords.html
-        ├── login.html
-        ├── redflaghistory.html
-        ├── redflagrecords.html
-        ├── signup.html                               
-    ├── .babalrc
-    ├── .codeclimate.yml
-    ├── .coveralls.yml
-    ├── .eslintrc
-    ├── .gitignore
-    ├── .travis.yml
-    ├── app.js                                  
-    ├── package-lock.json
-    ├── package.json
-    └── README.md
-  
-
 
 # Introduction
 
@@ -101,7 +29,7 @@
 
 
 ## Screenshoot(UI template)
-![alt](./screenShoot/homePage.jpg)
+![alt](./screenShoot/home_page_image1_1.png)
 
 # UI Templates
 
@@ -181,10 +109,6 @@ npm run test
 This projects is under the MIT LICENSE
 
 ## Acknowledgments :pray:
-## License
-This projects is under the MIT LICENSE
-
-## Acknowledgments
 
 - [Egghead](https://egghead.io/)
 - [Andela](http://andela.com)
