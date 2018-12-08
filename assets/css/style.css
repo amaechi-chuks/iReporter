@@ -73,7 +73,7 @@ header .header-brand {
   border-radius:10px;
 }
 header .topnav > a {
-  color: white;
+  color: green;
   padding: 8px;
 }
 
@@ -114,9 +114,10 @@ header .header-brand span {
 }
 
 h1 {
-  color: black;
+  color: rgb(15, 165, 15);
   flex: 1;
   text-align: center;
+  font-family: Satisfy;
 }
 
 .login-area, .add-to-cart-area {
@@ -131,11 +132,6 @@ h1 {
 .topnav>#map-out {
   padding-top: 80px
 }
-
-/* .content > h1 {
-  padding-bottom: 10px;
-  
-} */
 
 .content>.login---button {
   padding-top: 25px;
@@ -152,6 +148,12 @@ h1 {
   font-weight: bold;
 }
 
+form {
+  border: rgb(78, 160, 187) 1px solid;
+  border-radius: 10px;
+  margin-top: 20px;
+  padding-left: 5px;
+}
 form {
   border: rgb(78, 160, 187) 1px solid;
   border-radius: 10px;
@@ -181,16 +183,16 @@ form--size {
 /* contact styling */
 
 .contact {
-  height: 80%;
+  height: 100%;
   width: 100%;
-  padding: 30rem 0 0 0;
+  padding: 42.8rem 0 0 0;
   background-image: url("../img/landing_page_image.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .contact1 {
-  padding: 29px 0 0 0;
+  padding: 10px 0 10px 0;
   background-color: lightblue
 }
 
@@ -232,16 +234,20 @@ form--size {
 }
 
  .form--control {
-  font-size: 14px;
+  font-size: 17px;
   width: 50%;
   line-height: 16px;
-  border-radius: 0%;
+  border-radius: 10px;
   /* background: transparent;
   z-index: 10;
   border: none;
   border-right: 1px solid; */
   margin: 5px;
 } 
+.form--text--text {
+color: black;
+padding: 0 0 0 9px;
+}
 
 .text__area {
   margin: 16px 0 24px 0;
@@ -259,7 +265,7 @@ label {
 .form--control, textarea.form-control {
   color: rgba(64, 18, 117, 0.5);
   outline: none;
-  padding: 14px 0 14px 38px;
+  padding: 14px 0 14px 110px;
   width: 90%;
 }
 .create--padding {
@@ -297,6 +303,15 @@ label {
 .text--color--grey {
   color: #828282;
 }
+.text--color--grey1 {
+  color: #828282;
+  height: 1px;
+  margin: 11px
+}
+.photo {
+  width: 40%;
+  height: 40%
+}
 .text--color--white > span {
   color: #ffffff;
 }
@@ -311,6 +326,10 @@ label {
 .bg--color--grey {
   background-color: green;
   color: #ffffff;
+  cursor: pointer;
+}
+.bg--color--grey1 {
+  color: green;
   cursor: pointer;
 }
 .bg--color--white {
@@ -337,7 +356,12 @@ label {
 /** footer **/
 
 footer h5 {
-  margin-top: 0px;
+  margin-top: 15px;
+  font-size: 20px;
+  position: relative;
+}
+footer h6 {
+  margin-top: 44.5vh;
   font-size: 20px;
   position: relative;
 }
@@ -428,8 +452,9 @@ footer h5 {
 }
 
 .bigger-button {
-  width: 70px;
+  width: 80px;
   cursor: pointer;
+  color: white
 }
 
 .margin--top--10--10 {
@@ -570,9 +595,21 @@ nav .navbar__nav>li>a {
   display: flex;
   list-style: none;
 }
+/* .bg-container {
+  height: 190%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(3, 29, 71, 0.9);
+    position: absolute;
+} */
 
 .text--primary {
   color: #0c6892;
+}
+.text--primary1{
+  color: #0c6892;
+  margin-left: 7.3rem;
 }
 h3 {
   padding: 5px
@@ -848,8 +885,9 @@ textarea>.textarea-form {
   color: rgba(64, 18, 117, 0.5);
   border: 1px solid;
   border-radius: 10px;
-  width: 75%;
-  height: 116%;
+  width: 70%;
+  height: 115%;
+  overflow: hidden;
   padding-bottom: 15px;
 }
 
@@ -893,8 +931,11 @@ textarea>.textarea-form {
 }
 
 .DashboardColor--bg--primary {
-  background-color: #656cc5;
-  color: #ffffff;
+  background-color: green;
+  color: white
+}
+button > .DashboardColor--bg--primary {
+  color: white
 }
 
 .color--neater {
@@ -910,6 +951,11 @@ textarea>.textarea-form {
 /* visited link */
 .text--color--white--white a {
   color: white
+}
+.text--color--white--white1 a {
+  color: white;
+  text-align: center;
+  padding-left: 10px;
 }
 .login--Button:visited {
   color: green;
@@ -931,4 +977,16 @@ textarea>.textarea-form {
 
 a, a:hover, a:focus, a:active {
   text-decoration: none;
+}
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+.centered {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
 }
