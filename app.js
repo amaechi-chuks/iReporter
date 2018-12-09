@@ -18,7 +18,7 @@ app.use('/api/v1/', routes.router);
 app.use('/', routes.defaultRouter);
 
 app.listen(port, () => {
-  ('app is listening at 5000');
+  console.log('app is listening at 5000');
 });
 
 export default app;

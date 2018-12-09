@@ -3,8 +3,8 @@ import chaiHttp from 'chai-http';
 import app from '../../app';
 
 import {
-  inValidIncidentDate, inValidUserId, invalidType,
-  inValidLocation, inValidStatus, inValidImageUrl, inValidVideoUrl, inValidComment, validIncident
+  inValidUserId, invalidType,
+  inValidLocation, inValidStatus, inValidImageUrl, inValidVideoUrl, inValidComment
 } from './mockDb/incident';
 
 import db from '../models/incident';

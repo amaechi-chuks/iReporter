@@ -5,15 +5,18 @@ import middlewares from '../middlewares';
 const { IncidentController } = controllers;
 
 const {
-  createIncident, getAllIncident, getSingleRedFlag,
-  updateRedFlagByComment, updateRedFlagByLocation,
-  deleteRedFlagById
+  createIncident,
+  getAllIncident,
+  getSingleIncident,
+  updateIncidentComment,
+  updateIncidentLocation,
+  deleteIncidentId
 } = IncidentController;
 
 const { IncidentValidator } = middlewares;
 
 const {
-  getOneIncident, incidentInputChecker, updateByLocation, updateByComment
+  validateSingleIncident, incidentInputChecker, updateByLocation, updateByComment
 } = IncidentValidator;
 
 const router = express.Router();
@@ -26,20 +29,20 @@ router.route('/red-flags').get(getAllIncident);
 
 router.route('/interventions').get(getAllIncident);
 
-router.route('/red-flag/:id').get(getOneIncident, getSingleRedFlag);
+router.route('/red-flag/:id').get(validateSingleIncident, getSingleIncident);
 
-router.route('/intervention/:id').get(getOneIncident, getSingleRedFlag);
+router.route('/intervention/:id').get(validateSingleIncident, getSingleIncident);
 
-router.route('/red-flag/:id/location').put(updateByLocation, updateRedFlagByLocation);
+router.route('/red-flag/:id/location').put(updateByLocation, updateIncidentLocation);
 
-router.route('/intervention/:id/location').put(updateByLocation, updateRedFlagByLocation);
+router.route('/intervention/:id/location').put(updateByLocation, updateIncidentLocation);
 
-router.route('/red-flag/:id/comment').put(updateByComment, updateRedFlagByComment);
+router.route('/red-flag/:id/comment').put(updateByComment, updateIncidentComment);
 
-router.route('/intervention/:id/comment').put(updateByComment, updateRedFlagByComment);
+router.route('/intervention/:id/comment').put(updateByComment, updateIncidentComment);
 
-router.route('/red-flag/:id/delete').delete(getOneIncident, deleteRedFlagById);
+router.route('/red-flag/:id/delete').delete(validateSingleIncident, deleteIncidentId);
 
-router.route('/intervention/:id/delete').delete(getOneIncident, deleteRedFlagById);
+router.route('/intervention/:id/delete').delete(validateSingleIncident, deleteIncidentId);
 
 export default router;

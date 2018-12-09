@@ -13,20 +13,27 @@ class UserValidator {
  */
   static signUpValidator(req, res, next) {
     const {
-      firstName, lastName, otherNames, email, password, confirmPassword, phoneNumber, username
+      firstName,
+      lastName,
+      otherNames,
+      email,
+      password,
+      confirmPassword,
+      phoneNumber,
+      username
     } = req.body;
 
     if (firstName === undefined) {
       return res.status(400).json({
         success: false,
-        message: 'firstName cannot be undefined'
+        message: 'firstName is required'
       });
     }
 
     if (firstName === '') {
       return res.status(400).json({
         success: false,
-        message: 'firstName cannot be empty'
+        message: 'firstName is required'
       });
     }
     if (typeof firstName !== 'string') {
@@ -39,7 +46,7 @@ class UserValidator {
     if (lastName === undefined) {
       return res.status(400).json({
         success: false,
-        message: 'lastName cannot be undefined'
+        message: 'lastName is required'
       });
     }
 
@@ -59,7 +66,7 @@ class UserValidator {
     if (otherNames === undefined) {
       return res.status(400).json({
         success: false,
-        message: 'otherNames cannot be undefined'
+        message: 'otherNames is required'
       });
     }
 
@@ -108,14 +115,14 @@ class UserValidator {
     if (foundEmail) {
       return res.status(409).json({
         success: false,
-        message: 'Email already exists!'
+        message: 'Email already exist!'
       });
     }
 
     if (password === undefined) {
       return res.status(400).json({
         success: false,
-        message: 'Password cannot be undefined'
+        message: 'Password is required'
       });
     }
 
@@ -145,7 +152,7 @@ class UserValidator {
     if (confirmPassword === undefined) {
       return res.status(400).json({
         success: false,
-        message: 'Password cannot be undefined'
+        message: 'Password is required'
       });
     }
 
@@ -215,7 +222,7 @@ class UserValidator {
     if (username === undefined) {
       return res.status(400).json({
         success: false,
-        message: 'username cannot be undefined'
+        message: 'username is required'
       });
     }
 
@@ -249,12 +256,11 @@ class UserValidator {
    */
   static loginValidator(req, res, next) {
     let { email, password } = req.body;
-
     // emial validator
     if (email === undefined) {
       return res.status(400).json({
         success: false,
-        message: 'Email cannot be undefined'
+        message: 'Email is required'
       });
     }
     if (typeof email !== 'string') {
@@ -282,7 +288,7 @@ class UserValidator {
     if (password === undefined) {
       return res.status(401).json({
         success: false,
-        message: 'Pasword cannot be undefined'
+        message: 'Pasword is required'
       });
     }
 

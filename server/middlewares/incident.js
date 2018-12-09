@@ -14,7 +14,7 @@ export default class IncidentValidator {
    * @returns {object} JSON representing the failure message
    * @memberof IncidentValidator
    */
-  static getOneIncident(req, res, next) {
+  static validateSingleIncident(req, res, next) {
     const incidentId = parseInt(req.params.id, 10);
     if (!incidentId) {
       return res.status(400).json({
@@ -43,7 +43,12 @@ export default class IncidentValidator {
    */
   static incidentInputChecker(req, res, next) {
     const {
-      createdBy, type, location, status, imageUrl, videoUrl
+      createdBy,
+      type,
+      location,
+      status,
+      imageUrl,
+      videoUrl
     } = req.body;
     const verifyCreatedBy = parseInt(createdBy, 10);
     if (createdBy === undefined) {
@@ -76,14 +81,14 @@ export default class IncidentValidator {
     if (createdBy.length < 1) {
       return res.status(400).json({
         success: false,
-        message: 'createdBy number starts from 1 and above'
+        message: 'createdBy should be greater than 1'
       });
     }
     const foundIncidentCreateBy = db.incident.find(incident => incident.createdBy === createdBy);
     if (foundIncidentCreateBy) {
       return res.status(409).json({
         success: false,
-        message: 'Incident already exists, consider updating it instead'
+        message: 'Incident already exists'
       });
     }
 

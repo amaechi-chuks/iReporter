@@ -25,7 +25,7 @@ export default class VerifyRole {
         message: 'You are not authorized to visit this page'
       });
     }
-    return res.status(422).json({
+    return res.status(404).json({
       success: false,
       message: 'Please login with the correct details'
     });

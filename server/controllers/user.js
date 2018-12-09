@@ -1,6 +1,5 @@
 import db from '../models/incident';
 
-
 /**
  * Class representing UserController
  * @class UserController
@@ -16,10 +15,17 @@ export default class UserController {
    */
   static signUp(req, res) {
     const registeredAlt = new Date();
-    const role = false;
+    const isAdmin = false;
     const id = db.userDb[db.userDb.length - 1].id + 1;
     const {
-      firstName, lastName, otherNames, password, confirmPassword, email, phoneNumber, username
+      firstName,
+      lastName,
+      otherNames,
+      password,
+      confirmPassword,
+      email,
+      phoneNumber,
+      username
     } = req.body;
     const newUser = {
       id,
@@ -32,14 +38,14 @@ export default class UserController {
       phoneNumber,
       username,
       registeredAlt,
-      role
+      isAdmin
     };
     db.userDb.push(newUser);
     res.status(201);
     res.json({
       success: true,
       message: 'Signup Was Successful',
-      data: newUser
+      data: [newUser]
     });
   }
 
@@ -85,13 +91,13 @@ export default class UserController {
     let foundUser = db.userDb.find(user => user.id === id);
     if (foundUser && foundUser.isAdmin === true) {
       foundUser = db.incident;
-      return res.status(200).res.json({
+      res.status(200);
+      res.json({
         success: true,
         message: 'All Inccident successfully retrived',
-        data: foundUser
+        data: [foundUser]
       });
-    }
-    if (foundUser && foundUser.role !== true) {
+    } else if (foundUser && foundUser.isAdmin !== true) {
       return res.status(401).res.json({
         success: false,
         message: 'You are not authorized to visit this page'
@@ -114,19 +120,33 @@ export default class UserController {
   static adminUpdateStatus(req, res) {
     const id = parseInt(req.params.id, 10);
     const {
-      createdOn, createdBy, type, location, status, imageUrl, videoUrl, comment
+      createdOn,
+      createdBy,
+      type,
+      location,
+      status,
+      imageUrl,
+      videoUrl,
+      comment
     } = req.body;
     const edit = {
-      id, createdOn, createdBy, type, location, status, imageUrl, videoUrl, comment
+      id,
+      createdOn,
+      createdBy,
+      type,
+      location,
+      status,
+      imageUrl,
+      videoUrl,
+      comment
     };
     const findIncidentId = db.incident.find(incident => incident.id === id);
-
     if (findIncidentId) {
       db.incident[id - 1] = edit;
       return res.status(200).json({
         success: true,
         message: 'Incident status successfuly updated',
-        data: edit
+        data: [edit]
       });
     }
     return res.status(400).json({
