@@ -47,6 +47,12 @@ RESPONSIVE STYLING
     float: right;
     padding-left: 10rem
    }
+   form {
+    border: rgb(78, 160, 187) 1px solid;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20px;
+  }
 }
 
 
@@ -67,6 +73,12 @@ RESPONSIVE STYLING
   .CreateAccount__form>form .input--group>input {
     border-right: none;
   }
+  form {
+    border: rgb(78, 160, 187) 1px solid;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20px;
+  }
 }
 
 @media (max-width: 530px) {
@@ -76,6 +88,12 @@ RESPONSIVE STYLING
     padding: 20px;
     width: auto;
     position: relative
+  }
+  form {
+    border: rgb(78, 160, 187) 1px solid;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20px;
   }
   .main-container {
     position: relative;
@@ -121,6 +139,12 @@ RESPONSIVE STYLING
     position: relative;
     height: 50%;
   }
+  form {
+    border: rgb(78, 160, 187) 1px solid;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20px;
+  }
 }
 
 @media (max-width: 400px) {
@@ -130,6 +154,12 @@ RESPONSIVE STYLING
   border-radius: 10px;
   width: 80%;
   height: 200%;
+}
+form {
+  border: rgb(78, 160, 187) 1px solid;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 20px;
 }
 .redflagdetails__header2 {
   color: rgba(64, 18, 117, 0.5);
@@ -213,6 +243,12 @@ footer h6 {
     /* position: fixed; */
     padding-left: 1rem
 }
+form {
+  border: rgb(78, 160, 187) 1px solid;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 20px;
+}
 }
 
 @media (max-width: 500px) {
@@ -268,8 +304,12 @@ textarea.form-control1 {
   outline: none;
   padding: 1px 0 14px 1px;
   width: 80%;
-
- 
+}
+form {
+  border: rgb(78, 160, 187) 1px solid;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 20px;
 }
 }
 
@@ -282,6 +322,12 @@ textarea.form-control1 {
     outline: none;
     padding: 1px 0 14px 1px;
     width: 80%;
+  }
+  form {
+    border: rgb(78, 160, 187) 1px solid;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20px;
   }
   .redflagdetails__header {
     width: 100%;
@@ -344,6 +390,12 @@ textarea.form-control1 {
   .redflagdetails__header {
     width: 100%;
   }
+  form {
+    border: rgb(78, 160, 187) 1px solid;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20px;
+  }
 
   .btn--block {
     display: block;
@@ -381,6 +433,23 @@ textarea.form-control1 {
     width: 25%;
     border: 2px;
     border-radius: 8px;
+  }
+  form {
+    border: rgb(78, 160, 187) 1px solid;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20px;
+  }
+  .text--primary1{
+    color: #0c6892;
+   margin-left: 20px;
+  }
+  .form--control, textarea.form-control {
+    color: rgba(64, 18, 117, 0.5);
+    outline: none;
+    padding: 14px 10px 14px 4px;
+    width: 90%;
+    margin-left: 10px
   }
   .input--group {
     height: auto;
@@ -616,6 +685,13 @@ textarea.form-control1 {
   .topnav.responsive {
     position: relative;
   }
+  .form--control, textarea.form-control {
+    color: rgba(64, 18, 117, 0.5);
+    outline: none;
+    padding: 14px 10px 14px 4px;
+    width: 90%;
+    margin-left: 10px
+  }
   .metric {
     display: block;
     height: auto;
@@ -730,6 +806,12 @@ textarea.form-control1 {
     /* height: 100%; */
     margin-bottom: 15px
   }
+  .form--control, textarea.form-control {
+    color: rgba(64, 18, 117, 0.5);
+    outline: none;
+    padding: 11px 0 10px 10px;
+    width: 95%;
+  }
   .contact {
     height: 50%;
     width: 100%;
@@ -766,10 +848,29 @@ textarea.form-control1 {
     outline: none;
     padding: 0px 0 0px 1px;
     width: 90%;
+    margin-top: 15px
+  }
+  .article button {
+    padding: 5px;
+    position: relative;
+    color: red
   }
   .redflagdetails__header {
     width: 100%;
     height: 110%;
+  }
+  form {
+    border: rgb(78, 160, 187) 1px solid;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20px;
+  }
+  .form--control, textarea.form-control {
+    color: rgba(64, 18, 117, 0.5);
+    outline: none;
+    padding: 14px 10px 14px 4px;
+    width: 90%;
+    margin-left: 10px
   }
   .contact {
     height: 60%;
@@ -796,7 +897,6 @@ textarea.form-control1 {
   }
   .create--padding {
     width: 40%;
-    height: 60%;
   position: relative;
   }
     header .topnav > a {

@@ -8,7 +8,7 @@ export const validIncident = [
     status: 'draft', // [draft, under investigation, resolved, rejected]
     imageurl: 'https://www.image.com',
     videoUrl: 'https://www.video.com',
-    comment: 'Human right must be respected' // comments
+    comment: 'Human right must be respected', // comments
   },
   {
     id: 1,
@@ -19,7 +19,7 @@ export const validIncident = [
     status: 'draft', // [draft, under investigation, resolved, rejected]
     imageurl: 'https://www.image.com',
     videoUrl: 'https://www.video.com',
-    comment: 'Thanks to NGO for taking care of the less privilege' // comments
+    comment: 'Thanks to NGO for taking care of the less privilege', // comments
   },
   {
     id: 3,
@@ -30,7 +30,7 @@ export const validIncident = [
     status: 'draft', // [draft, under investigation, resolved, rejected]
     imageurl: 'https://www.image.com',
     videoUrl: 'https://www.video.com',
-    comment: 'Let us create awareness for child abuse' // comments
+    comment: 'Let us create awareness for child abuse', // comments
   },
   {
     id: 4,
@@ -41,8 +41,8 @@ export const validIncident = [
     status: 'draft', // [draft, under investigation, resolved, rejected]
     imageurl: 'https://www.image.com',
     videoUrl: 'https://www.video.com',
-    comment: 'Nigerian Government is less concern in Education' // comments
-  }
+    comment: 'Nigerian Government is less concern in Education', // comments
+  },
 
 ];
 
@@ -61,7 +61,7 @@ export const inValidIncidentDate = [
     status: 'draft', // [draft, under investigation, resolved, rejected]
     imageurl: 'https://www.image.com',
     videoUrl: 'https://www.video.com',
-    comment: 'Human right must be respected' // comments
+    comment: 'Human right must be respected', // comments
   },
 
   /**
@@ -78,7 +78,7 @@ export const inValidIncidentDate = [
     status: 'draft', // [draft, under investigation, resolved, rejected]
     imageurl: 'https://www.image.com',
     videoUrl: 'https://www.video.com',
-    comment: 'Human right must be respected' // comments
+    comment: 'Human right must be respected', // comments
   },
 
   /**
@@ -95,7 +95,7 @@ export const inValidIncidentDate = [
     status: 'draft', // [draft, under investigation, resolved, rejected]
     imageurl: 'https://www.image.com',
     videoUrl: 'https://www.video.com',
-    comment: 'Human right must be respected' // comments
+    comment: 'Human right must be respected', // comments
   },
 
   /**
@@ -112,7 +112,7 @@ export const inValidIncidentDate = [
     status: 'draft', // [draft, under investigation, resolved, rejected]
     imageurl: 'https://www.image.com',
     videoUrl: 'https://www.video.com',
-    comment: 'Human right must be respected' // comments
+    comment: 'Human right must be respected', // comments
   },
   /**
     * ***************
@@ -129,8 +129,8 @@ export const inValidIncidentDate = [
     status: 'draft', // [draft, under investigation, resolved, rejected]
     imageurl: 'https://www.image.com',
     videoUrl: 'https://www.video.com',
-    comment: 'Human right must be respected' // comments
-  }
+    comment: 'Human right must be respected', // comments
+  },
 ];
 
 export const inValidUserId = [
@@ -147,7 +147,7 @@ export const inValidUserId = [
     status: 'draft', // [draft, under investigation, resolved, rejected]
     imageurl: 'https://www.image.com',
     videoUrl: 'https://www.video.com',
-    comment: 'Human right must be respected' // comments
+    comment: 'Human right must be respected', // comments
   },
 
   /**
@@ -164,7 +164,7 @@ export const inValidUserId = [
     status: 'draft', // [draft, under investigation, resolved, rejected]
     imageurl: 'https://www.image.com',
     videoUrl: 'https://www.video.com',
-    comment: 'Human right must be respected' // comments
+    comment: 'Human right must be respected', // comments
   },
 
   /**
@@ -181,7 +181,7 @@ export const inValidUserId = [
     status: 'draft', // [draft, under investigation, resolved, rejected]
     imageurl: 'https://www.image.com',
     videoUrl: 'https://www.video.com',
-    comment: 'Human right must be respected' // comments
+    comment: 'Human right must be respected', // comments
   },
   /**
   * ***************
@@ -197,8 +197,8 @@ export const inValidUserId = [
     status: 'draft', // [draft, under investigation, resolved, rejected]
     imageurl: 'https://www.image.com',
     videoUrl: 'https://www.video.com',
-    comment: 'Human right must be respected' // comments
-  }
+    comment: 'Human right must be respected', // comments
+  },
 ];
 
 /**
@@ -215,7 +215,7 @@ export const invalidType = [
     status: 'draft', // [draft, under investigation, resolved, rejected]
     imageurl: 'https://www.image.com',
     videoUrl: 'https://www.video.com',
-    comment: 'Human right must be respected' // comments
+    comment: 'Human right must be respected', // comments
   },
 
   /**
@@ -232,7 +232,7 @@ export const invalidType = [
     status: 'draft', // [draft, under investigation, resolved, rejected]
     imageurl: 'https://www.image.com',
     videoUrl: 'https://www.video.com',
-    comment: 'Human right must be respected' // comments
+    comment: 'Human right must be respected', // comments
   },
 
 
@@ -250,7 +250,7 @@ export const invalidType = [
     status: 'draft', // [draft, under investigation, resolved, rejected]
     imageurl: 'https://www.image.com',
     videoUrl: 'https://www.video.com',
-    comment: 'Human right must be respected' // comments
+    comment: 'Human right must be respected', // comments
   },
 
   /**
@@ -268,7 +268,7 @@ export const invalidType = [
     status: 'draft', // [draft, under investigation, resolved, rejected]
     imageurl: 'https://www.image.com',
     videoUrl: 'https://www.video.com',
-    comment: 'Human right must be respected' // comments
+    comment: 'Human right must be respected', // comments
   },
 
 
@@ -286,8 +286,8 @@ export const invalidType = [
     status: 'draft', // [draft, under investigation, resolved, rejected]
     imageurl: 'https://www.image.com',
     videoUrl: 'https://www.video.com',
-    comment: 'Human right must be respected' // comments
-  }
+    comment: 'Human right must be respected', // comments
+  },
 ];
 export const inValidLocation = [
   /**
@@ -303,7 +303,7 @@ export const inValidLocation = [
     status: 'draft', // [draft, under investigation, resolved, rejected]
     imageurl: 'https://www.image.com',
     videoUrl: 'https://www.video.com',
-    comment: 'Human right must be respected' // comments
+    comment: 'Human right must be respected', // comments
   },
 
   /**
@@ -320,7 +320,7 @@ export const inValidLocation = [
     status: 'draft', // [draft, under investigation, resolved, rejected]
     imageurl: 'https://www.image.com',
     videoUrl: 'https://www.video.com',
-    comment: 'Human right must be respected' // comments
+    comment: 'Human right must be respected', // comments
   },
 
 
@@ -338,7 +338,7 @@ export const inValidLocation = [
     status: 'draft', // [draft, under investigation, resolved, rejected]
     imageurl: 'https://www.image.com',
     videoUrl: 'https://www.video.com',
-    comment: 'Human right must be respected' // comments
+    comment: 'Human right must be respected', // comments
   },
 
   /**
@@ -355,7 +355,7 @@ export const inValidLocation = [
     status: 'draft', // [draft, under investigation, resolved, rejected]
     imageurl: 'https://www.image.com',
     videoUrl: 'https://www.video.com',
-    comment: 'Human right must be respected' // comments
+    comment: 'Human right must be respected', // comments
   },
 
   /**
@@ -372,8 +372,8 @@ export const inValidLocation = [
     status: 'draft', // [draft, under investigation, resolved, rejected]
     imageurl: 'https://www.image.com',
     videoUrl: 'https://www.video.com',
-    comment: 'Human right must be respected' // comments
-  }
+    comment: 'Human right must be respected', // comments
+  },
 ];
 
 
@@ -392,7 +392,7 @@ export const inValidStatus = [
     location: '6H 3E', // Lat Long coordinates
     imageurl: 'https://www.image.com',
     videoUrl: 'https://www.video.com',
-    comment: 'Human right must be respected' // comments
+    comment: 'Human right must be respected', // comments
   },
 
   /**
@@ -410,7 +410,7 @@ export const inValidStatus = [
     status: '', // [draft, under investigation, resolved, rejected]
     imageurl: 'https://www.image.com',
     videoUrl: 'https://www.video.com',
-    comment: 'Human right must be respected' // comments
+    comment: 'Human right must be respected', // comments
   },
 
   {
@@ -429,7 +429,7 @@ export const inValidStatus = [
     status: 'dra', // [draft, under investigation, resolved, rejected]
     imageurl: 'https://www.image.com',
     videoUrl: 'https://www.video.com',
-    comment: 'Human right must be respected' // comments
+    comment: 'Human right must be respected', // comments
   },
 
   {
@@ -447,8 +447,8 @@ export const inValidStatus = [
     status: 'draftGeomerty and algerbra', // [draft, under investigation, resolved, rejected]
     imageurl: 'https://www.image.com',
     videoUrl: 'https://www.video.com',
-    comment: 'Human right must be respected' // comments
-  }
+    comment: 'Human right must be respected', // comments
+  },
 ];
 
 export const inValidImageUrl = [
@@ -467,7 +467,7 @@ export const inValidImageUrl = [
     location: '6H 3E', // Lat Long coordinates
     status: 'draft', // [draft, under investigation, resolved, rejected]
     videoUrl: 'https://www.video.com',
-    comment: 'Human right must be respected' // comments
+    comment: 'Human right must be respected', // comments
   },
   /**
   * ***************
@@ -484,7 +484,7 @@ export const inValidImageUrl = [
     status: 'draft', // [draft, under investigation, resolved, rejected]
     imageurl: '',
     videoUrl: 'https://www.video.com',
-    comment: 'Human right must be respected' // comments
+    comment: 'Human right must be respected', // comments
   },
 
   /**
@@ -502,7 +502,7 @@ export const inValidImageUrl = [
     status: 'draft', // [draft, under investigation, resolved, rejected]
     imageurl: ['34trrf'],
     videoUrl: 'https://www.video.com',
-    comment: 'Human right must be respected' // comments
+    comment: 'Human right must be respected', // comments
   },
 
   /**
@@ -520,8 +520,8 @@ export const inValidImageUrl = [
     status: 'draft', // [draft, under investigation, resolved, rejected]
     imageurl: 'go',
     videoUrl: 'https://www.video.com',
-    comment: 'Human right must be respected' // comments
-  }
+    comment: 'Human right must be respected', // comments
+  },
 ];
 
 export const inValidVideoUrl = [
@@ -539,7 +539,7 @@ export const inValidVideoUrl = [
     location: '6H 3E', // Lat Long coordinates
     status: 'draft', // [draft, under investigation, resolved, rejected]
     imageurl: 'https://www.image.com',
-    comment: 'Human right must be respected' // comments
+    comment: 'Human right must be respected', // comments
   },
   /**
   * ***************
@@ -556,7 +556,7 @@ export const inValidVideoUrl = [
     status: 'draft', // [draft, under investigation, resolved, rejected]
     imageurl: 'https://www.image.com',
     videoUrl: '',
-    comment: 'Human right must be respected' // comments
+    comment: 'Human right must be respected', // comments
   },
 
   /**
@@ -574,7 +574,7 @@ export const inValidVideoUrl = [
     status: 'draft', // [draft, under investigation, resolved, rejected]
     imageurl: 'https://www.image.com',
     videoUrl: ['wrong.nt34'],
-    comment: 'Human right must be respected' // comments
+    comment: 'Human right must be respected', // comments
   },
 
   /**
@@ -592,8 +592,8 @@ export const inValidVideoUrl = [
     status: 'draft', // [draft, under investigation, resolved, rejected]
     imageurl: 'https://www.image.com',
     videoUrl: 'g0',
-    comment: 'Human right must be respected' // comments
-  }
+    comment: 'Human right must be respected', // comments
+  },
 ];
 
 export const inValidComment = [
@@ -629,7 +629,7 @@ export const inValidComment = [
     status: 'draft', // [draft, under investigation, resolved, rejected]
     imageurl: 'https://www.image.com',
     videoUrl: 'https://www.video.com',
-    comment: '' // comments
+    comment: '', // comments
   },
 
   /**
@@ -647,7 +647,7 @@ export const inValidComment = [
     status: 'draft', // [draft, under investigation, resolved, rejected]
     imageurl: 'https://www.image.com',
     videoUrl: 'https://www.video.com',
-    comment: ['333!+'] // comments
+    comment: ['333!+'], // comments
   },
 
   /**
@@ -665,6 +665,6 @@ export const inValidComment = [
     status: 'draft', // [draft, under investigation, resolved, rejected]
     imageurl: 'https://www.image.com',
     videoUrl: 'https://www.video.com',
-    comment: 'H' // comments
-  }
+    comment: 'H', // comments
+  },
 ];

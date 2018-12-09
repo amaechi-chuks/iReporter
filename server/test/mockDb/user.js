@@ -11,7 +11,7 @@ export const validSignUp = [
     phoneNumber: '07068566559',
     username: 'amaechichuks',
     registeredAlt: '2018-10-11',
-    isAdmin: false
+    isAdmin: false,
   },
 
   // Good firstName
@@ -25,7 +25,7 @@ export const validSignUp = [
     confirmPassword: 'love44444',
     phoneNumber: '0806856655',
     username: 'amaechichuks20',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
 
   // Good LastName
@@ -39,7 +39,7 @@ export const validSignUp = [
     confirmPassword: 'sally55555',
     phoneNumber: '0806852345',
     username: 'amaechichuks30',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
 
   // Good otherNmaes
@@ -53,7 +53,7 @@ export const validSignUp = [
     confirmPassword: 'buckky66666',
     phoneNumber: '09056455335',
     username: 'amaechichuks40',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
 
   // Good Email
@@ -67,7 +67,7 @@ export const validSignUp = [
     confirmPassword: 'paul477777',
     phoneNumber: '08067654456',
     username: 'amaechichuks50',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
 
   // Good password
@@ -81,7 +81,7 @@ export const validSignUp = [
     confirmPassword: 'hard88888',
     phoneNumber: '0806856455',
     username: 'amaechichuks60',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
 
   // Good confirmPassword
@@ -96,7 +96,7 @@ export const validSignUp = [
     confirmPassword: 'gift99999',
     phoneNumber: '0805856655',
     username: 'amaechichuks70',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
 
   // Good phoneNumber
@@ -110,7 +110,7 @@ export const validSignUp = [
     confirmPassword: 'kind00000',
     phoneNumber: '0806856655',
     username: 'amaechichuks80',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
 
   // Good username
@@ -124,7 +124,7 @@ export const validSignUp = [
     confirmPassword: 'peace4545',
     phoneNumber: '0806856665',
     username: 'amaechichuks90',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
 
   // Admin
@@ -139,8 +139,8 @@ export const validSignUp = [
     phoneNumber: '0806556655',
     username: 'amaechichuks09',
     registeredAlt: '2018-10-11',
-    isAdmin: true
-  }
+    isAdmin: true,
+  },
 ];
 
 export const inValidSignUp = [
@@ -154,7 +154,7 @@ export const inValidSignUp = [
     confirmPassword: 'ibe4543236',
     phoneNumber: '0806556655',
     username: 'amaechichuks09',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
 
   // empty UserId
@@ -168,7 +168,7 @@ export const inValidSignUp = [
     confirmPassword: 'ibe4543236',
     phoneNumber: '0806556655',
     username: 'sally',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
 
   // userId not a number
@@ -182,7 +182,7 @@ export const inValidSignUp = [
     confirmPassword: 'ibe4543236',
     phoneNumber: '0806556655',
     username: 'mally',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
 
   // firstName Undefined
@@ -195,7 +195,7 @@ export const inValidSignUp = [
     confirmPassword: 'ibe4543236',
     phoneNumber: '0806556655',
     username: 'gift',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
 
   // firstName Empty
@@ -209,7 +209,7 @@ export const inValidSignUp = [
     confirmPassword: 'ibe4543236',
     phoneNumber: '0806556655',
     username: 'amachuks09',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
 
   // firstName not a string
@@ -223,7 +223,7 @@ export const inValidSignUp = [
     confirmPassword: 'ibe4543236',
     phoneNumber: '0806556655',
     username: 'aechichuks09',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
 
   // firstName length too short
@@ -237,7 +237,7 @@ export const inValidSignUp = [
     confirmPassword: 'ibe4543236',
     phoneNumber: '0806556655',
     username: 'amaechifrank09',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
   // firstName length too long
   {
@@ -250,7 +250,7 @@ export const inValidSignUp = [
     confirmPassword: 'ibe4543236',
     phoneNumber: '0806556655',
     username: 'solomon',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
 
   // lastname undefined
@@ -263,7 +263,7 @@ export const inValidSignUp = [
     confirmPassword: 'ibe4543236',
     phoneNumber: '0806556655',
     username: 'joshua',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
 
   // lastName Empty
@@ -277,7 +277,7 @@ export const inValidSignUp = [
     confirmPassword: 'ibe4543236',
     phoneNumber: '0806556655',
     username: 'pannychuks09',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
 
   // lastName not a string
@@ -291,7 +291,7 @@ export const inValidSignUp = [
     confirmPassword: 'ibe4543236',
     phoneNumber: '0806556655',
     username: 'Naijaboy',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
 
   // lastNname too short
@@ -305,7 +305,7 @@ export const inValidSignUp = [
     confirmPassword: 'ibe4543236',
     phoneNumber: '0806556655',
     username: 'comfort',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
 
   // lastName length too long
@@ -319,7 +319,7 @@ export const inValidSignUp = [
     confirmPassword: 'ibe4543236',
     phoneNumber: '0806556655',
     username: 'gracechuks09',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
 
   // othernames undefined
@@ -332,7 +332,7 @@ export const inValidSignUp = [
     confirmPassword: 'ibe4543236',
     phoneNumber: '0806556655',
     username: 'victorhichuks09',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
 
   // otherNames Empty
@@ -346,7 +346,7 @@ export const inValidSignUp = [
     confirmPassword: 'ibe4543236',
     phoneNumber: '0806556655',
     username: 'sallyhichuks09',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
 
   // otherNames not a string
@@ -360,7 +360,7 @@ export const inValidSignUp = [
     confirmPassword: 'ibe4543236',
     phoneNumber: '0806556655',
     username: 'amaechichuks09',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
 
   // otherNames too short
@@ -374,7 +374,7 @@ export const inValidSignUp = [
     confirmPassword: 'ibe4543236',
     phoneNumber: '0806556655',
     username: 'amaechichuks09',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
 
   // otherNames length too long
@@ -388,7 +388,7 @@ export const inValidSignUp = [
     confirmPassword: 'ibe4543236',
     phoneNumber: '0806556655',
     username: 'gloria',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
 
   // Email undefined
@@ -401,7 +401,7 @@ export const inValidSignUp = [
     confirmPassword: 'ibe4543236',
     phoneNumber: '0806556655',
     username: 'alfred',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
 
   // Email empty
@@ -415,7 +415,7 @@ export const inValidSignUp = [
     confirmPassword: 'ibe4543236',
     phoneNumber: '0806556655',
     username: 'amaechialfred09',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
   // Email not a string
   {
@@ -428,7 +428,7 @@ export const inValidSignUp = [
     confirmPassword: 'ibe4543236',
     phoneNumber: '0806556655',
     username: 'amaechikeep9',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
   // Email length too short
   {
@@ -441,7 +441,7 @@ export const inValidSignUp = [
     confirmPassword: 'ibe4543236',
     phoneNumber: '0806556655',
     username: 'amaetenth',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
   // email length too long
   {
@@ -454,7 +454,7 @@ export const inValidSignUp = [
     confirmPassword: 'ibe4543236',
     phoneNumber: '0806556655',
     username: 'buckky',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
 
   // email already exist
@@ -468,7 +468,7 @@ export const inValidSignUp = [
     confirmPassword: 'ibe4543236',
     phoneNumber: '0806556655',
     username: 'amaechithomas',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
 
   // Password undefined
@@ -481,7 +481,7 @@ export const inValidSignUp = [
     confirmPassword: 'ibe4543236',
     phoneNumber: '0806556655',
     username: 'stephen',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
 
   // Password empty
@@ -495,7 +495,7 @@ export const inValidSignUp = [
     confirmPassword: 'ibe4543236',
     phoneNumber: '0806556655',
     username: 'micheal',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
 
   // Password not a string
@@ -509,7 +509,7 @@ export const inValidSignUp = [
     confirmPassword: 'ibe4543236',
     phoneNumber: '0806556655',
     username: 'jacob',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
 
   // Password length too short
@@ -523,7 +523,7 @@ export const inValidSignUp = [
     confirmPassword: 'ibe4543236',
     phoneNumber: '0806556655',
     username: 'gozie',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
 
   // Password length too long
@@ -537,7 +537,7 @@ export const inValidSignUp = [
     confirmPassword: 'ibe4543236',
     phoneNumber: '0806556655',
     username: 'uche09',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
 
   // Undefined confirmPassword
@@ -550,7 +550,7 @@ export const inValidSignUp = [
     password: 'ibe4543236',
     phoneNumber: '0806556655',
     username: 'mikepenny',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
 
   // confirmPassword Empty
@@ -564,7 +564,7 @@ export const inValidSignUp = [
     confirmPassword: 'ibe4543236',
     phoneNumber: '0806556655',
     username: 'ebube',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
 
   // confirmPassword not a string
@@ -578,7 +578,7 @@ export const inValidSignUp = [
     confirmPassword: ['ibe4543236'],
     phoneNumber: '0806556655',
     username: 'ebere',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
 
   // confirmPassword length too short
@@ -592,7 +592,7 @@ export const inValidSignUp = [
     confirmPassword: 'i4',
     phoneNumber: '0806556655',
     username: 'omolara',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
 
   // confirmPassword length too long
@@ -606,7 +606,7 @@ export const inValidSignUp = [
     confirmPassword: 'ibe4543236chuksamaechi45676',
     phoneNumber: '0806556655',
     username: 'tunde',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
 
   // phoneNumber undefined
@@ -619,7 +619,7 @@ export const inValidSignUp = [
     password: 'ibe4543236',
     confirmPassword: 'ibe4543236',
     username: 'hassan',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
 
   // phoneNumber Empty
@@ -633,7 +633,7 @@ export const inValidSignUp = [
     confirmPassword: 'ibe4543236',
     phoneNumber: '',
     username: 'fasasi',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
 
   // phoneNumber not a string
@@ -647,7 +647,7 @@ export const inValidSignUp = [
     confirmPassword: 'ibe4543236',
     phoneNumber: ['0806556655'],
     username: 'lekeajai',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
   // Invalid phoneNumber format
   {
@@ -660,7 +660,7 @@ export const inValidSignUp = [
     confirmPassword: 'ibe4543236',
     phoneNumber: 'uij0806556',
     username: 'lukmon',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
 
   // phoneNumber too short
@@ -674,7 +674,7 @@ export const inValidSignUp = [
     confirmPassword: 'ibe4543236',
     phoneNumber: '08',
     username: 'chukwuma',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
 
   // phoneNumber too long
@@ -688,7 +688,7 @@ export const inValidSignUp = [
     confirmPassword: 'ibe4543236',
     phoneNumber: '08065566556767990889009089898778899999',
     username: 'chimezie',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
 
   // Undefined userName
@@ -701,7 +701,7 @@ export const inValidSignUp = [
     password: 'ibe4543236',
     confirmPassword: 'ibe4543236',
     phoneNumber: '0806556655',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
 
   },
   // Empty username
@@ -715,7 +715,7 @@ export const inValidSignUp = [
     confirmPassword: 'ibe4543236',
     phoneNumber: '0806556655',
     username: '',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
 
   // userName already exist
@@ -729,7 +729,7 @@ export const inValidSignUp = [
     confirmPassword: 'ibe4543236',
     phoneNumber: '0806556655',
     username: 'amaechichuks09',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
 
   // userName not a string
@@ -743,7 +743,7 @@ export const inValidSignUp = [
     confirmPassword: 'ibe4543236',
     phoneNumber: '0806556655',
     username: ['amaechichuks09'],
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
 
   // userName length too short
@@ -757,7 +757,7 @@ export const inValidSignUp = [
     confirmPassword: 'ibe4543236',
     phoneNumber: '0806556655',
     username: 'a',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
 
   // userName length too long
@@ -771,7 +771,7 @@ export const inValidSignUp = [
     confirmPassword: 'ibe4543236',
     phoneNumber: '0806556655',
     username: 'amaechichuks09makingittoolongfornow',
-    registeredAlt: '2018-10-11'
+    registeredAlt: '2018-10-11',
   },
   // registerdAlt undefined
   {
@@ -783,7 +783,7 @@ export const inValidSignUp = [
     password: 'ibe4543236',
     confirmPassword: 'ibe4543236',
     phoneNumber: '0806556655',
-    username: 'regitered'
+    username: 'regitered',
   },
 
   // registeredAlt empty
@@ -839,7 +839,7 @@ export const inValidSignUp = [
     confirmPassword: 'ibe4543236',
     phoneNumber: '0806556655',
     username: 'happy',
-    registeredAlt: ['2018-10-11']
+    registeredAlt: ['2018-10-11'],
   },
 
   // is not in database
@@ -896,13 +896,13 @@ export const inValidSignIn = [
   // Email does not tally with password
   {
     email: 'chuksamaechi1@gmail.com',
-    password: 'secr676876'
-  }
+    password: 'secr676876',
+  },
 ];
 
 export const validSignIn = [
   {
     email: 'chuksamaechi1@gmail.com',
-    password: 'secret33333'
-  }
+    password: 'secret33333',
+  },
 ];

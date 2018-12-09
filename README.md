@@ -29,7 +29,7 @@
 
 
 ## Screenshoot(UI template)
-![alt](./screenShoot/home_page_image1_1.png)
+![alt](./screenShoot/landingimage_1.png)
 
 # UI Templates
 

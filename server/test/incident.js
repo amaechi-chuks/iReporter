@@ -4,8 +4,8 @@ import app from '../../app';
 
 
 import {
-  inValidIncidentDate, inValidUserId, invalidType, inValidLocation, inValidStatus, inValidImageUrl, inValidVideoUrl, inValidComment, validIncident
-} from '../test/mockDb/incident';
+  inValidIncidentDate, inValidUserId, invalidType, inValidLocation, inValidStatus, inValidImageUrl, inValidVideoUrl, inValidComment, validIncident,
+} from './mockDb/incident';
 
 import db from '../models/incident';
 

@@ -14,21 +14,21 @@ class UserValidator {
   static signUpValidator(req, res, next) {
     // destructure user object property
     let {
-      firstName, lastName, otherNames, email, password, confirmPassword, phoneNumber, username
+      firstName, lastName, otherNames, email, password, confirmPassword, phoneNumber, username,
     } = req.body;
 
     // firstName validation
     if (firstName === undefined) {
       return res.status(400).json({
         status: 400,
-        message: 'firstName cannot be undefined'
+        message: 'firstName cannot be undefined',
       });
     }
 
     if (firstName === '') {
       return res.status(400).json({
         status: 400,
-        message: 'firstName cannot be empty'
+        message: 'firstName cannot be empty',
       });
     }
     if (typeof firstName !== 'string') {
@@ -43,14 +43,14 @@ class UserValidator {
     if (lastName === undefined) {
       return res.status(400).json({
         status: 400,
-        message: 'lastName cannot be undefined'
+        message: 'lastName cannot be undefined',
       });
     }
 
     if (lastName === '') {
       return res.status(400).json({
         status: 400,
-        message: 'lastName cannot be empty'
+        message: 'lastName cannot be empty',
       });
     }
     if (typeof lastName !== 'string') {
@@ -65,14 +65,14 @@ class UserValidator {
     if (otherNames === undefined) {
       return res.status(400).json({
         status: 400,
-        message: 'otherNames cannot be undefined'
+        message: 'otherNames cannot be undefined',
       });
     }
 
     if (otherNames === '') {
       return res.status(400).json({
         status: 400,
-        message: 'otherNames cannot be empty'
+        message: 'otherNames cannot be empty',
       });
     }
 
@@ -88,7 +88,7 @@ class UserValidator {
     if (email === undefined) {
       return res.status(400).json({
         status: 400,
-        message: 'Email cannot be undefine'
+        message: 'Email cannot be undefine',
       });
     }
 
@@ -96,7 +96,7 @@ class UserValidator {
     if (email === '') {
       return res.status(400).json({
         status: 400,
-        message: 'Email field cannot be empty'
+        message: 'Email field cannot be empty',
       });
     }
     /* eslint-disable no-useless-escape */
@@ -104,20 +104,20 @@ class UserValidator {
     if (!emailVerifier.test(email)) {
       return res.status(400).json({
         status: 400,
-        message: 'You have entered an invalid email address!'
+        message: 'You have entered an invalid email address!',
       });
     }
     if (email.length < 15 || email.length > 40) {
       return res.status(400).json({
         status: 400,
-        message: 'Email should be 15 to 50 alphanumeric characters long'
+        message: 'Email should be 15 to 50 alphanumeric characters long',
       });
     }
     const foundEmail = db.userDb.find(user => user.email === email);
     if (foundEmail) {
       return res.status(409).json({
         status: 409,
-        message: 'Email already exists!'
+        message: 'Email already exists!',
       });
     }
     // email validations ends
@@ -126,7 +126,7 @@ class UserValidator {
     if (password === undefined) {
       return res.status(400).json({
         status: 400,
-        message: 'Password cannot be undefined'
+        message: 'Password cannot be undefined',
       });
     }
 
@@ -135,7 +135,7 @@ class UserValidator {
     if (!checkPassword.test(password)) {
       return res.status(400).json({
         status: 400,
-        message: 'Password not too strong'
+        message: 'Password not too strong',
       });
     }
 
@@ -143,14 +143,14 @@ class UserValidator {
     if (password === '') {
       return res.status(400).json({
         status: 400,
-        message: 'Password field cannot be empty'
+        message: 'Password field cannot be empty',
       });
     }
 
     if (password.length < 8 || password.length > 20) {
       return res.status(400).json({
         status: 400,
-        message: 'Password should be 8 to 20 characters long'
+        message: 'Password should be 8 to 20 characters long',
       });
     }
     // password validation ends
@@ -159,14 +159,14 @@ class UserValidator {
     if (confirmPassword === undefined) {
       return res.status(400).json({
         status: 400,
-        message: 'Password cannot be undefined'
+        message: 'Password cannot be undefined',
       });
     }
 
     if (confirmPassword !== password) {
       return res.status(400).json({
         status: 400,
-        message: 'Password do not match'
+        message: 'Password do not match',
       });
     }
 
@@ -174,14 +174,14 @@ class UserValidator {
     if (confirmPassword === '') {
       return res.status(400).json({
         status: 400,
-        message: 'Password field cannot be empty'
+        message: 'Password field cannot be empty',
       });
     }
 
     if (confirmPassword.length < 8 || confirmPassword.length > 20) {
       return res.status(400).json({
         status: 400,
-        message: 'Password should be 8 to 20 characters long'
+        message: 'Password should be 8 to 20 characters long',
       });
     }
     // confirmPassword ends
@@ -190,28 +190,28 @@ class UserValidator {
     if (phoneNumber === undefined) {
       return res.status(400).json({
         status: 400,
-        message: 'phoneNumber cannot be undefine'
+        message: 'phoneNumber cannot be undefine',
       });
     }
 
     if (typeof phoneNumber !== 'string') {
       return res.status(400).json({
         status: 400,
-        message: 'PhoneNumber should be a string'
+        message: 'PhoneNumber should be a string',
       });
     }
 
     if (phoneNumber === '') {
       return res.status(400).json({
         status: 400,
-        message: 'phoneNumber field cannot be empty'
+        message: 'phoneNumber field cannot be empty',
       });
     }
 
     if (phoneNumber.length < 10 || phoneNumber.length > 12) {
       return res.status(400).json({
         status: 400,
-        message: 'phoneNumber should be 10 to 12 long'
+        message: 'phoneNumber should be 10 to 12 long',
       });
     }
 
@@ -219,13 +219,13 @@ class UserValidator {
     if (!phoneNumberVerifier) {
       res.status(400).json({
         status: 400,
-        message: 'Invalid PhoneNumber'
+        message: 'Invalid PhoneNumber',
       });
     }
     if (phoneNumberVerifier.length < 7 || phoneNumberVerifier.length > 12) {
       res.status(400).json({
         status: 400,
-        message: 'phoneNumber length too short '
+        message: 'phoneNumber length too short ',
       });
     }
     // phoneValidtion ends
@@ -234,14 +234,14 @@ class UserValidator {
     if (username === undefined) {
       return res.status(400).json({
         status: 400,
-        message: 'username cannot be undefined'
+        message: 'username cannot be undefined',
       });
     }
 
     if (username === '') {
       return res.status(400).json({
         status: 400,
-        message: 'username cannot be empty'
+        message: 'username cannot be empty',
       });
     }
     if (typeof username !== 'string') {
@@ -254,7 +254,7 @@ class UserValidator {
     if (foundUserName) {
       return res.status(409).json({
         status: 409,
-        message: 'UserName already exists!'
+        message: 'UserName already exists!',
       });
     }
 
@@ -283,19 +283,19 @@ class UserValidator {
     if (email === undefined) {
       return res.status(400).json({
         status: 400,
-        message: 'Email cannot be undefined'
+        message: 'Email cannot be undefined',
       });
     }
     if (typeof email !== 'string') {
       return res.status(400).json({
         status: 400,
-        message: 'Email should be a string'
+        message: 'Email should be a string',
       });
     }
     if (email === '') {
       return res.status(400).json({
         status: 400,
-        message: 'Email cannot be empty'
+        message: 'Email cannot be empty',
       });
     }
 
@@ -304,28 +304,28 @@ class UserValidator {
     if (!foundUser) {
       return res.status(401).json({
         status: 401,
-        message: 'Authentication failed'
+        message: 'Authentication failed',
       });
     }
     // password validator
     if (password === undefined) {
       return res.status(401).json({
         status: 401,
-        message: 'Pasword cannot be undefined'
+        message: 'Pasword cannot be undefined',
       });
     }
 
     if (password === '') {
       return res.status(401).json({
         status: 401,
-        message: 'Password cannot be empty'
+        message: 'Password cannot be empty',
       });
     }
     password = password.trim();
     if (foundUser && password !== foundUser.password) {
       return res.status(401).json({
         status: 401,
-        message: 'Authentication unsuccessful'
+        message: 'Authentication unsuccessful',
       });
     }
     req.body.foundUser = foundUser;

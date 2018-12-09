@@ -10,7 +10,7 @@ const userDb = [
     phoneNumber: '07068566559',
     username: 'amaechichuks',
     registeredAlt: '2018-10-11',
-    isAdmin: true
+    isAdmin: true,
   },
 
   {
@@ -24,7 +24,7 @@ const userDb = [
     phoneNumber: '07068756998',
     username: 'successfavo',
     registeredAlt: '2018-10-11',
-    isAdmin: false
+    isAdmin: false,
   },
 
   {
@@ -38,7 +38,7 @@ const userDb = [
     phoneNumber: '08055867368',
     username: 'kingsleyibeh',
     registeredAlt: '2018-10-11',
-    isAdmin: false
+    isAdmin: false,
   },
 
   {
@@ -52,8 +52,8 @@ const userDb = [
     phoneNumber: '0806458678',
     username: 'frankbeh',
     registeredAlt: '2018-10-11',
-    isAdmin: false
-  }
+    isAdmin: false,
+  },
 ];
 
 const incident = [
@@ -67,7 +67,7 @@ const incident = [
     status: 'draft', // [draft, under investigation, resolved, rejected]
     imageurl: 'https://www.image.com',
     videoUrl: 'https://www.video.com',
-    comment: 'Human right must be respected' // comments
+    comment: 'Human right must be respected', // comments
   },
   {
     id: 2,
@@ -78,7 +78,7 @@ const incident = [
     status: 'draft', // [draft, under investigation, resolved, rejected]
     imageurl: 'https://www.image.com',
     videoUrl: 'https://www.video.com',
-    comment: 'Thanks to NGO for taking care of the less privilege' // comments
+    comment: 'Thanks to NGO for taking care of the less privilege', // comments
   },
   {
     id: 3,
@@ -89,7 +89,7 @@ const incident = [
     status: 'draft', // [draft, under investigation, resolved, rejected]
     imageurl: 'https://www.image.com',
     videoUrl: 'https://www.video.com',
-    comment: 'Create awareness for child abuse' // comments
+    comment: 'Create awareness for child abuse', // comments
   },
   {
     id: 4,
@@ -100,7 +100,7 @@ const incident = [
     status: 'draft', // [draft, under investigation, resolved, rejected]
     imageurl: 'https://www.image.com',
     videoUrl: 'https://www.video.com',
-    comment: 'Nigerian Government should wake up in Education sector' // comments
+    comment: 'Nigerian Government should wake up in Education sector', // comments
   },
 
 

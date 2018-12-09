@@ -50,12 +50,18 @@ header .header-brand {
   padding: 10px 0;
   border-radius: 10px;
 }
-
+#myTopnav1{
+  color: rgba(64, 18, 117, 0.5);
+    border: 1px solid;
+    border-radius: 10px;
+    width: 80%;
+    height: 110%;
+}
 .topnav {
   overflow: hidden;
   background-color: white;
   float: right;
-  padding-top: 10px;
+  padding-top: 15px;
   padding-left: 10px;
 }
 .topnav a {
@@ -148,18 +154,25 @@ h1 {
   font-weight: bold;
 }
 
-form {
+/* form {
   border: rgb(78, 160, 187) 1px solid;
   border-radius: 10px;
   margin-top: 20px;
   padding-left: 5px;
-}
+} */
 form {
   border: rgb(78, 160, 187) 1px solid;
   border-radius: 10px;
   padding: 10px;
+  margin-top: 20px;
+  width: 50%
 }
-
+.form--size--size {
+  border: rgb(78, 160, 187) 1px solid;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 20px;
+}
 form--size {
   border: black 1px solid;
   border-radius: 10px;
@@ -192,7 +205,11 @@ form--size {
 }
 
 .contact1 {
-  padding: 10px 0 10px 0;
+  padding-top: 56px;
+  background-color: lightblue
+}
+.contact2 {
+  padding-top: 20px;
   background-color: lightblue
 }
 
@@ -202,6 +219,9 @@ form--size {
 
 .contact__headline, .contact__title {
   text-align: center;
+}
+.upload-file {
+  padding-left: 10px;
 }
 
 .contact__headline {
@@ -216,8 +236,11 @@ form--size {
 }
 
 .contact__form>form, .CreateAccount__form>form {
-  width: 70%;
+   width: 70%; 
   background-color: white;
+}
+.type--button{
+  padding: 5px;
 }
 
 .input--group {
@@ -247,6 +270,7 @@ form--size {
 .form--text--text {
 color: black;
 padding: 0 0 0 9px;
+margin-left: 20px;
 }
 
 .text__area {
@@ -265,8 +289,9 @@ label {
 .form--control, textarea.form-control {
   color: rgba(64, 18, 117, 0.5);
   outline: none;
-  padding: 14px 0 14px 110px;
+  padding: 14px 0 14px 10px;
   width: 90%;
+  margin-left: 30px
 }
 .create--padding {
   /* margin-top:1px; */
@@ -277,25 +302,10 @@ label {
   color: rgba(64, 18, 117, 0.5);
   outline: none;
   padding: 14px 0 14px 38px;
-  width: 80%;
+  width: 50%;
   font-size: 20px; 
   border: 1px solid;
    border-radius: 6px;
-}
-
-.form--control::placeholder, textarea::placeholder {
-  /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: rgba(64, 18, 117, 0.5);
-  /* opacity: 1; */
-  /* Firefox */
-}
-.form--control::placeholder, textarea:-ms-input-placeholder {
-  /* Internet Explorer 10-11 */
-  color: rgba(64, 18, 117, 0.5);
-}
-.form--control::placeholder, textarea::-ms-input-placeholder {
-  /* Microsoft Edge */
-  color: rgba(64, 18, 117, 0.5);
 }
 .p--0 {
   padding: 0;
@@ -307,6 +317,12 @@ label {
   color: #828282;
   height: 1px;
   margin: 11px
+}
+.text--color--grey11 {
+  color: #828282;
+  height: 1px;
+  margin: 11px;
+  padding: 5px;
 }
 .photo {
   width: 40%;
@@ -362,6 +378,11 @@ footer h5 {
 }
 footer h6 {
   margin-top: 44.5vh;
+  font-size: 20px;
+  position: relative;
+}
+footer h4 {
+  margin-top: 50vh;
   font-size: 20px;
   position: relative;
 }
@@ -609,7 +630,7 @@ nav .navbar__nav>li>a {
 }
 .text--primary1{
   color: #0c6892;
-  margin-left: 7.3rem;
+  margin-left: 4.5rem;
 }
 h3 {
   padding: 5px
@@ -713,6 +734,7 @@ h3 {
   padding: 0 30px;
   padding-bottom: 10px;
   background-color: #ffffff;
+  border-radius: 15px;
 }
 
 .RideHistory__content .row {
@@ -762,11 +784,16 @@ h3 {
 .createflag__header {
   width: 100%;
 }
-
+.text--select {
+  border-radius: 5px
+}
 .btn--round {
   border-radius: 50px;
 }
-
+#map {
+  height: 400px;
+  width: 100%;  
+}
 .row {
   display: -ms-flexbox;
   display: flex;

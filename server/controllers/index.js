@@ -3,6 +3,6 @@ import UserController from './user';
 
 
 const controllers = {
-  IncidentController, UserController
+  IncidentController, UserController,
 };
 export default controllers;

@@ -21,34 +21,27 @@
                 <nav class="navbar  container-fluid" role="navigation">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <header>
-                        <div class="navbar__header dashboard__navbar__header">
+                        <span>
                             <a href="index.html" class="header-brand"><span>i</span>Reporter</a>
-                            </span>
-                        </div>     
+                        </span>
+                        <div class="topnav" id="myTopnav">
+                            <a href="createintervention.html" class="bg--color--grey1 contact--me">Home
+                                <hr class"active--indicator">
+                                </hr>
+                            </a>
+                            <a href="redflagrecords.html" class="bg--color--grey1 contact--me">Red-flag
+                            </a>
+                            <a href="interventionrecords.html" class="bg--color--grey1 contact--me">Intervention
+                            </a>
+                            <a href="admin-dashboard.html" class="bg--color--grey1 contact--me">Admin
+                            </a>
+                        </div>
                     </header>
                 </nav>
                 <div class="dashboard__header__bottom bg--color--primary">
                     <div class="container-fluid">
                         <ul class="nav navbar__right navbar__nav">
                             <li>
-                                <a href="redflagrecords.html" class="notification">
-                                    Red-flag
-                                </a>
-                            </li>
-                            <li>
-                                <a href="interventionrecords.html">
-                                    intervention
-                                </a>
-                            </li>
-                            <li>
-                                <a href="index.html">
-                                    Sign out
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <p class="text--hello">Hello,Chuks</p> 
-                                </a>
                             </li>
                         </ul>
                     </div>
@@ -62,19 +55,22 @@
                         <div class="createflag__header">
                             <div class="createflagInfo__header__img text--center">
                                 <img src="assets/img/IMG_1499.JPG" alt="create red-flag profile">
-                                <h3 class="text--primary"> Add Intervention</h3>
+                                <h3 class="text--primary"> Add Incident</h3>
                                 <h5 class="text--color--grey font--regular">What do you want to report?</h5>
-                                <span class="input--group dashboard--input">
-                                    <a href="createredflag.html" class="text--primary intervention--padding"">Click here to add red-flag</a>
-                                </span>
+                                <div class="type--button">
+                                    <input type="radio" id="contactChoice1" name="contact" value="email"> Red-flag
+                                    <span> <input type="radio" id="contactChoice2" name="contact" value="phone">Intervention
+                                    </span>
+                                </div>
                             </div>
                         </div>
                         <div class="RideInfo__content text--center--left margin--top--10--10">
                             <div class="form--size" action="individualintervention.html" role="form">
                                 <!-- capture file upload -->
                                 <div class="input--group dashboard--input">
-                                    <p class="upload-file"> Upload file <input id="imageUpload" type="file" name="profile_photo"
-                                            placeholder="Photo" required="" capture></p>
+                                    <p class="upload-file"> <input id="imageUpload" type="file" name="profile_photo"
+                                            placeholder="Photo" required="" capture>
+                                    </p>
                                 </div>
                                 <!-- capture textarea -->
                                 <div class="input--group dashboard--input">
@@ -93,15 +89,17 @@
                             </div>
                         </div>
                     </div>
-                    <div class="topnav" id="myTopnav">
-                        <div class="map-header1">
-                            <img src="assets/img/nigeria-google-map.jpg" width="100%" height="100%" alt="google map">
-                        </div>
+                    <div class="topnav" id="myTopnav1">
+                        <!-- <div class="map-header1"> -->
+                                <div id="map"></div>
+                        <!-- </div> -->
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcremAjW2QLqry1X2y3rCLyZA1qlzgly8&callback=initMap"
+    async defer></script>
     <script src="./assets/js/main.js"></script>
 </body>
 

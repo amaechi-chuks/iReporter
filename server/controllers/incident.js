@@ -18,13 +18,13 @@ export default class IncidentController {
   static createIncident(req, res) {
     if (parseInt(req.body.createdBy) > 0) {
       const {
-        location, type, status, imageUrl, videoUrl, comment
+        location, type, status, imageUrl, videoUrl, comment,
       } = req.body;
       const id = db.incident[db.incident.length - 1].id + 1;
       const createdOn = new Date().toString();
       const createdBy = parseInt(req.body.createdBy, 10);
       const newIncident = {
-        id, createdOn, createdBy, type, location, status, imageUrl, videoUrl, comment
+        id, createdOn, createdBy, type, location, status, imageUrl, videoUrl, comment,
       };
 
       db.incident.push(newIncident);
@@ -32,14 +32,14 @@ export default class IncidentController {
       res.json({
         status: 201,
         message: `Created ${newIncident.type} record`,
-        data: newIncident
+        data: newIncident,
       });
     } else {
       res.status(400);
       res.json({
         status: 400,
         message: 'Bad Request',
-        sampleData: '{createdOn:Date, createdBy:integer, type:string, location:string,status:string, imageUrl:string, videoUrl:string, comment:string}'
+        sampleData: '{createdOn:Date, createdBy:integer, type:string, location:string,status:string, imageUrl:string, videoUrl:string, comment:string}',
       });
     }
   }
@@ -69,7 +69,7 @@ export default class IncidentController {
       res.json({
         success: true,
         message: `Successfully Retrieved all ${type2} `,
-        data: data2
+        data: data2,
 
       });
     } else {
@@ -99,19 +99,19 @@ export default class IncidentController {
       return res.status(200).json({
         status: 200,
         message: `Successfully retrieved ${findRedFlag.type}`,
-        data: db.incident[index - 1]
+        data: db.incident[index - 1],
       });
     }
     if (type === 'intervention' && findRedFlag.type === 'intervention') {
       return res.status(200).json({
         status: 200,
         message: `Successfully Retrieved ${findRedFlag.type}`,
-        data: db.incident[index - 1]
+        data: db.incident[index - 1],
       });
     }
     return res.status(404).json({
       status: 404,
-      message: 'Request does not exist'
+      message: 'Request does not exist',
     });
   }
   // getSingleRedFlag ends
@@ -137,7 +137,7 @@ export default class IncidentController {
       res.json({
         status: 200,
         message: 'Successfully update redFlag location',
-        data: oldRedFlagId
+        data: oldRedFlagId,
       });
     } else if (oldRedFlagId.type === 'intervention' && type === 'intervention' && oldRedFlagId.status === 'draft') { // Check if the intervention location exist, then update.
       oldRedFlagId.location = req.body.location;
@@ -146,7 +146,7 @@ export default class IncidentController {
       res.json({
         status: 200,
         message: 'Successfully update intervention location',
-        data: oldRedFlagId
+        data: oldRedFlagId,
       });
     } else {
       res.status(401);
@@ -178,7 +178,7 @@ export default class IncidentController {
       res.json({
         status: 200,
         message: 'Successfully update redFlag comment',
-        data: oldRedFlagId
+        data: oldRedFlagId,
       });
     } else if (oldRedFlagId.type === 'intervention' && type === 'intervention' && oldRedFlagId.status === 'draft') { // Check if the intervention commit exist, then update.
       oldRedFlagId.comment = req.body.comment;
@@ -187,7 +187,7 @@ export default class IncidentController {
       res.json({
         status: 200,
         message: 'Successfully update intervention comment',
-        data: oldRedFlagId
+        data: oldRedFlagId,
       });
     } else {
       res.status(401);
@@ -234,7 +234,7 @@ export default class IncidentController {
     return res.status(404),
     res.json({
       status: 404,
-      message: 'Not Found'
+      message: 'Not Found',
     }),
     next();
   }

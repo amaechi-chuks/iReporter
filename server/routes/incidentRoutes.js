@@ -6,13 +6,13 @@ import middlewares from '../middlewares';
 const { IncidentController } = controllers;
 
 const {
-  createIncident, getAllIncident, getSingleRedFlag, updateRedFlagByComment, updateRedFlagByLocation, deleteRedFlagById
+  createIncident, getAllIncident, getSingleRedFlag, updateRedFlagByComment, updateRedFlagByLocation, deleteRedFlagById,
 } = IncidentController;
 
 const { IncidentValidator } = middlewares;
 
 const {
-  getOneIncident, incidentInputChecker, updateByLocation, updateByComment
+  getOneIncident, incidentInputChecker, updateByLocation, updateByComment,
 } = IncidentValidator;
 
 
