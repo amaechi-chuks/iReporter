@@ -125,23 +125,21 @@ export default class IncidentController {
     const redFlagId = parseInt(req.params.id, 10);
     const oldRedFlagId = db.incident.find(allRedFlag => allRedFlag.id === redFlagId);
     if ((oldRedFlagId.type === 'red-flag' && checkIncidentType === 'red-flag' && oldRedFlagId.status === 'draft') || (oldRedFlagId.type === 'intervention' && checkIncidentType === 'intervention' && oldRedFlagId.status === 'draft')) { // Check if the RedFlag location exist, then update.
-      oldRedFlagId.location = req.body.location;
-      db.incident[redFlagId - 1] = oldRedFlagId;
       res.status(200);
       res.json({
         success: true,
-        message: `Successfully updated ${checkIncidentType} location`,
-        data: [oldRedFlagId]
+        message: `Successfully Retrieved all ${type2} `,
+        data: data2,
+
       });
     } else {
       res.status(401);
       res.json({
-        success: false,
-        message: 'You are not authorized to edit this page',
+        status: 401,
+        message: 'You are not authorized to create Incident',
       });
     }
   }
-
 
   /**
    * API PUT method to update a single incident by comment
@@ -151,7 +149,6 @@ export default class IncidentController {
    * @returns {object} {object} JSON object representing success message
    * @memberof IncidentController
    */
-
   static updateIncidentComment(req, res) {
     const checkIncidentType = req.url.split('/')[1];
     const redFlagId = parseInt(req.params.id, 10);

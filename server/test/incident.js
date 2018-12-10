@@ -15,7 +15,6 @@ should();
 chai.use(chaiHttp);
 
 const url = '/api/v1/red-flags';
-const url1 = '/api/v1/red-flag';
 const inValidParams = 'abc';
 const inValidURL = `/api/v1/red-flag/${inValidParams}`;
 const notFoundRedFlagId = 14;
