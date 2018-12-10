@@ -5,4 +5,5 @@ import IncidentValidator from './incident';
 const middlewares = {
   UserValidator, VerifyRole, IncidentValidator,
 };
+
 export default middlewares;

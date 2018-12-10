@@ -5,28 +5,27 @@ import db from '../models/incident';
  * @class IncidentValidator
 * */
 
-
 export default class IncidentValidator {
   /**
-     * Get a specific product
-     * @param {object} req - The request object
-     * @param {object} res - The response object
-     * @param {function} next - Calls the next function
-     * @returns {object} JSON representing the failure message
-     * @memberof IncidentValidator
-    * */
-  static getOneIncident(req, res, next) {
-    const incidentId = parseInt(req.params.id);
+   * Get a specific product
+   * @param {object} req - The request object
+   * @param {object} res - The response object
+   * @param {function} next - Calls the next function
+   * @returns {object} JSON representing the failure message
+   * @memberof IncidentValidator
+   */
+  static validateSingleIncident(req, res, next) {
+    const incidentId = parseInt(req.params.id, 10);
     if (!incidentId) {
       return res.status(400).json({
-        status: 400,
-        message: 'Invalid URL',
+        success: false,
+        message: 'Invalid ID',
       });
     }
     const foundincident = db.incident.find(incident => incident.id === (incidentId));
     if (!foundincident) {
       return res.status(404).json({
-        status: 404,
+        success: false,
         message: 'This incident does not exist',
       });
     }
@@ -34,248 +33,223 @@ export default class IncidentValidator {
     return next();
   }
 
-
   /**
-       * Check incident input
-       * @param {object} req - The request object
-       * @param {object} res - The response object
-       * @param {function} next - Calls the next function
-       * @returns {object} JSON representing the failure message
-       * @memberof IncidentValidator
-     */
+   * Check incident input
+   * @param {object} req - The request object
+   * @param {object} res - The response object
+   * @param {function} next - Calls the next function
+   * @returns {object} JSON representing the failure message
+   * @memberof IncidentValidator
+   */
   static incidentInputChecker(req, res, next) {
     const {
-      createdOn, createdBy, type, location, status, imageUrl, videoUrl,
+      createdBy,
+      type,
+      location,
+      status,
+      imageUrl,
+      videoUrl,
     } = req.body;
-
-    // createdOn
-    if (createdOn === undefined) {
-      return res.status(400).json({
-        status: 400,
-        message: 'createdOn cannot be undefined',
-      });
-    }
-    const createdOnVerifier = /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/;
-
-    if (!createdOnVerifier.test(createdOn)) {
-      return res.status(400).json({
-        status: 400,
-        message: 'createdOn format should be yyyy-mm-dd',
-      });
-    }
-    if (createdOn === '') {
-      return res.status(400).json({
-        status: 400,
-        message: 'createdOn should have a date',
-      });
-    }
-
-    // createdBy
+    const verifyCreatedBy = parseInt(createdBy, 10);
     if (createdBy === undefined) {
       return res.status(400).json({
-        status: 400,
-        message: 'createdBy cannot  be undefined',
+        success: false,
+        message: 'createdBy is required',
       });
     }
-    if (typeof createdBy !== 'string') {
+    if (createdBy === '') {
       return res.status(400).json({
-        status: 400,
-        message: 'createdBy should be a number',
+        success: false,
+        message: 'createdBy is required',
       });
     }
     const createdByVerifier = /[0-9]/;
     if (!createdByVerifier.test(createdBy)) {
       return res.status(400).json({
-        status: 400,
+        success: false,
         message: 'createdby cannot be a string',
       });
     }
-    if (createdBy.length < 0 || createdBy.length > 2) {
+
+    if (typeof verifyCreatedBy !== 'number') {
       return res.status(400).json({
-        status: 400,
-        message: 'createdBy number ranges from 1 to 90',
+        success: false,
+        message: 'createdBy should be a number',
       });
     }
-    if (createdBy === '') {
+
+    if (createdBy.length < 1) {
       return res.status(400).json({
-        status: 400,
-        message: 'createdBy cannot be empty',
+        success: false,
+        message: 'createdBy should be greater than 1',
       });
     }
     const foundIncidentCreateBy = db.incident.find(incident => incident.createdBy === createdBy);
     if (foundIncidentCreateBy) {
       return res.status(409).json({
-        status: 409,
-        message: 'Incident already exists, consider updating it instead',
+        success: false,
+        message: 'Incident already exists',
       });
     }
 
-    // Type
     if (type === undefined) {
       return res.status(400).json({
-        status: 400,
-        message: 'Incident type cannot be undefined',
+        success: false,
+        message: 'Incident type is required',
       });
     }
-
+    if (typeof type !== 'string') {
+      return res.status(400).json({
+        success: false,
+        message: 'Incident type should be a string',
+      });
+    }
     if (type === '') {
       return res.status(400).json({
-        status: 400,
+        success: false,
         message: 'Incident should have a type',
       });
     }
 
 
-    if (type !== 'red-flag' || type !== 'intervention') {
+    if (type !== 'red-flag') {
       return res.status(400).json({
-        status: 400,
+        success: false,
         message: 'incident should have a type either red-flag or intervention',
       });
     }
+
     if (location === undefined) {
       return res.status(400).json({
-        status: 400,
-        message: 'Incident location cannot be undefined',
+        success: false,
+        message: 'Incident location is required',
       });
     }
     if (typeof location !== 'string') {
       return res.status(400).json({
-        status: 400,
+        success: false,
         message: 'Incident location should be a string',
       });
     }
     if (location === '') {
       return res.status(400).json({
-        status: 400,
+        success: false,
         message: 'Incident should have a location',
       });
     }
     const locationVerify = /^\d{1}\w{1}\s\d{1}\w{1}$/;
     if (!locationVerify.test(location)) {
       return res.status(400).json({
-        status: 400,
+        success: false,
         message: 'Invalid location  Input',
       });
     }
 
-    // status
     if (status === undefined) {
       return res.status(404).json({
-        status: 404,
-        message: 'Incident status cannot be undefined',
+        success: false,
+        message: 'Incident status is required',
       });
     }
     if (typeof status !== 'string') {
       return res.status(400).json({
-        status: 400,
+        success: false,
         message: 'Incident status should be a string',
       });
     }
     if (status === '') {
       return res.status(400).json({
-        status: 400,
+        success: false,
         message: 'Incident should have a status',
       });
     }
     if (status !== 'draft') {
       return res.status(400).json({
-        status: 400,
+        success: false,
         message: 'Invalid status Input',
       });
     }
 
-    // imgaeUrl
     if (imageUrl === undefined) {
       return res.status(400).json({
-        status: 400,
-        message: 'Image URL cannot be undefined',
+        success: false,
+        message: 'Image URL is required',
       });
     }
     if (typeof imageUrl !== 'string') {
       return res.status(400).json({
-        status: 400,
+        success: false,
         message: 'Image URL should be a string',
       });
     }
     if (imageUrl === '') {
       return res.status(400).json({
-        status: 400,
+        success: false,
         message: 'Image URL cannot be empty',
       });
     }
     if (imageUrl.length < 5 || imageUrl.length > 40) {
       return res.status(400).json({
-        status: 400,
+        success: false,
         message: 'Image URL length should from 5 to 40 characters',
       });
     }
 
-    // videoUrl
     if (videoUrl === undefined) {
       return res.status(400).json({
-        status: 400,
-        message: 'Video URL cannot be undefined',
+        success: false,
+        message: 'Video URL is required',
       });
     }
     if (typeof (videoUrl) !== 'string') {
       return res.status(400).json({
-        status: 400,
+        success: false,
         message: 'Video URL should be a string',
       });
     }
     if (videoUrl.length < 5 || videoUrl.length > 40) {
       return res.status(400).json({
-        status: 400,
+        success: false,
         message: 'Video URL length should from 5 to 40 characters',
       });
     }
     if (videoUrl === '') {
       return res.status(400).json({
-        status: 400,
+        success: false,
         message: 'Video url cannot be empty',
       });
     }
-
-    req.body.createdOn = createdOn;
-    req.body.createdBy = createdBy;
-    req.body.type = type;
-    req.body.location = location;
-    req.body.status = status;
-    req.body.imageUrl = imageUrl;
-    req.body.videoUrl = videoUrl;
-
     next();
   }
 
   /**
-       * Update by location alidation
-       * @param {object} req - The request object
-       * @param {object} res - The response object
-       * @param {function} next - Calls the next function
-       * @returns {object} JSON representing the failure message
-       * @memberof IncidentValidator
-     */
+   * Update by location alidation
+   * @param {object} req - The request object
+   * @param {object} res - The response object
+   * @param {function} next - Calls the next function
+   * @returns {object} JSON representing the failure message
+   * @memberof IncidentValidator
+   */
   static updateByLocation(req, res, next) {
     const { location } = req.body;
 
-
     if (location === undefined) {
       return res.status(400).json({
-        status: 400,
-        message: 'location cannot be undefined',
+        success: false,
+        message: 'location is required',
       });
     }
 
     if (location === '') {
       return res.status(400).json({
-        status: 400,
+        success: false,
         message: 'Incident should have a location',
       });
     }
     const locationVerify = /^\d{1}\w{1}\s\d{1}\w{1}$/;
     if (!locationVerify.test(location)) {
       return res.status(400).json({
-        status: 400,
+        success: false,
         message: 'Invalid Location Input',
         sample: '6W 7N',
       });
@@ -289,13 +263,13 @@ export default class IncidentValidator {
     const { comment } = req.body;
     if (comment === undefined) {
       return res.status(400).json({
-        status: 400,
+        success: false,
         message: 'Comment is required',
       });
     }
     if (typeof comment !== 'string') {
       return res.status(400).json({
-        status: 400,
+        success: false,
         message: 'comment should be a string',
       });
     }
@@ -320,6 +294,6 @@ export default class IncidentValidator {
       });
     }
     req.body.comment = comment;
-    next();
+    return next();
   }
 }

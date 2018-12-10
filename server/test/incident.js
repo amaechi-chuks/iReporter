@@ -2,9 +2,9 @@ import chai from 'chai';
 import chaiHttp from 'chai-http';
 import app from '../../app';
 
-
 import {
-  inValidIncidentDate, inValidUserId, invalidType, inValidLocation, inValidStatus, inValidImageUrl, inValidVideoUrl, inValidComment, validIncident,
+  inValidUserId, invalidType,
+  inValidLocation, inValidStatus, inValidImageUrl, inValidVideoUrl, inValidComment,
 } from './mockDb/incident';
 
 import db from '../models/incident';
@@ -15,7 +15,6 @@ should();
 chai.use(chaiHttp);
 
 const url = '/api/v1/red-flags';
-const url1 = '/api/v1/red-flag';
 const inValidParams = 'abc';
 const inValidURL = `/api/v1/red-flag/${inValidParams}`;
 const notFoundRedFlagId = 14;
@@ -23,108 +22,17 @@ const notFound = `/api/v1/red-flag/${notFoundRedFlagId}`;
 const foundParams = 1;
 const foundURL = `/api/v1/red-flag/${foundParams}`;
 
-
 describe('Test for (METHOD)/ incident route', () => {
   describe('Tests for createIncident API', () => {
-    /**
-         * **********************************
-         * Test for createdOn ---- Begins here!
-         * **********************************
-         */
-    it('Should return 400 status code for undefined incident date', (done) => {
-      chai.request(app)
-        .post(url)
-        .send(inValidIncidentDate[0])
-        .end((err, res) => {
-          res.should.have.status(400);
-          res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
-          res.body.message.should.be.a('string');
-          done();
-        });
-    });
-    it('Should return 400 status code for incident date not a string', (done) => {
-      chai.request(app)
-        .post(url)
-        .send(inValidIncidentDate[1])
-        .end((err, res) => {
-          res.should.have.status(400);
-          res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
-          res.body.message.should.be.a('string');
-          done();
-        });
-    });
-    it('Should return 400 status code for an empty incident date', (done) => {
-      chai.request(app)
-        .post(url)
-        .send(inValidIncidentDate[2])
-        .end((err, res) => {
-          res.should.have.status(400);
-          res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
-          res.body.message.should.be.a('string');
-          done();
-        });
-    });
-    it('Should return 400 status code for incident date length not valid', (done) => {
-      chai.request(app)
-        .post(url)
-        .send(inValidIncidentDate[3])
-        .end((err, res) => {
-          res.should.have.status(400);
-          res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
-          res.body.message.should.be.a('string');
-          done();
-        });
-    });
-    it('Should return 400 status code for incident date length not valid', (done) => {
-      chai.request(app)
-        .post(url)
-        .send(inValidIncidentDate[3])
-        .end((err, res) => {
-          res.should.have.status(400);
-          res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
-          res.body.message.should.be.a('string');
-          done();
-        });
-    });
-    it('Should return 400 status code for incident date invalid', (done) => {
-      chai.request(app)
-        .post(url)
-        .send(inValidIncidentDate[4])
-        .end((err, res) => {
-          res.should.have.status(400);
-          res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
-          res.body.message.should.be.a('string');
-          done();
-        });
-    });
-    /**
-      * **********************************
-      * Test for createdOn ---- ends here!
-      * **********************************
-      */
-
-    /** ---------------------------------------------------------------- */
-
-    /**
-       * **********************************
-       * Test for createdBy ---- Begins here!
-       * **********************************
-       */
-    it('Should return 400 status code for undefined userId', (done) => {
+    it('Should return 400 status code for undefined createdBy', (done) => {
       chai.request(app)
         .post(url)
         .send(inValidUserId[0])
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
-          res.body.message.should.be.a('string');
+          expect(res.body.success).to.equal(false);
+          res.body.message.should.eql('createdBy is required');
           done();
         });
     });
@@ -135,8 +43,8 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
-          res.body.message.should.be.a('string');
+          expect(res.body.success).to.equal(false);
+          res.body.message.should.eql('createdBy is required');
           done();
         });
     });
@@ -147,7 +55,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
@@ -159,23 +67,11 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
     });
-    /**
-      * **********************************
-      * Test for createdBy ---- ends here!
-      * **********************************
-      */
-    /** ------------------------------------------------------- */
-
-    /**
-        * **********************************
-        * Test for Type ---- begins here!
-        * **********************************
-        */
     it('Should return 400 status code for type not found', (done) => {
       chai.request(app)
         .post(url)
@@ -183,7 +79,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
@@ -195,7 +91,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
@@ -207,7 +103,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
@@ -219,7 +115,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
@@ -231,24 +127,11 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
     });
-
-    /**
-        * **********************************
-        * Test for Type ---- ends here!
-        * **********************************
-        */
-    /** ------------------------------------------------------- */
-
-    /**
-        * **********************************
-        * Test for location ---- begins here!
-        * **********************************
-        */
     it('Should return 400 status code for an undefined location', (done) => {
       chai.request(app)
         .post(url)
@@ -256,7 +139,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
@@ -268,7 +151,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
@@ -280,7 +163,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
@@ -292,7 +175,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
@@ -304,22 +187,11 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
     });
-    /**
-        * **********************************
-        * Test for location ---- ends here!
-        * **********************************
-        */
-    /** ----------------------------------------------------- */
-    /**
-        * **********************************
-        * Test for status ---- begins here!
-        * **********************************
-        */
     it('Should return 400 status code for an undefined status ', (done) => {
       chai.request(app)
         .post(url)
@@ -327,7 +199,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
@@ -339,7 +211,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
@@ -351,7 +223,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
@@ -363,22 +235,11 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
     });
-    /**
-         * **********************************
-         * Test for status ---- ends here!
-         * **********************************
-         */
-    /** ----------------------------------------------------- */
-    /**
-        * **********************************
-        * Test for imageUrl ---- begins here!
-        * **********************************
-        */
     it('Should return 400 status code for undefined image URL ', (done) => {
       chai.request(app)
         .post(url)
@@ -386,7 +247,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
@@ -398,7 +259,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
@@ -410,7 +271,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
@@ -422,22 +283,11 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
     });
-    /**
-         * **********************************
-         * Test for image URL ---- ends here!
-         * **********************************
-         */
-    /** ----------------------------------------------------- */
-    /**
-        * **********************************
-        * Test for video URL ---- begins here!
-        * **********************************
-        */
     it('Should return 400 status code for undefined video URL ', (done) => {
       chai.request(app)
         .post(url)
@@ -445,7 +295,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
@@ -457,7 +307,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
@@ -469,7 +319,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
@@ -481,22 +331,11 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
     });
-    /**
-        * **********************************
-        * Test for video URL ---- ends here!
-        * **********************************
-        */
-    /** ----------------------------------------------------- */
-    /**
-        * **********************************
-        * Test for comment ---- begins here!
-        * **********************************
-        */
     it('Should return 400 status code for undefined comment ', (done) => {
       chai.request(app)
         .post(url)
@@ -504,7 +343,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
@@ -516,7 +355,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
@@ -528,7 +367,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
@@ -540,35 +379,8 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
-          done();
-        });
-    });
-
-    /**
-      * **********************************
-      * Test for comment ---- ends here!
-      * **********************************
-      */
-    /** ----------------------------------------------------- */
-    /**
-        * **********************************
-        * Test Create incident --- begins here
-        * **********************************
-        */
-
-
-    it('Should return 404 status code if incident already exists', (done) => {
-      chai.request(app)
-        .post(url1)
-        .send(validIncident[1])
-        .end((err, res) => {
-          res.should.have.status(404);
-          res.body.should.be.a('object');
-          expect(404);
-          res.body.message.should.be.a('string');
-
           done();
         });
     });
@@ -580,7 +392,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(400);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });
@@ -591,7 +403,7 @@ describe('Test for (METHOD)/ incident route', () => {
         .end((err, res) => {
           res.should.have.status(404);
           res.body.should.be.a('object');
-          expect(res.body.status).to.equal(404);
+          expect(res.body.success).to.equal(false);
           res.body.message.should.be.a('string');
           done();
         });

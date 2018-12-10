@@ -12,7 +12,6 @@ const userDb = [
     registeredAlt: '2018-10-11',
     isAdmin: true,
   },
-
   {
     id: 2,
     firstName: 'favor',
@@ -54,8 +53,8 @@ const userDb = [
     registeredAlt: '2018-10-11',
     isAdmin: false,
   },
-];
 
+];
 const incident = [
 
   {
@@ -67,7 +66,7 @@ const incident = [
     status: 'draft', // [draft, under investigation, resolved, rejected]
     imageurl: 'https://www.image.com',
     videoUrl: 'https://www.video.com',
-    comment: 'Human right must be respected', // comments
+    comment: 'Human right must be respected',
   },
   {
     id: 2,
@@ -78,7 +77,7 @@ const incident = [
     status: 'draft', // [draft, under investigation, resolved, rejected]
     imageurl: 'https://www.image.com',
     videoUrl: 'https://www.video.com',
-    comment: 'Thanks to NGO for taking care of the less privilege', // comments
+    comment: 'Thanks to NGO for taking care of the less privilege',
   },
   {
     id: 3,
@@ -89,7 +88,7 @@ const incident = [
     status: 'draft', // [draft, under investigation, resolved, rejected]
     imageurl: 'https://www.image.com',
     videoUrl: 'https://www.video.com',
-    comment: 'Create awareness for child abuse', // comments
+    comment: 'Create awareness for child abuse',
   },
   {
     id: 4,
@@ -100,13 +99,10 @@ const incident = [
     status: 'draft', // [draft, under investigation, resolved, rejected]
     imageurl: 'https://www.image.com',
     videoUrl: 'https://www.video.com',
-    comment: 'Nigerian Government should wake up in Education sector', // comments
+    comment: 'Nigerian Government should wake up in Education sector',
   },
-
 
 ];
 
-
 const db = { userDb, incident };
-
 export default db;
