@@ -64,7 +64,7 @@ const incident = [
     type: 'red-flag', // [red-flag, intervention]
     location: '6H 3E', // Lat Long coordinates
     status: 'draft', // [draft, under investigation, resolved, rejected]
-    imageurl: 'https://www.image.com',
+    imageUrl: 'https://www.image.com',
     videoUrl: 'https://www.video.com',
     comment: 'Human right must be respected'
   },
@@ -75,7 +75,7 @@ const incident = [
     type: 'red-flag', // [red-flag, intervention]
     location: '6H 3E', // Lat Long coordinates
     status: 'draft', // [draft, under investigation, resolved, rejected]
-    imageurl: 'https://www.image.com',
+    imageUrl: 'https://www.image.com',
     videoUrl: 'https://www.video.com',
     comment: 'Thanks to NGO for taking care of the less privilege'
   },
@@ -86,7 +86,7 @@ const incident = [
     type: 'intervention', // [red-flag, intervention]
     location: '6H 3E', // Lat Long coordinates
     status: 'draft', // [draft, under investigation, resolved, rejected]
-    imageurl: 'https://www.image.com',
+    imageUrl: 'https://www.image.com',
     videoUrl: 'https://www.video.com',
     comment: 'Create awareness for child abuse'
   },
@@ -97,7 +97,7 @@ const incident = [
     type: 'intervention', // [red-flag, intervention]
     location: '6H 3E', // Lat Long coordinates
     status: 'draft', // [draft, under investigation, resolved, rejected]
-    imageurl: 'https://www.image.com',
+    imageUrl: 'https://www.image.com',
     videoUrl: 'https://www.video.com',
     comment: 'Nigerian Government should wake up in Education sector'
   },
