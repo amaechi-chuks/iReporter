@@ -21,7 +21,6 @@ export default class UserController {
    * @memberof UserController
    */
   static signUp(req, res) {
-    console.log('signed up');
     bcrypt.hash(req.body.password, 10, (err, hash) => {
       const {
         firstName,
@@ -31,7 +30,6 @@ export default class UserController {
         phoneNumber,
         username
       } = req.body;
-      console.log('hashed up');
       const password = hash;
       const userQuery = 'INSERT INTO users (firstName, lastName, otherNames, email, password, phoneNumber, username) VALUES ($1, $2, $3, $4, $5, $6, $7) returning *';
       const params = [
@@ -64,21 +62,26 @@ export default class UserController {
 
   static login(req, res) {
     const { email, password } = req.body;
-    const getEmail = email;
-    const getPassword = password;
-    const findEmail = db.userDb.find(user => user.email === getEmail);
-    const findPassword = db.userDb.find(user => user.password === getPassword);
-    if (findEmail && findPassword) {
-      return res.status(200).json({
-        success: true,
-        message: 'Login Successfull',
-        data: { email }
+    const errors = { form: 'Invalid email or password' };
+    const userQuery = 'SELECT * FROM users WHERE email = $1 LIMIT 1;';
+    const params = [email];
+    dataBaseLink.query(userQuery, params)
+      .then((result) => {
+        if (result.rows[0]) {
+          const getPassword = bcrypt.compareSync(password, result.rows[0].password);
+          if (getPassword) {
+            return createToken(res, 200, 'user login successful', result);
+          }
+          return res.status(401).json({
+            success: false,
+            errors,
+          });
+        }
+        return res.status(401).json({
+          success: false,
+          errors
+        }).catch(error => incidentHelper.error(res, 500, error.message));
       });
-    }
-    res.status(401).json({
-      success: false,
-      message: 'Access Denied',
-    });
   }
 
   /**

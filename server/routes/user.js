@@ -7,7 +7,7 @@ const {
   signUp, login, adminGetAll, adminUpdateStatus
 } = UserController;
 const { UserValidator, VerifyRole } = middlewares;
-const { signUpValidator, loginValidator } = UserValidator;
+const { signUpValidator } = UserValidator;
 const { isAdminLogin } = VerifyRole;
 
 const userRouter = express.Router();
@@ -19,7 +19,7 @@ userRouter.route('/auth/signup')
 
 // Signin Route
 userRouter.route('/auth/signin')
-  .post(loginValidator, login);
+  .post(login);
 
 // Admin Route
 userRouter.route('/auth/admin')
