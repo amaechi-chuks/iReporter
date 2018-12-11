@@ -22,7 +22,7 @@ export default class IncidentController {
         status,
         imageUrl,
         videoUrl,
-        comment
+        comment,
       } = req.body;
       const id = db.incident[db.incident.length - 1].id + 1;
       const createdOn = new Date().toString();
@@ -36,7 +36,7 @@ export default class IncidentController {
         status,
         imageUrl,
         videoUrl,
-        comment
+        comment,
       };
 
       db.incident.push(newIncident);
@@ -44,7 +44,7 @@ export default class IncidentController {
       res.json({
         success: true,
         message: `Created ${newIncident.type} record`,
-        data: [newIncident]
+        data: [newIncident],
       });
     } else {
       res.status(400);
@@ -76,7 +76,7 @@ export default class IncidentController {
       return res.status(200).json({
         success: true,
         message: `Successfully retrived all ${incident}`,
-        data: [incidentToDispaly]
+        data: [incidentToDispaly],
 
       });
     }
@@ -103,12 +103,12 @@ export default class IncidentController {
       return res.status(200).json({
         success: true,
         message: `Successfully retrieved ${findRedFlag.type}`,
-        data: [db.incident[index - 1]]
+        data: [db.incident[index - 1]],
       });
     }
     return res.status(404).json({
       success: false,
-      message: 'Request does not exist'
+      message: 'Request does not exist',
     });
   }
 
@@ -125,23 +125,21 @@ export default class IncidentController {
     const redFlagId = parseInt(req.params.id, 10);
     const oldRedFlagId = db.incident.find(allRedFlag => allRedFlag.id === redFlagId);
     if ((oldRedFlagId.type === 'red-flag' && checkIncidentType === 'red-flag' && oldRedFlagId.status === 'draft') || (oldRedFlagId.type === 'intervention' && checkIncidentType === 'intervention' && oldRedFlagId.status === 'draft')) { // Check if the RedFlag location exist, then update.
-      oldRedFlagId.location = req.body.location;
-      db.incident[redFlagId - 1] = oldRedFlagId;
       res.status(200);
       res.json({
         success: true,
-        message: `Successfully updated ${checkIncidentType} location`,
-        data: [oldRedFlagId]
+        message: `Successfully Retrieved all ${type2} `,
+        data: data2,
+
       });
     } else {
       res.status(401);
       res.json({
-        success: false,
-        message: 'You are not authorized to edit this page',
+        status: 401,
+        message: 'You are not authorized to create Incident',
       });
     }
   }
-
 
   /**
    * API PUT method to update a single incident by comment
@@ -151,7 +149,6 @@ export default class IncidentController {
    * @returns {object} {object} JSON object representing success message
    * @memberof IncidentController
    */
-
   static updateIncidentComment(req, res) {
     const checkIncidentType = req.url.split('/')[1];
     const redFlagId = parseInt(req.params.id, 10);
@@ -163,7 +160,7 @@ export default class IncidentController {
       res.json({
         success: true,
         message: `Successfully updated ${checkIncidentType} comment`,
-        data: [oldRedFlagId]
+        data: [oldRedFlagId],
       });
     } else {
       res.status(401);
@@ -206,7 +203,7 @@ export default class IncidentController {
     }
     return res.status(404).json({
       success: false,
-      message: 'Not Found'
+      message: 'Not Found',
     });
   }
 }

@@ -22,12 +22,12 @@ export default class VerifyRole {
       }
       return res.status(401).json({
         success: false,
-        message: 'You are not authorized to visit this page'
+        message: 'You are not authorized to visit this page',
       });
     }
     return res.status(404).json({
       success: false,
-      message: 'Please login with the correct details'
+      message: 'Please login with the correct details',
     });
   }
 
@@ -48,12 +48,12 @@ export default class VerifyRole {
       }
       return res.status(401).json({
         status: 404,
-        message: 'You are not authorized to visit this page'
+        message: 'You are not authorized to visit this page',
       });
     }
     return res.status(422).json({
       success: false,
-      message: 'Please login with the correct details'
+      message: 'Please login with the correct details',
     });
   }
 }

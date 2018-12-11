@@ -52,7 +52,6 @@ export default class UserController {
     });// bcrypt end
   }// user signup end
 
-
   /**
    * Login a user to the application
    * @static
@@ -99,17 +98,17 @@ export default class UserController {
       res.json({
         success: true,
         message: 'All Inccident successfully retrived',
-        data: [foundUser]
+        data: [foundUser],
       });
     } else if (foundUser && foundUser.isAdmin !== true) {
       return res.status(401).res.json({
         success: false,
-        message: 'You are not authorized to visit this page'
+        message: 'You are not authorized to visit this page',
       });
     }
     return res.status(400).res.json({
       success: false,
-      message: 'Invalid credentials'
+      message: 'Invalid credentials',
     });
   }
 
@@ -131,7 +130,7 @@ export default class UserController {
       status,
       imageUrl,
       videoUrl,
-      comment
+      comment,
     } = req.body;
     const edit = {
       id,
@@ -142,7 +141,7 @@ export default class UserController {
       status,
       imageUrl,
       videoUrl,
-      comment
+      comment,
     };
     const findIncidentId = db.incident.find(incident => incident.id === id);
     if (findIncidentId) {
@@ -150,12 +149,12 @@ export default class UserController {
       return res.status(200).json({
         success: true,
         message: 'Incident status successfuly updated',
-        data: [edit]
+        data: [edit],
       });
     }
     return res.status(400).json({
       success: false,
-      message: 'Incident with id does not exist'
+      message: 'Incident with id does not exist',
     });
   }
 }

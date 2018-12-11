@@ -129,8 +129,8 @@ export const validSignUp = [
     phoneNumber: '0806556655',
     username: 'amaechichuks09',
 
-    isAdmin: true
-  }
+    isAdmin: true,
+  },
 ];
 
 export const inValidSignUp = [
@@ -772,7 +772,7 @@ export const inValidSignUp = [
     password: 'ibe4543236',
     confirmPassword: 'ibe4543236',
     phoneNumber: '0806556655',
-    username: 'regitered'
+    username: 'regitered',
   },
 
   // registeredAlt empty
@@ -828,7 +828,7 @@ export const inValidSignUp = [
     confirmPassword: 'ibe4543236',
     phoneNumber: '0806556655',
     username: 'happy',
-    registeredAlt: ['2018-10-11']
+    registeredAlt: ['2018-10-11'],
   },
 
   // is not in database
@@ -885,13 +885,13 @@ export const inValidSignIn = [
   // Email does not tally with password
   {
     email: 'chuksamaechi1@gmail.com',
-    password: 'secr676876'
-  }
+    password: 'secr676876',
+  },
 ];
 
 export const validSignIn = [
   {
     email: 'chuksamaechi1@gmail.com',
-    password: 'secret33333'
-  }
+    password: 'secret33333',
+  },
 ];

@@ -4,7 +4,7 @@ import app from '../../app';
 
 import {
   inValidUserId, invalidType,
-  inValidLocation, inValidStatus, inValidImageUrl, inValidVideoUrl, inValidComment
+  inValidLocation, inValidStatus, inValidImageUrl, inValidVideoUrl, inValidComment,
 } from './mockDb/incident';
 
 import db from '../models/incident';

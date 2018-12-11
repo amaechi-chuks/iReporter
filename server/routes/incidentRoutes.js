@@ -10,13 +10,13 @@ const {
   getSingleIncident,
   updateIncidentComment,
   updateIncidentLocation,
-  deleteIncidentId
+  deleteIncidentId,
 } = IncidentController;
 
 const { IncidentValidator } = middlewares;
 
 const {
-  validateSingleIncident, incidentInputChecker, updateByLocation, updateByComment
+  validateSingleIncident, incidentInputChecker, updateByLocation, updateByComment,
 } = IncidentValidator;
 
 const router = express.Router();

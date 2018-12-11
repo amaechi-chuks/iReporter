@@ -22,25 +22,16 @@
                 <nav class="navbar  container-fluid" role="navigation">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <header>
-                        <div class="navbar__header dashboard__navbar__header">
+                        <span>
                             <a href="index.html" class="header-brand"><span>i</span>Reporter</a>
-                            </span>
-
-                        </div>
-
-                        <!-- Collect the nav links for toggling -->
-                        <div class="collapse navbar__collapse dashboard__collapse">
-                            <div class="container-fluid">
-
-                                <ul class="nav navbar__right navbar__nav">
-                                    <li>
-                                        <a href="#">
-                                            <p class="admin"> <span class="text--color--grey">Admin </span><span class="text--primary">
-                                                    Dashboard</span></p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
+                        </span>
+                        <div class="topnav" id="myTopnav">
+                            <a href="#" class="bg--color--grey1 contact--me">Summary
+                                <hr class"active--indicator">
+                                </hr>
+                            </a>
+                            <a href="index.html" class="bg--color--grey1 contact--me">Sign out
+                            </a>
                         </div>
                     </header>
                 </nav>
@@ -48,15 +39,6 @@
                     <div class="container-fluid">
                         <ul class="nav navbar__right navbar__nav">
                             <li>
-                                <a href="admin-dashboard.html" class="">
-                                    Summary
-                                    <hr class="active--indicator">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="index.html" class="notification">
-                                    Sign out
-                                </a>
                             </li>
                         </ul>
                     </div>
@@ -75,7 +57,6 @@
                         <div class="divider--three vertical--center">
                             <div class="card__user__widget">
                                 <h3 class="DashboardColor--text--grey">Hello Chuks!</h3>
-                                <button class="DashboardBtn btn--round DashboardColor--bg--primary">view Red-Flags</button>
                             </div>
                         </div>
                         <div class="divider--three vertical--center color--neater">
@@ -205,10 +186,11 @@
                                     <br>
                                     <em>Status: </em>
                                     <span>
-                                        <select name="status">
-                                                <option value="draft" class="draft">Draft</option>
+                                        <select class="text--select" name="status">
+                                            <option value="draft" class="draft">Draft</option>
                                             <option value="Resolved" class="Res">Resolved</option>
-                                            <option value="under investigation" class="under investigation">under investigation</option>
+                                            <option value="under investigation" class="under investigation">under
+                                                investigation</option>
                                             <option value="Rejected" class="rejected">Rejected</option>
                                         </select>
                                     </span>
@@ -217,7 +199,7 @@
                         </div>
                         <div class="row ">
                             <div class="Ride__date">
-                                <h6 class="DashboardColor--text--grey">JUNE</h6>
+                                <h6 class="DashboardColor--text--grey">APRIL</h6>
                                 <p class="DashboardColor--text--grey">22</p>
                             </div>
                             <div class="Rider__name">
@@ -234,11 +216,15 @@
                                     <br>
                                     <em>Status: </em>
                                     <span>
-                                        <select name="status">
-                                                <option value="draft" class="draft">Draft</option>
+                                        <select class="text--select" name="status">
+                                            <option value="draft" class="draft">Draft
+                                            </option>
                                             <option value="Rejected" class="rejected">Rejected</option>
-                                            <option value="under investigation" class="under investigation">under investigation</option>
-                                            <option value="Resolved" class="Res">Resolved</option>
+                                            <option value="under investigation" class="under investigation">under
+                                                investigation
+                                            </option>
+                                            <option value="Resolved" class="Res">Resolved
+                                            </option>
                                         </select>
                                     </span>
                                 </h6>
@@ -264,9 +250,10 @@
                                     <br>
                                     <em>Status: </em>
                                     <span>
-                                        <select name="status">
+                                        <select class="text--select" name="status">
                                             <option value="draft" class="draft">Draft</option>
-                                            <option value="under investigation" class="under investigation">under investigation</option>
+                                            <option value="under investigation" class="under investigation">under
+                                                investigation</option>
                                             <option value="Resolved" class="Res">Resolved</option>
                                             <option value="Rejected" class="rejected">Rejected</option>
                                         </select>
@@ -294,9 +281,10 @@
                                     <br>
                                     <em>Status: </em>
                                     <span>
-                                        <select name="status">
-                                                <option value="draft" class="draft">Draft</option>
-                                            <option value="under investigation" class="under investigation">under investigation</option>
+                                        <select class="text--select" name="status">
+                                            <option value="draft" class="draft">Draft</option>
+                                            <option value="under investigation" class="under investigation">under
+                                                investigation</option>
                                             <option value="draft" class="draft">Draft</option>
                                             <option value="Resolved" class="Res">Resolved</option>
                                             <option value="Rejected" class="rejected">Rejected</option>
@@ -400,11 +388,12 @@
                                 <em>Geolocation: </em>Ikeja
                                 <br>
                                 <em>Status: </em><span>
-                                    <select name="status">
-                                            <option value="draft" class="draft">Draft</option>
+                                    <select class="text--select" name="status">
+                                        <option value="draft" class="draft">Draft</option>
                                         <option value="Resolved" class="Res">Resolved</option>
                                         <option value="Rejected" class="rejected">Rejected</option>
-                                        <option value="under investigation" class="under investigation">under investigation</option>
+                                        <option value="under investigation" class="under investigation">under
+                                            investigation</option>
                                     </select>
                                 </span>
                             </h6>
@@ -428,11 +417,12 @@
                             <h6 class="DashboardColor--text--grey">
                                 <em>Geolocation: </em>Ikeja
                                 <br>
-                                <em>Status: </em><span><select name="status">
+                                <em>Status: </em><span><select class="text--select" name="status">
                                         <option value="draft" class="draft">Draft</option>
                                         <option value="Rejected" class="rejected">Rejected</option>
                                         <option value="Resolved" class="Res">Resolved</option>
-                                        <option value="under investigation" class="under investigation">under investigation</option>
+                                        <option value="under investigation" class="under investigation">under
+                                            investigation</option>
                                     </select>
                                 </span>
                             </h6>
@@ -457,11 +447,12 @@
                                 <em>Geolocation: </em>Ikeja
                                 <br>
                                 <em>Status: </em><span>
-                                    <select name="status">
+                                    <select class="text--select" name="status">
                                         <option value="draft" class="draft">Draft</option>
                                         <option value="Resolved" class="Res">Resolved</option>
                                         <option value="Rejected" class="rejected">Rejected</option>
-                                        <option value="under investigation" class="under investigation">under investigation</option>
+                                        <option value="under investigation" class="under investigation">under
+                                            investigation</option>
                                     </select>
                                 </span>
                             </h6>
@@ -486,9 +477,10 @@
                                 <em>Geolocation: </em>Ikeja
                                 <br>
                                 <em>Status: </em><span>
-                                    <select name="status">
-                                            <option value="draft" class="draft">Draft</option>
-                                        <option value="under investigation" class="under investigation">under investigation</option>
+                                    <select class="text--select"  name="status">
+                                        <option value="draft" class="draft">Draft</option>
+                                        <option value="under investigation" class="under investigation">under
+                                            investigation</option>
                                         <option value="Resolved" class="Res">Resolved</option>
                                         <option value="Rejected" class="rejected">Rejected</option>
                                     </select>
