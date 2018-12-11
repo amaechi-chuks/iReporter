@@ -1,4 +1,4 @@
-const requestHelper = {
+const incidentHelper = {
   success(res, statusCode, message, data) {
     if (data) {
       res.status(statusCode).json(Object.assign({
@@ -20,4 +20,4 @@ const requestHelper = {
   }
 };
 
-export default requestHelper;
+export default incidentHelper;

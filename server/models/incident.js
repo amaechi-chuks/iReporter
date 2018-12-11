@@ -6,7 +6,6 @@ const userDb = [
     otherNames: 'umunnakwe',
     email: 'amaechichuks2000@yahoo.com',
     password: 'secret',
-    confirmPassword: 'secret',
     phoneNumber: '07068566559',
     username: 'amaechichuks',
     registeredAlt: '2018-10-11',
@@ -19,7 +18,6 @@ const userDb = [
     otherNames: 'success',
     email: 'favo@yahoo.com',
     password: 'level',
-    confirmPassword: 'level',
     phoneNumber: '07068756998',
     username: 'successfavo',
     registeredAlt: '2018-10-11',
@@ -33,7 +31,6 @@ const userDb = [
     otherNames: 'chinedu',
     email: 'kingsley234@yahoo.com',
     password: 'soap',
-    confirmPassword: 'soap',
     phoneNumber: '08055867368',
     username: 'kingsleyibeh',
     registeredAlt: '2018-10-11',
@@ -47,16 +44,13 @@ const userDb = [
     otherNames: 'uchendu',
     email: 'frank@yahoo.com',
     password: 'hello',
-    confirmPassword: 'hello',
     phoneNumber: '0806458678',
     username: 'frankbeh',
     registeredAlt: '2018-10-11',
     isAdmin: false
   }
-
 ];
 const incident = [
-
   {
     id: 1,
     createdOn: '2018-10-11',
@@ -101,7 +95,6 @@ const incident = [
     videoUrl: 'https://www.video.com',
     comment: 'Nigerian Government should wake up in Education sector'
   },
-
 ];
 
 const db = { userDb, incident };

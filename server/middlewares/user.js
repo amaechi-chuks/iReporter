@@ -149,33 +149,33 @@ class UserValidator {
       });
     }
 
-    if (confirmPassword === undefined) {
-      return res.status(400).json({
-        success: false,
-        message: 'Password is required'
-      });
-    }
+    // if (confirmPassword === undefined) {
+    //   return res.status(400).json({
+    //     success: false,
+    //     message: 'Password is required'
+    //   });
+    // }
 
-    if (confirmPassword !== password) {
-      return res.status(400).json({
-        success: false,
-        message: 'Password do not match'
-      });
-    }
+    // if (confirmPassword !== password) {
+    //   return res.status(400).json({
+    //     success: false,
+    //     message: 'Password do not match'
+    //   });
+    // }
 
-    if (confirmPassword === '') {
-      return res.status(400).json({
-        success: false,
-        message: 'Password field cannot be empty'
-      });
-    }
+    // if (confirmPassword === '') {
+    //   return res.status(400).json({
+    //     success: false,
+    //     message: 'Password field cannot be empty'
+    //   });
+    // }
 
-    if (confirmPassword.length < 8 || confirmPassword.length > 20) {
-      return res.status(400).json({
-        success: false,
-        message: 'Password should be 8 to 20 characters long'
-      });
-    }
+    // if (confirmPassword.length < 8 || confirmPassword.length > 20) {
+    //   return res.status(400).json({
+    //     success: false,
+    //     message: 'Password should be 8 to 20 characters long'
+    //   });
+    // }
 
     if (phoneNumber === undefined) {
       return res.status(400).json({

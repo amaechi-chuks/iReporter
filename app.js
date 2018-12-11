@@ -1,7 +1,6 @@
 import express from 'express';
 import logger from 'morgan';
 import bodyParser from 'body-parser';
-
 import routes from './server/routes/index';
 
 // Create a top level instance of express

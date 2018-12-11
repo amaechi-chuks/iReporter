@@ -1,24 +1,29 @@
 /* eslint-disable import/no-unresolved */
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
-import reqHelper from './reqHelper';
+import incidentHelper from './incidentHelper';
 
 dotenv.config();
 
 const createToken = (req, res, statusCode, message, result) => {
-  const payload = { fullName: result.rows[0].fullname, userId: result.rows[0].id };
+  const payload = { firstname: result.rows[0].firstname, id: result.rows[0].id };
   const token = jwt.sign(payload, process.env.SECRET_KEY, {
     expiresIn: 60 * 60 * 1440
   });
   const logInfo = {
     user: {
       id: result.rows[0].id,
-      fullName: result.rows[0].fullname,
-      email: result.rows[0].email
+      fullNames: result.rows[0].firstname,
+      lastname: result.rows[0].lastname,
+      othernames: result.rows[0].othernames,
+      email: result.rows[0].email,
+      password: result.rows[0].password,
+
+
     },
     token
   };
-  reqHelper.success(res, statusCode, message, logInfo);
+  incidentHelper.success(res, statusCode, message, logInfo);
 };
 
 export default createToken;
