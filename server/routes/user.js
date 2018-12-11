@@ -4,7 +4,7 @@ import middlewares from '../middlewares';
 
 const { UserController } = controllers;
 const {
-  signUp, login, adminGetAll, adminUpdateStatus
+  signUp, login, adminGetAll, adminUpdateStatus,
 } = UserController;
 const { UserValidator, VerifyRole } = middlewares;
 const { signUpValidator } = UserValidator;

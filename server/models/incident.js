@@ -9,7 +9,7 @@ const userDb = [
     phoneNumber: '07068566559',
     username: 'amaechichuks',
     registeredAlt: '2018-10-11',
-    isAdmin: true
+    isAdmin: true,
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ const userDb = [
     phoneNumber: '07068756998',
     username: 'successfavo',
     registeredAlt: '2018-10-11',
-    isAdmin: false
+    isAdmin: false,
   },
 
   {
@@ -34,7 +34,7 @@ const userDb = [
     phoneNumber: '08055867368',
     username: 'kingsleyibeh',
     registeredAlt: '2018-10-11',
-    isAdmin: false
+    isAdmin: false,
   },
 
   {
@@ -48,7 +48,6 @@ const userDb = [
     username: 'frankbeh',
     registeredAlt: '2018-10-11',
     isAdmin: false
-  }
 ];
 const incident = [
   {
@@ -60,7 +59,7 @@ const incident = [
     status: 'draft', // [draft, under investigation, resolved, rejected]
     imageUrl: 'https://www.image.com',
     videoUrl: 'https://www.video.com',
-    comment: 'Human right must be respected'
+    comment: 'Human right must be respected',
   },
   {
     id: 2,
@@ -71,7 +70,7 @@ const incident = [
     status: 'draft', // [draft, under investigation, resolved, rejected]
     imageUrl: 'https://www.image.com',
     videoUrl: 'https://www.video.com',
-    comment: 'Thanks to NGO for taking care of the less privilege'
+    comment: 'Thanks to NGO for taking care of the less privilege',
   },
   {
     id: 3,
@@ -82,7 +81,7 @@ const incident = [
     status: 'draft', // [draft, under investigation, resolved, rejected]
     imageUrl: 'https://www.image.com',
     videoUrl: 'https://www.video.com',
-    comment: 'Create awareness for child abuse'
+    comment: 'Create awareness for child abuse',
   },
   {
     id: 4,
@@ -93,7 +92,7 @@ const incident = [
     status: 'draft', // [draft, under investigation, resolved, rejected]
     imageUrl: 'https://www.image.com',
     videoUrl: 'https://www.video.com',
-    comment: 'Nigerian Government should wake up in Education sector'
+    comment: 'Nigerian Government should wake up in Education sector',
   },
 ];
 
