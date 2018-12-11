@@ -5,24 +5,24 @@ import incidentHelper from './incidentHelper';
 
 dotenv.config();
 
-const createToken = (req, res, statusCode, message, result) => {
-  const payload = { firstname: result.rows[0].firstname, id: result.rows[0].id };
-  const token = jwt.sign(payload, process.env.SECRET_KEY, {
-    expiresIn: 60 * 60 * 1440
+const createToken = (res, statusCode, message, result) => {
+  console.log(result.rows[0]);
+  const user = {
+    id: result.rows[0].id,
+    fullName: `${result.rows[0].firstname} ${result.rows[0].lastname} ${result.rows[0].othernames}`,
+    email: result.rows[0].email,
+    password: result.rows[0].password,
+    phoneNumber: result.rows[0].phonenumber,
+    username: result.rows[0].username,
+  };
+  const token = jwt.sign(user, process.env.JWT_SECRET, {
+    expiresIn: 60 * 60 * 1440,
   });
   const logInfo = {
-    user: {
-      id: result.rows[0].id,
-      fullNames: result.rows[0].firstname,
-      lastname: result.rows[0].lastname,
-      othernames: result.rows[0].othernames,
-      email: result.rows[0].email,
-      password: result.rows[0].password,
-
-
-    },
-    token
+    user,
+    token,
   };
+
   incidentHelper.success(res, statusCode, message, logInfo);
 };
 

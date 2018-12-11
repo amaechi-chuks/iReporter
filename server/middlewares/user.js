@@ -18,7 +18,6 @@ class UserValidator {
       otherNames,
       email,
       password,
-      confirmPassword,
       phoneNumber,
       username
     } = req.body;

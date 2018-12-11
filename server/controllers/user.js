@@ -1,11 +1,11 @@
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 import dotenv from 'dotenv';
 import incidentHelper from '../helpers/incidentHelper';
 import createToken from '../helpers/userTokens';
-
+import db from '../models/incident';
+import dataBaseLink from '../models/dataBaseLink';
 
 dotenv.config();
-const dataBaseLink = require('../models/dataBaseLink');
 
 /**
  * Class representing UserController
@@ -21,17 +21,19 @@ export default class UserController {
    * @memberof UserController
    */
   static signUp(req, res) {
+    console.log('signed up');
     bcrypt.hash(req.body.password, 10, (err, hash) => {
       const {
-          firstName,
-          lastName,
-          otherNames,
-          email,
-          phoneNumber,
-          username
-        } = req.body,
-        password = hash;
-      const userQuery = 'INSERT INTO users (firstName, lastName, otherNames, email, password, phoneNumber, username) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) returning *';
+        firstName,
+        lastName,
+        otherNames,
+        email,
+        phoneNumber,
+        username
+      } = req.body;
+      console.log('hashed up');
+      const password = hash;
+      const userQuery = 'INSERT INTO users (firstName, lastName, otherNames, email, password, phoneNumber, username) VALUES ($1, $2, $3, $4, $5, $6, $7) returning *';
       const params = [
         firstName,
         lastName,
@@ -39,11 +41,12 @@ export default class UserController {
         email,
         password,
         phoneNumber,
-        username,
+        username
       ];
+      console.log(userQuery);
       dataBaseLink.query(userQuery, params)
         .then(result => (createToken(
-          req, res, 201,
+          res, 201,
           'Signup successfull', result,
         ))).catch(error => incidentHelper.error(res, 500, error.message));
     });// bcrypt end
