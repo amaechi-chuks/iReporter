@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 import incidentHelper from '../helpers/incidentHelper';
 import createToken from '../helpers/userTokens';
 import db from '../models/incident';
-import dataBaseLink from '../models/dataBaseLink';
+import databaseConnection from '../models/dataBaseLink';
 
 dotenv.config();
 
@@ -31,9 +31,9 @@ export default class UserController {
         phoneNumber,
         username
       } = req.body;
-      console.log('hashed up');
       const password = hash;
-      const userQuery = 'INSERT INTO users (firstName, lastName, otherNames, email, password, phoneNumber, username) VALUES ($1, $2, $3, $4, $5, $6, $7) returning *';
+      const userQuery = 'INSERT INTO users (firstname, lastname, othernames, email, password, phonenumber, username) VALUES ($1, $2, $3, $4, $5, $6, $7) returning *';
+
       const params = [
         firstName,
         lastName,
@@ -43,8 +43,7 @@ export default class UserController {
         phoneNumber,
         username
       ];
-      console.log(userQuery);
-      dataBaseLink.query(userQuery, params)
+      databaseConnection.query(userQuery, params)
         .then(result => (createToken(
           res, 201,
           'Signup successfull', result,
@@ -63,21 +62,26 @@ export default class UserController {
 
   static login(req, res) {
     const { email, password } = req.body;
-    const getEmail = email;
-    const getPassword = password;
-    const findEmail = db.userDb.find(user => user.email === getEmail);
-    const findPassword = db.userDb.find(user => user.password === getPassword);
-    if (findEmail && findPassword) {
-      return res.status(200).json({
-        success: true,
-        message: 'Login Successfull',
-        data: { email }
+    const errors = { form: 'Invalid email or password' };
+    const userQuery = 'SELECT * FROM users WHERE email = $1 LIMIT 1;';
+    const params = [email];
+    databaseConnection.query(userQuery, params)
+      .then((result) => {
+        if (result.rows[0]) {
+          const getPassword = bcrypt.compareSync(password, result.rows[0].password);
+          if (getPassword) {
+            return createToken(res, 200, 'user login successful', result);
+          }
+          return res.status(401).json({
+            success: false,
+            errors,
+          });
+        }
+        return res.status(401).json({
+          success: false,
+          errors,
+        }).catch(error => incidentHelper.error(res, 500, error.message));
       });
-    }
-    res.status(401).json({
-      success: false,
-      message: 'Access Denied',
-    });
   }
 
   /**

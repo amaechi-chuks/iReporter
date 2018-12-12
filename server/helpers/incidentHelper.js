@@ -3,21 +3,21 @@ const incidentHelper = {
     if (data) {
       res.status(statusCode).json(Object.assign({
         success: true,
-        message
+        message,
       }, data));
     } else {
       res.status(statusCode).json({
         success: true,
-        message
+        message,
       });
     }
   },
   error(res, statusCode, errors) {
     res.status(statusCode).json({
       success: false,
-      errors
+      errors,
     });
-  }
+  },
 };
 
 export default incidentHelper;

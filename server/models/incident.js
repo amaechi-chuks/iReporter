@@ -48,7 +48,6 @@ const userDb = [
     username: 'frankbeh',
     registeredAlt: '2018-10-11',
     isAdmin: false
-  }
 ];
 const incident = [
   {
