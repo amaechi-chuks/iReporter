@@ -1,31 +1,27 @@
 import express from 'express';
-import controllers from '../controllers';
-import middlewares from '../middlewares';
+import UserController from '../controllers/user';
+import UserValidator from '../middlewares/user';
+// import VerifyRole from '../middlewares/auth';
 
-const { UserController } = controllers;
+
 const {
-  signUp, login, adminGetAll, adminUpdateStatus,
+  signUp, login, adminGetAll,
 } = UserController;
-const { UserValidator, VerifyRole } = middlewares;
 const { signUpValidator, loginValidator } = UserValidator;
-const { isAdminLogin } = VerifyRole;
+// const { isAdminLogin } = VerifyRole;
 
 const userRouter = express.Router();
 
 
 // SignUp Route
-userRouter.route('/auth/signup')
-  .post(signUpValidator, signUp);
+userRouter.post('/auth/signup', signUpValidator, signUp);
 
 // Signin Route
-userRouter.route('/auth/signin')
-  .post(loginValidator, login);
+userRouter.post('/auth/signin', loginValidator, login);
 
 // Admin Route
-userRouter.route('/auth/admin')
-  .get(adminGetAll);
+userRouter.get('/auth/admin', adminGetAll);
 
-userRouter.route('/auth/admin/:id')
-  .put(isAdminLogin, adminUpdateStatus);
+// userRouter.put('/auth/admin/:id', adminUpdateStatus);
 
 export default userRouter;

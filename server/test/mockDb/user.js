@@ -1,7 +1,6 @@
 export const validSignUp = [
   // Good UserId
   {
-
     firstName: 'chuks',
     lastName: 'amaechi',
     otherNames: 'umunnakwe',
@@ -13,10 +12,8 @@ export const validSignUp = [
 
 
   },
-
   // Good firstName
   {
-
     firstName: 'chineye',
     lastName: 'frank',
     otherNames: 'umnakwe',
@@ -55,10 +52,8 @@ export const validSignUp = [
     username: 'amaechichuks40',
 
   },
-
   // Good Email
   {
-
     firstName: 'pascal',
     lastName: 'john',
     otherNames: 'paul',
@@ -67,12 +62,9 @@ export const validSignUp = [
     confirmPassword: 'paul477777',
     phoneNumber: '08067654456',
     username: 'amaechichuks50',
-
   },
-
   // Good password
   {
-
     firstName: 'adaugo',
     lastName: 'ujunnwa',
     otherNames: 'miracle',
@@ -81,9 +73,7 @@ export const validSignUp = [
     confirmPassword: 'hard88888',
     phoneNumber: '0806856455',
     username: 'amaechichuks60',
-
   },
-
   // Good confirmPassword
 
   {

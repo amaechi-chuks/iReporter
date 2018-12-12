@@ -15,8 +15,6 @@ should();
 chai.use(chaiHttp);
 
 const url = '/api/v1/red-flags';
-const inValidParams = 'abc';
-const inValidURL = `/api/v1/red-flag/${inValidParams}`;
 const notFoundRedFlagId = 14;
 const notFound = `/api/v1/red-flag/${notFoundRedFlagId}`;
 const foundParams = 1;
@@ -386,17 +384,6 @@ describe('Test for (METHOD)/ incident route', () => {
     });
   });
   describe('Tests for getOne/getAll incident API', () => {
-    it('Should return 400 status code if incidentId is invalid', (done) => {
-      chai.request(app)
-        .get(inValidURL)
-        .end((err, res) => {
-          res.should.have.status(400);
-          res.body.should.be.a('object');
-          expect(res.body.success).to.equal(false);
-          res.body.message.should.be.a('string');
-          done();
-        });
-    });
     it('Should return 404 status code if incidentID is valid but not found', (done) => {
       chai.request(app)
         .get(notFound)
@@ -417,18 +404,6 @@ describe('Test for (METHOD)/ incident route', () => {
           res.body.should.be.a('object');
           res.body.message.should.be.a('string');
           expect(db.incident).to.have.length(incidentLength);
-          done();
-        });
-    });
-    it('Should return 200 status code and get all incident in db', (done) => {
-      const sameLength = db.incident.length;
-      chai.request(app)
-        .get(url)
-        .end((err, res) => {
-          res.should.have.status(200);
-          res.body.should.be.a('object');
-          res.body.message.should.be.a('string');
-          expect(db.incident).to.have.length(sameLength);
           done();
         });
     });

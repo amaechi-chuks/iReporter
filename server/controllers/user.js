@@ -1,4 +1,12 @@
+/* eslint-disable import/no-named-as-default */
+import bcrypt from 'bcryptjs';
+import dotenv from 'dotenv';
+import incidentHelper from '../helpers/incidentHelper';
+import createToken from '../helpers/userTokens';
 import db from '../models/incident';
+import databaseConnection from '../models/dataBaseLink';
+
+dotenv.config();
 
 /**
  * Class representing UserController
@@ -14,40 +22,33 @@ export default class UserController {
    * @memberof UserController
    */
   static signUp(req, res) {
-    const registeredAlt = new Date();
-    const isAdmin = false;
-    const id = db.userDb[db.userDb.length - 1].id + 1;
-    const {
-      firstName,
-      lastName,
-      otherNames,
-      password,
-      confirmPassword,
-      email,
-      phoneNumber,
-      username,
-    } = req.body;
-    const newUser = {
-      id,
-      firstName,
-      lastName,
-      otherNames,
-      email,
-      password,
-      confirmPassword,
-      phoneNumber,
-      username,
-      registeredAlt,
-      isAdmin,
-    };
-    db.userDb.push(newUser);
-    res.status(201);
-    res.json({
-      success: true,
-      message: 'Signup Was Successful',
-      data: [newUser],
-    });
-  }
+    bcrypt.hash(req.body.password, 10, (err, hash) => {
+      const {
+        firstName,
+        lastName,
+        otherNames,
+        email,
+        phoneNumber,
+        username,
+      } = req.body;
+      const password = hash;
+      const userQuery = 'INSERT INTO users (firstname, lastname, othernames, email, password, phonenumber, username) VALUES ($1, $2, $3, $4, $5, $6, $7) returning *';
+      const params = [
+        firstName,
+        lastName,
+        otherNames,
+        email,
+        password,
+        phoneNumber,
+        username,
+      ];
+      databaseConnection.query(userQuery, params)
+        .then(result => (createToken(
+          res, 201,
+          'Signup successfull', result,
+        ))).catch(error => incidentHelper.error(res, 500, error.message));
+    });// bcrypt end
+  }// user signup end
 
 
   /**
@@ -61,20 +62,26 @@ export default class UserController {
 
   static login(req, res) {
     const { email, password } = req.body;
-    const found = db.userDb.find(check => check.email === email && check.password === password);
-    if (found) {
-      res.status(200);
-      res.json({
-        success: true,
-        message: 'Signin Successful',
-        data: `${found.username} Welcome Back!`,
+    const errors = { form: 'Invalid email or password' };
+    const userQuery = 'SELECT * FROM users WHERE email = $1 LIMIT 1;';
+    const params = [email];
+    databaseConnection.query(userQuery, params)
+      .then((result) => {
+        if (result.rows[0]) {
+          const getPassword = bcrypt.compareSync(password, result.rows[0].password);
+          if (getPassword) {
+            return createToken(res, 200, 'user login successful', result);
+          }
+          return res.status(401).json({
+            success: false,
+            errors,
+          });
+        }
+        return res.status(401).json({
+          success: false,
+          errors,
+        }).catch(error => incidentHelper.error(res, 500, error.message));
       });
-    } else {
-      res.status(400).send({
-        success: false,
-        message: 'Please check your email and password',
-      });
-    }
   }
 
   /**

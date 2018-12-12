@@ -3,6 +3,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/amaechi-chuks/iReporter/badge.svg?branch=develope)](https://coveralls.io/github/amaechi-chuks/iReporter?branch=develope)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
+
 ## Table of Contents
 
  - [Introduction](#introduction)
@@ -102,7 +103,7 @@ npm run test
 |/api/v1/intervention/*intervention_id*/delete |Delete a single intervention         |DELETE
 |/api/v1/auth/admin |Admin Fetch all red-flags and intervention         |GET
 |/api/v1/auth/admin/admin_id |Admin Upadate a single red-flag/intervention status         |PUT
-|
+
 
  
 ## License :boom:

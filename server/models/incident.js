@@ -6,7 +6,6 @@ const userDb = [
     otherNames: 'umunnakwe',
     email: 'amaechichuks2000@yahoo.com',
     password: 'secret',
-    confirmPassword: 'secret',
     phoneNumber: '07068566559',
     username: 'amaechichuks',
     registeredAlt: '2018-10-11',
@@ -19,7 +18,6 @@ const userDb = [
     otherNames: 'success',
     email: 'favo@yahoo.com',
     password: 'level',
-    confirmPassword: 'level',
     phoneNumber: '07068756998',
     username: 'successfavo',
     registeredAlt: '2018-10-11',
@@ -33,7 +31,6 @@ const userDb = [
     otherNames: 'chinedu',
     email: 'kingsley234@yahoo.com',
     password: 'soap',
-    confirmPassword: 'soap',
     phoneNumber: '08055867368',
     username: 'kingsleyibeh',
     registeredAlt: '2018-10-11',
@@ -47,16 +44,13 @@ const userDb = [
     otherNames: 'uchendu',
     email: 'frank@yahoo.com',
     password: 'hello',
-    confirmPassword: 'hello',
     phoneNumber: '0806458678',
     username: 'frankbeh',
     registeredAlt: '2018-10-11',
     isAdmin: false,
   },
-
 ];
 const incident = [
-
   {
     id: 1,
     createdOn: '2018-10-11',
@@ -64,7 +58,7 @@ const incident = [
     type: 'red-flag', // [red-flag, intervention]
     location: '6H 3E', // Lat Long coordinates
     status: 'draft', // [draft, under investigation, resolved, rejected]
-    imageurl: 'https://www.image.com',
+    imageUrl: 'https://www.image.com',
     videoUrl: 'https://www.video.com',
     comment: 'Human right must be respected',
   },
@@ -75,7 +69,7 @@ const incident = [
     type: 'red-flag', // [red-flag, intervention]
     location: '6H 3E', // Lat Long coordinates
     status: 'draft', // [draft, under investigation, resolved, rejected]
-    imageurl: 'https://www.image.com',
+    imageUrl: 'https://www.image.com',
     videoUrl: 'https://www.video.com',
     comment: 'Thanks to NGO for taking care of the less privilege',
   },
@@ -86,7 +80,7 @@ const incident = [
     type: 'intervention', // [red-flag, intervention]
     location: '6H 3E', // Lat Long coordinates
     status: 'draft', // [draft, under investigation, resolved, rejected]
-    imageurl: 'https://www.image.com',
+    imageUrl: 'https://www.image.com',
     videoUrl: 'https://www.video.com',
     comment: 'Create awareness for child abuse',
   },
@@ -97,11 +91,10 @@ const incident = [
     type: 'intervention', // [red-flag, intervention]
     location: '6H 3E', // Lat Long coordinates
     status: 'draft', // [draft, under investigation, resolved, rejected]
-    imageurl: 'https://www.image.com',
+    imageUrl: 'https://www.image.com',
     videoUrl: 'https://www.video.com',
     comment: 'Nigerian Government should wake up in Education sector',
   },
-
 ];
 
 const db = { userDb, incident };
