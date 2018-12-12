@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 import incidentHelper from '../helpers/incidentHelper';
 import createToken from '../helpers/userTokens';
 import db from '../models/incident';
-import dataBaseLink from '../models/dataBaseLink';
+import databaseConnection from '../models/dataBaseLink';
 
 dotenv.config();
 
@@ -31,7 +31,7 @@ export default class UserController {
         username
       } = req.body;
       const password = hash;
-      const userQuery = 'INSERT INTO users (firstName, lastName, otherNames, email, password, phoneNumber, username) VALUES ($1, $2, $3, $4, $5, $6, $7) returning *';
+      const userQuery = 'INSERT INTO users (firstname, lastname, othernames, email, password, phonenumber, username) VALUES ($1, $2, $3, $4, $5, $6, $7) returning *';
       const params = [
         firstName,
         lastName,
@@ -41,8 +41,7 @@ export default class UserController {
         phoneNumber,
         username
       ];
-      console.log(userQuery);
-      dataBaseLink.query(userQuery, params)
+      databaseConnection.query(userQuery, params)
         .then(result => (createToken(
           res, 201,
           'Signup successfull', result,
@@ -65,7 +64,7 @@ export default class UserController {
     const errors = { form: 'Invalid email or password' };
     const userQuery = 'SELECT * FROM users WHERE email = $1 LIMIT 1;';
     const params = [email];
-    dataBaseLink.query(userQuery, params)
+    databaseConnection.query(userQuery, params)
       .then((result) => {
         if (result.rows[0]) {
           const getPassword = bcrypt.compareSync(password, result.rows[0].password);

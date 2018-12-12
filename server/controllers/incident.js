@@ -1,5 +1,11 @@
+import dotenv from 'dotenv';
+import incidentHelper from '../helpers/incidentHelper';
+import databaseConnection from '../models/dataBaseLink';
+
+
 import db from '../models/incident';
 
+dotenv.config();
 /**
  * Class representing IncidentController
  * @class IncidentController
@@ -15,44 +21,17 @@ export default class IncidentController {
  * @memberof IncidentController
  */
   static createIncident(req, res) {
-    if (parseInt(req.body.createdBy, 10) > 0) {
-      const {
-        location,
-        type,
-        status,
-        imageUrl,
-        videoUrl,
-        comment
-      } = req.body;
-      const id = db.incident[db.incident.length - 1].id + 1;
-      const createdOn = new Date().toString();
-      const createdBy = parseInt(req.body.createdBy, 10);
-      const newIncident = {
-        id,
-        createdOn,
-        createdBy,
-        type,
-        location,
-        status,
-        imageUrl,
-        videoUrl,
-        comment
-      };
-
-      db.incident.push(newIncident);
-      res.status(201);
-      res.json({
-        success: true,
-        message: `Created ${newIncident.type} record`,
-        data: [newIncident]
-      });
-    } else {
-      res.status(400);
-      res.json({
-        success: false,
-        message: 'Bad Request',
-      });
-    }
+    const {
+      type, location, status, imageUrl, videoUrl, comment
+    } = req.body;
+    const { createdBy } = req.body;
+    const userQuery = 'INSERT INTO incident (type, location, status, imageurl, videourl, comment, createdby) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *';
+    const params = [type, location, status, imageUrl, videoUrl, comment, createdBy];
+    databaseConnection.query(userQuery, params)
+      .then(result => incidentHelper.success(
+        res, 201,
+        `${type} created successfully`, result.rows[0],
+      )).catch(error => incidentHelper.error(res, 500, error.message));
   }
 
   /**
@@ -64,25 +43,20 @@ export default class IncidentController {
    * @memberof IncidentController
    */
   static getAllIncident(req, res) {
-    if (db.incident.length !== 0) {
-      const checkIncidentType = req.url.split('/')[1];
-      const incident = checkIncidentType.split('s')[0];
-      const incidentToDispaly = db.incident.filter((incidentType) => {
-        if (incidentType.type === 'red-flag' || incident === 'red-flag') {
-          return incidentType;
-        }
-      });
-
-      return res.status(200).json({
-        success: true,
-        message: `Successfully retrived all ${incident}`,
-        data: [incidentToDispaly]
-
+    if (db.incident.length === 0 || db.incident === null || db.incident === []) {
+      res.status(401).json({
+        success: false,
+        message: 'Incidents can not be fetched at the moment',
       });
     }
-    res.status(401).json({
-      success: false,
-      message: 'You are not authorized to create Incident',
+    const checkIncidentType = req.url.split('/')[1];
+    const incident = checkIncidentType.split('s')[0];
+    const incidentToDispaly = db.incident.filter(incidentType => incidentType.type === incident);
+    res.status(200).json({
+      success: true,
+      message: `Successfully retrived all ${incident}s`,
+      data: [incidentToDispaly],
+
     });
   }
 
@@ -103,12 +77,12 @@ export default class IncidentController {
       return res.status(200).json({
         success: true,
         message: `Successfully retrieved ${findRedFlag.type}`,
-        data: [db.incident[index - 1]]
+        data: [db.incident[index - 1]],
       });
     }
     return res.status(404).json({
       success: false,
-      message: 'Request does not exist'
+      message: `Cannot retrieve ${checkIncidentType} of id ${index}`,
     });
   }
 
@@ -122,26 +96,26 @@ export default class IncidentController {
    */
   static updateIncidentLocation(req, res) {
     const checkIncidentType = req.url.split('/')[1];
-    const redFlagId = parseInt(req.params.id, 10);
-    const oldRedFlagId = db.incident.find(allRedFlag => allRedFlag.id === redFlagId);
-    if ((oldRedFlagId.type === 'red-flag' && checkIncidentType === 'red-flag' && oldRedFlagId.status === 'draft') || (oldRedFlagId.type === 'intervention' && checkIncidentType === 'intervention' && oldRedFlagId.status === 'draft')) { // Check if the RedFlag location exist, then update.
-      oldRedFlagId.location = req.body.location;
-      db.incident[redFlagId - 1] = oldRedFlagId;
+    const incidentId = parseInt(req.params.id, 10);
+    const oldIncident = db.incident.find(allIncident => allIncident.id === incidentId);
+    if (oldIncident.type === checkIncidentType && oldIncident.status === 'draft') { // Check if the  location exist, then update.
+      oldIncident.location = req.body.location;
+      db.incident[incidentId - 1] = oldIncident;
       res.status(200);
       res.json({
         success: true,
-        message: `Successfully updated ${checkIncidentType} location`,
-        data: [oldRedFlagId]
+        message: `Successfully Updated  ${checkIncidentType} `,
+        data: oldIncident,
+
       });
     } else {
       res.status(401);
       res.json({
-        success: false,
-        message: 'You are not authorized to edit this page',
+        status: 401,
+        message: 'You are not authorized to create Incident',
       });
     }
   }
-
 
   /**
    * API PUT method to update a single incident by comment
@@ -151,19 +125,18 @@ export default class IncidentController {
    * @returns {object} {object} JSON object representing success message
    * @memberof IncidentController
    */
-
   static updateIncidentComment(req, res) {
     const checkIncidentType = req.url.split('/')[1];
-    const redFlagId = parseInt(req.params.id, 10);
-    const oldRedFlagId = db.incident.find(allRedFlag => allRedFlag.id === redFlagId);
-    if ((oldRedFlagId.type === 'red-flag' && checkIncidentType === 'red-flag' && oldRedFlagId.status === 'draft') || (oldRedFlagId.type === 'intervention' && checkIncidentType === 'intervention' && oldRedFlagId.status === 'draft')) { // Check if the Red-flag cooment exist, then update.
-      oldRedFlagId.comment = req.body.comment;
-      db.incident[redFlagId - 1] = oldRedFlagId;
+    const incidentId = parseInt(req.params.id, 10);
+    const oldIncident = db.incident.find(allIncident => allIncident.id === incidentId);
+    if (oldIncident.type === checkIncidentType && oldIncident.status === 'draft') { // Check if the Incident comment exist, then update.
+      oldIncident.comment = req.body.comment;
+      db.incident[incidentId - 1] = oldIncident;
       res.status(200);
       res.json({
         success: true,
         message: `Successfully updated ${checkIncidentType} comment`,
-        data: [oldRedFlagId]
+        data: [oldIncident],
       });
     } else {
       res.status(401);
@@ -184,20 +157,13 @@ export default class IncidentController {
    * @memberof IncidentController
    */
 
-  static deleteIncidentId(req, res) {
+  static deleteIncidentById(req, res) {
     const checkIncidentType = req.url.split('/')[1];
-    const findNow = parseInt(req.params.id, 10);
-    const deleteIncident = db.incident.find(check => check.id === findNow);
-    if (deleteIncident) {
-      const newIncidentId = db.incident.filter(newIncident => newIncident.id !== findNow);
-      db.incident = newIncidentId;
-      return res.status(200).json({
-        success: true,
-        message: 'Deleted successfully!',
-
-      });
-    }
-    if (deleteIncident.type === 'intervention' && checkIncidentType === 'intervention') {
+    const incidentId = parseInt(req.params.id, 10);
+    const deleteIncident = db.incident.find(check => check.id === incidentId);
+    if (deleteIncident && deleteIncident.type === checkIncidentType) {
+      const newIncidents = db.incident.filter(newIncident => newIncident.id !== incidentId);
+      db.incident = newIncidents;
       return res.status(200).json({
         success: true,
         message: 'Deleted successfully!',
@@ -206,7 +172,7 @@ export default class IncidentController {
     }
     return res.status(404).json({
       success: false,
-      message: 'Not Found'
+      message: 'Not Found',
     });
   }
 }
