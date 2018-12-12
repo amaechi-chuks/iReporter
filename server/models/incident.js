@@ -47,8 +47,7 @@ const userDb = [
     phoneNumber: '0806458678',
     username: 'frankbeh',
     registeredAlt: '2018-10-11',
-    isAdmin: false,
-  },
+    isAdmin: false
 ];
 const incident = [
   {

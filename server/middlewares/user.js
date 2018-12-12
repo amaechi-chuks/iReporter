@@ -147,7 +147,6 @@ class UserValidator {
         message: 'Password should be 8 to 20 characters long',
       });
     }
-
     if (phoneNumber === undefined) {
       return res.status(400).json({
         success: false,

@@ -43,7 +43,7 @@ export default class IncidentController {
    * @returns {object} JSON object representing success message
    * @memberof IncidentController
    */
-  static getAllIncident(req, res) {
+static getAllIncident(req, res) {
     if (db.incident.length === 0 || db.incident === null || db.incident === []) {
       res.status(401).json({
         success: false,
@@ -106,14 +106,13 @@ export default class IncidentController {
       res.json({
         success: true,
         message: `Successfully Updated  ${checkIncidentType} `,
-        data: oldIncident,
-
+        data: oldIncident
       });
     } else {
       res.status(401);
       res.json({
         status: 401,
-        message: 'You are not authorized to create Incident',
+        message: 'You are not authorized to update Incident',
       });
     }
   }
@@ -137,7 +136,7 @@ export default class IncidentController {
       res.json({
         success: true,
         message: `Successfully updated ${checkIncidentType} comment`,
-        data: [oldIncident],
+        data: [oldIncident]
       });
     } else {
       res.status(401);

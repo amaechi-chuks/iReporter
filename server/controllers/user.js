@@ -50,7 +50,6 @@ export default class UserController {
     });// bcrypt end
   }// user signup end
 
-
   /**
    * Login a user to the application
    * @static
