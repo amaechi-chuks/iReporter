@@ -11,24 +11,12 @@ CREATE TABLE users (
   username TEXT NOT NULL
 );  
 
-DROP TABLE IF EXISTS intervention;
-CREATE TABLE intervention (
+DROP TABLE IF EXISTS incident;
+CREATE TABLE incident (
   id SERIAL primary key,
-  userId int references users(id),
+  createdBy INT NOT NULL,
   type VARCHAR NOT NULL,
-  location DECIMAL NOT NULL,
-  status VARCHAR NOT NULL,
-  imageurl TEXT NOT NULL,
-  videoUrl TEXT NOT NULL,
-  comment TEXT NOT NULL
-  );
-
-  DROP TABLE IF EXISTS redflag;
-CREATE TABLE redflag (
-  id SERIAL primary key,
-  userId int references users(id),
-  type VARCHAR NOT NULL,
-  location DECIMAL NOT NULL,
+  location VARCHAR NOT NULL,
   status VARCHAR NOT NULL,
   imageurl TEXT NOT NULL,
   videoUrl TEXT NOT NULL,

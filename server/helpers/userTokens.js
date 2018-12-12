@@ -6,7 +6,6 @@ import incidentHelper from './incidentHelper';
 dotenv.config();
 
 const createToken = (res, statusCode, message, result) => {
-  console.log(result.rows[0]);
   const user = {
     id: result.rows[0].id,
     fullName: `${result.rows[0].firstname} ${result.rows[0].lastname} ${result.rows[0].othernames}`,
