@@ -1,4 +1,3 @@
-/* eslint-disable import/no-named-as-default */
 import bcrypt from 'bcryptjs';
 import dotenv from 'dotenv';
 import incidentHelper from '../helpers/incidentHelper';
@@ -33,6 +32,7 @@ export default class UserController {
       } = req.body;
       const password = hash;
       const userQuery = 'INSERT INTO users (firstname, lastname, othernames, email, password, phonenumber, username) VALUES ($1, $2, $3, $4, $5, $6, $7) returning *';
+
       const params = [
         firstName,
         lastName,

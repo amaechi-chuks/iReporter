@@ -42,7 +42,7 @@ export default class IncidentValidator {
    * @returns {object} JSON representing the failure message
    * @memberof IncidentValidator
    */
-  static incidentInputChecker(req, res, next) {
+  static incidentInputChecker (req, res, next) {
     const {
       createdBy,
       type,

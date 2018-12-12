@@ -1,4 +1,3 @@
-/* eslint-disable import/no-named-as-default */
 import dotenv from 'dotenv';
 import incidentHelper from '../helpers/incidentHelper';
 import databaseConnection from '../models/dataBaseLink';
@@ -43,22 +42,18 @@ export default class IncidentController {
    * @returns {object} JSON object representing success message
    * @memberof IncidentController
    */
-static getAllIncident(req, res) {
+  static getAllIncident(req, res) {
     if (db.incident.length === 0 || db.incident === null || db.incident === []) {
-      res.status(401).json({
-        success: false,
-        message: 'Incidents can not be fetched at the moment',
+      const checkIncidentType = req.url.split('/')[1];
+      const incident = checkIncidentType.split('s')[0];
+      const incidentToDispaly = db.incident.filter(incidentType => incidentType.type === incident);
+      res.status(200).json({
+        success: true,
+        message: `Successfully retrived all ${incident}s`,
+        data: [incidentToDispaly],
+
       });
     }
-    const checkIncidentType = req.url.split('/')[1];
-    const incident = checkIncidentType.split('s')[0];
-    const incidentToDispaly = db.incident.filter(incidentType => incidentType.type === incident);
-    res.status(200).json({
-      success: true,
-      message: `Successfully retrived all ${incident}s`,
-      data: [incidentToDispaly],
-
-    });
   }
 
   /**
@@ -97,6 +92,7 @@ static getAllIncident(req, res) {
    */
   static updateIncidentLocation(req, res) {
     const checkIncidentType = req.url.split('/')[1];
+
     const incidentId = parseInt(req.params.id, 10);
     const oldIncident = db.incident.find(allIncident => allIncident.id === incidentId);
     if (oldIncident.type === checkIncidentType && oldIncident.status === 'draft') { // Check if the  location exist, then update.
@@ -106,7 +102,7 @@ static getAllIncident(req, res) {
       res.json({
         success: true,
         message: `Successfully Updated  ${checkIncidentType} `,
-        data: oldIncident
+        data: oldIncident,
       });
     } else {
       res.status(401);
@@ -136,7 +132,7 @@ static getAllIncident(req, res) {
       res.json({
         success: true,
         message: `Successfully updated ${checkIncidentType} comment`,
-        data: [oldIncident]
+        data: [oldIncident],
       });
     } else {
       res.status(401);
