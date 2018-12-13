@@ -2,7 +2,6 @@ import bcrypt from 'bcryptjs';
 import dotenv from 'dotenv';
 import incidentHelper from '../helpers/incidentHelper';
 import createToken from '../helpers/userTokens';
-import db from '../models/incident';
 import databaseConnection from '../models/dataBaseLink';
 
 dotenv.config();

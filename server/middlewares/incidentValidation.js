@@ -43,7 +43,7 @@ export default class IncidentValidation {
      */
   static updateIncidentValidation(req, res, next) {
     const { comment, location } = req.body;
-    const requestID = parseInt(req.params.requestId, 10);
+    const requestID = parseInt(req.params.id, 10);
 
     if (!Number.isNaN(requestID)) {
       const check = checkItem({ comment, location });
