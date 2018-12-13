@@ -3,9 +3,8 @@ import incidentHelper from '../helpers/incidentHelper';
 import databaseConnection from '../models/dataBaseLink';
 
 
-import db from '../models/incident';
-
 dotenv.config();
+
 /**
  * Class representing IncidentController
  * @class IncidentController
@@ -24,9 +23,9 @@ export default class IncidentController {
     const {
       type, location, status, imageUrl, videoUrl, comment,
     } = req.body;
-    const { createdBy } = req.body;
-    const userQuery = 'INSERT INTO incident (type, location, status, imageurl, videourl, comment, createdby) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *';
-    const params = [type, location, status, imageUrl, videoUrl, comment, createdBy];
+    const createdBy = req.user.id;
+    const userQuery = 'INSERT INTO incident (createdby, type, location, status, imageurl, videourl, comment) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *';
+    const params = [createdBy, type, location, status, imageUrl, videoUrl, comment];
     databaseConnection.query(userQuery, params)
       .then(result => incidentHelper.success(
         res, 201,
@@ -43,17 +42,16 @@ export default class IncidentController {
    * @memberof IncidentController
    */
   static getAllIncident(req, res) {
-    if (db.incident.length === 0 || db.incident === null || db.incident === []) {
-      const checkIncidentType = req.url.split('/')[1];
-      const incident = checkIncidentType.split('s')[0];
-      const incidentToDispaly = db.incident.filter(incidentType => incidentType.type === incident);
-      res.status(200).json({
-        success: true,
-        message: `Successfully retrived all ${incident}s`,
-        data: [incidentToDispaly],
-
-      });
-    }
+    const getAllIncidentQuery = 'SELECT * FROM incident';
+    databaseConnection.query(getAllIncidentQuery)
+      .then((result) => {
+        const user = result.rows[0];
+        if (user) {
+          incidentHelper.success(res, 200, ' successfully retrieved all incident ', result.rows);
+        } else {
+          incidentHelper.error(res, 400, 'Request with id does not exist');
+        }
+      }).catch(error => incidentHelper.error(res, 500, error.toString()));
   }
 
   /**
@@ -65,22 +63,20 @@ export default class IncidentController {
    * @memberof IncidentController
    */
   static getSingleIncident(req, res) {
-    const checkIncidentType = req.url.split('/')[1];
-    const index = parseInt(req.params.id, 10);
-    const findRedFlag = db.incident.find(redflag => redflag.id === index);
-    // check Incident type
-    if ((checkIncidentType === 'red-flag' && findRedFlag.type === 'red-flag') || (checkIncidentType === 'intervention' && findRedFlag.type === 'intervention')) {
-      return res.status(200).json({
-        success: true,
-        message: `Successfully retrieved ${findRedFlag.type}`,
-        data: [db.incident[index - 1]],
-      });
-    }
-    return res.status(404).json({
-      success: false,
-      message: `Cannot retrieve ${checkIncidentType} of id ${index}`,
-    });
+    const getSingleIncidentQuery = 'SELECT * FROM incident WHERE createdBy = $1 LIMIT 1;';
+
+    const params = [req.body.createdBy];
+    databaseConnection.query(getSingleIncidentQuery, params)
+      .then((result) => {
+        const user = result.rows[0];
+        if (user) {
+          incidentHelper.success(res, 200, ' successfully retrieved red-flag', result.rows);
+        } else {
+          incidentHelper.error(res, 400, 'Request with id does not exist');
+        }
+      }).catch(error => incidentHelper.error(res, 500, error.toString()));
   }
+
 
   /**
    * API PUT method to update  a single incident by location

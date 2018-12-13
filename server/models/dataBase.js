@@ -14,7 +14,7 @@ CREATE TABLE users (
 DROP TABLE IF EXISTS incident;
 CREATE TABLE incident (
   id SERIAL primary key,
-  createdBy INT NOT NULL,
+  createdBy INT references users(id),
   type VARCHAR NOT NULL,
   location VARCHAR NOT NULL,
   status VARCHAR NOT NULL,

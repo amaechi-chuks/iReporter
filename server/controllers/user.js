@@ -43,10 +43,14 @@ export default class UserController {
         username,
       ];
       databaseConnection.query(userQuery, params)
-        .then(result => (createToken(
-          res, 201,
-          'Signup successfull', result,
-        ))).catch(error => incidentHelper.error(res, 500, error.message));
+        .then((result) => {
+          const user = result.rows[0];
+          const token = createToken(user);
+          res.json({
+            data: [user],
+            token,
+          });
+        }).catch(error => incidentHelper.error(res, 500, error.message));
     });// bcrypt end
   }// user signup end
 
@@ -66,15 +70,18 @@ export default class UserController {
     const params = [email];
     databaseConnection.query(userQuery, params)
       .then((result) => {
-        if (result.rows[0]) {
+        const user = result.rows[0];
+        if (user) {
           const getPassword = bcrypt.compareSync(password, result.rows[0].password);
           if (getPassword) {
-            return createToken(res, 200, 'user login successful', result);
+            const token = createToken(user);
+            res.status(200).json({
+              Success: true,
+              message: 'Signin successful',
+              data: user.email,
+              token,
+            });
           }
-          return res.status(401).json({
-            success: false,
-            errors,
-          });
         }
         return res.status(401).json({
           success: false,
