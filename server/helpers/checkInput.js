@@ -3,8 +3,6 @@ import validator from 'validator';
 
 const checkItem = (inputValue) => {
   const errors = {};
-  const type1 = 'red-flag';
-  const type2 = 'intervention';
   Object.keys(inputValue).forEach((key) => {
     if (!inputValue[key] || (validator.isEmpty(inputValue[key]))) {
       errors[key] = `${key} field is required`;

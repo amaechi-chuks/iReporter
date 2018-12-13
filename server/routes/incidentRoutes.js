@@ -9,11 +9,8 @@ const {
   createIncident,
   getAllIncident,
   getSingleIncident,
-  updateIncidentComment,
-  updateIncidentLocation,
   deleteIncidentById,
-  getAllIncidentType,
-  getRedFlag,
+  updateIncident,
 } = IncidentController;
 
 
@@ -25,20 +22,17 @@ router.post('/interventions', authToken, createIncidentValidation, createInciden
 
 router.get('/incident', getAllIncident);
 
-router.get('/red-flags', getRedFlag);
-router.get('/interventions', getAllIncidentType);
-
 router.get('/red-flag/:id', getSingleIncident);
 
 router.get('/intervention/:id', getSingleIncident);
 
-router.put('/red-flag/:id/location', updateIncidentValidation, updateIncidentLocation);
+router.put('/red-flag/:id', authToken, updateIncidentValidation, updateIncident);
 
-router.put('/intervention/:id/location', updateIncidentValidation, updateIncidentLocation);
+router.put('/intervention/:id', authToken, updateIncidentValidation, updateIncident);
 
-router.put('/red-flag/:id/comment', updateIncidentValidation, updateIncidentComment);
+router.put('/red-flag/:id/comment', updateIncidentValidation, updateIncident);
 
-router.put('/intervention/:id/comment', updateIncidentValidation, updateIncidentComment);
+router.put('/intervention/:id/comment', updateIncidentValidation, updateIncident);
 
 router.delete('/red-flag/:id/delete', deleteIncidentById);
 

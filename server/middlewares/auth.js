@@ -1,5 +1,5 @@
 /* eslint-disable import/no-named-as-default */
-import db from '../models/incident';
+// import db from '../models/incident';
 
 /**
  * Class representing User Authorization

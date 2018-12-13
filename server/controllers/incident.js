@@ -86,27 +86,27 @@ export default class IncidentController {
    * @returns {object} {object} JSON object representing success message
    * @memberof IncidentController
    */
-  static updateIncidentLocation(req, res) {
-    const checkIncidentType = req.url.split('/')[1];
-
-    const incidentId = parseInt(req.params.id, 10);
-    const oldIncident = db.incident.find(allIncident => allIncident.id === incidentId);
-    if (oldIncident.type === checkIncidentType && oldIncident.status === 'draft') { // Check if the  location exist, then update.
-      oldIncident.location = req.body.location;
-      db.incident[incidentId - 1] = oldIncident;
-      res.status(200);
-      res.json({
-        success: true,
-        message: `Successfully Updated  ${checkIncidentType} `,
-        data: oldIncident,
-      });
-    } else {
-      res.status(401);
-      res.json({
-        status: 401,
-        message: 'You are not authorized to update Incident',
-      });
-    }
+  static updateIncident(req, res) {
+    const { location, comment } = req.body;
+    const createdBy = req.user.id;
+    console.log(createdBy);
+    const id = parseInt(req.params.id, 10);
+    const checkId = 'SELECT * FROM incident WHERE id = $1 LIMIT 1;';
+    const userQuery = 'UPDATE incident SET location =$1, comment = $2 WHERE createdby = $3 RETURNING *';
+    const value = [id];
+    const params = [location, comment, createdBy];
+    databaseConnection.query(checkId, value)
+      .then((result) => {
+        // console.log(result.rows[0]);
+        if (!result.rows[0]) {
+          return incidentHelper.error(res, 400, 'Request with id does not exist');
+        } if (createdBy !== result.rows[0].createdby || result.rows[0].status !== 'draft') {
+          return incidentHelper.error(res, 400, 'Access Denied. You are not authorized');
+        }
+        return databaseConnection.query(userQuery, params)
+          .then(update => incidentHelper.success(res, 200, ' Request with id successfully updated ', update.rows[0]))
+          .catch(error => incidentHelper.error(res, 500, error.toString()));
+      }).catch(error => incidentHelper.error(res, 500, error.toString()));
   }
 
   /**
