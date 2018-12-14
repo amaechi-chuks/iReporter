@@ -108,38 +108,7 @@ export default class IncidentController {
   }
 
   /**
-   * API PUT method to update a single incident by comment
-   * @param {object} req
-   * @param {object} res
-   * @returns {object} success message
-   * @returns {object} {object} JSON object representing success message
-   * @memberof IncidentController
-   */
-  static updateIncidentComment(req, res) {
-    const checkIncidentType = req.url.split('/')[1];
-    const incidentId = parseInt(req.params.id, 10);
-    const oldIncident = db.incident.find(allIncident => allIncident.id === incidentId);
-    if (oldIncident.type === checkIncidentType && oldIncident.status === 'draft') { // Check if the Incident comment exist, then update.
-      oldIncident.comment = req.body.comment;
-      db.incident[incidentId - 1] = oldIncident;
-      res.status(200);
-      res.json({
-        success: true,
-        message: `Successfully updated ${checkIncidentType} comment`,
-        data: [oldIncident],
-      });
-    } else {
-      res.status(401);
-      res.json({
-        success: false,
-        message: 'You are not authorized to edit this page',
-
-      });
-    }
-  }
-
-  /**
-   * API DELETE method to delete red-flag by Id
+   * API DELETE method to delete an incident
    * @param {obj} req
    * @param {obj} res
    * @returns {obj} success message
@@ -147,22 +116,23 @@ export default class IncidentController {
    * @memberof IncidentController
    */
 
-  static deleteIncidentById(req, res) {
-    const checkIncidentType = req.url.split('/')[1];
-    const incidentId = parseInt(req.params.id, 10);
-    const deleteIncident = db.incident.find(check => check.id === incidentId);
-    if (deleteIncident && deleteIncident.type === checkIncidentType) {
-      const newIncidents = db.incident.filter(newIncident => newIncident.id !== incidentId);
-      db.incident = newIncidents;
-      return res.status(200).json({
-        success: true,
-        message: 'Deleted successfully!',
-
-      });
-    }
-    return res.status(404).json({
-      success: false,
-      message: 'Not Found',
-    });
+  static deleteIncident(req, res) {
+    const { id } = req.user;
+    const incidentId = parseInt(req.params.incidentId, 10);
+    const checkId = 'SELECT * FROM incident WHERE id = $1 LIMIT 1;';
+    const userQuery = 'DELETE FROM incident WHERE id = $1 RETURNING *';
+    const value = [incidentId];
+    const params = [id];
+    databaseConnection.query(checkId, value)
+      .then((result) => {
+        if (!result.rows[0]) {
+          return incidentHelper.error(res, 400, 'Request with id does not exist');
+        } if (id !== result.rows[0].createdby) {
+          return incidentHelper.error(res, 400, 'Access Denied. You are not authorized');
+        }
+        return databaseConnection.query(userQuery, params)
+          .then(update => incidentHelper.success(res, 200, ' Request with id successfully deleted ', update.rows[0]))
+          .catch(error => incidentHelper.error(res, 500, error.toString()));
+      }).catch(error => incidentHelper.error(res, 500, error.toString()));
   }
 }

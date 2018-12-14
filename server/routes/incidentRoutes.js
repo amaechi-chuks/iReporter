@@ -9,7 +9,7 @@ const {
   createIncident,
   getAllIncident,
   getSingleIncident,
-  deleteIncidentById,
+  deleteIncident,
   updateIncident,
 } = IncidentController;
 
@@ -30,12 +30,8 @@ router.put('/red-flag/:id', authToken, updateIncidentValidation, updateIncident)
 
 router.put('/intervention/:id', authToken, updateIncidentValidation, updateIncident);
 
-router.put('/red-flag/:id/comment', updateIncidentValidation, updateIncident);
+router.delete('/red-flag/:id', authToken, deleteIncident);
 
-router.put('/intervention/:id/comment', updateIncidentValidation, updateIncident);
-
-router.delete('/red-flag/:id/delete', deleteIncidentById);
-
-router.delete('/intervention/:id/delete', deleteIncidentById);
+router.delete('/intervention/:incidentId', authToken, deleteIncident);
 
 export default router;
