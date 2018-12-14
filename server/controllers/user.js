@@ -87,7 +87,7 @@ export default class UserController {
           success: false,
           errors,
         }).catch(error => incidentHelper.error(res, 500, error.message));
-      });
+      }).catch(error => incidentHelper.error(res, 500, error.toString()));
   }
 
   /**

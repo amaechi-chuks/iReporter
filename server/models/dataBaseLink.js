@@ -23,7 +23,7 @@ const connect = () => {
       if (!err) {
         seed();
       }
-    });
+    }).catch(error => error);
 };
 connect();
 

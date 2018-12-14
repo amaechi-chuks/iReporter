@@ -5,9 +5,10 @@
   "main": "app.js",
   "scripts": {
     "start": "babel-node app.js",
-    "start:dev": "nodemon --watch server --exec babel-node -- app.js",
+    "start:dev": "nodemon node babel-node -- app.js",
     "test": "nyc --reporter=html --reporter=text mocha --exit --compilers js:babel-core/register ./server/test/*.js || true",
     "build": "babel server -d server/dist --copy-files --ignore server/dist",
+    "build:client": "babel client -d client/dist --copy-files --ignore client/dist",
     "postinstall": "npm run build",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "coveralls": "nyc --reporter=lcov --reporter=text-lcov npm test",
