@@ -63,13 +63,14 @@ export default class IncidentController {
    * @memberof IncidentController
    */
   static getSingleIncident(req, res) {
-    const getSingleIncidentQuery = 'SELECT * FROM incident WHERE createdBy = $1 LIMIT 1;';
-
-    const params = [req.body.createdBy];
-    databaseConnection.query(getSingleIncidentQuery, params)
+    const { id } = req.user;
+    console.log(id);
+    const incidentId = parseInt(req.params.id, 10);
+    const checkId = 'SELECT * FROM incident WHERE createdBy = $1 AND  id = $2 LIMIT 1;';
+    const value = [incidentId, id];
+    databaseConnection.query(checkId, value)
       .then((result) => {
-        const user = result.rows[0];
-        if (user) {
+        if (result.rows[0]) {
           incidentHelper.success(res, 200, ' successfully retrieved red-flag', result.rows);
         } else {
           incidentHelper.error(res, 400, 'Request with id does not exist');

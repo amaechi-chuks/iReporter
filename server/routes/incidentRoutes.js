@@ -22,9 +22,9 @@ router.post('/interventions', authToken, createIncidentValidation, createInciden
 
 router.get('/incident', getAllIncident);
 
-router.get('/red-flag/:id', getSingleIncident);
+router.get('/red-flag/:id', authToken, getSingleIncident);
 
-router.get('/intervention/:id', getSingleIncident);
+router.get('/intervention/:id', authToken, getSingleIncident);
 
 router.put('/red-flag/:id', authToken, updateIncidentValidation, updateIncident);
 
