@@ -13,7 +13,7 @@ app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // set port for server to listen on
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 4000;
 
 app.use('/api/v1/', userRouter);
 app.use('/api/v1/', router);
