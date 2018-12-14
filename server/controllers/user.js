@@ -30,7 +30,7 @@ export default class UserController {
         username,
       } = req.body;
       const password = hash;
-      const userQuery = 'INSERT INTO users (firstname, lastname, othernames, email, password, phonenumber, username) VALUES ($1, $2, $3, $4, $5, $6, $7) returning *';
+      const userQuery = 'INSERT INTO users (firstname, lastname, othernames, email, password, phonenumber, username, role) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) returning *';
 
       const params = [
         firstName,
@@ -40,6 +40,7 @@ export default class UserController {
         password,
         phoneNumber,
         username,
+        'user',
       ];
       databaseConnection.query(userQuery, params)
         .then((result) => {
@@ -77,7 +78,7 @@ export default class UserController {
             res.status(200).json({
               Success: true,
               message: 'Signin successful',
-              data: user.email,
+              data: `${user.username} Welcome to iReporter`,
               token,
             });
           }
@@ -90,80 +91,49 @@ export default class UserController {
   }
 
   /**
-   * Login Admin to the application
+   * Admin update status
    * @static
    * @param {object} req - The request object
    * @param {object} res - The response object
    * @return {object} JSON object representing success message
    * @memberof UserController
    */
+  static adminUpdateStatus(req, res, newStatus) {
+    const id = parseInt(req.params.id, 10);
+    const checkId = 'SELECT * FROM users WHERE id = 1 LIMIT 1';
+    const createdBy = req.user.id;
+    const userQuery = 'UPDATE incident SET status = $1 WHERE id = $2 returning *';
+    const params = [newStatus, id];
 
-  static adminGetAll(req, res) {
-    const id = parseInt(req.body.id, 10);
-    let foundUser = db.userDb.find(user => user.id === id);
-    if (foundUser && foundUser.isAdmin === true) {
-      foundUser = db.incident;
-      res.status(200);
-      res.json({
-        success: true,
-        message: 'All Inccident successfully retrived',
-        data: [foundUser],
-      });
-    } else if (foundUser && foundUser.isAdmin !== true) {
-      return res.status(401).res.json({
-        success: false,
-        message: 'You are not authorized to visit this page',
-      });
-    }
-    return res.status(400).res.json({
-      success: false,
-      message: 'Invalid credentials',
-    });
+    databaseConnection.query(checkId)
+      .then((result) => {
+        if (createdBy !== result.rows[0].id) {
+          return incidentHelper.error(res, 401, 'Authentication failed. Token is invalid or expired');
+        }
+        return databaseConnection.query(userQuery, params)
+          .then(state => incidentHelper.success(res, 200, newStatus, state.rows[0]))
+          .catch(error => incidentHelper.error(res, 500, error.toString()));
+      }).catch(error => incidentHelper.error(res, 500, error.toString()));
   }
 
   /**
-   * Login Admin to the application
+   * API Admin get all incident
    * @static
    * @param {object} req - The request object
    * @param {object} res - The response object
-   * @return {object} JSON object representing success message
+   * @returns {object} JSON object representing success message
    * @memberof UserController
    */
-  static adminUpdateStatus(req, res) {
-    const id = parseInt(req.params.id, 10);
-    const {
-      createdOn,
-      createdBy,
-      type,
-      location,
-      status,
-      imageUrl,
-      videoUrl,
-      comment,
-    } = req.body;
-    const edit = {
-      id,
-      createdOn,
-      createdBy,
-      type,
-      location,
-      status,
-      imageUrl,
-      videoUrl,
-      comment,
-    };
-    const findIncidentId = db.incident.find(incident => incident.id === id);
-    if (findIncidentId) {
-      db.incident[id - 1] = edit;
-      return res.status(200).json({
-        success: true,
-        message: 'Incident status successfuly updated',
-        data: [edit],
-      });
-    }
-    return res.status(400).json({
-      success: false,
-      message: 'Incident with id does not exist',
-    });
+  static adminGetAll(req, res) {
+    const getAllIncidentQuery = 'SELECT * FROM incident';
+    databaseConnection.query(getAllIncidentQuery)
+      .then((result) => {
+        const user = result.rows[0];
+        if (user) {
+          incidentHelper.success(res, 200, ' successfully retrieved all incident ', result.rows);
+        } else {
+          incidentHelper.error(res, 400, 'Request with id does not exist');
+        }
+      }).catch(error => incidentHelper.error(res, 500, error.toString()));
   }
 }
