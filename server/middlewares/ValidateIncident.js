@@ -85,7 +85,7 @@ class ValidateIncident {
 
     const query = 'SELECT * FROM incidents WHERE id = $1';
     return databaseConnection.query(query, [req.params.id], (err, dbRes) => {
-      if (!dbRes) {
+      if (dbRes.rowCount < 1) {
         return res.status(404).json({ status: 404, error: 'Sorry, no record with such id' });
       }
 
