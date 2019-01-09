@@ -1,5 +1,5 @@
 import winston from '../config/winston';
-import pool from './dbconnection';
+import pool from './dataBaseLink';
 import createTables from './createTables';
 
 const queries = `${createTables}`;
