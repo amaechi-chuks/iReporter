@@ -1,11 +1,11 @@
 import winston from '../config/winston';
-import pool from './dataBaseLink';
+import databaseConnection from './dataBaseLink';
 import createTables from './createTables';
 
 const queries = `${createTables}`;
 
 // Create tables on Heroku Postgres
-pool.query(queries, () => {
+databaseConnection.query(queries, () => {
   winston.info('Tables Created');
-  pool.end();
+  databaseConnection.end();
 });
