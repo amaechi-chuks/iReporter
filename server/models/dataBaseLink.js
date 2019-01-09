@@ -1,23 +1,25 @@
+import dotenv from 'dotenv';
+import pg from 'pg';
 import winston from '../config/winston';
-import dataBase from './dataBase';
+import createTables from './createTables';
 
-const { Client } = require('pg');
-
-const client = new Client();
+const { Pool } = pg;
+dotenv.config();
+const pool = new Pool();
 
 const seed = () => {
-  const qry = dataBase;
-  client.query(qry, (err, result) => {
+  const qry = createTables;
+  pool.query(qry, (err, dbRes) => {
     if (err) {
       winston.info(err.toString());
     } else {
-      winston.info(result);
+      winston.info(dbRes);
     }
   });
 };
 
 const connect = () => {
-  client.connect()
+  pool.connect()
     .then((err) => {
       winston.info('database connection established');
       if (!err) {
@@ -28,7 +30,7 @@ const connect = () => {
 connect();
 
 const databaseConnection = {
-  query: (text, params, callback) => client.query(text, params, callback),
+  query: (text, params, callback) => pool.query(text, params, callback),
 };
 
 export default databaseConnection;

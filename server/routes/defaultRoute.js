@@ -8,7 +8,7 @@ defaultRouter.get('/', (req, res) => res.status(200).json({
 }));
 
 defaultRouter.all('*', (req, res) => res.status(404).json({
-  message: 'Sorry, page not found!',
+  message: 'Wrong endpoint. Such endpoint does not exist',
 }));
 
 export default defaultRouter;

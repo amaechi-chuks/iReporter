@@ -12,17 +12,18 @@ CREATE TABLE users (
   createdat TIMESTAMP NOT NULL DEFAULT NOW(),
   role TEXT NOT NULL
 );  
-INSERT INTO users (firstName, lastName, otherNames, email, password, phoneNumber, username, role) VALUES ('Amaechi', 'Chuks', 'umunnakwe', 'amaechichuks2000@yahoo.com', '$2y$12$5k4Fi42lBCDI.smPn6QgT.XyMzpNNgs7ThrXPDYm8DB.ooXqCbwvO', '07068566559', 'Chuks', 'admin');
+INSERT INTO users (firstName, lastName, otherNames, email, password, phoneNumber, username, isAdmin) VALUES ('Amaechi', 'Chuks', 'umunnakwe', 'amaechichuks2000@yahoo.com', '$2y$12$5k4Fi42lBCDI.smPn6QgT.XyMzpNNgs7ThrXPDYm8DB.ooXqCbwvO', '07068566559', 'Chuksm', 'true');
 
-DROP TABLE IF EXISTS incident;
-CREATE TABLE incident (
+DROP TABLE IF EXISTS incident CASCADE;
+CREATE TABLE incidents(
   id SERIAL primary key,
-  createdBy INT references users(id),
+  createdby INT references users(id),
   type VARCHAR NOT NULL,
-  location VARCHAR NOT NULL,
+  latitude VARCHAR NOT NULL,
+  longitude VARCHAR NOT NULL,
   status VARCHAR NOT NULL,
-  imageurl TEXT NOT NULL,
-  videoUrl TEXT NOT NULL,
+  images TEXT NOT NULL,
+  videos TEXT NOT NULL,
   comment TEXT NOT NULL
   );
   `;

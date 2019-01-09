@@ -7,5 +7,10 @@
 		"browser": true,
 		"mocha": true,
 		"jquery": true
-	} 
+	},
+	"rules": {
+        "no-shadow": ["error", {
+            "allow": ["req", "res", "err", "next", "dbRes"]
+        }]
+    } 
 }

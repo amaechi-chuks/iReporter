@@ -4,9 +4,9 @@
   "description": "iReporter is an application that enables any/every citizen to bring any form of corruption to the notice of appropriate authorities and the general public.",
   "main": "app.js",
   "scripts": {
-    "start": "babel-node app.js",
-    "start:dev": "nodemon node babel-node -- app.js",
-    "test": "nyc --reporter=html --reporter=text mocha --exit --compilers js:babel-core/register ./server/test/*.js || true",
+    "start": "babel-node ./server/app.js",
+    "start:dev": "nodemon --watch server --exec babel-node -- ./server/app.js",
+    "test": "nyc --reporter=html --reporter=text mocha --no-deprecation --exit --compilers js:babel-core/register --require babel-polyfill --timeout 6000 server/spec/*test.js || true",
     "build": "babel server -d server/dist --copy-files --ignore server/dist",
     "build:client": "babel client -d client/dist --copy-files --ignore client/dist",
     "postinstall": "npm run build",
@@ -33,6 +33,9 @@
   },
   "homepage": "https://github.com/amaechi-chuks/iReporter#readme",
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.5",
+    "babel-polyfill": "^6.26.0",
     "eslint": "^5.9.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-airbnb-base": "^13.1.0",
@@ -42,12 +45,14 @@
   "dependencies": {
     "app-root-path": "^2.1.0",
     "babel-cli": "^6.26.0",
+    "babel-plugin-istanbul": "^5.1.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "chai": "^4.2.0",
     "chai-http": "^4.2.0",
+    "cors": "^2.8.5",
     "coveralls": "^3.0.2",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
@@ -55,8 +60,10 @@
     "mocha": "^5.2.0",
     "mocha-lcov-reporter": "^1.3.0",
     "morgan": "^1.9.1",
+    "nodemailer": "^5.0.0",
     "nyc": "^13.1.0",
     "pg": "^7.7.1",
+    "supertest": "^3.3.0",
     "validator": "^10.9.0",
     "winston": "^3.1.0"
   }
