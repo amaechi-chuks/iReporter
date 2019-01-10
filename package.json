@@ -1,6 +1,10 @@
 {
   "name": "ireporter",
   "version": "1.0.0",
+  "engines": {
+    "node": "10.15.0",
+    "npm": "6.5.0"
+  },
   "description": "iReporter is an application that enables any/every citizen to bring any form of corruption to the notice of appropriate authorities and the general public.",
   "main": "app.js",
   "scripts": {
