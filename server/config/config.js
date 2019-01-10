@@ -9,6 +9,7 @@ export default {
     database: process.env.PGDATABASE,
     host: process.env.PGHOST,
     port: process.env.PGPORT,
+    ssl: process.env.PGSSLMODE,
   },
   test: {
     username: process.env.DB_TEST_PGUSER,
