@@ -21,7 +21,7 @@ class IncidentController {
     const type = incidentType.substr(0, incidentType.length - 1);
 
     await databaseConnection.query(query, [type], (err, dbRes) => {
-      if (!dbRes) {
+      if (dbRes.rows < 1) {
         return res.status(404).json({
           status: 404,
           message: 'No incident record found',
@@ -51,7 +51,7 @@ class IncidentController {
     const query = 'SELECT * FROM incidents WHERE type = $1 AND id = $2';
     // eslint-disable-next-line consistent-return
     await databaseConnection.query(query, [type, postId], (err, dbRes) => {
-      if (err) {
+      if (dbRes.rows < 1) {
         return res.status(404).json({
           status: 404,
           message: `${type} with such id does not exist`,
