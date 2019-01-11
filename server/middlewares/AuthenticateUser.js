@@ -76,12 +76,10 @@ class AuthenticateUser {
     if (!status.includes(req.body.status)) {
       return res.status(401).json({ status: 401, error: 'You are trying to update an unknown status' });
     }
-    const payload = HelperUtils.verifyToken();
-    const { isAdmin } = req.body;
-    console.log(payload);
-    console.log(isAdmin);
+    const payload = AuthenticateUser.verifyAuthHeader(req);
+    const { isadmin } = payload;
 
-    if (isAdmin === 'false') {
+    if (isadmin === 'false') {
       return res.status(401).json({
         status: 401,
         error: 'You are not authorized to access this endpoint.',

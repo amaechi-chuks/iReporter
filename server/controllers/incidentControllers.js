@@ -1,6 +1,5 @@
 import winston from '../config/winston';
 import databaseConnection from '../models/dataBaseLink';
-import sendMail from '../ultility/email';
 /**
  * @class IncidentController
  * @description Specifies which method handles a given request for a specific endpoint
@@ -122,30 +121,7 @@ class IncidentController {
       const { incidentType } = req.params;
       const type = incidentType.substr(0, incidentType.length - 1);
 
-      if (req.body.status) {
-        const { status } = req.body;
-        const query = `
-        UPDATE incidents SET status = $1 WHERE id = $2 RETURNING status`;
-
-        return databaseConnection.query(query, [status, postId], (err, dbRes) => {
-          if (dbRes) {
-            const emailPayload = {
-              firstname: req.body.firstname,
-              email: req.body.email,
-              status: req.body.status,
-            };
-            sendMail(emailPayload);
-            res.status(201).json({
-              status: 201,
-              messgae: 'Record has been successfully changed',
-              data: dbRes.rows[0],
-            });
-          }
-          return err;
-        });
-      }
       let message;
-
       if (req.body.comment) {
         const { comment } = req.body;
         const query = `

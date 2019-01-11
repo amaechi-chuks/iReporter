@@ -2,6 +2,7 @@ import express from 'express';
 import IncidentController from '../controllers/incidentControllers';
 import ValidateIncident from '../middlewares/ValidateIncident';
 import AuthenticateUser from '../middlewares/AuthenticateUser';
+import AdminController from '../controllers/adminControllers';
 
 
 const router = express.Router();
@@ -49,7 +50,7 @@ router.patch(
   AuthenticateUser.verifyAdmin,
   ValidateIncident.validateIncidentId,
   ValidateIncident.validateIncidentType,
-  IncidentController.updateIncident,
+  AdminController.changeRecordStatus,
 );
 
 // Handle Delete requests
