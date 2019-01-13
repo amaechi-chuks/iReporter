@@ -32,8 +32,8 @@ class UserController {
 
       databaseConnection.query(query, values, (err, dbRes) => {
         if (err) {
-          winston.info(err);
-          return res.status(500).json({ status: 500, error: 'Something went wrong with the database.' });
+          const errorMessage = err.detail;
+          return res.status(500).json({ status: 500, message: errorMessage });
         }
         const userDetails = dbRes.rows[0];
         const { id } = userDetails.id;

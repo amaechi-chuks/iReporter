@@ -56,16 +56,22 @@ class IncidentController {
     const query = 'SELECT * FROM incidents WHERE type = $1 AND id = $2';
     // eslint-disable-next-line consistent-return
     await databaseConnection.query(query, [type, postId], (err, dbRes) => {
-      if (dbRes.rows < 1) {
+      if (err) {
         return res.status(404).json({
           status: 404,
           message: `${type} with such id does not exist`,
         });
       }
-      res.status(200).json({
-        status: 200,
-        message: `Successfully retrieved ${type} with an id ${postId}`,
-        data: dbRes.rows[0],
+      if (dbRes.rowCount > 0) {
+        return res.status(200).json({
+          status: 200,
+          message: `Successfully retrieved ${type} with an id ${postId}`,
+          data: dbRes.rows[0],
+        });
+      }
+      return res.status(404).json({
+        status: 404,
+        message: `${type} not found!`,
       });
     });
   }
@@ -91,7 +97,6 @@ class IncidentController {
 
       databaseConnection.query(query, params, (err, dbRes) => {
         if (err) {
-          winston.info(err);
           return res.status(500).json({
             status: 500,
             error: 'Something went wrong with the database',
