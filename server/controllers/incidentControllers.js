@@ -20,18 +20,24 @@ class IncidentController {
     const type = incidentType.substr(0, incidentType.length - 1);
 
     await databaseConnection.query(query, [type], (err, dbRes) => {
-      if (dbRes.rows < 1) {
+      if (err) {
         return res.status(404).json({
           status: 404,
           message: 'No incident record found',
         });
       }
-      res.status(200).json({
-        status: 200,
-        message: `successfully retrieved all ${type} records`,
-        data: dbRes.rows,
+      if (dbRes.rowCount > 0) {
+        const allIncident = dbRes.rows;
+        return res.status(200).json({
+          status: 200,
+          message: `successfully retrieved all ${type} records`,
+          data: allIncident,
+        });
+      }
+      return res.status(404).json({
+        status: 404,
+        message: 'No incident found',
       });
-      return 'good';
     });
   }
 
