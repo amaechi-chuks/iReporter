@@ -6,7 +6,7 @@ import createTables from './createTables';
 const { Pool } = pg;
 dotenv.config();
 
-const connectionString = 'postgres://entzxpqa:MD8_kosGydkAqxeqcFDmOHCG4plCXwVF@elmer.db.elephantsql.com:5432/entzxpqa';
+const connectionString = 'postgres://pttxclog:UdIeLbx68lmLiixakYT9nAxyEMDnHBHW@stampy.db.elephantsql.com:5432/pttxclog';
 const pool = new Pool(connectionString);
 
 const seed = () => {
