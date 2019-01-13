@@ -9,7 +9,6 @@ export default {
     database: process.env.PGDATABASE,
     host: process.env.PGHOST,
     port: process.env.PGPORT,
-    dialect: 'postgres',
   },
   test: {
     username: process.env.DB_TEST_PGUSER,

@@ -1,4 +1,3 @@
-import winston from '../config/winston';
 import databaseConnection from '../models/dataBaseLink';
 import sendMail from '../ultility/email';
 
