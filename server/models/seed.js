@@ -32,4 +32,3 @@ databaseConnection.query(queries, (err) => {
     winston.info('Error is', err);
   }
 });
-export default queries;

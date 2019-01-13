@@ -7,5 +7,3 @@ const queries = `${dropQuery}${createTables}`;
 databaseConnection.query(queries, () => {
   databaseConnection.end();
 });
-
-export default queries;
