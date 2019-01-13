@@ -1,6 +1,6 @@
 import winston from '../config/winston';
 import HelperUtils from '../ultility/helperUltis';
-import databaseConnection from '../models/dataBaseLink';
+import pool from '../models/dataBaseLink';
 
 
 /**
@@ -30,10 +30,9 @@ class UserController {
         othernames, email, phonenumber,
         hashedPassword, username];
 
-      databaseConnection.query(query, values, (err, dbRes) => {
+      pool.query(query, values, (err, dbRes) => {
         if (err) {
-          const errorMessage = err.detail;
-          return res.status(500).json({ status: 500, message: errorMessage });
+          return res.status(500).json({ status: 500, message: 'Something went wrong with the database.' });
         }
         const userDetails = dbRes.rows[0];
         const { id } = userDetails.id;
