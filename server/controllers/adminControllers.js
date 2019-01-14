@@ -26,7 +26,8 @@ export default class AdminController {
         UPDATE incidents SET status = $1 WHERE id = $2 RETURNING status`;
 
         return databaseConnection.query(query, [status, postId], (err, dbRes) => {
-          if (dbRes) {
+          if (dbRes.rowCount > 0) {
+            const updatedStatus = dbRes.rows[0];
             const emailPayload = {
               firstname: req.body.firstname,
               email: req.body.email,
@@ -36,7 +37,7 @@ export default class AdminController {
             res.status(201).json({
               status: 201,
               messgae: `${type} Record has been successfully changed`,
-              data: dbRes.rows[0],
+              data: updatedStatus,
             });
           }
         });

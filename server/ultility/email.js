@@ -12,11 +12,14 @@ const transporter = nodemailer.createTransport({
 });
 
 const sendMail = (payload) => {
+  const date = new Date();
   const mailOptions = {
     from: process.env.EMAIL_ADDRESS,
     to: payload.email,
     subject: 'iReporter information',
-    text: ` Hi ${payload.firstname}, Your record's status has been changed to ${payload.status}`,
+    html: `<b>Hi ${payload.firstname}, <br /> Your incident status has been changed to ${payload.status}. <br />
+    ${date} <br/><br/> <br />
+    Thanks for using the APP!</b>`,
   };
   return transporter.sendMail(mailOptions);
 };
