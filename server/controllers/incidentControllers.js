@@ -85,15 +85,16 @@ class IncidentController {
    */
   static createIncident(req, res) {
     try {
-      const { id, createdby } = req.user;
+      const { id } = req.user;
       const { incidentType } = req.params;
+      console.log(req.user);
       const type = incidentType.substr(0, incidentType.length - 1);
       const {
         comment, latitude, longitude, images, videos,
       } = req.body;
       const query = `
       INSERT INTO incidents(createdby, type, comment, latitude, longitude, images, videos) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING id`;
-      const params = [id, type, comment, latitude, longitude,
+      const params = [type, comment, latitude, longitude,
         images, videos];
 
       databaseConnection.query(query, params, (err, dbRes) => {
@@ -111,7 +112,7 @@ class IncidentController {
             id: postId,
             message: `Created ${type} record`,
             incident: {
-              createdby, type, comment, latitude, longitude, images, videos,
+              type, comment, latitude, longitude, images, videos,
             },
           }],
         });
