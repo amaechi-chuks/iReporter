@@ -23,7 +23,7 @@ const createAdminQuery = `
 const createIncident = `
     INSERT INTO incidents(createdby, type, comment, 
     latitude, longitude, images, videos, status) VALUES('1', 'red-flag', 
-    'This is a red-flag message', '6.5442452', '5.6788753', 'www.djdfhjfjd.mp4', 'www.fjfsdjkffsdjk.jp', 'drafted') RETURNING *`;
+    'This is a red-flag message', '6.5442452', '5.6788753', 'www.djdfhjfjd.mp4', 'www.fjfsdjkffsdjk.mp4', 'drafted') RETURNING *`;
 
 const queries = `${dropTablesQuery}${createTablesQuery}${createUserQuery}${userLoginQuery}${createAdminQuery}${createIncident}`;
 

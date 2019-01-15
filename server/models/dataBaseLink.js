@@ -6,8 +6,7 @@ import createTables from './createTables';
 const { Pool } = pg;
 dotenv.config();
 
-const connectionString = 'postgres://pttxclog:UdIeLbx68lmLiixakYT9nAxyEMDnHBHW@stampy.db.elephantsql.com:5432/pttxclog';
-const pool = new Pool(connectionString);
+const pool = new Pool();
 
 const seed = () => {
   const qry = createTables;
@@ -22,9 +21,9 @@ const seed = () => {
 
 const connect = () => {
   pool.connect()
-    .then((err) => {
+    .then((client) => {
       winston.info('database connection established');
-      if (!err) {
+      if (client) {
         seed();
       }
     }).catch(error => error);

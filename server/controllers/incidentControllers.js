@@ -92,11 +92,13 @@ class IncidentController {
         comment, latitude, longitude, images, videos,
       } = req.body;
       const query = `
-      INSERT INTO incidents(createdby, type, comment, latitude, longitude,images, videos) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING id`;
-      const params = [id, type, comment, latitude, longitude, images, videos];
+      INSERT INTO incidents(createdby, type, comment, latitude, longitude, images, videos) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING id`;
+      const params = [id, type, comment, latitude, longitude,
+        images, videos];
 
       databaseConnection.query(query, params, (err, dbRes) => {
         if (err) {
+          winston.info(err.toString());
           return res.status(500).json({
             status: 500,
             error: 'Something went wrong with the database',
@@ -115,7 +117,7 @@ class IncidentController {
         });
       });
     } catch (err) {
-      winston.info(err);
+      winston.info(err.toString());
     }
   }
 
@@ -189,14 +191,24 @@ class IncidentController {
     const type = incidentType.substr(0, incidentType.length - 1);
 
     const query = 'DELETE FROM incidents WHERE id = $1';
-    databaseConnection.query(query, [postId], (err, dbRes) => res.status(200).json({
-      status: 200,
-      data: [{
-        message: `${type} record has been deleted`,
-        id: postId,
-        incident: dbRes,
-      }],
-    }));
+    databaseConnection.query(query, [postId], (err, dbRes) => {
+      if (dbRes.rowCount > 0) {
+        return res.status(200).json({
+          status: 200,
+          data: [{
+            message: `${type} record has been deleted`,
+            id: postId,
+          }],
+        });
+      }
+      if (err) {
+        return res.status(400).json({
+          status: 400,
+          message: 'No incident record found',
+        });
+      }
+      return 'No incident with such record';
+    });
   }
 
   /**
@@ -208,12 +220,12 @@ class IncidentController {
    */
 
   static async deleteAllIncident(req, res) {
-    const { postId } = req;
+    // const { postId } = req;
     const { incidentType } = req.params;
     const type = incidentType.substr(0, incidentType.length - 1);
 
-    const query = 'DELETE FROM incidents WHERE type = $1 AND id = $2';
-    databaseConnection.query(query, [postId], (err, dbRes) => res.status(200).json({
+    const query = 'DELETE FROM incidents WHERE type = $1';
+    databaseConnection.query(query, [type], (err, dbRes) => res.status(200).json({
       status: 200,
       data: [{
         message: ` All ${type} records has been deleted`,

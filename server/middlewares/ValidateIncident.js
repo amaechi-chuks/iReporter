@@ -43,33 +43,33 @@ class ValidateIncident {
     return next();
   }
 
-  // /**
-  // * @method validateUploads
-  // * @description Validates the set of co-ordinates passed in the request body
-  // * @param {object} req - The Request Object
-  // * @param {object} res - The Response Object
-  // * @returns {object} JSON API Response
-  // */
-  // static validateUploads(req, res, next) {
-  //   const validate = HelperUtils.validate();
-  //   let error = '';
-  //   const { images, videos } = req.body;
+  /**
+  * @method validateUploads
+  * @description Validates the set of co-ordinates passed in the request body
+  * @param {object} req - The Request Object
+  * @param {object} res - The Response Object
+  * @returns {object} JSON API Response
+  */
+  static validateUploads(req, res, next) {
+    const validate = HelperUtils.validate();
+    let error = '';
+    const { images, videos } = req.body;
 
-  //   if (!validate.uploads.test(images)) {
-  //     error = 'Image must be in a valid format';
-  //   }
-  //   if (!validate.uploads.test(videos)) {
-  //     error = 'video must be in a valid format';
-  //   }
+    if (!validate.uploads.test(images)) {
+      error = 'Image must be in a valid format';
+    }
+    if (!validate.uploads.test(videos)) {
+      error = 'video must be in a valid format';
+    }
 
-  //   if (error) {
-  //     return res.status(400).json({
-  //       status: 400, error,
-  //     });
-  //   }
+    if (error) {
+      return res.status(400).json({
+        status: 400, error,
+      });
+    }
 
-  //   return next();
-  // }
+    return next();
+  }
 
   /**
    * @method validateIncidentId

@@ -1,5 +1,6 @@
 const createUsersTable = `
-  CREATE TABLE IF NOT EXISTS users(
+DROP TABLE IF EXISTS users CASCADE;
+CREATE TABLE users (
     id SERIAL PRIMARY KEY NOT NULL,
     firstname VARCHAR (40) NOT NULL,
     lastname VARCHAR (40) NOT NULL,
@@ -15,15 +16,16 @@ const createUsersTable = `
 `;
 
 const createIncidentsTable = `
-  CREATE TABLE IF NOT EXISTS incidents(
+DROP TABLE IF EXISTS incidents;
+CREATE TABLE incidents (
     id SERIAL PRIMARY KEY NOT NULL,
     createdby INTEGER REFERENCES users(id),
     type VARCHAR(12) NOT NULL,
     comment VARCHAR(255) NOT NULL,
     latitude VARCHAR(25) NOT NULL,
     longitude VARCHAR(25) NOT NULL,
-    Images VARCHAR(25)[],
-    Videos VARCHAR(25)[],
+    images VARCHAR(25)[],
+    videos VARCHAR(25)[],
     status VARCHAR(13) DEFAULT 'drafted', 
     createdat TIMESTAMP WITH TIME ZONE DEFAULT now(),
     updated TIMESTAMP WITH TIME ZONE DEFAULT now()
