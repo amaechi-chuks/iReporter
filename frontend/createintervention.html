@@ -1,0 +1,106 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/responsive.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Satisfy" rel="stylesheet">
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+    <title>Create intervention</title>
+</head>
+
+<body>
+    <div class="wrapper dashboard--bg--grey--first">
+        <main class="dashboard__header bg--color--white">
+            <div class="header__nav">
+                <nav class="navbar  container-fluid" role="navigation">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <header>
+                        <span>
+                            <a href="index.html" class="header-brand"><span>i</span>Reporter</a>
+                        </span>
+                        <div class="topnav" id="myTopnav">
+                            <a href="createintervention.html" class="bg--color--grey1 contact--me">Home
+                                <hr class"active--indicator">
+                                </hr>
+                            </a>
+                            <a href="redflagrecords.html" class="bg--color--grey1 contact--me">Red-flag
+                            </a>
+                            <a href="interventionrecords.html" class="bg--color--grey1 contact--me">Intervention
+                            </a>
+                            <a href="admin-dashboard.html" class="bg--color--grey1 contact--me">Admin
+                            </a>
+                        </div>
+                    </header>
+                </nav>
+                <div class="dashboard__header__bottom bg--color--primary">
+                    <div class="container-fluid">
+                        <ul class="nav navbar__right navbar__nav">
+                            <li>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <div class="container-fluid">
+            <div class="dashboard__content">
+                <div class="redflagdetails light--shadow">
+                    <div class="redflagdetails__header">
+                        <div class="createflag__header">
+                            <div class="createflagInfo__header__img text--center">
+                                <img src="assets/img/IMG_1499.JPG" alt="create red-flag profile">
+                                <h3 class="text--primary"> Add Incident</h3>
+                                <h5 class="text--color--grey font--regular">What do you want to report?</h5>
+                                <div class="type--button">
+                                    <input type="radio" id="contactChoice1" name="contact" value="email"> Red-flag
+                                    <span> <input type="radio" id="contactChoice2" name="contact" value="phone">Intervention
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="RideInfo__content text--center--left margin--top--10--10">
+                            <div class="form--size" action="individualintervention.html" role="form">
+                                <!-- capture file upload -->
+                                <div class="input--group dashboard--input">
+                                    <p class="upload-file"> <input id="imageUpload" type="file" name="profile_photo"
+                                            placeholder="Photo" required="" capture>
+                                    </p>
+                                </div>
+                                <!-- capture textarea -->
+                                <div class="input--group dashboard--input">
+                                    <textarea name="" id="input${1/(\w+)/\u\1/g}" class="form-control1 textarea-form"
+                                        rows="3" placeholder="Your message" required></textarea>
+                                </div>
+                                <!-- submit button -->
+                                <div class="contact__submit margin--top--10">
+                                    <a href="individualintervention.html" class="notification">
+                                        <button type="submit" class="btn btn--block bg--color--grey text--color--white create--padding 
+                                        light--shadow">
+                                            <span>submit</span>
+                                        </button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="topnav" id="myTopnav1">
+                        <!-- <div class="map-header1"> -->
+                                <div id="map"></div>
+                        <!-- </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcremAjW2QLqry1X2y3rCLyZA1qlzgly8&callback=initMap"
+    async defer></script>
+    <script src="./assets/js/main.js"></script>
+</body>
+
+</html>
