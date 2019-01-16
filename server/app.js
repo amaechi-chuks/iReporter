@@ -7,30 +7,46 @@ import winston from './config/winston';
 import routes from './routes/routes';
 
 
+// const app = express();
+
+// // app.use(cors({ credentials: true, origin: true }));
+// // set port for server to listen on
+
+// const port = process.env.PORT || 5000;
+
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(morgan('combined', { stream: winston.stream }));
+
+// app.use((err, req, res, next) => {
+//   res.locals.message = err.message;
+//   res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+//   winston.error(`${err.status || 500} - ${err.message} - ${req.originalUrl} - ${req.method} - ${req.ip}`);
+
+//   res.status(err.status || 500);
+//   res.render('error');
+//   next();
+// });
 const app = express();
 
-app.use(cors({ credentials: true, origin: true }));
 // set port for server to listen on
-
 const port = process.env.PORT || 5000;
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(morgan('combined', { stream: winston.stream }));
+// support parsing of application/json type post data
+app.use(bodyParser.json({ limit: '50mb' }));
 
-app.use((err, req, res, next) => {
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+// support parsing of application/x-www-form-urlencoded post data
+app.use(bodyParser.urlencoded({ extended: true }));
 
-  winston.error(`${err.status || 500} - ${err.message} - ${req.originalUrl} - ${req.method} - ${req.ip}`);
 
-  res.status(err.status || 500);
-  res.render('error');
-  next();
-});
+app.use(express.static(path.resolve(__dirname, '../../client')));
+
+app.use(cors());
+
+app.get('/', (req, res) => res.sendFile('../../client/index.html'));
 
 app.use('/api/v1/', routes);
-app.use('/', express.static(path.join(__dirname, 'client')));
 
 app.all('*', (req, res) => res.status(404).json({
   message: 'Wrong endpoint. Such endpoint does not exist',
