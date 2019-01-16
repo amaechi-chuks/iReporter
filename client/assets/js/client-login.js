@@ -1,6 +1,6 @@
 const baseUrl = 'https://ireporter-software.herokuapp.com/api/v1';
-const loginForm = document.querySelector('#login');
-const registerForm = document.querySelector('#register');
+const loginForm = document.querySelector('#login-form');
+const registerForm = document.querySelector('#signup-form');
 
 /**
  * Assigns an event-listener to loginForm if it exists in the window
