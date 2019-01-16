@@ -4,7 +4,7 @@ import morgan from 'morgan';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import winston from './config/winston';
-import router from './routes/routes';
+import routes from './routes/routes';
 
 
 const app = express();
@@ -29,7 +29,7 @@ app.use((err, req, res, next) => {
   next();
 });
 
-app.use('/api/v1/', router);
+app.use('/api/v1/', routes);
 app.use('/', express.static(path.join(__dirname, 'frontend')));
 
 app.all('*', (req, res) => res.status(404).json({
