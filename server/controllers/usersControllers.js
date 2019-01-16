@@ -1,6 +1,6 @@
 import winston from '../config/winston';
 import HelperUtils from '../ultility/helperUltis';
-import pool from '../models/dataBaseLink';
+import databaseConnection from '../models/dataBaseLink';
 
 
 /**
@@ -30,7 +30,7 @@ class UserController {
         othernames, email, phonenumber,
         hashedPassword, username];
 
-      pool.query(query, values, (err, dbRes) => {
+      databaseConnection.query(query, values, (err, dbRes) => {
         if (err) {
           return res.status(500).json({ status: 500, message: 'Something went wrong with the database.' });
         }
@@ -56,17 +56,27 @@ class UserController {
    */
   static loginUser(req, res) {
     try {
-      const token = HelperUtils.generateToken(req.user);
-      const UserEmail = req.user.email;
-      const userId = req.user.id;
-      res.status(200).json({
-        status: 200,
-        data: [{
-          message: 'Login Successful!',
-          userId,
-          UserEmail,
-          token,
-        }],
+      const { email, password } = req.body;
+      const errors = { form: 'Invalid email or password' };
+      const userQuery = 'SELECT * FROM users WHERE email = $1 LIMIT 1;';
+      const params = [email];
+      databaseConnection.query(userQuery, params, (err, dbRes) => {
+        if (err) {
+          return res.status(404).json({
+            status: 404,
+            message: errors,
+          });
+        }
+        if (dbRes.rowCount > 0) {
+          const getPassword = HelperUtils.verifyPassword(password, dbRes.rows[0].password);
+          if (getPassword) {
+            const token = HelperUtils.generateToken(req.user); res.status(200).json({
+              status: 200,
+              data: [{ message: 'Login Successful!', token }],
+            });
+          }
+        }
+        return errors;
       });
     } catch (err) {
       winston.info('opps!', err);
