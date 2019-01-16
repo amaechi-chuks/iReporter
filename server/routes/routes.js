@@ -3,9 +3,27 @@ import IncidentController from '../controllers/incidentControllers';
 import ValidateIncident from '../middlewares/ValidateIncident';
 import AuthenticateUser from '../middlewares/AuthenticateUser';
 import AdminController from '../controllers/adminControllers';
+import UserController from '../controllers/usersControllers';
+import ValidateUser from '../middlewares/ValidateUser';
 
 
 const router = express.Router();
+const dotenv = require('dotenv');
+
+dotenv.config();
+
+router.post(
+  '/auth/register',
+  ValidateUser.validateLoginDetails,
+  ValidateUser.validateProfileDetails,
+  ValidateUser.validateExistingUser,
+  UserController.registerUser,
+);
+router.post(
+  '/auth/login',
+  ValidateUser.validateLoginDetails,
+  UserController.loginUser,
+);
 
 router.post(
   '/:incidentType',

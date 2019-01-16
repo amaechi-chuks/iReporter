@@ -4,11 +4,11 @@ import morgan from 'morgan';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import winston from './config/winston';
-import userRouter from './routes/user';
-import router from './routes/incidentRoutes';
-// import defaultRouter from './routes/defaultRoute';
+import router from './routes/routes';
+
 
 const app = express();
+
 app.use(cors({ credentials: true, origin: true }));
 // set port for server to listen on
 
@@ -29,11 +29,13 @@ app.use((err, req, res, next) => {
   next();
 });
 
-
-app.use('/api/v1/', userRouter);
 app.use('/api/v1/', router);
-// app.use('/', defaultRouter);
 app.use('/', express.static(path.join(__dirname, 'frontend')));
+
+app.all('*', (req, res) => res.status(404).json({
+  message: 'Wrong endpoint. Such endpoint does not exist',
+}));
+
 
 app.listen(port, () => winston.info(`Application started on port ${port}, ${process.cwd()}, ${__dirname}`));
 
