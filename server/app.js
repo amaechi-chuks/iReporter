@@ -30,7 +30,7 @@ app.use((err, req, res, next) => {
 });
 
 app.use('/api/v1/', routes);
-app.use('/', express.static(path.join(__dirname, 'frontend')));
+app.use('/', express.static(path.join(__dirname, 'client')));
 
 app.all('*', (req, res) => res.status(404).json({
   message: 'Wrong endpoint. Such endpoint does not exist',
