@@ -1,6 +1,6 @@
 import express from 'express';
 import path from 'path';
-import morgan from 'morgan';
+// import morgan from 'morgan';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import winston from './config/winston';
