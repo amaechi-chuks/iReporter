@@ -40,11 +40,11 @@ app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-app.use(express.static(path.resolve(__dirname, '../../client')));
+app.use(express.static(path.resolve(__dirname, '../client')));
 
 app.use(cors());
 
-app.get('/', (req, res) => res.sendFile('../../client/index.html'));
+app.get('/', (req, res) => res.sendFile('../client/index.html'));
 
 app.use('/api/v1/', routes);
 
