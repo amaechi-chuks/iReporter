@@ -25,7 +25,7 @@ class ValidateUser {
       error = 'You need to include a valid first name';
     } else if (!validate.name.test(lastname)) {
       error = 'You need to include a valid last name';
-    } else if (!validate.phonenumber.test(phonenumber)) {
+    } else if (!validate.phoneNumber.test(phonenumber)) {
       error = 'You need to include a valid phone number';
     } else if (!username || !validate.username.test(username)) {
       error = 'You need to include a valid username';
