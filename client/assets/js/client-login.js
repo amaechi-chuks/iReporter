@@ -109,7 +109,7 @@ if (registerForm) {
       body: JSON.stringify(inputValue),
     }).then(res => res.json())
       .then((data) => {
-        if (data.success === true) {
+        if (data.status === 200) {
           window.localStorage.token = data.token;
           document.querySelector('#signup-form')
             .innerHTML = `<h2>Signup successful<h2/>
