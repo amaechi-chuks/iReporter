@@ -6,7 +6,7 @@ import bodyParser from 'body-parser';
 import winston from './config/winston';
 import userRouter from './routes/user';
 import router from './routes/incidentRoutes';
-import defaultRouter from './routes/defaultRoute';
+// import defaultRouter from './routes/defaultRoute';
 
 const app = express();
 app.use(cors({ credentials: true, origin: true }));
@@ -32,7 +32,7 @@ app.use((err, req, res, next) => {
 
 app.use('/api/v1/', userRouter);
 app.use('/api/v1/', router);
-app.use('/', defaultRouter);
+// app.use('/', defaultRouter);
 app.use('/', express.static(path.join(__dirname, 'frontend')));
 
 app.listen(port, () => winston.info(`Application started on port ${port}, ${process.cwd()}, ${__dirname}`));
